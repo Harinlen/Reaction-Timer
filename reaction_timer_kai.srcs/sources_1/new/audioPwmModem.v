@@ -21,58 +21,50 @@
 
 
 module audioPwmModem #(
-    parameter integer PLAYING_CLOCK_THRESHOLD = 10_000_0 
+    parameter [7:0]  PLAYING_CLOCK_THRESHOLD = 221 
 )(
-    input wire        in_reset,
-    input wire        in_enable,
-    input wire        in_clock,
-    input wire [15:0] in_audioSample,
-    output reg        out_audioPwmWave = 1'b0);
+    input wire       in_reset,
+    input wire       in_enable,
+    input wire       in_clock,
+    input wire [7:0] in_audioSample,
+    output reg       out_audioPwmWave = 1'b0);
     
     // Prepare the accumulator for the PWM signal.
-    reg [15:0] accumulator = 16'd0;
-    reg [15:0] lastAudioSample = 16'd0;
-    
-    // Generate the sample counting clock
-    wire sampleCountClock, sampleCountClockRising;
-    clockDivider #(
-            .THRESHOLD(PLAYING_CLOCK_THRESHOLD >> 4)
-        ) clockPlayingInterval (
-            .in_clock(in_clock),
-            .in_reset(in_reset),
-            .in_enable(in_enable),
-            .out_dividedClock(sampleCountClock));
-
-    // Detect the counting clock rising.
-    edgeDetector playingIntervalRising(
-            .in_signal(sampleCountClock),
-            .in_clock(in_clock),
-            .in_reset(in_reset),
-            .in_enable(in_enable),
-            .out_risingEdge(sampleCountClockRising));
-    
+    reg [7:0] accumulator = 8'd0;
+    reg [7:0] lastAudioSample = 8'd0;
+	reg [7:0] slowerCounter = 8'd0;
+      
     always @(posedge in_clock) begin
         if (in_reset) begin
-            // Reset the accmulator.
+            // Reset the accumulator.
             accumulator <= 16'd0;
-            // Reset the pwm data.
+            // Reset the PWM output data.
             out_audioPwmWave <= 1'b0;
+			slowerCounter <= 8'b0;
         end else begin
             if (in_enable) begin
-                // Check the accumulator number.
-                if (accumulator == 16'd0) begin
-                    // Update for last audio sample.
-                    lastAudioSample <= in_audioSample;
-                    // Update the pwm.
-                    out_audioPwmWave <= (in_audioSample > 16'd0);
-                end else begin
-                    // Check for whether we should count.
-                    if (sampleCountClockRising) begin
-                        accumulator <= accumulator + 1;
-                    end
-                    // Update the pwm output.
-                    out_audioPwmWave <= accumulator < lastAudioSample;
-                end
+				// First check the slower counter.
+				if (slowerCounter == PLAYING_CLOCK_THRESHOLD) begin
+					// Check the accumulator number.
+					if (accumulator == 8'd0) begin
+						// Update for last audio sample.
+						lastAudioSample <= in_audioSample;
+						// Update the pwm.
+						out_audioPwmWave <= (in_audioSample != 16'd0);
+						// Increase the accumulator.
+						accumulator <= accumulator + 8'd1;
+					end else begin
+						// Update the accumulator.
+						accumulator <= accumulator + 8'd1;
+						// Update the pwm output.
+						out_audioPwmWave <= (accumulator < lastAudioSample);
+					end
+					// Reset the slower counter.
+					slowerCounter <= 8'd0;
+				end else begin
+					// Increase the slower counter.
+					slowerCounter <= slowerCounter + 8'd1;
+				end
             end
         end
     end

@@ -77,13 +77,21 @@ module reactTimerTestCore #(
     wire dividedResultValid;
     wire [31:0] dividedResult;
     divisionByTen tickCounterDivider(
-            .in_number(tickCounter),
-            .in_numberValid(tickCounterValid),
-            .in_reset(in_reset),
-            .in_clock(in_clock),
-            .in_enable(in_enable),
-            .out_resultValid(dividedResultValid),
-            .out_result(dividedResult));
+        .in_number(tickCounter),
+        .in_numberValid(tickCounterValid),
+        .in_reset(in_reset),
+        .in_clock(in_clock),
+        .in_enable(in_enable),
+        .out_resultValid(dividedResultValid),
+        .out_result(dividedResult));
+    
+    wire dividedResultValidRising;
+    edgeDetector dividedResultValidDetector(
+         .in_signal(dividedResultValid),
+         .in_clock(in_clock),
+         .in_reset(in_reset),
+         .in_enable(in_enable),
+         .out_risingEdge(dividedResultValidRising));
     
     always @(posedge in_clock) begin
         // Check the signal.
@@ -177,7 +185,7 @@ module reactTimerTestCore #(
                             // Lower the valid signal.
                             tickCounterValid <= 1'b0;
                             // Check the result is out.
-                            if (dividedResultValid) begin
+                            if (dividedResultValidRising) begin
                                 // Calculate the timer.
                                 out_result <= dividedResult[27:0];
                                 // Disable the timeout flag.

@@ -38,7 +38,7 @@ module TB_reactTimerCpu;
         .IDLE_ANIMATION_THRESHOLD(4),
         .PREPARE_COUNT_DOWN_THRESHOLD(4),
         .PREPARE_TEST_DELAY_TIME(10),
-        .TEST_COUNTER_LIMITATION(60),
+        .TEST_COUNTER_LIMITATION(1000),
         .RESULT_BEST_FLASH_THRESHOLD(4),
         .RESULT_WAITING_COUNTS(30)
     ) UUT (
@@ -63,7 +63,7 @@ module TB_reactTimerCpu;
         #6 start = 0;
         #500 start = 1;
         #6 start = 0;
-        #120 test = 1;
+        #520 test = 1;
         #6 test = 0;
     end
 

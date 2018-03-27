@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11020 
+INFO: Helper process launched with PID 6732 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 345.684 ; gain = 101.383
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 345.316 ; gain = 101.363
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:31]
 INFO: [Synth 8-638] synthesizing module 'globalTime' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:25]
@@ -26,7 +26,7 @@ INFO: [Synth 8-638] synthesizing module 'clockDivider' [D:/Documents/ANU/ENGN321
 INFO: [Synth 8-256] done synthesizing module 'clockDivider' (2#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:25]
 INFO: [Synth 8-638] synthesizing module 'edgeDetector' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:26]
 INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (3#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:26]
-WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:64]
+WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:63]
 INFO: [Synth 8-638] synthesizing module 'debouncer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/debouncer.v:27]
 	Parameter PIPELINE_LEVEL bound to: 5 - type: integer 
 WARNING: [Synth 8-350] instance 'enableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/debouncer.v:39]
@@ -106,6 +106,7 @@ INFO: [Synth 8-638] synthesizing module 'divisionByTen' [D:/Documents/ANU/ENGN32
 	Parameter STATE_FINISH bound to: 3'b111 
 INFO: [Synth 8-226] default block is never used [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:64]
 INFO: [Synth 8-256] done synthesizing module 'divisionByTen' (12#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:29]
+WARNING: [Synth 8-350] instance 'dividedResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:89]
 INFO: [Synth 8-256] done synthesizing module 'reactTimerTestCore' (13#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:27]
 WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:158]
 INFO: [Synth 8-638] synthesizing module 'reactTimerResultCore' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:25]
@@ -130,9 +131,8 @@ INFO: [Synth 8-256] done synthesizing module 'reactTimerCpu' (16#1) [D:/Document
 INFO: [Synth 8-638] synthesizing module 'ssdDriver' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:26]
 INFO: [Synth 8-256] done synthesizing module 'ssdDriver' (17#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:26]
 INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (18#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:31]
-WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_ledEnable
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 397.418 ; gain = 153.117
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 397.184 ; gain = 153.230
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -142,7 +142,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 397.418 ; gain = 153.117
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 397.184 ; gain = 153.230
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -158,24 +158,24 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 759.313 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 759.277 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 759.313 ; gain = 515.012
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 759.277 ; gain = 515.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 759.313 ; gain = 515.012
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 759.277 ; gain = 515.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 759.313 ; gain = 515.012
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 759.277 ; gain = 515.324
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:33]
+WARNING: [Synth 8-6014] Unused sequential element out_time_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:31]
 WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:39]
 WARNING: [Synth 8-6014] Unused sequential element intervalCounter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:59]
 WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:39]
@@ -208,7 +208,7 @@ INFO: [Synth 8-5546] ROM "currentNumber" won't be mapped to RAM because it is to
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'divisionByTen'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 759.313 ; gain = 515.012
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 759.277 ; gain = 515.324
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -236,7 +236,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 25    
+	                2 Bit    Registers := 26    
 	                1 Bit    Registers := 25    
 +---Multipliers : 
 	                18x32  Multipliers := 1     
@@ -481,41 +481,40 @@ DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
 WARNING: [Synth 8-6014] Unused sequential element signalDelayer/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:55]
 WARNING: [Synth 8-6014] Unused sequential element clock1Hz/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:39]
 WARNING: [Synth 8-6014] Unused sequential element idleCounter/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:55]
-WARNING: [Synth 8-6014] Unused sequential element globalTimer/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:33]
+WARNING: [Synth 8-6014] Unused sequential element globalTimer/out_time_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:31]
 WARNING: [Synth 8-6014] Unused sequential element clock1kHz/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:39]
 WARNING: [Synth 8-6014] Unused sequential element testButtonDebouncer/intervalCounter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:59]
-WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_ledEnable
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[0]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[1]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[2]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[3]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[4]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[5]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[6]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[7]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[8]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[9]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[10]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[11]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[12]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[13]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[14]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[15]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[16]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[17]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[18]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[19]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[20]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[21]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[22]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[23]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[24]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[25]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[26]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[27]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[28]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[29]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
-INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[30]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[0]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[1]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[1]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[2]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[2]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[3]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[3]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[4]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[4]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[5]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[5]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[6]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[6]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[7]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[7]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[8]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[8]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[9]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[9]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[10]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[10]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[11]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[11]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[12]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[12]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[13]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[13]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[14]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[14]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[15]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[15]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[16]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[16]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[17]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[17]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[18]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[18]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[19]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[19]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[20]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[20]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[21]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[21]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[22]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[22]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[23]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[23]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[24]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[24]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[25]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[25]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[26]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[26]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[27]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[27]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[28]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[28]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[29]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[29]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[30]'
+INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[30]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/seed_reg[31]'
 INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/seed_reg[31]' (FDRE) to 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_busy_reg'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\reactionTimerProcessor/statePrepareProcessor/next_reg )
 INFO: [Synth 8-3886] merging instance 'reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/seedReadyDetector/pipeline_reg[0]' (FDRE) to 'reactionTimerProcessor/prepareBusyDetector/pipeline_reg[0]'
@@ -616,7 +615,7 @@ WARNING: [Synth 8-3332] Sequential element (reactionTimerProcessor/out_ssdDots_r
 WARNING: [Synth 8-3332] Sequential element (reactionTimerProcessor/out_ssdDots_reg[1]) is unused and will be removed from module TOP_reactionTimer.
 WARNING: [Synth 8-3332] Sequential element (reactionTimerProcessor/out_ssdDots_reg[0]) is unused and will be removed from module TOP_reactionTimer.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 759.313 ; gain = 515.012
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 759.277 ; gain = 515.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -653,13 +652,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 802.898 ; gain = 558.598
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 803.609 ; gain = 559.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -672,7 +671,7 @@ Start Technology Mapping
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3332] Sequential element (reactionTimerProcessor/statePrepareProcessor/prepareAnimation/currentFrame_reg[3]) is unused and will be removed from module TOP_reactionTimer.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -696,7 +695,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -709,7 +708,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -721,25 +720,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -759,13 +758,13 @@ Report Cell Usage:
 |2     |CARRY4  |   152|
 |3     |DSP48E1 |     2|
 |4     |LUT1    |    46|
-|5     |LUT2    |   249|
-|6     |LUT3    |   167|
-|7     |LUT4    |   202|
-|8     |LUT5    |   114|
-|9     |LUT6    |   223|
+|5     |LUT2    |   247|
+|6     |LUT3    |   176|
+|7     |LUT4    |   232|
+|8     |LUT5    |   116|
+|9     |LUT6    |   191|
 |10    |MUXF7   |     4|
-|11    |FDRE    |   779|
+|11    |FDRE    |   781|
 |12    |FDSE    |    84|
 |13    |IBUF    |     5|
 |14    |OBUF    |    32|
@@ -775,50 +774,51 @@ Report Instance Areas:
 +------+-----------------------------------+--------------------------------+------+
 |      |Instance                           |Module                          |Cells |
 +------+-----------------------------------+--------------------------------+------+
-|1     |top                                |                                |  2060|
-|2     |  clock1kHz                        |clockDivider                    |    53|
+|1     |top                                |                                |  2069|
+|2     |  clock1kHz                        |clockDivider                    |    52|
 |3     |  clockEdge1kHz                    |edgeDetector                    |     2|
 |4     |  globalTimer                      |globalTime                      |    41|
-|5     |  reactionTimerProcessor           |reactTimerCpu                   |  1843|
+|5     |  reactionTimerProcessor           |reactTimerCpu                   |  1854|
 |6     |    prepareBusyDetector            |edgeDetector_2                  |    40|
-|7     |    resultBusyDetector             |edgeDetector_3                  |     5|
-|8     |    startButtonEdge                |edgeDetector_4                  |     7|
-|9     |    stateIdleProcessor             |reactTimerIdleCore              |   229|
+|7     |    resultBusyDetector             |edgeDetector_3                  |     4|
+|8     |    startButtonEdge                |edgeDetector_4                  |     9|
+|9     |    stateIdleProcessor             |reactTimerIdleCore              |   233|
 |10    |      idleAnimation                |ledAnimation                    |    38|
-|11    |        animeClockDetector         |edgeDetector_16                 |     5|
-|12    |      ledAnimeClock                |clockDivider__parameterized0_15 |    51|
-|13    |    statePrepareProcessor          |reactTimerPrepareCore           |   344|
+|11    |        animeClockDetector         |edgeDetector_17                 |     5|
+|12    |      ledAnimeClock                |clockDivider__parameterized0_16 |    52|
+|13    |    statePrepareProcessor          |reactTimerPrepareCore           |   341|
 |14    |      gapGeneratorLcg              |randLcg                         |   138|
-|15    |      prepareAnimation             |ssdAnimation                    |    79|
-|16    |        animeClockDetector         |edgeDetector_14                 |     7|
+|15    |      prepareAnimation             |ssdAnimation                    |    76|
+|16    |        animeClockDetector         |edgeDetector_15                 |     7|
 |17    |        clock1Hz                   |clockDivider__parameterized1    |    53|
-|18    |    stateResultProcessor           |reactTimerResultCore            |   440|
-|19    |      clock1Hz                     |clockDivider__parameterized0    |    69|
-|20    |      idleCounter                  |actionRetarder_9                |    87|
-|21    |        signalInDetector           |edgeDetector_13                 |     4|
-|22    |      testResultDigitReadyDetector |edgeDetector_10                 |     9|
-|23    |      testResultSeperator          |decimalToBcd                    |   222|
-|24    |        numberValidDetector        |edgeDetector_12                 |    13|
-|25    |      testResultValidDetector      |edgeDetector_11                 |    10|
-|26    |    stateTestProcessor             |reactTimerTestCore              |   706|
-|27    |      signalDelayer                |actionRetarder                  |   120|
-|28    |        signalInDetector           |edgeDetector_8                  |     4|
-|29    |      startDetector                |edgeDetector_6                  |     8|
-|30    |      testButton                   |edgeDetector_7                  |    10|
-|31    |      tickCounterDivider           |divisionByTen                   |   413|
-|32    |    testResultValidDetector        |edgeDetector_5                  |    14|
-|33    |  ssdDisplayOutput                 |ssdDriver                       |    35|
-|34    |  startButtonDebouncer             |debouncer                       |    11|
-|35    |    enableDetector                 |edgeDetector_1                  |     3|
-|36    |  testButtonDebouncer              |latchDebouncer                  |    37|
-|37    |    buttonInDetector               |edgeDetector_0                  |     6|
+|18    |    stateResultProcessor           |reactTimerResultCore            |   444|
+|19    |      clock1Hz                     |clockDivider__parameterized0    |    52|
+|20    |      idleCounter                  |actionRetarder_10               |    86|
+|21    |        signalInDetector           |edgeDetector_14                 |     4|
+|22    |      testResultDigitReadyDetector |edgeDetector_11                 |     9|
+|23    |      testResultSeperator          |decimalToBcd                    |   247|
+|24    |        numberValidDetector        |edgeDetector_13                 |    13|
+|25    |      testResultValidDetector      |edgeDetector_12                 |    10|
+|26    |    stateTestProcessor             |reactTimerTestCore              |   712|
+|27    |      dividedResultValidDetector   |edgeDetector_6                  |     6|
+|28    |      signalDelayer                |actionRetarder                  |   118|
+|29    |        signalInDetector           |edgeDetector_9                  |     4|
+|30    |      startDetector                |edgeDetector_7                  |     7|
+|31    |      testButton                   |edgeDetector_8                  |    14|
+|32    |      tickCounterDivider           |divisionByTen                   |   411|
+|33    |    testResultValidDetector        |edgeDetector_5                  |    14|
+|34    |  ssdDisplayOutput                 |ssdDriver                       |    35|
+|35    |  startButtonDebouncer             |debouncer                       |    11|
+|36    |    enableDetector                 |edgeDetector_1                  |     3|
+|37    |  testButtonDebouncer              |latchDebouncer                  |    36|
+|38    |    buttonInDetector               |edgeDetector_0                  |     6|
 +------+-----------------------------------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 866.379 ; gain = 622.078
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 43 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 866.379 ; gain = 260.184
-Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 866.379 ; gain = 622.078
+Synthesis finished with 0 errors, 0 critical warnings and 42 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:44 . Memory (MB): peak = 866.637 ; gain = 260.590
+Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 866.637 ; gain = 622.684
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -828,10 +828,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-176 Infos, 62 Warnings, 0 Critical Warnings and 0 Errors encountered.
+176 Infos, 61 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 866.379 ; gain = 635.027
+synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 866.637 ; gain = 635.508
 INFO: [Common 17-1381] The checkpoint 'D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 866.379 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 26 22:56:52 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.084 . Memory (MB): peak = 866.637 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 27 23:03:27 2018...
