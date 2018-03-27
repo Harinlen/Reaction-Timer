@@ -27,6 +27,7 @@ module audioPwmModem #(
     input wire       in_enable,
     input wire       in_clock,
     input wire [7:0] in_audioSample,
+    output reg       out_switchSample = 1'b0,
     output reg       out_audioPwmWave = 1'b0);
     
     // Prepare the accumulator for the PWM signal.
@@ -38,9 +39,10 @@ module audioPwmModem #(
         if (in_reset) begin
             // Reset the accumulator.
             accumulator <= 16'd0;
+            slowerCounter <= 8'b0;
             // Reset the PWM output data.
             out_audioPwmWave <= 1'b0;
-			slowerCounter <= 8'b0;
+            out_switchSample <= 1'b0;
         end else begin
             if (in_enable) begin
 				// First check the slower counter.
@@ -53,11 +55,15 @@ module audioPwmModem #(
 						out_audioPwmWave <= (in_audioSample != 16'd0);
 						// Increase the accumulator.
 						accumulator <= accumulator + 8'd1;
+						// Update the out switch.
+						out_switchSample <= 1'b0;
 					end else begin
 						// Update the accumulator.
 						accumulator <= accumulator + 8'd1;
 						// Update the pwm output.
 						out_audioPwmWave <= (accumulator < lastAudioSample);
+						// Update the switch simple.
+                        out_switchSample <= (accumulator < 8'd128);
 					end
 					// Reset the slower counter.
 					slowerCounter <= 8'd0;
