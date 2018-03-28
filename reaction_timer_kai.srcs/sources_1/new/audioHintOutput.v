@@ -23,7 +23,7 @@
 
 
 module audioHintOutput #(
-    parameter integer PLAYING_CLOCK_THRESHOLD = 8000
+    parameter integer PLAYING_CLOCK_THRESHOLD = 100
 )(
     input wire        in_100MHzClock,
     input wire        in_reset,
@@ -333,12 +333,14 @@ module audioHintOutput #(
         // Always reset the current sample to sine sample.
         currentSample = sineSample[0];
     end
-        
+    
+    reg pwmModemEnable = 1'b0;
+    
     audioPwmModem #(
         .PLAYING_CLOCK_THRESHOLD(PLAYING_CLOCK_THRESHOLD) 
     ) audioHintPwmModem (
         .in_reset(in_reset),
-        .in_enable(in_enable),
+        .in_enable(in_enable & pwmModemEnable),
         .in_clock(in_100MHzClock),
         .in_audioSample(currentSample),
         .out_switchSample(increaseSampleIndex),
@@ -351,6 +353,7 @@ module audioHintOutput #(
         .in_enable(in_enable),
         .out_risingEdge(switchSampleRising));
     
+    // DEBUG
     always @(posedge in_100MHzClock) begin
         out_ledPwm <= out_audioPwm;
     end
@@ -363,6 +366,8 @@ module audioHintOutput #(
             // Reset the output.
             currentSampleIndex <= 8'd0;
             currentSample <= sineSample[0];
+            pwmModemEnable <= 1'b0;
+            //!DEBUG
             out_debug <= 1'b0;
         end else begin
             if (in_enable) begin
@@ -373,10 +378,15 @@ module audioHintOutput #(
                         if (startPlayingRising) begin
                             // Move to playing state.
                             state <= STATE_PLAYING;
+                            // Enable the modem.
+                            pwmModemEnable <= 1'b1;
                             // Reset the sample index to the first sample.
                             currentSampleIndex <= 8'd0;
                             //!DEBUG
                             out_debug <= 1'b1;
+                        end else begin
+                            // Disable modem output.
+                            pwmModemEnable <= 1'b0;
                         end
                         // Always reset the current sample to sine sample.
                         currentSample <= sineSample[0];
@@ -386,6 +396,8 @@ module audioHintOutput #(
                         if (stopPlayingRising) begin
                             // Move to idle state.
                             state <= STATE_IDLE;
+                            // Disable the modem.
+                            pwmModemEnable <= 1'b0;
                             //!DEBUG
                             out_debug <= 1'b0;
                         end else begin

@@ -34,15 +34,24 @@ module audioPwmModem #(
     reg [7:0] accumulator = 8'd0;
     reg [7:0] lastAudioSample = 8'd0;
 	reg [7:0] slowerCounter = 8'd0;
+	
+	// Reset the modem states.
+	task resetPwmModemStates;
+	begin
+	   // Reset the counter.
+       accumulator <= 8'd0;
+       lastAudioSample <= 8'd0;
+       slowerCounter <= 8'b0;
+       // Reset the output.
+       out_audioPwmWave <= 1'b0;
+       out_switchSample <= 1'b0;
+	end
+	endtask
       
     always @(posedge in_clock) begin
         if (in_reset) begin
-            // Reset the accumulator.
-            accumulator <= 16'd0;
-            slowerCounter <= 8'b0;
-            // Reset the PWM output data.
-            out_audioPwmWave <= 1'b0;
-            out_switchSample <= 1'b0;
+            // Reset the modem states.
+            resetPwmModemStates();
         end else begin
             if (in_enable) begin
 				// First check the slower counter.
@@ -71,6 +80,9 @@ module audioPwmModem #(
 					// Increase the slower counter.
 					slowerCounter <= slowerCounter + 8'd1;
 				end
+            end else begin
+                // Same as the modem reset.
+                resetPwmModemStates();
             end
         end
     end
