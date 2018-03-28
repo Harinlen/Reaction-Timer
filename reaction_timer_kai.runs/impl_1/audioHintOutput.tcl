@@ -69,12 +69,12 @@ set rc [catch {
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/ass1/reaction_timer_kai.cache/wt [current_project]
-  set_property parent.project_path C:/ass1/reaction_timer_kai.xpr [current_project]
-  set_property ip_output_repo C:/ass1/reaction_timer_kai.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Reaction_Timer/reaction_timer_kai.cache/wt [current_project]
+  set_property parent.project_path C:/Reaction_Timer/reaction_timer_kai.xpr [current_project]
+  set_property ip_output_repo C:/Reaction_Timer/reaction_timer_kai.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet C:/ass1/reaction_timer_kai.runs/synth_1/audioHintOutput.dcp
-  read_xdc C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc
+  add_files -quiet C:/Reaction_Timer/reaction_timer_kai.runs/synth_1/audioHintOutput.dcp
+  read_xdc C:/Reaction_Timer/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc
   link_design -top audioHintOutput -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

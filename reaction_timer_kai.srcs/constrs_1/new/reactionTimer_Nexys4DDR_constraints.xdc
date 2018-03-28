@@ -6,12 +6,6 @@ create_clock -period 10.00 [get_ports in_100MHzClock]
 set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports in_enable]
 set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports in_reset]
 
-# Debug
-set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports in_startPlaying]
-set_property -dict {PACKAGE_PIN M13 IOSTANDARD LVCMOS33} [get_ports in_stopPlaying]
-set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports out_debug]
-set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33} [get_ports out_ledPwm]
-
 # Audio output
 set_property -dict { PACKAGE_PIN A11 IOSTANDARD LVCMOS33 } [get_ports out_audioPwm];
 set_property -dict { PACKAGE_PIN D12 IOSTANDARD LVCMOS33 } [get_ports out_audioSd];

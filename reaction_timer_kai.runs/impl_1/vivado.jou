@@ -2,11 +2,11 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Wed Mar 28 11:19:06 2018
-# Process ID: 6872
-# Current directory: C:/ass1/reaction_timer_kai.runs/impl_1
+# Start of session at: Wed Mar 28 16:30:27 2018
+# Process ID: 8260
+# Current directory: C:/Reaction_Timer/reaction_timer_kai.runs/impl_1
 # Command line: vivado.exe -log audioHintOutput.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source audioHintOutput.tcl -notrace
-# Log file: C:/ass1/reaction_timer_kai.runs/impl_1/audioHintOutput.vdi
-# Journal file: C:/ass1/reaction_timer_kai.runs/impl_1\vivado.jou
+# Log file: C:/Reaction_Timer/reaction_timer_kai.runs/impl_1/audioHintOutput.vdi
+# Journal file: C:/Reaction_Timer/reaction_timer_kai.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source audioHintOutput.tcl -notrace

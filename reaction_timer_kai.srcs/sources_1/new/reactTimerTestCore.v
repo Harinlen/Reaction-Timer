@@ -36,7 +36,9 @@ module reactTimerTestCore #(
     output reg          out_resultValid = 0,
     output reg          out_timeout = 0,
     output reg [27:0]   out_result = 0,
-    output reg [15:0]   out_leds = 16'd0);
+    output reg [15:0]   out_leds = 16'd0,
+    output wire         out_audioSd,
+    output wire         out_audioPwm);
     
     // State for this module.
     localparam STATE_IDLE   = 2'd0;
@@ -87,11 +89,22 @@ module reactTimerTestCore #(
     
     wire dividedResultValidRising;
     edgeDetector dividedResultValidDetector(
-         .in_signal(dividedResultValid),
-         .in_clock(in_clock),
-         .in_reset(in_reset),
-         .in_enable(in_enable),
-         .out_risingEdge(dividedResultValidRising));
+        .in_signal(dividedResultValid),
+        .in_clock(in_clock),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .out_risingEdge(dividedResultValidRising));
+         
+    // Audio output module.
+    reg startAudio, endAudio;
+    audioHintOutput testAudioOut(
+        .in_clock(in_clock),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_startPlaying(startAudio),
+        .in_stopPlaying(endAudio),
+        .out_audioSd(out_audioSd),
+        .out_audioPwm(out_audioPwm));
     
     always @(posedge in_clock) begin
         // Check the signal.
@@ -108,6 +121,9 @@ module reactTimerTestCore #(
             out_result <= 27'd0;
             // Lower the counter valid.
             tickCounterValid <= 1'b0;
+            // Reset the audio playing things.
+            startAudio <= 1'b0;
+            endAudio <= 1'b0;
         end else begin
             if (in_enable) begin
                 case (state)
@@ -136,8 +152,12 @@ module reactTimerTestCore #(
                             // Switch to the TEST mode.
                             state <= STATE_TEST;
                             // Make the entire LED to light at this moment, also start to count clock cycle.
-                            out_leds <= 16'hFFFF;       
+                            out_leds <= 16'hFFFF;
+                            // Start playing audio.
+                            startAudio <= 1'b1;      
                         end else begin
+                            // Reset the start playing audio signal.
+                            startAudio <= 1'b0;
                             // Anti-Cheating
                             if (testButtonRising) begin
                                 // Press the button before it flash.
@@ -156,20 +176,28 @@ module reactTimerTestCore #(
                             state <= STATE_FINISH;
                             // Raise the tick counter.
                             tickCounterValid <= 1'b1;
+                            // Stop playing audio.
+                            endAudio <= 1'b1;
                         end else begin
                             // If the tick counter is still in the limitation.
                             if (tickCounter < COUNTER_LIMITATION) begin
                                 // Count and wait until the test button hit.
                                 tickCounter <= tickCounter + 1;
+                                // Reset the start playing audio signal.
+                                startAudio <= 1'b0;
                             end else begin
                                 //Switch the state to finish for data output..
                                 state <= STATE_FINISH;
                                 // When it goes here, which means timeout.
                                 testTimeout <= 1;
+                                // Stop playing audio.
+                                endAudio <= 1'b1;
                             end
                         end
                     end
                     STATE_FINISH : begin
+                        // Stop audio finished
+                        endAudio <= 1'b0;
                         // Check timeout state.
                         if (testTimeout) begin
                             // Set the timeout flag.
