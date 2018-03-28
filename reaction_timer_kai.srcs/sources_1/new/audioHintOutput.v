@@ -1,19 +1,21 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
 // 
 // Create Date: 22.03.2018 13:33:49
-// Design Name: 
+// Design Name: Audio Hint Signal Output
 // Module Name: audioHintOutput
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
 // Description: This module is designed to output the audio hint signal. The audio
 // output would be a mono channel sine wave. This audio would be played during the
 // test phrase until the tester press the button. 
 // 
 // Dependencies: 
+//    - edgeDetector
+//    - audioPwmModem
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -55,7 +57,7 @@ module audioHintOutput #(
     wire startPlayingRising;
     edgeDetector startPlayingDetector(
         .in_signal(in_startPlaying),
-        .in_clock(in_100MHzClock),
+        .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
         .out_risingEdge(startPlayingRising));
@@ -63,7 +65,7 @@ module audioHintOutput #(
     wire stopPlayingRising;
     edgeDetector stopPlayingDetector(
         .in_signal(in_stopPlaying),
-        .in_clock(in_100MHzClock),
+        .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
         .out_risingEdge(stopPlayingRising));
@@ -78,12 +80,12 @@ module audioHintOutput #(
     ) audioHintPwmModem (
         .in_reset(in_reset),
         .in_enable(in_enable & pwmModemEnable),
-        .in_clock(in_100MHzClock),
+        .in_clock(in_clock),
         .in_audioSample(currentSample),
         .out_switchSample(increaseSampleIndex),
         .out_audioPwmWave(out_audioPwm));
 
-    always @(posedge in_100MHzClock) begin
+    always @(posedge in_clock) begin
         // Check reset state.
         if (in_reset) begin
             // Reset the state.

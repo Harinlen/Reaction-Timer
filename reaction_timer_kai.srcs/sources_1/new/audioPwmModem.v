@@ -1,17 +1,19 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
 // 
 // Create Date: 22.03.2018 14:49:46
-// Design Name: 
+// Design Name: Audio Hint Signal Output
 // Module Name: audioPwmModem
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
+// Description: This module is designed to output a number as a PWM signal. The input
+// signal must be a 8-bit number. The frequency would be tweak according to the threshold
+// parameter.
 // 
-// Dependencies: 
+// Dependencies: N/A
 // 
 // Revision:
 // Revision 0.01 - File Created

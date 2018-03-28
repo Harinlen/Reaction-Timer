@@ -32,8 +32,8 @@ module randLcg(
     input wire        in_clock,
     input wire        in_reset,
     input wire        in_enable,
-    output reg [31:0] out_data = `OUTPUT_INVALID,
-    output reg        out_busy = 32'd0);
+    output reg [31:0] out_data = 32'd0,
+    output reg        out_busy = `OUTPUT_INVALID);
     
     reg [31:0] seed = 32'd0;
     wire seedReadyRising, nextRising;

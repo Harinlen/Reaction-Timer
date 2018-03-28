@@ -18,10 +18,10 @@
 // 
 // Revision:
 // Revision 0.01 - File Created
+//          0.02 - Kai. For using the new detector.
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module edgeDetector(
     input wire  in_signal,
@@ -31,23 +31,21 @@ module edgeDetector(
     output wire out_risingEdge,
     output wire out_fallingEdge);
     
-    reg [1:0] pipeline = 2'd0;
+    reg lastState = 1'b0;
     
     // Sync with the rising edge clock, pipelining the signal.
     always @(posedge in_clock) begin
         if (in_reset) begin
             //Reset the pipeline.
-            pipeline <= 2'b00;
+            lastState <= 1'b0;
         end else begin
             if (in_enable) begin
-                //Save and shift the pipeline
-                pipeline[0] <= in_signal;
-                pipeline[1] <= pipeline[0];
+                lastState <= in_signal;
             end
         end
     end
     
     //Detect the rising and falling edge of the signal.
-    assign out_risingEdge  = (pipeline == 2'b01);
-    assign out_fallingEdge = (pipeline == 2'b10);
+    assign out_risingEdge  = in_signal & ~lastState;
+    assign out_fallingEdge = ~in_signal & lastState;
 endmodule

@@ -45,7 +45,9 @@ module reactTimerCpu #(
     input wire        in_test,
     output reg [15:0] out_leds = 16'd0,
     output reg [31:0] out_ssdOutput = 32'd0,
-    output reg [7:0]  out_ssdDots = 8'b1111_1111);
+    output reg [7:0]  out_ssdDots = 8'b1111_1111,
+    output reg        out_audioPwm = 1'b0,
+    output reg        out_audioSd = 1'b0);
     
     // Defines the process states.
     localparam STATE_IDLE = 2'd0;
@@ -90,13 +92,14 @@ module reactTimerCpu #(
     // Prepare connections.
     wire prepareBusy, prepareBusyFalling;
     wire [31:0] prepareNumberOut;
-    // Reset connections.
+    // Test connections.
     wire [31:0] testDelayTime;
     reg testStart = 0;
     wire testResultValidRising;
     wire [27:0] testResult;
     wire testResultValid;
     wire [15:0] testLed;
+    wire testAudioPwm, testAudioSd;
     // Result connections.
     wire resultBusy, resultBusyFalling;
     wire [31:0] resultNumberOut;
@@ -153,7 +156,9 @@ module reactTimerCpu #(
         .out_resultValid(testResultValid),
         .out_timeout(reactionTimeout),
         .out_result(reactionTime),
-        .out_leds(testLed));
+        .out_leds(testLed),
+        .out_audioSd(testAudioSd),
+        .out_audioPwm(testAudioPwm));
 
     edgeDetector testResultValidDetector(
         .in_signal(testResultValid),
@@ -187,6 +192,14 @@ module reactTimerCpu #(
         .in_enable(in_enable),
         .out_fallingEdge(resultBusyFalling));
     
+    task resetAudioOutput;
+    begin
+        // Reset the audio output.
+        out_audioSd <= 1'b0;
+        out_audioPwm <= 1'b0;
+    end
+    endtask
+    
     always @(posedge in_clock) begin
         // Check the reset button.
         if (in_reset) begin
@@ -196,6 +209,9 @@ module reactTimerCpu #(
             out_leds <= 16'd0;
             out_ssdOutput <= `SSD_DISPLAY_BLANK;
             out_ssdDots <= 8'b1111_1111;
+            // Reset the audio output.
+            out_audioSd <= 1'b0;
+            out_audioPwm <= 1'b0;
         end else begin
             if (in_enable) begin
                 // Check the current state.
@@ -219,6 +235,8 @@ module reactTimerCpu #(
                         end
                         // Clear the animation reset to 0.
                         idleAnimeReset <= 0;
+                        // Reset the audio output.
+                        resetAudioOutput();
                     end
                     STATE_PREPARATION : begin
                         // Waiting until the prepare core not to be busy.
@@ -239,6 +257,8 @@ module reactTimerCpu #(
                             out_ssdOutput <= prepareNumberOut;
                             out_ssdDots <= 8'b1111_1111;
                         end
+                        // Reset the audio output.
+                        resetAudioOutput();
                     end
                     STATE_TEST: begin
                         // Fall the testing flag.
@@ -252,6 +272,9 @@ module reactTimerCpu #(
                         end else begin
                             // Port the data to the LEDs.
                             out_leds <= testLed;
+                            // Output the audio data from the processor.
+                            out_audioSd <= testAudioSd;
+                            out_audioPwm <= testAudioPwm;
                         end
                     end
                     STATE_RESULT: begin
@@ -267,6 +290,8 @@ module reactTimerCpu #(
                             out_ssdOutput <= resultNumberOut;
                             out_ssdDots <= resultSsdDots;
                         end
+                        // Reset the audio output.
+                        resetAudioOutput();
                     end
                 endcase
             end

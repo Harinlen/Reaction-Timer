@@ -36,7 +36,9 @@ module TOP_reactionTimer(
     input wire         in_testButton,
     output wire [15:0] out_leds,
     output wire [7:0]  out_ssdDigitOutput,
-    output wire [7:0]  out_ssdSelector);
+    output wire [7:0]  out_ssdSelector,
+    output wire        out_audioSd,
+    output wire        out_audioPwm);
     
     wire [31:0] globalTimerCounter;
     wire debouncedTestButton, debouncedStartButton, clock_1kHz;
@@ -101,7 +103,9 @@ module TOP_reactionTimer(
          .in_test(debouncedTestButton),
          .out_leds(out_leds),
          .out_ssdOutput(ssdOutput),
-         .out_ssdDots(ssdDots));
+         .out_ssdDots(ssdDots),
+         .out_audioPwm(out_audioPwm),
+         .out_audioSd(out_audioSd));
     
     // 7-segments digit panel output
     ssdDriver ssdDisplayOutput(
