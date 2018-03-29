@@ -33,6 +33,8 @@ module reactTimerTestCore #(
     input wire          in_reset,
     input wire          in_testButton,
     input wire          in_clock,
+    input wire          in_ledEnable,
+    input wire          in_audioEnable,
     output reg          out_resultValid = 0,
     output reg          out_timeout = 0,
     output reg [27:0]   out_result = 0,
@@ -152,9 +154,9 @@ module reactTimerTestCore #(
                             // Switch to the TEST mode.
                             state <= STATE_TEST;
                             // Make the entire LED to light at this moment, also start to count clock cycle.
-                            out_leds <= 16'hFFFF;
+                            out_leds <= {16{in_ledEnable}} & 16'hFFFF;
                             // Start playing audio.
-                            startAudio <= 1'b1;      
+                            startAudio <= 1'b1 & in_audioEnable;      
                         end else begin
                             // Reset the start playing audio signal.
                             startAudio <= 1'b0;
@@ -177,7 +179,7 @@ module reactTimerTestCore #(
                             // Raise the tick counter.
                             tickCounterValid <= 1'b1;
                             // Stop playing audio.
-                            endAudio <= 1'b1;
+                            endAudio <= 1'b1 & in_audioEnable;
                         end else begin
                             // If the tick counter is still in the limitation.
                             if (tickCounter < COUNTER_LIMITATION) begin

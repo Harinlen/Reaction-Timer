@@ -83,6 +83,13 @@ module ssdDriver(
             // Check the current number of display index.
             case (displayDigit)
                 //0-9: digits
+                // Bit expression:
+                //  -   6
+                // | | 1 5
+                //  -   0
+                // | | 2 4
+                //  -   3
+                //                               Bit Index 6543210
                 `SSD_CHAR_0     : out_digitExpression = 7'b0000001;
                 `SSD_CHAR_1     : out_digitExpression = 7'b1001111;
                 `SSD_CHAR_2     : out_digitExpression = 7'b0010010;
@@ -95,6 +102,10 @@ module ssdDriver(
                 `SSD_CHAR_9     : out_digitExpression = 7'b0000100;
                 `SSD_CHAR_MINUS : out_digitExpression = 7'b1111110;
                 `SSD_CHAR_BLANK : out_digitExpression = 7'b1111111;
+                `SSD_CHAR_F     : out_digitExpression = 7'b0111000;
+                `SSD_CHAR_A     : out_digitExpression = 7'b0001000;
+                `SSD_CHAR_I     : out_digitExpression = 7'b1111001;
+                `SSD_CHAR_L     : out_digitExpression = 7'b1110001;
                 default         : out_digitExpression = 7'b1111111; // As invisible char.
             endcase 
         end

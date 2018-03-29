@@ -43,6 +43,8 @@ module reactTimerCpu #(
     input wire        in_enable,
     input wire        in_start,
     input wire        in_test,
+    input wire        in_audioEnable,
+    input wire        in_ledEnable,
     output reg [15:0] out_leds = 16'd0,
     output reg [31:0] out_ssdOutput = 32'd0,
     output reg [7:0]  out_ssdDots = 8'b1111_1111,
@@ -81,6 +83,9 @@ module reactTimerCpu #(
         .out_risingEdge(startButtonRising));
     
     // State modules.
+    localparam TEST_OUTPUT_LED = 0;
+    localparam TEST_OUTPUT_AUDIO = 1;
+    reg [1:0] testOutput = 2'd0;
     // Idle connections.
     reg idleAnimeReset = 0;
     wire [27:0] reactionTime;
@@ -153,6 +158,8 @@ module reactTimerCpu #(
         .in_reset(in_reset),
         .in_testButton(in_test),
         .in_clock(in_clock),
+        .in_ledEnable(testOutput[TEST_OUTPUT_LED]),
+        .in_audioEnable(testOutput[TEST_OUTPUT_AUDIO]),
         .out_resultValid(testResultValid),
         .out_timeout(reactionTimeout),
         .out_result(reactionTime),
@@ -225,6 +232,8 @@ module reactTimerCpu #(
                         if (startButtonRising) begin
                             // Move the state to preparation.
                             state <= STATE_PREPARATION;
+                            // Update the register for output.
+                            testOutput <= {in_audioEnable, ((~in_audioEnable) | in_ledEnable)};
                         end else begin
                             // Ports the result of idle module to the result.
                             // Output the LED signal.

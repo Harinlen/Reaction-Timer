@@ -193,15 +193,10 @@ module reactTimerResultCore #(
                         end else begin
                             // According to different state.
                             if (in_testTimeout) begin
-                                if (flashClock) begin
-                                    // Flash hidden state.
-                                    ssdDisplayBlank();
-                                end else begin
-                                    // Output for all -.
-                                    out_ssdNumberDisplay <= `SSD_DISPLAY_MINUS;
-                                    // Clear the dot output.
-                                    out_ssdDots <= 8'b1111_1111;
-                                end
+                                // Output for all -.
+                                out_ssdNumberDisplay <= `SSD_DISPLAY_FAIL;
+                                // Clear the dot output.
+                                out_ssdDots <= 8'b1111_1111;
                             end else begin
                                 if (isBestResult & flashClock) begin
                                     // Flash hidden state.

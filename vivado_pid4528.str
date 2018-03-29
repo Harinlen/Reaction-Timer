@@ -1,0 +1,1751 @@
+/*
+
+Xilinx Vivado v2017.4 (64-bit) [Major: 2017, Minor: 4]
+SW Build: 2086221 on Fri Dec 15 20:55:39 MST 2017
+IP Build: 2085800 on Fri Dec 15 22:25:07 MST 2017
+
+Process ID: 4528
+License: Customer
+
+Current time: 	Thu Mar 29 10:51:16 AEDT 2018
+Time zone: 	Australian Eastern Standard Time (New South Wales) (Australia/Sydney)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 124 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre/bin/java.exe
+
+User name: 	u5870415
+User home directory: C:/Users/u5870415
+User working directory: C:/ass1
+User country: 	AU
+User language: 	en
+User locale: 	en_AU
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.4
+RDI_DATADIR: C:/Xilinx/Vivado/2017.4/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.4/bin
+
+Vivado preferences file location: C:/Users/u5870415/AppData/Roaming/Xilinx/Vivado/2017.4/vivado.xml
+Vivado preferences directory: C:/Users/u5870415/AppData/Roaming/Xilinx/Vivado/2017.4/
+Vivado layouts directory: C:/Users/u5870415/AppData/Roaming/Xilinx/Vivado/2017.4/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2017.4/lib/classes/planAhead.jar
+Vivado log file location: 	C:/ass1/vivado.log
+Vivado journal file location: 	C:/ass1/vivado.jou
+Engine tmp dir: 	C:/ass1/.Xil/Vivado-4528-r103pc01
+
+GUI allocated memory:	174 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 550 MB
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bs (cj):  Open Project : addNotify
+// Opening Vivado Project: C:\ass1\reaction_timer_kai.xpr. Version: Vivado v2017.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// Tcl Message: open_project C:/ass1/reaction_timer_kai.xpr 
+// [GUI Memory]: 45 MB (+45111kb) [00:00:06]
+// [Engine Memory]: 471 MB (+342309kb) [00:00:06]
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/ass1/reaction_timer_kai.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 67 MB (+19865kb) [00:00:08]
+// [Engine Memory]: 537 MB (+44511kb) [00:00:08]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'. 
+// Project name: reaction_timer_kai; location: C:/ass1; part: xc7a100tcsg324-1
+// HMemoryUtils.trashcanNow. Engine heap size: 554 MB. GUI used memory: 40 MB. Current time: 3/29/18 10:51:17 AM AEDT
+dismissDialog("Open Project"); // bs (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [Engine Memory]: 568 MB (+4796kb) [00:00:13]
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (TOP_reactionTimer.v) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v)]", 3, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), globalTimer : globalTime (globalTime.v)]", 4, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 651, 125); // cd (w, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v)]", 9, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v)]", 14, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), statePrepareProcessor : reactTimerPrepareCore (reactTimerPrepareCore.v)]", 12, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), statePrepareProcessor : reactTimerPrepareCore (reactTimerPrepareCore.v)]", 12, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectCodeEditor("reactTimerPrepareCore.v", 320, 177); // cd (w, cj)
+selectCodeEditor("reactTimerPrepareCore.v", 190, 215); // cd (w, cj)
+// [GUI Memory]: 71 MB (+1488kb) [00:00:29]
+selectCodeEditor("reactTimerPrepareCore.v", 213, 314); // cd (w, cj)
+selectCodeEditor("reactTimerPrepareCore.v", 213, 314, false, false, false, false, true); // cd (w, cj) - Double Click
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "randMtOut"); // l (aP, cj)
+selectCodeEditor("reactTimerPrepareCore.v", 412, 342); // cd (w, cj)
+selectCodeEditor("reactTimerPrepareCore.v", 141, 213); // cd (w, cj)
+typeControlKey(null, null, 'z');
+// [GUI Memory]: 76 MB (+765kb) [00:00:57]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 15 seconds
+selectCodeEditor("reactTimerPrepareCore.v", 384, 330); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [GUI Memory]: 84 MB (+4328kb) [00:01:02]
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "randmt", true); // l (aP, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "randmt"); // l (aP, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 89 MB (+694kb) [00:01:10]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("reactTimerPrepareCore.v", 272, 162); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 12 seconds
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), statePrepareProcessor : reactTimerPrepareCore (reactTimerPrepareCore.v)]", 12); // B (D, cj)
+selectCodeEditor("reactTimerPrepareCore.v", 297, 269); // cd (w, cj)
+selectCodeEditor("reactTimerPrepareCore.v", 332, 265); // cd (w, cj)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "mt", true); // l (aP, cj)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "mt"); // l (aP, cj)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "mt"); // l (aP, cj)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "mt"); // l (aP, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("reactTimerPrepareCore.v", 319, 87); // cd (w, cj)
+// [GUI Memory]: 93 MB (+128kb) [00:01:38]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectCodeEditor("reactTimerCpu.v", 492, 231); // cd (w, cj)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerCpu.v", 403, 150); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 496, 364); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 490, 264); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 475, 361); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 436, 382); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 451, 107); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 373, 95); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 312, 66); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 413, 238); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation]", 5); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): No Implementation Results Available: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// f (cj): Launch Runs: addNotify
+dismissDialog("No Implementation Results Available"); // x (cj)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// bs (cj):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// TclEventType: RUN_MODIFY
+// [Engine Memory]: 620 MB (+23975kb) [00:01:55]
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Mar 29 10:53:02 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 10:53:02 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// HMemoryUtils.trashcanNow. Engine heap size: 620 MB. GUI used memory: 44 MB. Current time: 3/29/18 10:53:02 AM AEDT
+dismissDialog("Generate Bitstream"); // bs (cj)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 127 seconds
+selectCodeEditor("reactTimerCpu.v", 503, 264); // cd (w, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "FF", 12); // ax (O, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "FF", 12); // ax (O, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "FF", 12, false, false, false, false, true); // ax (O, cj) - Double Click
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "BRAMs", 13); // ax (O, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "BRAMs", 13, false, false, false, false, true); // ax (O, cj) - Double Click
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "FF", 12); // ax (O, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "Name", 0); // ax (O, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "FF", 12); // ax (O, cj)
+selectTreeTableHeader(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "FF", 12, false, false, false, false, true); // ax (O, cj) - Double Click
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Running route_design... ; 75 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 882 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:54:16 AEDT 2018 ; 00:00:34 ; Vivado Implementation Defaults (Vivado Implementation 2017) ; Vivado Implementation Default Reports (Vivado Implementation 2017) ; xc7a100tcsg324-1 ; Default settings for Implementation.", 1, "882", 12, false); // ax (O, cj)
+// PAPropertyPanels.initPanels (impl_1) elapsed time: 0.3s
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ; 100 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 874 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:53:07 AEDT 2018 ; 00:00:57 ; Vivado Synthesis Defaults (Vivado Synthesis 2017) ; Vivado Synthesis Default Reports (Vivado Synthesis 2017) ; xc7a100tcsg324-1 ; Vivado Synthesis Defaults", 0, "874", 12, true); // ax (O, cj) - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ; 100 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 874 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:53:07 AEDT 2018 ; 00:00:57 ; Vivado Synthesis Defaults (Vivado Synthesis 2017) ; Vivado Synthesis Default Reports (Vivado Synthesis 2017) ; xc7a100tcsg324-1 ; Vivado Synthesis Defaults", 0, "874", 12, true); // ax (O, cj) - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ; 100 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 874 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:53:07 AEDT 2018 ; 00:00:57 ; Vivado Synthesis Defaults (Vivado Synthesis 2017) ; Vivado Synthesis Default Reports (Vivado Synthesis 2017) ; xc7a100tcsg324-1 ; Vivado Synthesis Defaults", 0, "822", 11, true); // ax (O, cj) - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Running route_design... ; 75 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 882 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:54:16 AEDT 2018 ; 00:00:34 ; Vivado Implementation Defaults (Vivado Implementation 2017) ; Vivado Implementation Default Reports (Vivado Implementation 2017) ; xc7a100tcsg324-1 ; Default settings for Implementation.", 1, "822", 11, false); // ax (O, cj)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Running route_design... ; 75 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 882 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:54:16 AEDT 2018 ; 00:00:34 ; Vivado Implementation Defaults (Vivado Implementation 2017) ; Vivado Implementation Default Reports (Vivado Implementation 2017) ; xc7a100tcsg324-1 ; Default settings for Implementation.", 1, "822", 11, false); // ax (O, cj)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ; 100 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 874 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:53:07 AEDT 2018 ; 00:00:57 ; Vivado Synthesis Defaults (Vivado Synthesis 2017) ; Vivado Synthesis Default Reports (Vivado Synthesis 2017) ; xc7a100tcsg324-1 ; Vivado Synthesis Defaults", 0, "822", 11, true); // ax (O, cj) - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Running route_design... ; 75 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 882 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:54:16 AEDT 2018 ; 00:00:34 ; Vivado Implementation Defaults (Vivado Implementation 2017) ; Vivado Implementation Default Reports (Vivado Implementation 2017) ; xc7a100tcsg324-1 ; Default settings for Implementation.", 1, "822", 11, false); // ax (O, cj)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Running route_design... ; 75 ;  ;  ;  ;  ;  ;  ;  ; 822 ; 882 ; 0.0 ; 0 ; 2 ; 0 ; 39 ; 0 ; 1 ; 0 ; 0 ; 0 ; Thu Mar 29 10:54:16 AEDT 2018 ; 00:00:34 ; Vivado Implementation Defaults (Vivado Implementation 2017) ; Vivado Implementation Default Reports (Vivado Implementation 2017) ; xc7a100tcsg324-1 ; Default settings for Implementation.", 1, "Running route_design...", 2, false); // ax (O, cj)
+selectTab((HResource) null, (HResource) null, "Reports", 3); // aF (Q, cj)
+selectTab((HResource) null, (HResource) null, "Log", 2); // aF (Q, cj)
+selectTab(PAResourceItoN.LogView_TABBED_PANE, (HResource) null, "Implementation", 1); // i (A, cj)
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+// Elapsed time: 43 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, "Open Hardware Manager"); // a (N, ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// Tcl Command: 'load_features labtools'
+// TclEventType: LOAD_FEATURE
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// PAPropertyPanels.initPanels (impl_1) elapsed time: 0.3s
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// [Engine Memory]: 1,190 MB (+565992kb) [00:05:23]
+dismissDialog("Auto Connect"); // bs (cj)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,197 MB. GUI used memory: 58 MB. Current time: 3/29/18 10:56:32 AM AEDT
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+dismissDialog("Program Device"); // bA (cj)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 4 seconds
+dismissDialog("Program Device"); // bs (cj)
+// Elapsed time: 39 seconds
+selectCodeEditor("TOP_reactionTimer.v", 765, 159); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 666, 111); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 708, 73); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 695, 126); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 1); // k (j, cj)
+selectCodeEditor("reactTimerCpu.v", 317, 139); // cd (w, cj)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: HW_OBJECT_DELETE
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+// Tcl Message: close_hw 
+// bs (cj):  CLose Hardware Manager : addNotify
+// [GUI Memory]: 100 MB (+2766kb) [00:06:28]
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+selectCodeEditor("reactTimerCpu.v", 229, 231); // cd (w, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog]", 2); // B (D, cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog]", 2); // B (D, cj)
+selectCodeEditor("reactTimerCpu.v", 524, 390); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 303, 397); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 17 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 21, true); // B (D, cj) - Node
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 20, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, reactionTimer_Nexys4DDR_constraints.xdc]", 22, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, reactionTimer_Nexys4DDR_constraints.xdc]", 22, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 474, 235); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 506, 221); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 646, 280); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 646, 280, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 629, 114); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 585, 203); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 591, 160); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 630, 388); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 552, 101); // cd (w, cj)
+typeControlKey((HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 'v'); // cd (w, cj)
+// [GUI Memory]: 108 MB (+3095kb) [00:07:22]
+// Elapsed time: 35 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 11 seconds
+typeControlKey((HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectCodeEditor("TOP_reactionTimer.v", 394, 214); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 353, 299); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 335, 250); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectCodeEditor("TOP_reactionTimer.v", 217, 256); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 217, 256, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 250, 275); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 250, 275, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectCodeEditor("TOP_reactionTimer.v", 217, 259); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 217, 259, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,212 MB. GUI used memory: 55 MB. Current time: 3/29/18 10:59:41 AM AEDT
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 540, 144); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectCodeEditor("reactTimerCpu.v", 493, 222); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 495, 223); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 495, 223); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 495, 223); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 339, 261); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectCodeEditor("TOP_reactionTimer.v", 367, 276); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 214, 255); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 214, 255, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 223, 282); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 223, 282, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 224, 268); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 224, 268, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 356, 352); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+// Elapsed time: 17 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectCodeEditor("reactTimerCpu.v", 269, 371); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 1); // k (j, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'v'); // cd (w, cj)
+// Elapsed time: 11 seconds
+selectCodeEditor("TOP_reactionTimer.v", 225, 318); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'c'); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 233, 320); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "TOP_reactionTimer.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectCodeEditor("reactTimerCpu.v", 275, 402); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 230, 385); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 230, 385, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 254, 310); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 273, 321); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 285, 331); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 301, 354); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 300, 329); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 300, 318); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 194, 191); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 36 seconds
+selectCodeEditor("reactTimerCpu.v", 181, 193); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 181, 193, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 262, 199); // cd (w, cj)
+// Elapsed time: 43 seconds
+selectCodeEditor("reactTimerCpu.v", 176, 196); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 176, 196, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerCpu.v", 572, 274); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 387, 332); // cd (w, cj)
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking too long to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking too long to process. Increasing delay to 4000 ms.
+// Elapsed time: 619 seconds
+selectCodeEditor("reactTimerCpu.v", 409, 276); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 438, 173); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 515, 286); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 448, 280); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 431, 238); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 486, 259); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 460, 152); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 14 seconds
+selectCodeEditor("reactTimerCpu.v", 507, 234); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 513, 243); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 336, 336); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 248, 369); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 248, 369, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 296, 210); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 296, 210); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 131, 196); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 131, 196, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 377, 391); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 469, 221); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectCodeEditor("reactTimerCpu.v", 209, 132); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 209, 132, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 301, 18); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// Elapsed time: 13 seconds
+selectCodeEditor("reactTimerCpu.v", 225, 79); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 225, 79, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 216, 95); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 216, 95, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 152, 80); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 410, 173); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// Elapsed time: 77 seconds
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 24 seconds
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 40 seconds
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 84 seconds
+selectCodeEditor("reactTimerCpu.v", 246, 170); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 246, 170, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+// Elapsed time: 14 seconds
+selectCodeEditor("reactTimerCpu.v", 346, 264); // cd (w, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v)]", 14, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), tickCounterDivider : divisionByTen (divisionByTen.v)]", 18, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 424, 333); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 382, 300); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 366, 329); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 38 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+// [GUI Memory]: 115 MB (+824kb) [00:29:36]
+selectCodeEditor("reactTimerCpu.v", 268, 296); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 201, 345); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 201, 345, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 227, 357); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 227, 357, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerCpu.v", 139, 200); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 140, 199, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 237, 184); // cd (w, cj)
+// Elapsed time: 26 seconds
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerCpu.v", 122, 154); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 122, 154, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 154, 336); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// Elapsed time: 15 seconds
+selectCodeEditor("reactTimerCpu.v", 174, 434); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 174, 434, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 229, 275); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerCpu.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerCpu.v", 174, 279); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 174, 279, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 177, 291); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 177, 291, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 182, 275); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 182, 275, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 179, 296); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 179, 296, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 221, 354); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 221, 350); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 221, 350, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+// Elapsed time: 13 seconds
+selectCodeEditor("reactTimerTestCore.v", 198, 409); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 198, 409, false, false, false, false, true); // cd (w, cj) - Double Click
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "out_audioSd"); // l (aP, cj)
+selectCodeEditor("reactTimerTestCore.v", 144, 291); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 10 seconds
+selectCodeEditor("reactTimerTestCore.v", 227, 314); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 227, 314, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 264, 305); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 32 seconds
+selectCodeEditor("reactTimerTestCore.v", 202, 290); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 202, 290, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 202, 284); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 202, 284, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 190, 265); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 190, 265, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 195, 273); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 195, 273, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "out_leds", true); // l (aP, cj)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "out_leds"); // l (aP, cj)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "out_leds"); // l (aP, cj)
+selectCodeEditor("reactTimerTestCore.v", 277, 441); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 280, 450); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 110 seconds
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerTestCore.v", 234, 193); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 234, 193, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 3); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// bs (cj):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Thu Mar 29 11:26:11 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 11:26:11 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bs (cj)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 137 seconds
+selectCodeEditor("reactTimerTestCore.v", 742, 159); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), testAudioOut : audioHintOutput (audioHintOutput.v)]", 20, true); // B (D, cj) - Node
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 251, 142); // cd (w, cj)
+// [GUI Memory]: 121 MB (+203kb) [00:37:33]
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 745, 136); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 2); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+// [GUI Memory]: 127 MB (+474kb) [00:37:41]
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog]", 2, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog]", 2, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog, globalConstants.v]", 3, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog, globalConstants.v]", 3, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("globalConstants.v", 359, 332); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 345, 411); // cd (w, cj)
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+// Elapsed time: 12 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// HMemoryUtils.trashcanNow. Engine heap size: 1,236 MB. GUI used memory: 62 MB. Current time: 3/29/18 11:29:26 AM AEDT
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+dismissDialog("Program Device"); // bA (cj)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs (cj)
+// Elapsed time: 52 seconds
+selectCodeEditor("TOP_reactionTimer.v", 259, 306); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 225, 314); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 225, 314, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 223, 333); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 223, 333, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 227, 308); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 227, 308, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectCodeEditor("globalConstants.v", 271, 440); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 502, 148); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 197, 191); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 197, 191, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 240, 267); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 240, 267, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 1); // k (j, cj)
+selectCodeEditor("reactTimerCpu.v", 282, 399); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 282, 399, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 187, 88); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 187, 88, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerCpu.v", 359, 232); // cd (w, cj)
+selectCodeEditor("reactTimerCpu.v", 359, 232, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerCpu.v", 1); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_reactionTimer.v", 0); // k (j, cj)
+selectCodeEditor("TOP_reactionTimer.v", 217, 317); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 217, 317, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 226, 329); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 226, 329, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 233, 316); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 233, 316, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 234, 329); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 234, 329, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("TOP_reactionTimer.v", 238, 314); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 238, 314, false, false, false, false, true); // cd (w, cj) - Double Click
+// Elapsed time: 15 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 2); // k (j, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 564, 143); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 564, 143, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 511, 127); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 510, 127, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 515, 143); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 515, 143, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 524, 124); // cd (w, cj)
+selectCodeEditor("reactionTimer_Nexys4DDR_constraints.xdc", 524, 124, false, false, false, false, true); // cd (w, cj) - Double Click
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 305, 265); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 305, 265, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 215, 263); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 215, 263, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 228, 278); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 228, 278, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 224, 258); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 224, 258, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 293, 262); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 293, 262, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 310, 288); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 310, 288, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 205, 275); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 205, 275, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 203, 266); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 203, 266, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 288, 261); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 288, 261, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 304, 277); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 304, 277, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 308, 265); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 308, 265, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 319, 259); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("reactTimerTestCore.v", 224, 284); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 224, 284, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerTestCore.v", 298, 286); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 298, 286, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 203, 283); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 203, 283, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 307, 280); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 307, 280, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 233, 284); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 233, 284, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 19, true); // u (O, cj) - Node
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation]", 2); // u (O, cj)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false, false, false, false, false, true); // u (O, cj) - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Mar 29 11:32:29 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 11:32:29 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// Elapsed time: 31 seconds
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: HW_OBJECT_DELETE
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+// Tcl Message: close_hw 
+// bs (cj):  CLose Hardware Manager : addNotify
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+selectCodeEditor("globalConstants.v", 517, 464); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 517, 464, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("globalConstants.v", 523, 452); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 523, 452, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("globalConstants.v", 444, 422); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 379, 403); // cd (w, cj)
+// Elapsed time: 18 seconds
+typeControlKey((HResource) null, "globalConstants.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// Elapsed time: 10 seconds
+selectCodeEditor("globalConstants.v", 379, 403); // cd (w, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), ssdDisplayOutput : ssdDriver (ssdDriver.v)]", 25, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), ssdDisplayOutput : ssdDriver (ssdDriver.v)]", 25, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("ssdDriver.v", 547, 416); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 5); // k (j, cj)
+selectCodeEditor("globalConstants.v", 153, 322); // cd (w, cj)
+// TclEventType: RUN_STEP_COMPLETED
+typeControlKey((HResource) null, "globalConstants.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+typeControlKey((HResource) null, "ssdDriver.v", 'v'); // cd (w, cj)
+// Elapsed time: 23 seconds
+selectCodeEditor("ssdDriver.v", 458, 266); // cd (w, cj)
+// Elapsed time: 51 seconds
+selectCodeEditor("ssdDriver.v", 420, 294); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 431, 294); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 435, 294); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 455, 316); // cd (w, cj)
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bA (cj)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 4 seconds
+dismissDialog("Program Device"); // bs (cj)
+// Elapsed time: 10 seconds
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+// [Engine Memory]: 1,251 MB (+1034kb) [00:44:58]
+// Tcl Message: close_hw 
+// bs (cj):  CLose Hardware Manager : addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 1,257 MB. GUI used memory: 90 MB. Current time: 3/29/18 11:36:06 AM AEDT
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+selectCodeEditor("ssdDriver.v", 209, 161); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 448, 337); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 177, 142); // cd (w, cj)
+// Elapsed time: 14 seconds
+selectCodeEditor("ssdDriver.v", 442, 296); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 454, 299); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 457, 300); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 427, 306); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 432, 303); // cd (w, cj)
+// Elapsed time: 17 seconds
+selectCodeEditor("ssdDriver.v", 427, 291); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 423, 344); // cd (w, cj)
+// Elapsed time: 45 seconds
+selectCodeEditor("ssdDriver.v", 410, 352); // cd (w, cj)
+// Elapsed time: 32 seconds
+selectCodeEditor("ssdDriver.v", 460, 267); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ssdDriver.v", 417, 226); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 21 seconds
+selectCodeEditor("ssdDriver.v", 245, 199); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 259, 212); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 466, 315); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 459, 315); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 137 MB (+3419kb) [00:47:52]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 137 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactionTimer_Nexys4DDR_constraints.xdc", 3); // k (j, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 144 MB (+219kb) [00:50:02]
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 5); // k (j, cj)
+selectCodeEditor("globalConstants.v", 309, 426); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 436, 481); // cd (w, cj)
+// Elapsed time: 29 seconds
+typeControlKey((HResource) null, "globalConstants.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 4); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 267, 439); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 39 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 3); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (x)
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v)]", 15, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateResultProcessor : reactTimerResultCore (reactTimerResultCore.v)]", 23, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateResultProcessor : reactTimerResultCore (reactTimerResultCore.v)]", 23, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateResultProcessor : reactTimerResultCore (reactTimerResultCore.v)]", 23, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectCodeEditor("reactTimerResultCore.v", 367, 200); // cd (w, cj)
+selectCodeEditor("reactTimerResultCore.v", 457, 232); // cd (w, cj)
+selectCodeEditor("reactTimerResultCore.v", 457, 232, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 5); // k (j, cj)
+selectCodeEditor("globalConstants.v", 118, 479); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 118, 479, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "globalConstants.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 7); // k (j, cj)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 7, false, true); // k (j, cj) - Double Click
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // R (Q, cj)
+selectCodeEditor("reactTimerResultCore.v", 487, 329); // cd (w, cj)
+selectCodeEditor("reactTimerResultCore.v", 487, 329, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerResultCore.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager]", 0); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Thu Mar 29 11:43:08 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 11:43:08 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,277 MB. GUI used memory: 63 MB. Current time: 3/29/18 11:43:31 AM AEDT
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// Elapsed time: 75 seconds
+selectCodeEditor("reactTimerResultCore.v", 736, 381); // cd (w, cj)
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 23 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_REPORTS, "Reports"); // ax
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+// Elapsed time: 185 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bA (cj)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs (cj)
+// Elapsed time: 21 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 5); // k (j, cj)
+selectCodeEditor("ssdDriver.v", 209, 266); // cd (w, cj)
+// Elapsed time: 19 seconds
+selectCodeEditor("ssdDriver.v", 478, 393); // cd (w, cj)
+// Elapsed time: 25 seconds
+selectCodeEditor("ssdDriver.v", 420, 370); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 205, 122); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 201, 60); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 13 seconds
+selectCodeEditor("ssdDriver.v", 488, 371); // cd (w, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 27 seconds
+typeControlKey((HResource) null, "ssdDriver.v", 'v'); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 418, 363); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 14 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation]", 2); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cv' command handler elapsed time: 10 seconds
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Thu Mar 29 11:50:27 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 11:50:27 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// bs (cj):  Generate Bitstream : addNotify
+dismissDialog("Generate Bitstream"); // bs (cj)
+selectCodeEditor("ssdDriver.v", 861, 253); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectCodeEditor("globalConstants.v", 468, 245); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 5); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 5); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 330, 278); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 330, 278, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 227, 280); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 227, 280, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'c'); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 226, 347); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 226, 347, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("reactTimerTestCore.v", 225, 140); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 247, 168); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 247, 168, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("reactTimerTestCore.v", 443, 222); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 364, 292); // cd (w, cj)
+typeControlKey((HResource) null, "reactTimerTestCore.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("reactTimerTestCore.v", 240, 294); // cd (w, cj)
+selectCodeEditor("reactTimerTestCore.v", 240, 294, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 5); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerTestCore.v", 3); // k (j, cj)
+selectCodeEditor("reactTimerTestCore.v", 493, 339); // cd (w, cj)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: RUN_COMPLETED
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: close_hw 
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// bs (cj):  CLose Hardware Manager : addNotify
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+selectCodeEditor("ssdDriver.v", 445, 363); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 425, 363); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 169, 69); // cd (w, cj)
+// TclEventType: RUN_STEP_COMPLETED
+selectCodeEditor("ssdDriver.v", 432, 374); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 419, 363); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 432, 376); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 426, 371); // cd (w, cj)
+// Elapsed time: 40 seconds
+selectCodeEditor("ssdDriver.v", 109, 59); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 302, 120); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 183, 67); // cd (w, cj)
+selectCodeEditor("ssdDriver.v", 187, 75); // cd (w, cj)
+// Elapsed time: 19 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 5); // k (j, cj)
+selectCodeEditor("globalConstants.v", 667, 481); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 203, 486, false, false, false, true, false); // cd (w, cj) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ac (ai, Popup.HeavyWeightWindow)
+selectCodeEditor("globalConstants.v", 680, 483); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 5); // k (j, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ssdDriver.v", 427, 362); // cd (w, cj)
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bA (cj)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 4 seconds
+dismissDialog("Program Device"); // bs (cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 5); // k (j, cj)
+selectCodeEditor("ssdDriver.v", 206, 73); // cd (w, cj)
+// Elapsed time: 28 seconds
+selectCodeEditor("ssdDriver.v", 431, 380); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 15 seconds
+selectCodeEditor("ssdDriver.v", 181, 91); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ssdDriver.v", 469, 375); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 42 seconds
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: HW_OBJECT_DELETE
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: close_hw 
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// bs (cj):  CLose Hardware Manager : addNotify
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Thu Mar 29 11:55:39 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 11:55:39 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// TclEventType: RUN_FAILED
+// ah (cj): Synthesis Failed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 1,299 MB. GUI used memory: 68 MB. Current time: 3/29/18 11:56:01 AM AEDT
+// Elapsed time: 41 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (cj)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-2715] syntax error near } [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:201]. ]", 7, false); // ah (O, cj)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\ass1\reaction_timer_kai.srcs\sources_1\new\reactTimerResultCore.v;-;;-;16;-;line;-;201;-;;-;16;-;"); // ah (O, cj)
+selectCodeEditor("reactTimerResultCore.v", 473, 176); // cd (w, cj)
+selectCodeEditor("reactTimerResultCore.v", 473, 176, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 7); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 5); // k (j, cj)
+selectCodeEditor("globalConstants.v", 1106, 479); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 7); // k (j, cj)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 3); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): No Implementation Results Available: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("No Implementation Results Available"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Thu Mar 29 11:56:44 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 11:56:44 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+// Elapsed time: 316 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, "Open Hardware Manager"); // a (N, ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+dismissDialog("Program Device"); // bA (cj)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bA (cj)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs (cj)
+// Elapsed time: 24 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 6); // k (j, cj)
+selectCodeEditor("reactTimerResultCore.v", 597, 329); // cd (w, cj)
+selectCodeEditor("reactTimerResultCore.v", 476, 293); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ssdDriver.v", 5); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "globalConstants.v", 4); // k (j, cj)
+selectCodeEditor("globalConstants.v", 750, 479); // cd (w, cj)
+selectCodeEditor("globalConstants.v", 676, 488); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+typeControlKey((HResource) null, "globalConstants.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "reactTimerResultCore.v", 6); // k (j, cj)
+selectCodeEditor("reactTimerResultCore.v", 431, 240); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 13 seconds
+selectCodeEditor("reactTimerResultCore.v", 473, 247); // cd (w, cj)
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bA (cj)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs (cj)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+// Tcl Message: close_hw 
+// bs (cj):  CLose Hardware Manager : addNotify
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cj): Launch Runs: addNotify
+// Elapsed time: 16 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cv' command handler elapsed time: 17 seconds
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Thu Mar 29 12:04:06 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Thu Mar 29 12:04:06 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+// Elapsed time: 186 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E95EA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bA (cj)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs (cj)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: HW_OBJECT_DELETE
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+// Tcl Message: close_hw 
+// bs (cj):  CLose Hardware Manager : addNotify
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v)]", 10); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, randMt19937 (randMt19937.v)]", 12, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, randMt19937 (randMt19937.v)]", 12, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("randMt19937.v", 356, 272); // cd (w, cj)
+selectCodeEditor("randMt19937.v", 360, 272); // cd (w, cj)
+selectCodeEditor("randMt19937.v", 347, 146); // cd (w, cj)
+selectCodeEditor("randMt19937.v", 412, 395); // cd (w, cj)

@@ -50,15 +50,15 @@ module reactTimerPrepareCore #(
     localparam STATE_WAITING = 1'b0;
     localparam STATE_GENRAND = 1'b1;
     
-    localparam RAND_LCG = 1'b0;
-    localparam RAND_MT  = 1'b1;
-    // Initial set as LCG.
-    reg randSelector = RAND_LCG;
+    //localparam RAND_LCG = 1'b0;
+    //localparam RAND_MT  = 1'b1;
+    //// Initial set as LCG.
+    //reg randSelector = RAND_LCG;
     
     reg [31:0] seed = 0;
     reg seedReady = 0, next = 0, state = STATE_WAITING, seedSet = 0;
-    wire [31:0] randLcgOut, randMtOut;
-    wire randLcgBusy, randMtBusy, animationBusy, startRising;
+    wire [31:0] randLcgOut;
+    wire randLcgBusy, animationBusy, startRising;
     
     // Random number generator.
     // Linear Congruential Generator
@@ -72,17 +72,6 @@ module reactTimerPrepareCore #(
         .in_enable(in_enable),
         .out_data(randLcgOut),
         .out_busy(randLcgBusy));
-    //  Mersenne Twister with MT19937 standard
-    randMt19937 gapGeneratorMt19937(
-        .in_globalTime(in_globalTime),
-        .in_seed(seed),
-        .in_seedReady(seedReady),
-        .in_next(next),
-        .in_clock(in_clock),
-        .in_reset(in_reset),
-        .in_enable(in_enable),
-        .out_data(randMtOut),
-        .out_busy(randMtBusy));
         
     // Detect the rising edge of start signal.
     edgeDetector startRisingDetector(
@@ -122,27 +111,13 @@ module reactTimerPrepareCore #(
                 if (state) begin
                     // STATE_GENRAND
                     // Wait until the busy signal is 0.
-                    if (randSelector) begin
-                        // Select Mersenne Twister.
-                        if (~randMtBusy) begin
-                            // Set the randomize time to output.
-                            // Limit the time up to 7 seconds.
-                            out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randMtOut % 32'd700_000_000);
-                        end
-                        // Use LCG next time.
-                        randSelector <= RAND_LCG;
-                    end else begin
-                        // Select LCG.
-                        if (~randLcgBusy) begin
-                            // Set the randomize time to output.
-                            // Limit the time up to 7 seconds.
-                            out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randLcgOut % 32'd700_000_000);
-                        end
-                        // Use MT next time.
-                        randSelector <= RAND_MT;
+                    if (~randLcgBusy) begin
+                        // Set the randomize time to output.
+                        // Limit the time up to 7 seconds.
+                        out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randLcgOut % 32'd700_000_000);
                     end
                     // Waiting all the mission complete.
-                    if ((~randLcgBusy) & (~randMtBusy) & (~animationBusy)) begin
+                    if ((~randLcgBusy) & (~animationBusy)) begin
                         // Reset the state back to waiting.
                         state <= STATE_WAITING;
                         // Reset the seed ready and next signal.
