@@ -128,15 +128,15 @@ module reactTimerPrepareCore #(
                                 // Check Linear Congruential Generator busy output.
                                 if (~randLcgBusy) begin
                                     // Set the randomize time to output.
-                                    // Limit the time up to 7 seconds.
-                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randLcgOut % 32'd700_000_000);
+                                    // Limit the time up to 8.05 seconds.
+                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[28:0]} + {4'd0, randLcgOut[27:0]};
                                 end 
                             end
                             RAND_MT: begin
                                 // Check Mt19937 busy output.
                                 if (~randMtBusy) begin
                                     // Set the randomize time to output.
-                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randMtOut % 32'd700_000_000);
+                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[28:0]} + {4'd0, randMtOut[27:0]};
                                 end
                             end
                         endcase
