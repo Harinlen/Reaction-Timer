@@ -22,28 +22,51 @@
 
 module TB_randMt19937;
 
-    reg clock = 1'b0, seedReady = 1'b0, next = 1'b0;
-    wire [31:0] outData;
-    wire outBusy;
-
-    randMt19937 UUT(
-        .in_clock(clock),
-        .in_reset(1'b0),
-        .in_enable(1'b1),
-        .in_seed(32'd4357),
-        .in_seedReady(seedReady),
-        .in_next(next),
-        .out_data(outData),
-        .out_busy(outBusy));
-       
-    always begin
-        #1 clock = ~clock;
-    end
-        
+    // Inputs
+    reg clk = 0;
+    reg rst = 0;
+    reg en = 1;
+    reg [7:0] current_test = 0;
+    
+    reg [31:0] seed_val = 0;
+    reg seed_start = 0;
+    reg output_axis_tready = 0;
+    
+    // Outputs
+    wire [31:0] output_axis_tdata;
+    wire busy;
+    
+    randMt19937 UUT (
+        .in_globalTime(32'd5489),
+        .in_clock(clk),
+        .in_reset(rst),
+        .in_enable(en),
+        .out_data(output_axis_tdata),
+        .in_next(output_axis_tready),
+        .in_seed(seed_val),
+        .in_seedReady(seed_start),
+        .out_busy(busy)
+    );
+    
     initial begin
-        #2 seedReady = 1'b1;
-        #5 seedReady = 1'b0;
-        #3 next = 1'b1;
+        forever #1 clk = ~clk;
+    end
+    
+    initial begin
+        #5 output_axis_tready = 1;
+        #3 output_axis_tready = 0;
+        #41000; output_axis_tready = 1;
+        #3; output_axis_tready = 0;
+        #5; output_axis_tready = 1;
+        #3; output_axis_tready = 0;
+        #5; output_axis_tready = 1;
+        #3; output_axis_tready = 0;
+        #5; output_axis_tready = 1;
+        #3; output_axis_tready = 0;
+        #5; output_axis_tready = 1;
+        #3; output_axis_tready = 0;
+        #5; output_axis_tready = 1;
+        #3; output_axis_tready = 0;
     end
 
 endmodule

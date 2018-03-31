@@ -39,12 +39,11 @@ module reactTimerIdleCore #(
     input wire         in_clock,
     input wire         in_reset,
     input wire         in_enable,
-    output wire [27:0] out_bestTime,
+    output reg [27:0]  out_bestTime = 28'd0,
     output wire [15:0] out_leds,
     output wire [31:0] out_ssdOutput,
     output wire [7:0]  out_ssdDots);
     
-    reg [27:0] bestTime = 28'd0;
     reg [31:0] bestTimeDigits = 32'd0;
     
     // Best reaction time.
@@ -55,9 +54,9 @@ module reactTimerIdleCore #(
                 // We need to compare the input time as the best time.
                 if (in_reactionTimeValid) begin
                     // Compare the reaction time with best time.
-                    if (bestTime == 28'd0 || (~in_reactionTimeout & (in_reactionTime < bestTime))) begin
+                    if (out_bestTime == 28'd0 || (~in_reactionTimeout & (in_reactionTime < out_bestTime))) begin
                         // New records saved.
-                        bestTime <= in_reactionTime;
+                        out_bestTime <= in_reactionTime;
                         bestTimeDigits <= in_reactionSsd;
                     end
                 end
@@ -85,8 +84,7 @@ module reactTimerIdleCore #(
         .out_leds(out_leds));
     
     // Set the output time data.
-    assign out_ssdOutput = (bestTime > 0) ? bestTimeDigits : `SSD_DISPLAY_MINUS;
-    assign out_ssdDots = (bestTime > 0) ? 8'b0111_1111 : 8'b1111_1111;
-    assign out_bestTime = bestTime;
+    assign out_ssdOutput = (out_bestTime > 0) ? bestTimeDigits : `SSD_DISPLAY_MINUS;
+    assign out_ssdDots = (out_bestTime > 0) ? 8'b0111_1111 : 8'b1111_1111;
     
 endmodule

@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Thu Mar 29 12:06:27 2018
-| Host         : r103pc01 running 64-bit major release  (build 9200)
+| Date         : Sat Mar 31 11:47:07 2018
+| Host         : DESKTOP-SAKI running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TOP_reactionTimer_methodology_drc_routed.rpt -pb TOP_reactionTimer_methodology_drc_routed.pb -rpx TOP_reactionTimer_methodology_drc_routed.rpx
 | Design       : TOP_reactionTimer
 | Device       : xc7a100tcsg324-1
@@ -27,20 +27,20 @@ Table of Contents
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
-| SYNTH-13  | Warning  | combinational multiplier      | 2          |
+| SYNTH-11  | Warning  | DSP output not registered     | 2          |
 | TIMING-18 | Warning  | Missing input or output delay | 40         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-SYNTH-13#1 Warning
-combinational multiplier  
-Detected combinational multiplier in DSP instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/.
+SYNTH-11#1 Warning
+DSP output not registered  
+DSP instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/p_1_out is not fully pipelined on the output side. MREG/PREG are not used.
 Related violations: <none>
 
-SYNTH-13#2 Warning
-combinational multiplier  
-Detected combinational multiplier in DSP instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0.
+SYNTH-11#2 Warning
+DSP output not registered  
+DSP instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/p_1_out__0 is not fully pipelined on the output side. MREG/PREG are not used.
 Related violations: <none>
 
 TIMING-18#1 Warning

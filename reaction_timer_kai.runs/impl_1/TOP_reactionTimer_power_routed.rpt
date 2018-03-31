@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Thu Mar 29 12:06:28 2018
-| Host             : r103pc01 running 64-bit major release  (build 9200)
+| Date             : Sat Mar 31 11:47:08 2018
+| Host             : DESKTOP-SAKI running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_reactionTimer_power_routed.rpt -pb TOP_reactionTimer_power_summary_routed.pb -rpx TOP_reactionTimer_power_routed.rpx
 | Design           : TOP_reactionTimer
 | Device           : xc7a100tcsg324-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.140        |
+| Total On-Chip Power (W)  | 0.146        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.043        |
+| Dynamic (W)              | 0.049        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 84.4         |
-| Junction Temperature (C) | 25.6         |
+| Max Ambient (C)          | 84.3         |
+| Junction Temperature (C) | 25.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        3 |       --- |             --- |
-| Slice Logic    |     0.005 |     2125 |       --- |             --- |
-|   LUT as Logic |     0.004 |      832 |     63400 |            1.31 |
-|   CARRY4       |    <0.001 |      152 |     15850 |            0.96 |
-|   Register     |    <0.001 |      884 |    126800 |            0.70 |
-|   F7/F8 Muxes  |    <0.001 |        4 |     63400 |           <0.01 |
-|   Others       |     0.000 |       44 |       --- |             --- |
-| Signals        |     0.004 |     1603 |       --- |             --- |
+| Clocks         |     0.005 |        3 |       --- |             --- |
+| Slice Logic    |     0.005 |     2819 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1226 |     63400 |            1.93 |
+|   CARRY4       |    <0.001 |      197 |     15850 |            1.24 |
+|   Register     |    <0.001 |     1054 |    126800 |            0.83 |
+|   F7/F8 Muxes  |    <0.001 |        5 |     63400 |           <0.01 |
+|   Others       |     0.000 |       46 |       --- |             --- |
+| Signals        |     0.005 |     2260 |       --- |             --- |
+| Block RAM      |     0.004 |        2 |       135 |            1.48 |
 | DSPs           |     0.002 |        2 |       240 |            0.83 |
 | I/O            |     0.028 |       41 |       210 |           19.52 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.140 |          |           |                 |
+| Total          |     0.146 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.030 |       0.015 |      0.015 |
+| Vccint    |       1.000 |     0.036 |       0.021 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.012 |       0.008 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -82,7 +83,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.001 |       0.000 |      0.000 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -142,11 +143,11 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| TOP_reactionTimer                  |     0.043 |
+| TOP_reactionTimer                  |     0.049 |
 |   clock1kHz                        |    <0.001 |
 |   clockEdge1kHz                    |    <0.001 |
 |   globalTimer                      |    <0.001 |
-|   reactionTimerProcessor           |     0.013 |
+|   reactionTimerProcessor           |     0.019 |
 |     prepareBusyDetector            |    <0.001 |
 |     resultBusyDetector             |    <0.001 |
 |     startButtonEdge                |    <0.001 |
@@ -154,8 +155,10 @@ Table of Contents
 |       idleAnimation                |    <0.001 |
 |         animeClockDetector         |    <0.001 |
 |       ledAnimeClock                |    <0.001 |
-|     statePrepareProcessor          |     0.004 |
-|       gapGeneratorLcg              |     0.002 |
+|     statePrepareProcessor          |     0.010 |
+|       gapGeneratorLcg              |     0.003 |
+|         nextDetector               |    <0.001 |
+|       gapGeneratorMt19937          |     0.007 |
 |       prepareAnimation             |    <0.001 |
 |         animeClockDetector         |    <0.001 |
 |         clock1Hz                   |    <0.001 |
@@ -164,7 +167,7 @@ Table of Contents
 |       idleCounter                  |    <0.001 |
 |         signalInDetector           |    <0.001 |
 |       testResultDigitReadyDetector |    <0.001 |
-|       testResultSeperator          |    <0.001 |
+|       testResultSeperator          |     0.001 |
 |         numberValidDetector        |    <0.001 |
 |       testResultValidDetector      |    <0.001 |
 |     stateTestProcessor             |     0.006 |

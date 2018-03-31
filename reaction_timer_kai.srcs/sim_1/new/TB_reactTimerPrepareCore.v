@@ -36,7 +36,7 @@ module TB_reactTimerPrepareCore;
         .COUNT_DOWN_CLOCK_THRESHOLD(4)
     ) UUT (
         .in_globalTime(timeCounter),
-        .in_start(start),
+        .in_startRising(start),
         .in_reset(1'b0),
         .in_enable(1'b1),
         .in_clock(clock),
@@ -54,6 +54,8 @@ module TB_reactTimerPrepareCore;
         #8 start = 1;
         #5 start = 0;
         #520 start = 1;
+        #5 start = 0;
+        #60000 start = 1;
         #5 start = 0;
     end
 

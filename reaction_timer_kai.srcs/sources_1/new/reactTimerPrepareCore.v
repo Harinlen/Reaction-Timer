@@ -39,7 +39,7 @@ module reactTimerPrepareCore #(
     parameter integer TEST_DELAY_TIME = 0
 )(
     input wire [31:0]  in_globalTime,
-    input wire         in_start,
+    input wire         in_startRising,
     input wire         in_reset,
     input wire         in_enable,
     input wire         in_clock,
@@ -50,15 +50,16 @@ module reactTimerPrepareCore #(
     localparam STATE_WAITING = 1'b0;
     localparam STATE_GENRAND = 1'b1;
     
-    //localparam RAND_LCG = 1'b0;
-    //localparam RAND_MT  = 1'b1;
-    //// Initial set as LCG.
-    //reg randSelector = RAND_LCG;
+    localparam RAND_LCG = 1'b0;
+    localparam RAND_MT  = 1'b1;
+    // Initial set as LCG.
+    reg randSelector = RAND_LCG;
     
+    reg [2:0] busyWait = 3'd0;
     reg [31:0] seed = 0;
     reg seedReady = 0, next = 0, state = STATE_WAITING, seedSet = 0;
-    wire [31:0] randLcgOut;
-    wire randLcgBusy, animationBusy, startRising;
+    wire [31:0] randLcgOut, randMtOut;
+    wire randLcgBusy, randMtBusy, animationBusy;
     
     // Random number generator.
     // Linear Congruential Generator
@@ -72,20 +73,23 @@ module reactTimerPrepareCore #(
         .in_enable(in_enable),
         .out_data(randLcgOut),
         .out_busy(randLcgBusy));
-        
-    // Detect the rising edge of start signal.
-    edgeDetector startRisingDetector(
+    // Mt19937 Generator
+    randMt19937 gapGeneratorMt19937(
+        .in_globalTime(in_globalTime),
+        .in_seed(seed),
+        .in_seedReady(seedReady),
+        .in_next(next),
         .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
-        .in_signal(in_start),
-        .out_risingEdge(startRising));
+        .out_data(randMtOut),
+        .out_busy(randMtBusy));
         
     // Animation playing module.
     ssdAnimation #(
         .ANIME_CLOCK_THRESHOLD(COUNT_DOWN_CLOCK_THRESHOLD)
     ) prepareAnimation (
-        .in_startRising(startRising),
+        .in_startRising(in_startRising & (~out_busy)),
         .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
@@ -107,42 +111,68 @@ module reactTimerPrepareCore #(
             out_busy <= 1'b0;
         end else begin
             if (in_enable) begin
+                // Reset the seed ready and next signal.
+                seedReady <= 0;
+                next <= 0;
                 // Check the current state.
                 if (state) begin
                     // STATE_GENRAND
-                    // Wait until the busy signal is 0.
-                    if (~randLcgBusy) begin
-                        // Set the randomize time to output.
-                        // Limit the time up to 7 seconds.
-                        out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randLcgOut % 32'd700_000_000);
+                    // First, it need to pass busy waiting.
+                    if (busyWait > 3'd0) begin
+                        // Count down on busy waiting.
+                        busyWait <= busyWait - 1;
+                    end else begin
+                        // Check the current using random number generator.
+                        case(randSelector)
+                            RAND_LCG: begin
+                                // Check Linear Congruential Generator busy output.
+                                if (~randLcgBusy) begin
+                                    // Set the randomize time to output.
+                                    // Limit the time up to 7 seconds.
+                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randLcgOut % 32'd700_000_000);
+                                end 
+                            end
+                            RAND_MT: begin
+                                // Check Mt19937 busy output.
+                                if (~randMtBusy) begin
+                                    // Set the randomize time to output.
+                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : (randMtOut % 32'd700_000_000);
+                                end
+                            end
+                        endcase
+                        // Waiting all the mission complete.
+                        if ((~randLcgBusy) & (~randMtBusy) & (~animationBusy)) begin
+                            // Switch random number generator.
+                            case(randSelector)
+                                RAND_LCG: randSelector <= RAND_MT;
+                                RAND_MT: randSelector <= RAND_LCG;
+                            endcase
+                            // Reset the state back to waiting.
+                            state <= STATE_WAITING;
+                            // No more busy.
+                            out_busy <= 0;
+                        end
                     end
-                    // Waiting all the mission complete.
-                    if ((~randLcgBusy) & (~animationBusy)) begin
-                        // Reset the state back to waiting.
-                        state <= STATE_WAITING;
-                        // Reset the seed ready and next signal.
-                        seedReady <= 0;
-                        next <= 0;
-                        // No more busy.
-                        out_busy <= 0;
-                    end
+                    
                 end else begin
                     // STATE_WAITING
                     // Waiting for start button signal.
-                    if (startRising) begin
+                    if (in_startRising) begin
                         // Change state to Generating Random number.
                         state <= STATE_GENRAND;
                         // Also enable the seed ready signal.
-                        if (seedSet) begin
-                            // Request for next random number.
-                            next <= 1;
-                        end else begin
-                            // Set the seed.
-                            seedReady <= 1;
-                        end
+                        next <= 1;
+                        //if (seedSet) begin
+                        //    // Request for next random number.
+                        //    next <= 1;
+                        //end else begin
+                        //    // Set the seed.
+                        //    seedReady <= 1;
+                        //end
                         // This module is about to being busy.
                         out_busy <= 1'b1;
-                    end else begin
+                        // Enable the busy waiting.
+                        busyWait <= 3'd7;
                     end
                 end
             end

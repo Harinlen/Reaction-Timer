@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2018/03/28 22:18:15
+// Create Date: 2018/03/31 03:44:45
 // Design Name: 
 // Module Name: randMt19937
 // Project Name: 
@@ -19,14 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`include "globalConstants.v"
 
-module randMt19937 #(
-    parameter integer N = 624,          // length of state vector
-    parameter integer M = 397,          // a period parameter
-    parameter integer K = 32'h9908B0DF, // a magic constant
-    parameter integer A = 69069         // the parameter of the equation
-)(
+module randMt19937(
     input wire [31:0] in_globalTime,
     input wire [31:0] in_seed,
     input wire        in_seedReady,
@@ -35,281 +29,184 @@ module randMt19937 #(
     input wire        in_reset,
     input wire        in_enable,
     output reg [31:0] out_data = 32'd0,
-    output reg        out_busy = `OUTPUT_INVALID);
-    
+    output reg        out_busy = 1'b0);
+
+    // State register
     localparam [1:0] STATE_IDLE = 2'd0;
     localparam [1:0] STATE_CHECKING = 2'd1;
-    localparam [1:0] STATE_BUSY = 2'd2;
-    reg [1:0] state = STATE_IDLE;
-    
-    localparam STAGE_NONE = 0;
-    localparam STAGE_SEED = 1;
-    localparam STAGE_RELOAD = 2;
-    localparam STAGE_RANDOM = 3;
-    reg [31:0] stageIndex = STAGE_NONE;
-    reg fromReloadStage = 1'b0, fromRandomStage = 1'b0;
-    
+    localparam [1:0] STATE_SEED = 2'd2;
+    reg [1:0] state = STATE_IDLE, stateNext;
+    // Mission register.
+    localparam FLAG_SEED = 0;
     localparam FLAG_NEXT = 1;
-    localparam FLAG_INITSEED = 0;
     reg [1:0] flags = 2'd0;
-    
-    reg [31:0] vecState [N:0];
-    reg [31:0] nextIndex = 0;
-    reg signed [31:0] left = -1;
-    
-    // Seed using values.
-    reg [31:0] x, j, s;
-    // Reload using values.
-    localparam [2:0] RELOAD_INIT   = 3'd0;
-    localparam [2:0] RELOAD_LOOP1  = 3'd1;
-    localparam [2:0] RELOAD_LOOP2  = 3'd2;
-    localparam [2:0] RELOAD_FINAL1 = 3'd3;
-    localparam [2:0] RELOAD_FINAL2 = 3'd4;
-    localparam [2:0] RELOAD_FINAL3 = 3'd5;
-    localparam [2:0] RELOAD_FINAL4 = 3'd6;
-    reg [2:0] reloadState = RELOAD_INIT;
-    reg [31:0] s0, s1, p0, p2, pM, reloadResult;
-    // Random using values.
-    localparam [2:0] RANDOM_INIT   = 3'd0;
-    localparam [2:0] RANDOM_FINAL1 = 3'd1;
-    localparam [2:0] RANDOM_FINAL2 = 3'd2;
-    localparam [2:0] RANDOM_FINAL3 = 3'd3;
-    localparam [2:0] RANDOM_FINAL4 = 3'd4;
-    reg [2:0] randomState = RANDOM_INIT;
-    reg [31:0] randomY;
-    
-    task toStageSeed;
+    // MT19937 vectors.
+    reg [31:0] mtVector [623:0];
+    reg [31:0] mtSave = 0, mtSaveNext;
+    reg [9:0] mti = 625, mtiNext;
+    // Shift registers.
+    reg [31:0] y1, y2, y3, y4, y5;
+    // Array memory write parameters.
+    reg [9:0] mtWritePosition;
+    reg [31:0] mtWriteData;
+    reg mtWriteEnable;
+    // Assignment round parameters.
+    reg [9:0] mtRoundAPosition = 0, mtRoundAPositionNext;
+    reg [31:0] mtRoundAData = 0;
+    reg [9:0] mtRoundBPosition = 0, mtRoundBPositionNext;
+    reg [31:0] mtRoundBData = 0;
+    reg [31:0] product = 0, productNext;
+    reg [31:0] factor1 = 0, factor1Next;
+    reg [31:0] factor2 = 0, factor2Next;
+    reg [4:0] mulCnt = 0, mulCntNext;
+    // Output data.
+    reg [31:0] outDataNext;
+    reg outDataValidNext;
+    reg outDataValid = 1'b0;
+
+    // Move to SEED STATE.
+    task toSeedState;
+        input [31:0] saveNextValue;
+        input [9:0] writePosition;
+        input [9:0] mtiNextValue;
     begin
-        // Update the seed, set the stage.
-        stageIndex <= STAGE_SEED;
-        // Initial the values for SEED stage.
-        x <= {((in_seed == 32'd0) ? in_globalTime[31:1] : in_seed[31:1]), 1'b1};
-        j <= 0;
-        left <= 0;
-        // Remove the flags.
-        flags[FLAG_INITSEED] <= 1'b0;
+        mtSaveNext = saveNextValue;
+        productNext = 0;
+        factor1Next = mtSaveNext ^ (mtSaveNext >> 30);
+        factor2Next = 32'd1812433253;
+        mulCntNext = 31;
+        mtWriteData = mtSaveNext;
+        mtWritePosition = writePosition;
+        mtWriteEnable = 1;
+        mtiNext = mtiNextValue;
+        stateNext = STATE_SEED;
     end
     endtask
+
+    task executeNext;
+        input [9:0] mtiNextValue;
+        input [9:0] mtRoundAPositionNextValue;
+        input [9:0] mtRoundBPositionNextValue;
+    begin
+        mtiNext = mtiNextValue;
+        mtRoundAPositionNext = mtRoundAPositionNextValue;
+        mtRoundBPositionNext = mtRoundBPositionNextValue;
+        mtSaveNext = mtRoundAData;
+        y1 = {mtSave[31], mtRoundAData[30:0]};
+        y2 = mtRoundBData ^ (y1 >> 1) ^ (y1[0] ? 32'h9908b0df : 32'h0);
+        y3 = y2 ^ (y2 >> 11);
+        y4 = y3 ^ ((y3 << 7) & 32'h9d2c5680);
+        y5 = y4 ^ ((y4 << 15) & 32'hefc60000);
+        outDataNext = y5 ^ (y5 >> 18);
+        outDataValidNext = 1;
+        mtWriteData = y2;
+        mtWritePosition = mti;
+        mtWriteEnable = 1;
+        stateNext = STATE_IDLE;
+    end
+    endtask
+
+    always @(*) begin
+        // Latch the next state.
+        mtSaveNext = mtSave;
+        mtiNext = mti;
+        // Reset the write data
+        mtWriteData = 0;
+        mtWritePosition = 0;
+        mtWriteEnable = 0;
+        // Execute the pipeline.
+        mtRoundAPositionNext = mtRoundAPosition;
+        mtRoundBPositionNext = mtRoundBPosition;
+        productNext = product;
+        factor1Next = factor1;
+        factor2Next = factor2;
+        mulCntNext = mulCnt;
+        outDataNext = out_data;
+        outDataValidNext = outDataValid & ~in_next;
     
+        case (state)
+            STATE_IDLE: begin
+                // Checking current state.
+                if (in_seedReady) begin
+                    // Update the state.
+                    toSeedState(((in_seed == 32'd0) ? in_globalTime : in_seed), 0, 1);
+                end else if (in_next) begin
+                    if (mti == 625) begin
+                        // Reset the seed state.
+                        toSeedState(in_globalTime, 0, 1);
+                    end else begin
+                        executeNext(((mti < 623) ? (mti + 1) : 0),
+                                    ((mtRoundAPosition < 623) ? (mtRoundAPosition + 1) : 0),
+                                    ((mtRoundBPosition < 623) ? (mtRoundBPosition + 1) : 0));
+                    end
+                end else begin
+                    // No more mission, back to idle state.
+                    stateNext = STATE_IDLE;
+                end
+            end
+            STATE_SEED: begin
+                if (mulCnt == 0) begin
+                    if (mti < 624) begin
+                        toSeedState((product + mti), mti, mti + 1);
+                        mtRoundAPositionNext = 0;
+                    end else begin
+                        // Execute next.
+                        executeNext(1, 2, 398);
+                    end
+                end else begin
+                    mulCntNext = mulCnt - 1;
+                    factor1Next = factor1 << 1;
+                    factor2Next = factor2 >> 1;
+                    if (factor2[0]) productNext = product + factor1;
+                    stateNext = STATE_SEED;
+                end
+            end
+        endcase
+    end
+
     always @(posedge in_clock) begin
+        // Check the reset signal.
         if (in_reset) begin
-            // Reset the stage.
-            stageIndex <= STAGE_NONE;
+            // Reset the parameters.
             state <= STATE_IDLE;
-            flags <= 2'd0;
-            fromReloadStage <= 1'b0;
-			// Reset the output.
-			out_busy <= `OUTPUT_INVALID;
-			out_data <= 32'd0;
+            mti <= 625;
+            mtRoundAPosition <= 0;
+            mtRoundBPosition <= 0;
+            product <= 0;
+            factor1 <= 0;
+            factor2 <= 0;
+            mulCnt <= 0;
+            out_data <= 0;
+            outDataValid <= 0;
+            out_busy <= 0;
         end else begin
             if (in_enable) begin
-                // Wait and check the state.
-                case(state)
-                    STATE_IDLE: begin
-                        // Update the flags.
-                        flags <= {in_next, in_seedReady};
-                        // Reset the stage.
-                        fromReloadStage <= 1'b0;
-                        // Check the flags.
-                        if (in_next | in_seedReady) begin
-                            // Update the state to check mission.
-                            state <= STATE_CHECKING;
-							// Being busy.
-							out_busy <= `OUTPUT_VALID;
-                        end
-                    end
-                    STATE_CHECKING: begin
-                        // Check the flags.
-                        if (flags[FLAG_INITSEED]) begin
-                            // Update the state to busy.
-                            state <= STATE_BUSY;
-                            // Work as seed.
-                            toStageSeed();
-                        end else begin
-							// Check the next flag.
-                            if (flags[FLAG_NEXT]) begin
-                                // Update the stage to busy.
-                                state <= STATE_BUSY;
-                                // Work as random.
-                                stageIndex <= STAGE_RANDOM;
-                            end else begin
-								// Nothing need to do anymore, back to IDLE state.
-								state <= STATE_IDLE;
-								// No more busy.
-								out_busy <= `OUTPUT_INVALID;
-							end
-						end
-                    end
-                    STATE_BUSY: begin
-                        case (stageIndex)
-                            STAGE_NONE: begin
-                                // Reset the from reload flag.
-                                fromReloadStage <= 1'b0;
-                                fromRandomStage <= 1'b0;
-                                // Back to CHECKING stage.
-                                state <= STATE_CHECKING;
-                            end
-                            STAGE_SEED: begin
-                                if (j == N) begin
-                                    // Set the value to the vector.
-                                    vecState[j] <= x;
-                                    // Check the flag of the reload.
-                                    stageIndex <= fromReloadStage ? STAGE_RELOAD : STAGE_NONE;
-									// Clear the seed initial flag.
-									flags[FLAG_INITSEED] <= 1'b0;
-                                end else begin
-                                    // Set the value for all the vector state.
-                                    vecState[j] <= x;
-                                    // Update x.
-                                    x <= x * A;
-                                    // Increase the j.
-                                    j <= j + 1;
-                                end
-                            end
-                            STAGE_RELOAD: begin
-                                // Set the from reload flag.
-                                fromReloadStage <= 1'b1;
-                                // Check the left.
-                                if (left < -1) begin
-                                    // Move to stage seed.
-                                    toStageSeed();
-                                end else begin
-                                    // Executing the stage for the reload,
-                                    case (reloadState)
-                                        RELOAD_INIT  : begin
-                                            // Initial the left and next.
-                                            left <= N - 1;
-                                            nextIndex <= 1;
-                                            // Set the s0 and s1.
-                                            s0 <= vecState[0];
-                                            s1 <= vecState[1];
-                                            // Initial the parameter.
-                                            p0 <= 0;
-                                            p2 <= 2;
-                                            pM <= M;
-                                            // Initial the loop.
-                                            j <= N - M + 1;
-                                            // Start the loop.
-                                            reloadState <= RELOAD_LOOP1;
-                                        end
-                                        RELOAD_LOOP1 : begin
-                                            // Check j value.
-                                            if (j>1) begin
-                                                // Start for the loop.
-                                                vecState[p0] <= vecState[pM] ^ {1'b0, s0[31], s1[30:1]} ^ (s1[0] ? K : 32'd0);
-                                                p0 <= p0 + 1;
-                                                pM <= pM + 1;
-                                                s0 <= s1;
-                                                s1 <= vecState[p2];
-                                                p2 <= p2 + 1;
-                                                j <= j - 1;
-                                            end else begin
-                                                // Switch the state.
-                                                reloadState <= RELOAD_LOOP2;
-                                                // Initial the pM.
-                                                pM <= 0;
-                                            end
-                                        end
-                                        RELOAD_LOOP2 : begin
-                                            if (j>1) begin
-                                                // Start for the loop.
-                                                vecState[p0] <= vecState[pM] ^ {1'b0, s0[31], s1[30:1]} ^ (s1[0] ? K : 32'd0);
-                                                p0 <= p0 + 1;
-                                                pM <= pM + 1;
-                                                s0 <= s1;
-                                                s1 <= vecState[p2];
-                                                p2 <= p2 + 1;
-                                                j <= j - 1;
-                                            end else begin
-                                                // Switch the state.
-                                                reloadState <= RELOAD_FINAL1;
-                                                // Initial the s1.
-                                                s1 <= vecState[0];
-                                                vecState[p0] <= vecState[pM] ^ {1'b0, s0[31], vecState[0][30:1]} ^ (vecState[0][0] ? K : 32'd0);
-                                            end
-                                        end
-                                        RELOAD_FINAL1: begin 
-                                            // Update the s1.
-                                            s1 <= s1 ^ (s1 >> 11);
-                                            // Switch the state.
-                                            reloadState <= RELOAD_FINAL2;
-                                        end
-                                        RELOAD_FINAL2: begin 
-                                            // Update the s1.
-                                            s1 <= s1 ^ ((s1 << 7) & 32'h9D2C5680);
-                                            // Switch the state.
-                                            reloadState <= RELOAD_FINAL3;
-                                        end
-                                        RELOAD_FINAL3: begin 
-                                            // Update the s1.
-                                            s1 <= s1 ^ ((s1 << 15) & 32'hEFC60000);
-                                            // Switch the state.
-                                            reloadState <= RELOAD_FINAL4;
-                                        end
-                                        RELOAD_FINAL4: begin
-                                            // Output reload result.
-                                            reloadResult <= (s1 ^ (s1 >> 18));
-                                            // Finish the reload state.
-                                            reloadState <= RELOAD_INIT;
-                                            // Check the coming flag.
-                                            stageIndex <= fromRandomStage ? STAGE_RANDOM : STAGE_NONE;
-                                        end
-                                    endcase
-                                end
-                            end
-                            STAGE_RANDOM: begin
-                                // Set the from random flag.
-                                fromRandomStage <= 1'b1;
-                                // Check the left data.
-                                if (left < 1) begin
-                                    // Start reload stage.
-                                    stageIndex <= STAGE_RELOAD;
-                                    // Initial the reload state.
-                                    reloadState <= RELOAD_INIT;
-                                end else begin
-                                    case (randomState)
-                                        RANDOM_INIT: begin
-                                            // Get the result from the next data.
-                                            randomY <= vecState[nextIndex];
-                                            nextIndex <= nextIndex + 1;
-                                            // Switch the state.
-                                            randomState <= RANDOM_FINAL1;
-                                        end
-                                        RANDOM_FINAL1: begin
-                                            // Update y.
-                                            randomY <= randomY ^ (randomY >> 11);
-                                            // Switch the state.
-                                            randomState <= RANDOM_FINAL2;
-                                        end
-                                        RANDOM_FINAL2: begin
-                                            // Update y.
-                                            randomY <= randomY ^ ((randomY << 7) & 32'h9D2C5680);
-                                            // Switch the state.
-                                            randomState <= RANDOM_FINAL3;
-                                        end
-                                        RANDOM_FINAL3: begin
-                                            // Update y.
-                                            randomY <= randomY ^ ((randomY << 15) & 32'hEFC60000);
-                                            // Switch the state.
-                                            randomState <= RANDOM_FINAL4;
-                                        end
-                                        RANDOM_FINAL4: begin
-                                            // Update the output data.
-                                            out_data <= randomY ^ (randomY >> 18);
-                                            // Switch the state.
-                                            randomState <= RANDOM_INIT;
-                                            stageIndex <= STAGE_NONE;
-											// Clear the next flag.
-											flags[FLAG_NEXT] <= 1'b0;
-                                        end
-                                    endcase
-                                end
-                            end
-                        endcase
-                    end
-                endcase
+                // Executing the pipeline.
+                state <= stateNext;
+    
+                mtSave = mtSaveNext;
+                mti <= mtiNext;
+    
+                mtRoundAPosition <= mtRoundAPositionNext;
+                mtRoundBPosition <= mtRoundBPositionNext;
+    
+                product <= productNext;
+                factor1 <= factor1Next;
+                factor2 <= factor2Next;
+                mulCnt <= mulCntNext;
+    
+                out_data <= outDataNext;
+                outDataValid <= outDataValidNext;
+    
+                out_busy <= stateNext != STATE_IDLE;
+    
+                if (mtWriteEnable) begin
+                    mtVector[mtWritePosition] <= mtWriteData;
+                end
+    
+                mtRoundAData <= mtVector[mtRoundAPositionNext];
+                mtRoundBData <= mtVector[mtRoundBPositionNext];
             end
         end
     end
-    
 endmodule

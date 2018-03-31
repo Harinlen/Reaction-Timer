@@ -133,7 +133,7 @@ module reactTimerCpu #(
         .TEST_DELAY_TIME(PREPARE_TEST_DELAY_TIME)
     ) statePrepareProcessor(
         .in_globalTime(in_globalTime),
-        .in_start(in_start),
+        .in_startRising(startButtonRising),
         .in_reset(in_reset),
         .in_enable(in_enable),
         .in_clock(in_clock),
