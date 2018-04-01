@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/26 21:44:53
 // Design Name: 
@@ -17,7 +18,7 @@
 // remember where I looked this before. If anyone who knows, let me add as a 
 // reference.
 // 
-// Dependencies: 
+// Dependencies: N/A
 // 
 // Revision:
 // Revision 0.01 - File Created

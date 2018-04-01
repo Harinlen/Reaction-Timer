@@ -2,6 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ENGN3213 Assignment 1 Group
 // Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/17 22:17:14
 // Design Name: Linear Congruential Generator Randomized Generator

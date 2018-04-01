@@ -2,6 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ENGN3213 Assignment 1 Group
 // Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/17 19:52:30
 // Design Name: Integer Counter Clock Divider

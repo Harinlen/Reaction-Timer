@@ -1,0 +1,7 @@
+Running: xsim.dir/TB_audioPwmModem_behav/xsimk.exe -simmode gui -wdb TB_audioPwmModem_behav.wdb -simrunnum 0 -socket 13561
+Design successfully loaded
+Design Loading Memory Usage: 6772 KB (Peak: 6772 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 15412 KB (Peak: 15412 KB)
+Simulation CPU Usage: 78 ms

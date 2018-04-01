@@ -2,6 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ENGN3213 Assignment 1 Group
 // Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/18 11:54:28
 // Design Name: LED Animation Encoder

@@ -1,17 +1,21 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/26 15:50:44
-// Design Name: 
+// Design Name: Decimal to BCD converter
 // Module Name: decimalToBcd
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
+// Description: This module uses Shift-Add algorithm to convert a 28-bit binary number
+// into a 32-bit Binary Coded Decimal (BCD) with 28 iterations, which is maximum 56 
+// clock cycle.
 // 
 // Dependencies: 
+//    - edgeDetector
 // 
 // Revision:
 // Revision 0.01 - File Created

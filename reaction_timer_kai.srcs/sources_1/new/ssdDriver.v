@@ -2,6 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ENGN3213 Assignment 1 Group
 // Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/18 14:07:57
 // Design Name: 

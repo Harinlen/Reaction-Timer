@@ -1,14 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/03/31 03:44:45
-// Design Name: 
+// Design Name: Mersenne Twister MT19937 implementation random number generator
 // Module Name: randMt19937
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
 // Description: 
 // 
 // Dependencies: 
