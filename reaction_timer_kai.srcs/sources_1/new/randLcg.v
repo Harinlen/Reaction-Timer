@@ -33,7 +33,11 @@ module randLcg(
     input wire        in_reset,
     input wire        in_enable,
     output reg [31:0] out_data = 32'd0,
-    output reg        out_busy = `OUTPUT_INVALID);
+    output wire       out_busy);
+    
+    localparam STATE_IDLE = 1'b0;
+    localparam STATE_BUSY = 1'b1;
+    reg state = STATE_IDLE;
     
     reg [31:0] seed = 32'd0;
     wire seedReadyRising, nextRising;
@@ -42,7 +46,7 @@ module randLcg(
     input [31:0] lastSeed;
     begin
         // Update the seed.
-        seed <= 32'd214013 * lastSeed + 32'd2531011;
+        seed <= 32'd214013 * lastSeed;
     end
     endtask
         
@@ -66,28 +70,43 @@ module randLcg(
         // Check reset signal.
         if (in_reset) begin
             // Reset the output signals, initialized the data.
-            out_busy <= `OUTPUT_INVALID;
             out_data <= 32'd0;
             // Update the local seed..
             seed <= 32'd0;
         end else begin
             if (in_enable) begin
-                // Check the rising edge of seed ready.
-                if (seedReadyRising) begin
-                    // Initialized the data as updated seed.
-                    updateSeed((in_seed == 32'd0) ? in_globalTime : in_seed);
-                end else begin
-                    // Check the rising edge of next seed.
-                    if (nextRising) begin
-                        //Update the seed with the last seed.
-                        updateSeed(seed);
+                case(state)
+                STATE_IDLE: begin
+                    // Check the rising edge of seed ready.
+                    if (seedReadyRising) begin
+                        // Initialized the data as updated seed.
+                        updateSeed((in_seed == 32'd0) ? in_globalTime : in_seed);
+                        // Jump to busy state.
+                        state <= STATE_BUSY;
+                    end else begin
+                        // Check the rising edge of next seed.
+                        if (nextRising) begin
+                            //Update the seed with the last seed.
+                            updateSeed((seed == 32'd0) ? in_globalTime : seed);
+                            // Jump to busy state.
+                            state <= STATE_BUSY;
+                        end
                     end
                 end
+                STATE_BUSY: begin
+                    // Complete the calculation..
+                    seed <= seed + 32'd2531011;
+                    // Jump the state back to idle.
+                    state = STATE_IDLE;
+                end
+                endcase                
             end
             // Refresh output data at each clock cycle.
             // Seed is the number we need to output.
             out_data <= seed; 
         end
     end
+    
+    assign out_busy = (state == STATE_IDLE);
     
 endmodule

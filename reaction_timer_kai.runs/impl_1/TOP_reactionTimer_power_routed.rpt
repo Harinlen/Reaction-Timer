@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Sat Mar 31 11:47:08 2018
+| Date             : Sat Mar 31 12:16:37 2018
 | Host             : DESKTOP-SAKI running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_reactionTimer_power_routed.rpt -pb TOP_reactionTimer_power_summary_routed.pb -rpx TOP_reactionTimer_power_routed.rpx
 | Design           : TOP_reactionTimer
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.146        |
+| Total On-Chip Power (W)  | 0.147        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.049        |
+| Dynamic (W)              | 0.050        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.3         |
@@ -52,19 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.005 |        3 |       --- |             --- |
-| Slice Logic    |     0.005 |     2819 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1226 |     63400 |            1.93 |
-|   CARRY4       |    <0.001 |      197 |     15850 |            1.24 |
-|   Register     |    <0.001 |     1054 |    126800 |            0.83 |
-|   F7/F8 Muxes  |    <0.001 |        5 |     63400 |           <0.01 |
+| Clocks         |     0.006 |        3 |       --- |             --- |
+| Slice Logic    |     0.005 |     2579 |       --- |             --- |
+|   LUT as Logic |     0.004 |     1059 |     63400 |            1.67 |
+|   CARRY4       |    <0.001 |      139 |     15850 |            0.88 |
+|   Register     |    <0.001 |     1047 |    126800 |            0.83 |
+|   F7/F8 Muxes  |    <0.001 |        4 |     63400 |           <0.01 |
 |   Others       |     0.000 |       46 |       --- |             --- |
-| Signals        |     0.005 |     2260 |       --- |             --- |
+| Signals        |     0.005 |     2033 |       --- |             --- |
 | Block RAM      |     0.004 |        2 |       135 |            1.48 |
 | DSPs           |     0.002 |        2 |       240 |            0.83 |
-| I/O            |     0.028 |       41 |       210 |           19.52 |
+| I/O            |     0.029 |       41 |       210 |           19.52 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.146 |          |           |                 |
+| Total          |     0.147 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -143,11 +143,11 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| TOP_reactionTimer                  |     0.049 |
+| TOP_reactionTimer                  |     0.050 |
 |   clock1kHz                        |    <0.001 |
 |   clockEdge1kHz                    |    <0.001 |
 |   globalTimer                      |    <0.001 |
-|   reactionTimerProcessor           |     0.019 |
+|   reactionTimerProcessor           |     0.020 |
 |     prepareBusyDetector            |    <0.001 |
 |     resultBusyDetector             |    <0.001 |
 |     startButtonEdge                |    <0.001 |
@@ -156,7 +156,7 @@ Table of Contents
 |         animeClockDetector         |    <0.001 |
 |       ledAnimeClock                |    <0.001 |
 |     statePrepareProcessor          |     0.010 |
-|       gapGeneratorLcg              |     0.003 |
+|       gapGeneratorLcg              |     0.002 |
 |         nextDetector               |    <0.001 |
 |       gapGeneratorMt19937          |     0.007 |
 |       prepareAnimation             |    <0.001 |
