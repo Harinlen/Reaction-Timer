@@ -5,8 +5,8 @@
 //           Fangxiao Dong
 // 
 // Create Date: 22.03.2018 14:49:46
-// Design Name: Audio Hint Signal Output
-// Module Name: audioPwmModem
+// Design Name: 8-bit Integer PWM Modulator
+// Module Name: PwmModem
 // Project Name: Reaction Timer
 // Target Devices: Nexys4 DDR
 // Tool Versions: Vivado HLx 2017.4
@@ -23,15 +23,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module audioPwmModem #(
-    parameter [7:0]  PLAYING_CLOCK_THRESHOLD = 221 
+module PwmModem #(
+    parameter [7:0]  COUNTER_DELAY = 221 
 )(
     input wire       in_reset,
     input wire       in_enable,
     input wire       in_clock,
-    input wire [7:0] in_audioSample,
+    input wire [7:0] in_numberIn,
     output reg       out_switchSample = 1'b0,
-    output reg       out_audioPwmWave = 1'b0);
+    output reg       out_pwmWave = 1'b0);
     
     // Prepare the accumulator for the PWM signal.
     reg [7:0] accumulator = 8'd0;
@@ -46,7 +46,7 @@ module audioPwmModem #(
        lastAudioSample <= 8'd0;
        slowerCounter <= 8'b0;
        // Reset the output.
-       out_audioPwmWave <= 1'b0;
+       out_pwmWave <= 1'b0;
        out_switchSample <= 1'b0;
 	end
 	endtask
@@ -58,13 +58,13 @@ module audioPwmModem #(
         end else begin
             if (in_enable) begin
 				// First check the slower counter.
-				if (slowerCounter == PLAYING_CLOCK_THRESHOLD) begin
+				if (slowerCounter == COUNTER_DELAY) begin
 					// Check the accumulator number.
 					if (accumulator == 8'd0) begin
 						// Update for last audio sample.
-						lastAudioSample <= in_audioSample;
+						lastAudioSample <= in_numberIn;
 						// Update the pwm.
-						out_audioPwmWave <= (in_audioSample != 16'd0);
+						out_pwmWave <= (in_numberIn != 16'd0);
 						// Increase the accumulator.
 						accumulator <= accumulator + 8'd1;
 						// Update the out switch.
@@ -73,7 +73,7 @@ module audioPwmModem #(
 						// Update the accumulator.
 						accumulator <= accumulator + 8'd1;
 						// Update the pwm output.
-						out_audioPwmWave <= (accumulator < lastAudioSample);
+						out_pwmWave <= (accumulator < lastAudioSample);
 						// Update the switch simple.
                         out_switchSample <= (accumulator < 8'd128);
 					end

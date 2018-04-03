@@ -30,9 +30,9 @@ set_property ip_output_repo c:/ass1/reaction_timer_kai.cache/ip [current_project
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalConstants.v
+  C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v
-  C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioPwmModem.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v

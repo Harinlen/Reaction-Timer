@@ -76,15 +76,15 @@ module audioHintOutput #(
     
     reg pwmModemEnable = 1'b0;
     
-    audioPwmModem #(
-        .PLAYING_CLOCK_THRESHOLD(PLAYING_CLOCK_THRESHOLD) 
+    PwmModem #(
+        .COUNTER_DELAY(PLAYING_CLOCK_THRESHOLD) 
     ) audioHintPwmModem (
         .in_reset(in_reset),
         .in_enable(in_enable & pwmModemEnable),
         .in_clock(in_clock),
-        .in_audioSample(currentSample),
+        .in_numberIn(currentSample),
         .out_switchSample(increaseSampleIndex),
-        .out_audioPwmWave(out_audioPwm));
+        .out_pwmWave(out_audioPwm));
 
     always @(posedge in_clock) begin
         // Check reset state.

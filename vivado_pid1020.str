@@ -2667,3 +2667,399 @@ dismissDialog("Program Device"); // bA (cj)
 // TclEventType: HW_DEVICE_CHANGE
 // Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
 // Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 4 seconds
+dismissDialog("Program Device"); // bs (cj)
+// Elapsed time: 43 seconds
+selectCodeEditor("TOP_reactionTimer.v", 618, 147); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 455, 288); // cd (w, cj)
+selectCodeEditor("TOP_reactionTimer.v", 453, 143); // cd (w, cj)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aB, cj)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// x (cj): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (x)
+// TclEventType: HW_OBJECT_DELETE
+dismissDialog("Confirm Close"); // x (cj)
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: close_hw 
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// bs (cj):  CLose Hardware Manager : addNotify
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+dismissDialog("CLose Hardware Manager"); // bs (cj)
+selectCodeEditor("reactTimerIdleCore.v", 350, 191); // cd (w, cj)
+selectCodeEditor("reactTimerIdleCore.v", 343, 305); // cd (w, cj)
+selectCodeEditor("reactTimerIdleCore.v", 303, 59); // cd (w, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v)]", 17); // B (D, cj)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), testAudioOut : audioHintOutput (audioHintOutput.v)]", 23); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), testAudioOut : audioHintOutput (audioHintOutput.v), audioHintPwmModem : audioPwmModem (audioPwmModem.v)]", 26, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), testAudioOut : audioHintOutput (audioHintOutput.v), audioHintPwmModem : audioPwmModem (audioPwmModem.v)]", 26, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("audioPwmModem.v", 306, 217); // cd (w, cj)
+selectCodeEditor("audioPwmModem.v", 213, 183); // cd (w, cj)
+selectCodeEditor("audioPwmModem.v", 306, 334); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,529 MB. GUI used memory: 93 MB. Current time: 4/3/18 12:09:06 PM AEST
+// Elapsed time: 82 seconds
+typeControlKey((HResource) null, "audioPwmModem.v", 'c'); // cd (w, cj)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u (O, cj)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager]", 0); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cj): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (h, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (C, c)
+// F (c): Create Source File: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 1,532 MB. GUI used memory: 93 MB. Current time: 4/3/18 12:10:11 PM AEST
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "PwmModem"); // X (N, F)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (F)
+dismissDialog("Create Source File"); // F (c)
+selectButton("FINISH", "Finish"); // JButton (h, c)
+// 'h' command handler elapsed time: 8 seconds
+dismissDialog("Add Sources"); // c (cj)
+// Tcl Message: close [ open C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v 
+// I (cj): Define Module: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceAtoD.DefineModulesDialog_YOU_HAVE_MADE_CHANGES_TO_MODULE_Yes", "Yes"); // JButton (A, H)
+dismissDialog("Define Module"); // I (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PwmModem (PwmModem.v)]", 31, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PwmModem (PwmModem.v)]", 31, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("PwmModem.v", 406, 245); // cd (w, cj)
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 185, 145); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 185, 145, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("PwmModem.v", 120, 337); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 120, 337, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("PwmModem.v", 198, 386); // cd (w, cj)
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 268, 265); // cd (w, cj)
+// Find in Files: addNotify
+selectButton(PAResourceEtoH.FindAndReplaceAllDialog_CLOSE, "Close"); // x (q)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U (q, cj)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U (q, cj)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U (q, cj)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U (q, cj)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U (q, cj)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U (q, cj)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U (q, cj)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U (q, cj)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U (q, cj)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U (q, cj)
+// [Engine Memory]: 1,536 MB (+3620kb) [01:49:51]
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aP, cj)
+selectCodeEditor("PwmModem.v", 483, 355); // cd (w, cj)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "in_audioSample"); // l (aP, cj)
+selectCodeEditor("PwmModem.v", 201, 114); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 201, 114, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 41 seconds
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("PwmModem.v", 371, 271); // cd (w, cj)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("PwmModem.v", 371, 271, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 360, 185); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 374, 195); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 374, 195, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("PwmModem.v", 214, 242); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 214, 242, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("PwmModem.v", 191, 135); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 191, 135, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("PwmModem.v", 201, 142); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 201, 142, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("PwmModem.v", 109, 400); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 109, 400, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 255, 349); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 255, 349, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("PwmModem.v", 242, 140); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 242, 140, false, false, false, false, true); // cd (w, cj) - Double Click
+// TclEventType: DG_ANALYSIS_MSG_RESET
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("PwmModem.v", 439, 212); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 525, 212); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 502, 252); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 143, 142); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 143, 142, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("PwmModem.v", 147, 126); // cd (w, cj)
+// Elapsed time: 14 seconds
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 10 seconds
+selectCodeEditor("PwmModem.v", 279, 247); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 75, 232); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 75, 232, false, false, false, false, true); // cd (w, cj) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioPwmModem.v", 5); // k (j, cj)
+selectCodeEditor("audioPwmModem.v", 281, 195); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 242, 253); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 242, 253, false, false, false, false, true); // cd (w, cj) - Double Click
+// Elapsed time: 17 seconds
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 354, 246); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 354, 246, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), testAudioOut : audioHintOutput (audioHintOutput.v)]", 23, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_reactionTimer (TOP_reactionTimer.v), reactionTimerProcessor : reactTimerCpu (reactTimerCpu.v), stateTestProcessor : reactTimerTestCore (reactTimerTestCore.v), testAudioOut : audioHintOutput (audioHintOutput.v)]", 23, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 85, 280); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 85, 280, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectCodeEditor("audioHintOutput.v", 417, 274); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 75, 179); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 75, 179, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "audioHintOutput.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 196, 295); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 196, 295, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectCodeEditor("audioHintOutput.v", 160, 191); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 160, 191, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "audioHintOutput.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 182, 385); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 182, 385, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectCodeEditor("audioHintOutput.v", 128, 277); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 128, 277, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "audioHintOutput.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 191, 414); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 191, 414, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectCodeEditor("audioHintOutput.v", 123, 317); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 123, 317, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "audioHintOutput.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectCodeEditor("audioHintOutput.v", 304, 290); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, TB_audioPwmModem (TB_audioPwmModem.v)]", 42, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, TB_audioPwmModem (TB_audioPwmModem.v)]", 42, true); // B (D, cj) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, TB_audioPwmModem (TB_audioPwmModem.v)]", 42, true, false, false, false, false, true); // B (D, cj) - Double Click - Node
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 72, 281); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 72, 281, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TB_audioPwmModem.v", 8); // k (j, cj)
+selectCodeEditor("TB_audioPwmModem.v", 87, 283); // cd (w, cj)
+selectCodeEditor("TB_audioPwmModem.v", 87, 283, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "TB_audioPwmModem.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioHintOutput.v", 7); // k (j, cj)
+selectCodeEditor("audioHintOutput.v", 118, 199); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 118, 199, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("audioHintOutput.v", 196, 189); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 196, 189, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("audioHintOutput.v", 117, 191); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 117, 191, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("audioHintOutput.v", 185, 188); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 185, 188, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("audioHintOutput.v", 123, 198); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 123, 198, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "audioHintOutput.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TB_audioPwmModem.v", 8); // k (j, cj)
+selectCodeEditor("TB_audioPwmModem.v", 116, 289); // cd (w, cj)
+selectCodeEditor("TB_audioPwmModem.v", 116, 289, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "TB_audioPwmModem.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 169, 378); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 169, 378, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TB_audioPwmModem.v", 8); // k (j, cj)
+selectCodeEditor("TB_audioPwmModem.v", 120, 376); // cd (w, cj)
+selectCodeEditor("TB_audioPwmModem.v", 120, 376, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "TB_audioPwmModem.v", 'v'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectCodeEditor("PwmModem.v", 193, 422); // cd (w, cj)
+selectCodeEditor("PwmModem.v", 193, 422, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "PwmModem.v", 'c'); // cd (w, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TB_audioPwmModem.v", 8); // k (j, cj)
+selectCodeEditor("TB_audioPwmModem.v", 137, 397); // cd (w, cj)
+selectCodeEditor("TB_audioPwmModem.v", 137, 397, false, false, false, false, true); // cd (w, cj) - Double Click
+typeControlKey((HResource) null, "TB_audioPwmModem.v", 'v'); // cd (w, cj)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PwmModem.v", 6); // k (j, cj)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "audioPwmModem.v", 5); // k (j, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audioPwmModem (audioPwmModem.v)]", 28, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, audioPwmModem (audioPwmModem.v)]", 28, false, false, false, false, true, false); // B (D, cj) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Z (ai, cj)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Z (ai, cj)
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ac (ai, cj)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// as (cj): Remove Sources: addNotify
+selectCheckBox(PAResourceQtoS.RemoveSourcesDialog_ALSO_DELETE, "Also delete the project local file/directory from disk", true); // g (N, as): TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (as)
+dismissDialog("Remove Sources"); // as (cj)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioPwmModem.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// as (cj): Remove Sources: addNotify
+// bs (as):  Remove Sources : addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioPwmModem.v 
+// Tcl Message: file delete -force C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioPwmModem.v 
+dismissDialog("Remove Sources"); // bs (as)
+selectCodeEditor("PwmModem.v", 848, 113); // cd (w, cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u (O, cj)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x (cj): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (x)
+// bs (cj):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x (cj)
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (cj): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cj)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// Tcl Message: [Tue Apr  3 12:15:03 2018] Launched synth_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/synth_1/runme.log [Tue Apr  3 12:15:03 2018] Launched impl_1... Run output will be captured here: C:/ass1/reaction_timer_kai.runs/impl_1/runme.log 
+selectCodeEditor("audioHintOutput.v", 450, 335); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 471, 385); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 473, 357); // cd (w, cj)
+selectCodeEditor("audioHintOutput.v", 406, 138); // cd (w, cj)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah (cj): Bitstream Generation Completed: addNotify
+// Elapsed time: 722 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// bs (cj):  Open Hardware Manager : addNotify
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Open Hardware Manager"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (cZ, cj)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac (ai, cj)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs (cj):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.4   **** Build date : Dec 15 2017-21:08:27     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E60AA 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bs (cj)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (cZ, cj)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bA (cj): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (bA)
+// bs (cj):  Program Device : addNotify
+dismissDialog("Program Device"); // bA (cj)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a100t_0] 

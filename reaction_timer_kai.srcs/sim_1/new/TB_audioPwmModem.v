@@ -26,14 +26,14 @@ module TB_audioPwmModem;
     reg [7:0] sampleInput = 8'd65;
     wire pwmWave;
 
-    audioPwmModem #(
-        .PLAYING_CLOCK_THRESHOLD(2)
+    PwmModem #(
+        .COUNTER_DELAY(2)
     ) UUT (
         .in_reset(1'b0),
         .in_enable(1'b1),
         .in_clock(clock),
-        .in_audioSample(sampleInput),
-        .out_audioPwmWave(pwmWave)
+        .in_numberIn(sampleInput),
+        .out_pwmWave(pwmWave)
     );
     
     always begin
