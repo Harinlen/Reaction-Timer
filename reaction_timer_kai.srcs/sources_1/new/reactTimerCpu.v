@@ -95,6 +95,7 @@ module reactTimerCpu #(
     wire [27:0] reactionTime;
     wire reactionTimeValid, reactionTimeout;
     wire [27:0] recordTime;
+    wire bestLevelRPwm, bestLevelGPwm, bestLevelBPwm;
     wire [31:0] idleSsdOutput;
     wire [7:0] idleSsdDots;
     wire [15:0] idleLeds;
@@ -127,6 +128,9 @@ module reactTimerCpu #(
         .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
+        .out_bestLevelRPwm(bestLevelRPwm), 
+        .out_bestLevelGPwm(bestLevelGPwm), 
+        .out_bestLevelBPwm(bestLevelBPwm),
         .out_bestTime(recordTime),
         .out_leds(idleLeds),
         .out_ssdOutput(idleSsdOutput),
@@ -228,6 +232,7 @@ module reactTimerCpu #(
             out_audioSd <= 1'b0;
             out_audioPwm <= 1'b0;
             // Reset the tri-color led output.
+            out_triColorLeft <= 3'd0;
             out_triColorRight <= 3'd0;
             // Reset the state signals.
             idleClearBest <= 0;
@@ -248,6 +253,9 @@ module reactTimerCpu #(
                             testOutput <= {in_audioEnable, ((~in_audioEnable) | in_ledEnable)};
                             // Disable the idle clear best.
                             idleClearBest <= 1'b0;
+                            // Clear the left and right tri-color output.
+                            out_triColorLeft <= 3'd0;
+                            out_triColorRight <= 3'd0;
                         end else begin
                             // Ports the result of idle module to the result.
                             // Output the LED signal.
@@ -255,9 +263,12 @@ module reactTimerCpu #(
                             // Output the SSD data.
                             out_ssdOutput <= idleSsdOutput;
                             out_ssdDots <= idleSsdDots;
+                            // Update the idle clear best signal.
+                            idleClearBest <= in_clearBest;
+                            // Update the left tri-color LED.
+                            out_triColorLeft <= {bestLevelRPwm, bestLevelGPwm, bestLevelBPwm};
+                            out_triColorRight <= 3'd0;
                         end
-                        // Update the idle clear best signal.
-                        idleClearBest <= in_clearBest;
                         // Clear the animation reset to 0.
                         idleAnimeReset <= 0;
                         // Reset the audio output.
@@ -313,7 +324,8 @@ module reactTimerCpu #(
                             // Reset the tri-color led output.
                             out_triColorRight <= 3'd0;
                         end else begin
-                            // Output the current tri-color LED result.
+                            // Output the current tri-color LED result with the best result.
+                            out_triColorLeft <= {bestLevelRPwm, bestLevelGPwm, bestLevelBPwm};
                             out_triColorRight <= {resultLevelRPwm, resultLevelGPwm, resultLevelBPwm};
                             // Output the result SSD data to ports.
                             out_ssdOutput <= resultNumberOut;

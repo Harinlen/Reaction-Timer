@@ -30,7 +30,8 @@
 `include "globalConstants.v"
 
 module reactTimerIdleCore #(
-    parameter integer ANIMATION_THRESHOLD = 12_500_000
+    parameter integer ANIMATION_THRESHOLD = 12_500_000,
+    parameter integer BEST_RESULT_PWM_DELAY = 0
 )(
     input wire [27:0]  in_reactionTime,
     input wire [31:0]  in_reactionSsd,
@@ -41,12 +42,47 @@ module reactTimerIdleCore #(
     input wire         in_clock,
     input wire         in_reset,
     input wire         in_enable,
+    output wire        out_bestLevelRPwm, 
+    output wire        out_bestLevelGPwm, 
+    output wire        out_bestLevelBPwm,
     output reg [27:0]  out_bestTime = 28'd0,
     output wire [15:0] out_leds,
     output wire [31:0] out_ssdOutput,
     output wire [7:0]  out_ssdDots);
     
     reg [31:0] bestTimeDigits = 32'd0;
+    wire [7:0] resultLevel;
+    reg [7:0] bestResultLevelR = 8'd0, bestResultLevelG = 8'd0, bestResultLevelB = 8'd0;
+    assign resultLevel = in_reactionTime[27:20];
+    
+    // Result level PWM Modem
+    // Red
+    PwmModem #(
+        .COUNTER_DELAY(BEST_RESULT_PWM_DELAY) 
+    ) resultLevelRPwmModem (
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_clock(in_clock),
+        .in_numberIn(bestResultLevelR),
+        .out_pwmWave(out_bestLevelRPwm));
+    // Green
+    PwmModem #(
+        .COUNTER_DELAY(BEST_RESULT_PWM_DELAY) 
+    ) resultLevelGPwmModem (
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_clock(in_clock),
+        .in_numberIn(bestResultLevelG),
+        .out_pwmWave(out_bestLevelGPwm));
+    // Blue
+    PwmModem #(
+        .COUNTER_DELAY(BEST_RESULT_PWM_DELAY) 
+    ) resultLevelBPwmModem (
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_clock(in_clock),
+        .in_numberIn(bestResultLevelB),
+        .out_pwmWave(out_bestLevelBPwm));
     
     // Best reaction time.
     always @(posedge in_clock) begin
@@ -58,6 +94,10 @@ module reactTimerIdleCore #(
                     // Reset the best time and best time digits.
                     out_bestTime <= 28'd0;
                     bestTimeDigits <= 32'd0;
+                    // Reset the RGB.
+                    bestResultLevelR <= 8'd0;
+                    bestResultLevelG <= 8'd0;
+                    bestResultLevelB <= 8'd0;
                 end
                 // We need to compare the input time as the best time.
                 if (in_reactionTimeValid) begin
@@ -66,6 +106,12 @@ module reactTimerIdleCore #(
                         // New records saved.
                         out_bestTime <= in_reactionTime;
                         bestTimeDigits <= in_reactionSsd;
+                        // Update the best time RGB.
+                        if (~in_reactionTimeout) begin
+                            bestResultLevelR <= (resultLevel < 52) ? 255 : ((resultLevel < 102) ? ((102-resultLevel)*5) : ((resultLevel < 204) ? 0 : ((resultLevel-204)*5)));
+                            bestResultLevelG <= (resultLevel < 51) ? (resultLevel * 5) : ((resultLevel < 153) ? 255 : ((resultLevel < 204) ? ((204-resultLevel)*5) : 0));
+                            bestResultLevelB <= (resultLevel < 102) ? 0 : ((resultLevel > 153) ? 255 : ((resultLevel - 102) * 5));
+                        end
                     end
                 end
             end

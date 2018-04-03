@@ -19,13 +19,13 @@ set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports in_clearBest
 
 # Tri-color LED outputs
 # Left LD17
-set_property -dict {PACKAGE_PIN N16 IOSTANDARD LVCMOS33} [get_ports out_triColorLedLeft[ 0]]
-set_property -dict {PACKAGE_PIN R11 IOSTANDARD LVCMOS33} [get_ports out_triColorLedLeft[ 1]]
-set_property -dict {PACKAGE_PIN G14 IOSTANDARD LVCMOS33} [get_ports out_triColorLedLeft[ 2]]
+set_property -dict {PACKAGE_PIN N16 IOSTANDARD LVCMOS33} [get_ports out_triColorLedLeft[2]]
+set_property -dict {PACKAGE_PIN R11 IOSTANDARD LVCMOS33} [get_ports out_triColorLedLeft[1]]
+set_property -dict {PACKAGE_PIN G14 IOSTANDARD LVCMOS33} [get_ports out_triColorLedLeft[0]]
 # Right LD16
-set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports out_triColorLedRight[ 0]]
-set_property -dict {PACKAGE_PIN M16 IOSTANDARD LVCMOS33} [get_ports out_triColorLedRight[ 1]]
-set_property -dict {PACKAGE_PIN R12 IOSTANDARD LVCMOS33} [get_ports out_triColorLedRight[ 2]]
+set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports out_triColorLedRight[2]]
+set_property -dict {PACKAGE_PIN M16 IOSTANDARD LVCMOS33} [get_ports out_triColorLedRight[1]]
+set_property -dict {PACKAGE_PIN R12 IOSTANDARD LVCMOS33} [get_ports out_triColorLedRight[0]]
 
 # LED outputs
 set_property -dict {PACKAGE_PIN H17 IOSTANDARD LVCMOS33} [get_ports out_leds[ 0]]

@@ -63,7 +63,7 @@ module reactTimerResultCore #(
     wire testResultValidRising, flashClock, testResultDigitReady, testResultDigitReadyRising;
     
     // RGB output for level.
-    reg [7:0] resultLevelR = 8'd0, resultLevelG = 8'd0, resultLevelB = 8'd0; 
+    reg [7:0] resultLevelR = 8'd0, resultLevelG = 8'd0, resultLevelB = 8'd0;
     wire [7:0] resultLevel;
     assign resultLevel = in_testResult[27:20];
     
@@ -244,6 +244,10 @@ module reactTimerResultCore #(
                             ssdDisplayBlank();
                             // Reset the PWM enable state.
                             pwmModemEnable <= 1'b0;
+                            // Reset the current RGB.
+                            resultLevelR <= 8'd0;
+                            resultLevelG <= 8'd0;
+                            resultLevelB <= 8'd0;
                         end else begin
                             // According to different state.
                             if (in_testTimeout) begin
