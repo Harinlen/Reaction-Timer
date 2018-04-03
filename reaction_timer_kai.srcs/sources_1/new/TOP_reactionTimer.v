@@ -72,7 +72,7 @@ module TOP_reactionTimer(
         .in_enable(in_enable),
         .out_risingEdge(clock_1kHzRising));
     
-    // The start button use a normal debouncer,
+    // The start button use a normal debouncer.
     debouncer #(
         .PIPELINE_LEVEL(5)
     ) startButtonDebouncer (
@@ -112,7 +112,7 @@ module TOP_reactionTimer(
          .out_audioPwm(out_audioPwm),
          .out_audioSd(out_audioSd));
     
-    // 7-segments digit panel output
+    // 7-segments digit panel output.
     ssdDriver ssdDisplayOutput(
         .in_digit7(ssdOutput[31:28]),
         .in_digit6(ssdOutput[27:24]),
