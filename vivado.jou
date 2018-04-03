@@ -136,3 +136,4 @@ set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
 set_property PROGRAM.FILE {C:/ass1/reaction_timer_kai.runs/impl_1/TOP_reactionTimer.bit} [get_hw_devices xc7a100t_0]
 program_hw_devices [get_hw_devices xc7a100t_0]
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_simulation -simset sim_1 -mode behavioral

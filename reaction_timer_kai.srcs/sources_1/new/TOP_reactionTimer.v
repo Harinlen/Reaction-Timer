@@ -35,6 +35,7 @@ module TOP_reactionTimer(
     input wire         in_enable,
     input wire         in_startButton,
     input wire         in_testButton,
+    input wire         in_clearBestButton,
     input wire         in_ledDisable,
     input wire         in_audioDisable,
     output wire [15:0] out_leds,
@@ -44,7 +45,7 @@ module TOP_reactionTimer(
     output wire        out_audioPwm);
     
     wire [31:0] globalTimerCounter;
-    wire debouncedTestButton, debouncedStartButton, clock_1kHz;
+    wire debouncedTestButton, debouncedStartButton, debouncedClearBestButton, clock_1kHz;
     wire [27:0] displayNumber;
     wire [7:0] digitEnable; 
     wire [7:0] displayDots;
@@ -83,6 +84,17 @@ module TOP_reactionTimer(
         .out_buttonOut(debouncedStartButton)
     );
     
+    // The same as the clear best button.
+    debouncer #(
+        .PIPELINE_LEVEL(5)
+    ) clearBestButtonDebouncer (
+        .in_clock(in_100MHzClock),
+        .in_enable(clock_1kHz),
+        .in_reset(in_reset),
+        .in_buttonIn(in_clearBestButton),
+        .out_buttonOut(debouncedClearBestButton)
+    );
+    
     // The test button signal goes directly into the latch debouncer.
     latchDebouncer #(
         .INTERVAL(100_000)
@@ -104,6 +116,7 @@ module TOP_reactionTimer(
          .in_enable(in_enable),
          .in_start(debouncedStartButton),
          .in_test(debouncedTestButton),
+         .in_clearBest(debouncedClearBestButton),
          .in_audioEnable(~in_audioDisable),
          .in_ledEnable(~in_ledDisable),
          .out_leds(out_leds),

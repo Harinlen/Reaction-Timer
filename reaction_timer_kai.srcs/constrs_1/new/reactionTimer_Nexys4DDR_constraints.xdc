@@ -12,9 +12,10 @@ set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports in_audioDisa
 set_property -dict { PACKAGE_PIN A11 IOSTANDARD LVCMOS33 } [get_ports out_audioPwm];
 set_property -dict { PACKAGE_PIN D12 IOSTANDARD LVCMOS33 } [get_ports out_audioSd];
 
-# Start and test button
+# Buttons
 set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports in_startButton]
 set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports in_testButton]
+set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports in_clearBestButton]
 
 # LED outputs
 set_property -dict {PACKAGE_PIN H17 IOSTANDARD LVCMOS33} [get_ports out_leds[ 0]]

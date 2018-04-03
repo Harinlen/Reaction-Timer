@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr  3 11:49:55 2018
+| Date         : Tue Apr  3 12:06:22 2018
 | Host         : r103pc04 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file TOP_reactionTimer_timing_summary_routed.rpt -rpx TOP_reactionTimer_timing_summary_routed.rpx -warn_on_violation
 | Design       : TOP_reactionTimer
@@ -74,7 +74,7 @@ Table of Contents
 
 5. checking no_input_delay
 --------------------------
- There are 6 input ports with no input delay specified. (HIGH)
+ There are 7 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.649        0.000                      0                 2168        0.017        0.000                      0                 2168        4.500        0.000                       0                  1054  
+      0.834        0.000                      0                 2243        0.063        0.000                      0                 2243        4.500        0.000                       0                  1061  
 
 
 All user specified timing constraints are met.
@@ -149,7 +149,7 @@ CLK100MHZ  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-CLK100MHZ           0.649        0.000                      0                 2168        0.017        0.000                      0                 2168        4.500        0.000                       0                  1054  
+CLK100MHZ           0.834        0.000                      0                 2243        0.063        0.000                      0                 2243        4.500        0.000                       0                  1061  
 
 
 ------------------------------------------------------------------------------------------------
@@ -180,291 +180,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  CLK100MHZ
   To Clock:  CLK100MHZ
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.649ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.017ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.834ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.063ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.649ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[9]
-                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.915ns  (logic 6.258ns (70.194%)  route 2.657ns (29.806%))
-  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
-    Clock Pessimism Removal (CPR):    0.267ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[9])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[9]
-                         net (fo=1, routed)           0.779    13.651    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_96
-    SLICE_X12Y44         LUT5 (Prop_lut5_I3_O)        0.124    13.775 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_6/O
-                         net (fo=2, routed)           0.563    14.338    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_6_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[9]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000    10.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
-                         clock pessimism              0.267    15.472    
-                         clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[9])
-                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
-  -------------------------------------------------------------------
-                         required time                         14.987    
-                         arrival time                         -14.338    
-  -------------------------------------------------------------------
-                         slack                                  0.649    
-
-Slack (MET) :             0.736ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[3]
-                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.828ns  (logic 6.258ns (70.891%)  route 2.570ns (29.109%))
-  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
-    Clock Pessimism Removal (CPR):    0.267ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[3])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[3]
-                         net (fo=1, routed)           0.637    13.509    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_102
-    SLICE_X12Y41         LUT5 (Prop_lut5_I3_O)        0.124    13.633 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_12/O
-                         net (fo=2, routed)           0.617    14.250    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_12_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[3]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000    10.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
-                         clock pessimism              0.267    15.472    
-                         clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[3])
-                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
-  -------------------------------------------------------------------
-                         required time                         14.987    
-                         arrival time                         -14.250    
-  -------------------------------------------------------------------
-                         slack                                  0.736    
-
-Slack (MET) :             0.739ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[2]
-                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.825ns  (logic 6.258ns (70.914%)  route 2.567ns (29.086%))
-  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
-    Clock Pessimism Removal (CPR):    0.267ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[2])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[2]
-                         net (fo=1, routed)           0.660    13.532    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_103
-    SLICE_X13Y40         LUT5 (Prop_lut5_I3_O)        0.124    13.656 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_13/O
-                         net (fo=2, routed)           0.591    14.247    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_13_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[2]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000    10.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
-                         clock pessimism              0.267    15.472    
-                         clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[2])
-                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
-  -------------------------------------------------------------------
-                         required time                         14.987    
-                         arrival time                         -14.247    
-  -------------------------------------------------------------------
-                         slack                                  0.739    
-
-Slack (MET) :             0.757ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[6]
-                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.807ns  (logic 6.258ns (71.056%)  route 2.549ns (28.944%))
-  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
-    Clock Pessimism Removal (CPR):    0.267ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[6])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[6]
-                         net (fo=1, routed)           0.632    13.504    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_99
-    SLICE_X12Y41         LUT5 (Prop_lut5_I3_O)        0.124    13.628 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_9/O
-                         net (fo=2, routed)           0.601    14.230    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_9_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[6]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000    10.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
-                         clock pessimism              0.267    15.472    
-                         clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[6])
-                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
-  -------------------------------------------------------------------
-                         required time                         14.987    
-                         arrival time                         -14.230    
-  -------------------------------------------------------------------
-                         slack                                  0.757    
-
-Slack (MET) :             0.780ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+Slack (MET) :             0.834ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[11]
                             (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.784ns  (logic 6.258ns (71.244%)  route 2.526ns (28.756%))
+  Data Path Delay:        8.732ns  (logic 6.320ns (72.381%)  route 2.412ns (27.619%))
   Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
+    Source Clock Delay      (SCD):    5.422ns
     Clock Pessimism Removal (CPR):    0.267ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -481,21 +217,21 @@ Slack (MET) :             0.780ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
     DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[11])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[11]
-                         net (fo=1, routed)           0.645    13.517    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_94
-    SLICE_X13Y42         LUT5 (Prop_lut5_I3_O)        0.124    13.641 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_4/O
-                         net (fo=2, routed)           0.566    14.207    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_4_n_0
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[11]
+                         net (fo=1, routed)           0.628    13.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_94
+    SLICE_X10Y42         LUT5 (Prop_lut5_I2_O)        0.124    13.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_4/O
+                         net (fo=2, routed)           0.578    14.153    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_4_n_0
     DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[11]
   -------------------------------------------------------------------    -------------------
 
@@ -506,7 +242,7 @@ Slack (MET) :             0.780ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
     DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
                          clock pessimism              0.267    15.472    
                          clock uncertainty           -0.035    15.437    
@@ -514,23 +250,23 @@ Slack (MET) :             0.780ns  (required time - arrival time)
                                                      -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
   -------------------------------------------------------------------
                          required time                         14.987    
-                         arrival time                         -14.207    
+                         arrival time                         -14.153    
   -------------------------------------------------------------------
-                         slack                                  0.780    
+                         slack                                  0.834    
 
-Slack (MET) :             0.795ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+Slack (MET) :             0.875ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[13]
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[14]
                             (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.769ns  (logic 6.258ns (71.362%)  route 2.511ns (28.638%))
+  Data Path Delay:        8.690ns  (logic 6.320ns (72.727%)  route 2.370ns (27.273%))
   Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
+    Source Clock Delay      (SCD):    5.422ns
     Clock Pessimism Removal (CPR):    0.267ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -547,22 +283,22 @@ Slack (MET) :             0.795ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[13])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[13]
-                         net (fo=1, routed)           0.626    13.498    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_92
-    SLICE_X12Y43         LUT5 (Prop_lut5_I3_O)        0.124    13.622 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_2/O
-                         net (fo=2, routed)           0.570    14.192    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_2_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[13]
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[14])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[14]
+                         net (fo=1, routed)           0.775    13.598    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_91
+    SLICE_X11Y42         LUT5 (Prop_lut5_I2_O)        0.124    13.722 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_1/O
+                         net (fo=2, routed)           0.390    14.112    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_1_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[14]
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -572,31 +308,31 @@ Slack (MET) :             0.795ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
     DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
                          clock pessimism              0.267    15.472    
                          clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[13])
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[14])
                                                      -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
   -------------------------------------------------------------------
                          required time                         14.987    
-                         arrival time                         -14.192    
+                         arrival time                         -14.112    
   -------------------------------------------------------------------
-                         slack                                  0.795    
+                         slack                                  0.875    
 
-Slack (MET) :             0.807ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+Slack (MET) :             0.919ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[8]
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[5]
                             (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.757ns  (logic 6.258ns (71.463%)  route 2.499ns (28.537%))
+  Data Path Delay:        8.646ns  (logic 6.320ns (73.095%)  route 2.326ns (26.905%))
   Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
+    Source Clock Delay      (SCD):    5.422ns
     Clock Pessimism Removal (CPR):    0.267ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -613,88 +349,22 @@ Slack (MET) :             0.807ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[8])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[8]
-                         net (fo=1, routed)           0.610    13.482    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_97
-    SLICE_X10Y42         LUT5 (Prop_lut5_I3_O)        0.124    13.606 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_7/O
-                         net (fo=2, routed)           0.573    14.180    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_7_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[8]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000    10.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
-                         clock pessimism              0.267    15.472    
-                         clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[8])
-                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
-  -------------------------------------------------------------------
-                         required time                         14.987    
-                         arrival time                         -14.180    
-  -------------------------------------------------------------------
-                         slack                                  0.807    
-
-Slack (MET) :             0.921ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[4]
-                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.643ns  (logic 6.258ns (72.404%)  route 2.385ns (27.596%))
-  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
-    Clock Pessimism Removal (CPR):    0.267ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[4]
-                         net (fo=1, routed)           0.656    13.528    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_101
-    SLICE_X12Y42         LUT5 (Prop_lut5_I3_O)        0.124    13.652 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_11/O
-                         net (fo=2, routed)           0.414    14.066    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_11_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[4]
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[5])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[5]
+                         net (fo=1, routed)           0.603    13.426    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_100
+    SLICE_X11Y42         LUT5 (Prop_lut5_I2_O)        0.124    13.550 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_10/O
+                         net (fo=2, routed)           0.518    14.068    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_10_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[5]
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -704,97 +374,31 @@ Slack (MET) :             0.921ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
     DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
                          clock pessimism              0.267    15.472    
                          clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[4])
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[5])
                                                      -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
   -------------------------------------------------------------------
                          required time                         14.987    
-                         arrival time                         -14.066    
+                         arrival time                         -14.068    
   -------------------------------------------------------------------
-                         slack                                  0.921    
+                         slack                                  0.919    
 
-Slack (MET) :             0.924ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[0]
-                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.640ns  (logic 6.258ns (72.427%)  route 2.382ns (27.573%))
-  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
-    Clock Pessimism Removal (CPR):    0.267ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
-    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[0]
-                         net (fo=1, routed)           0.512    13.384    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_105
-    SLICE_X12Y40         LUT5 (Prop_lut5_I3_O)        0.124    13.508 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_15/O
-                         net (fo=2, routed)           0.555    14.063    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_15_n_0
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[0]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000    10.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
-                         clock pessimism              0.267    15.472    
-                         clock uncertainty           -0.035    15.437    
-    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[0])
-                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
-  -------------------------------------------------------------------
-                         required time                         14.987    
-                         arrival time                         -14.063    
-  -------------------------------------------------------------------
-                         slack                                  0.924    
-
-Slack (MET) :             0.924ns  (required time - arrival time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+Slack (MET) :             0.983ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[7]
                             (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        8.640ns  (logic 6.258ns (72.427%)  route 2.382ns (27.573%))
+  Data Path Delay:        8.582ns  (logic 6.320ns (73.645%)  route 2.262ns (26.355%))
   Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
-  Clock Path Skew:        0.050ns (DCD - SCD + CPR)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.423ns
+    Source Clock Delay      (SCD):    5.422ns
     Clock Pessimism Removal (CPR):    0.267ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -811,21 +415,21 @@ Slack (MET) :             0.924ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.820     5.423    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
-    SLICE_X13Y44         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X13Y44         FDRE (Prop_fdre_C_Q)         0.456     5.879 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/Q
-                         net (fo=14, routed)          0.583     6.461    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/A[3]
-    SLICE_X12Y44         LUT2 (Prop_lut2_I1_O)        0.124     6.585 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_20/O
-                         net (fo=6, routed)           0.731     7.316    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_2
-    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[6]_PCOUT[47])
-                                                      4.036    11.352 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
-                         net (fo=1, routed)           0.002    11.354    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
     DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[7])
-                                                      1.518    12.872 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[7]
-                         net (fo=1, routed)           0.680    13.552    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_98
-    SLICE_X10Y41         LUT5 (Prop_lut5_I0_O)        0.124    13.676 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_8/O
-                         net (fo=2, routed)           0.387    14.063    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_8_n_0
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[7]
+                         net (fo=1, routed)           0.477    13.301    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_98
+    SLICE_X11Y41         LUT5 (Prop_lut5_I2_O)        0.124    13.425 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_8/O
+                         net (fo=2, routed)           0.578    14.003    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_8_n_0
     DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[7]
   -------------------------------------------------------------------    -------------------
 
@@ -836,7 +440,7 @@ Slack (MET) :             0.924ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
     DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
                          clock pessimism              0.267    15.472    
                          clock uncertainty           -0.035    15.437    
@@ -844,9 +448,405 @@ Slack (MET) :             0.924ns  (required time - arrival time)
                                                      -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
   -------------------------------------------------------------------
                          required time                         14.987    
-                         arrival time                         -14.063    
+                         arrival time                         -14.003    
   -------------------------------------------------------------------
-                         slack                                  0.924    
+                         slack                                  0.983    
+
+Slack (MET) :             0.984ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[10]
+                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        8.581ns  (logic 6.320ns (73.650%)  route 2.261ns (26.350%))
+  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.422ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[10])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[10]
+                         net (fo=1, routed)           0.668    13.491    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_95
+    SLICE_X11Y42         LUT5 (Prop_lut5_I2_O)        0.124    13.615 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_5/O
+                         net (fo=2, routed)           0.387    14.003    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_5_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000    10.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
+                         clock pessimism              0.267    15.472    
+                         clock uncertainty           -0.035    15.437    
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[10])
+                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
+  -------------------------------------------------------------------
+                         required time                         14.987    
+                         arrival time                         -14.003    
+  -------------------------------------------------------------------
+                         slack                                  0.984    
+
+Slack (MET) :             0.998ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[9]
+                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        8.567ns  (logic 6.320ns (73.768%)  route 2.247ns (26.232%))
+  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.422ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[9])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[9]
+                         net (fo=1, routed)           0.626    13.450    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_96
+    SLICE_X12Y42         LUT5 (Prop_lut5_I2_O)        0.124    13.574 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_6/O
+                         net (fo=2, routed)           0.415    13.989    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_6_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[9]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000    10.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
+                         clock pessimism              0.267    15.472    
+                         clock uncertainty           -0.035    15.437    
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[9])
+                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
+  -------------------------------------------------------------------
+                         required time                         14.987    
+                         arrival time                         -13.989    
+  -------------------------------------------------------------------
+                         slack                                  0.998    
+
+Slack (MET) :             1.029ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[4]
+                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        8.536ns  (logic 6.320ns (74.037%)  route 2.216ns (25.963%))
+  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.422ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[4]
+                         net (fo=1, routed)           0.482    13.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_101
+    SLICE_X11Y41         LUT5 (Prop_lut5_I2_O)        0.124    13.430 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_11/O
+                         net (fo=2, routed)           0.528    13.958    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_11_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[4]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000    10.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
+                         clock pessimism              0.267    15.472    
+                         clock uncertainty           -0.035    15.437    
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[4])
+                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
+  -------------------------------------------------------------------
+                         required time                         14.987    
+                         arrival time                         -13.958    
+  -------------------------------------------------------------------
+                         slack                                  1.029    
+
+Slack (MET) :             1.030ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[13]
+                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        8.535ns  (logic 6.320ns (74.045%)  route 2.215ns (25.955%))
+  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.422ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[13])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[13]
+                         net (fo=1, routed)           0.481    13.305    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_92
+    SLICE_X11Y43         LUT5 (Prop_lut5_I2_O)        0.124    13.429 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_2/O
+                         net (fo=2, routed)           0.528    13.957    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_2_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[13]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000    10.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
+                         clock pessimism              0.267    15.472    
+                         clock uncertainty           -0.035    15.437    
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[13])
+                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
+  -------------------------------------------------------------------
+                         required time                         14.987    
+                         arrival time                         -13.957    
+  -------------------------------------------------------------------
+                         slack                                  1.030    
+
+Slack (MET) :             1.030ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[1]
+                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        8.535ns  (logic 6.320ns (74.048%)  route 2.215ns (25.952%))
+  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.422ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[1])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[1]
+                         net (fo=1, routed)           0.607    13.430    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_104
+    SLICE_X11Y41         LUT5 (Prop_lut5_I2_O)        0.124    13.554 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_14/O
+                         net (fo=2, routed)           0.402    13.957    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_14_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000    10.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
+                         clock pessimism              0.267    15.472    
+                         clock uncertainty           -0.035    15.437    
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[1])
+                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
+  -------------------------------------------------------------------
+                         required time                         14.987    
+                         arrival time                         -13.957    
+  -------------------------------------------------------------------
+                         slack                                  1.030    
+
+Slack (MET) :             1.046ns  (required time - arrival time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[8]
+                            (rising edge-triggered cell DSP48E1 clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        8.519ns  (logic 6.320ns (74.188%)  route 2.199ns (25.812%))
+  Logic Levels:           4  (DSP48E1=2 LUT2=1 LUT5=1)
+  Clock Path Skew:        0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.205ns = ( 15.205 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.422ns
+    Clock Pessimism Removal (CPR):    0.267ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.819     5.422    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    SLICE_X12Y42         FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.518     5.940 f  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[1]/Q
+                         net (fo=35, routed)          0.512     6.451    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg_n_0_[1]
+    SLICE_X11Y42         LUT2 (Prop_lut2_I0_O)        0.124     6.575 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/_i_19/O
+                         net (fo=4, routed)           0.692     7.268    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg_n_1
+    DSP48_X0Y16          DSP48E1 (Prop_dsp48e1_A[19]_PCOUT[47])
+                                                      4.036    11.304 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg//PCOUT[47]
+                         net (fo=1, routed)           0.002    11.306    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/PCOUT[47]
+    DSP48_X0Y17          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[8])
+                                                      1.518    12.824 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/P[8]
+                         net (fo=1, routed)           0.603    13.427    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_n_97
+    SLICE_X10Y43         LUT5 (Prop_lut5_I2_O)        0.124    13.551 r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_7/O
+                         net (fo=2, routed)           0.390    13.941    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0_i_7_n_0
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/B[8]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000    10.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        1.783    15.205    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/in_100MHzClock_IBUF_BUFG
+    DSP48_X0Y17          DSP48E1                                      r  reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0/CLK
+                         clock pessimism              0.267    15.472    
+                         clock uncertainty           -0.035    15.437    
+    DSP48_X0Y17          DSP48E1 (Setup_dsp48e1_CLK_B[8])
+                                                     -0.450    14.987    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/__0
+  -------------------------------------------------------------------
+                         required time                         14.987    
+                         arrival time                         -13.941    
+  -------------------------------------------------------------------
+                         slack                                  1.046    
 
 
 
@@ -854,18 +854,18 @@ Slack (MET) :             0.924ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.017ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[29]/C
+Slack (MET) :             0.063ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/statePrepareProcessor/prepareAnimation/clock1Hz/out_dividedClock_reg/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[29]/D
+  Destination:            reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/lastState_reg/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.233ns  (logic 0.128ns (54.912%)  route 0.105ns (45.088%))
+  Data Path Delay:        0.334ns  (logic 0.141ns (42.183%)  route 0.193ns (57.817%))
   Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
+  Clock Path Skew:        0.201ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.042ns
     Source Clock Delay      (SCD):    1.590ns
     Clock Pessimism Removal (CPR):    0.250ns
 
@@ -878,12 +878,12 @@ Slack (MET) :             0.017ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y49          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[29]/C
+                         net (fo=1062, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/prepareAnimation/clock1Hz/in_100MHzClock_IBUF_BUFG
+    SLICE_X4Y48          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/prepareAnimation/clock1Hz/out_dividedClock_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y49          FDRE (Prop_fdre_C_Q)         0.128     1.718 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[29]/Q
-                         net (fo=1, routed)           0.105     1.823    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][28]
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[29]/D
+    SLICE_X4Y48          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/statePrepareProcessor/prepareAnimation/clock1Hz/out_dividedClock_reg/Q
+                         net (fo=4, routed)           0.193     1.924    reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/animeClock
+    SLICE_X3Y53          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/lastState_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -893,28 +893,28 @@ Slack (MET) :             0.017ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[29]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X7Y50          FDRE (Hold_fdre_C_D)         0.017     1.806    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[29]
+                         net (fo=1062, routed)        0.877     2.042    reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/in_100MHzClock_IBUF_BUFG
+    SLICE_X3Y53          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/lastState_reg/C
+                         clock pessimism             -0.250     1.791    
+    SLICE_X3Y53          FDRE (Hold_fdre_C_D)         0.070     1.861    reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/lastState_reg
   -------------------------------------------------------------------
-                         required time                         -1.806    
-                         arrival time                           1.823    
+                         required time                         -1.861    
+                         arrival time                           1.924    
   -------------------------------------------------------------------
-                         slack                                  0.017    
+                         slack                                  0.063    
 
-Slack (MET) :             0.028ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[19]/C
+Slack (MET) :             0.066ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateTestProcessor/out_result_reg[19]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[19]/D
+  Destination:            reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[19]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.238ns  (logic 0.128ns (53.828%)  route 0.110ns (46.172%))
+  Data Path Delay:        0.274ns  (logic 0.128ns (46.654%)  route 0.146ns (53.346%))
   Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
+  Clock Path Skew:        0.202ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
     Source Clock Delay      (SCD):    1.590ns
     Clock Pessimism Removal (CPR):    0.250ns
 
@@ -927,12 +927,12 @@ Slack (MET) :             0.028ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y49          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[19]/C
+                         net (fo=1062, routed)        0.670     1.590    reactionTimerProcessor/stateTestProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X5Y49          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/out_result_reg[19]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y49          FDRE (Prop_fdre_C_Q)         0.128     1.718 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[19]/Q
-                         net (fo=1, routed)           0.110     1.828    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][18]
-    SLICE_X6Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[19]/D
+    SLICE_X5Y49          FDRE (Prop_fdre_C_Q)         0.128     1.718 r  reactionTimerProcessor/stateTestProcessor/out_result_reg[19]/Q
+                         net (fo=6, routed)           0.146     1.864    reactionTimerProcessor/stateIdleProcessor/out_result_reg[27][19]
+    SLICE_X2Y50          FDRE                                         r  reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[19]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -942,28 +942,79 @@ Slack (MET) :             0.028ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X6Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[19]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X6Y50          FDRE (Hold_fdre_C_D)         0.010     1.799    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[19]
+                         net (fo=1062, routed)        0.878     2.043    reactionTimerProcessor/stateIdleProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X2Y50          FDRE                                         r  reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[19]/C
+                         clock pessimism             -0.250     1.792    
+    SLICE_X2Y50          FDRE (Hold_fdre_C_D)         0.006     1.798    reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[19]
   -------------------------------------------------------------------
-                         required time                         -1.799    
-                         arrival time                           1.828    
+                         required time                         -1.798    
+                         arrival time                           1.864    
   -------------------------------------------------------------------
-                         slack                                  0.028    
+                         slack                                  0.066    
 
-Slack (MET) :             0.099ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[26]/C
+Slack (MET) :             0.090ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateTestProcessor/startDetector/lastState_reg/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[26]/D
+  Destination:            reactionTimerProcessor/stateTestProcessor/activatePulse_reg/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.361ns  (logic 0.141ns (39.026%)  route 0.220ns (60.974%))
+  Data Path Delay:        0.519ns  (logic 0.227ns (43.697%)  route 0.292ns (56.303%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.337ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.111ns
+    Source Clock Delay      (SCD):    1.523ns
+    Clock Pessimism Removal (CPR):    0.250ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        0.604     1.523    reactionTimerProcessor/stateTestProcessor/startDetector/in_100MHzClock_IBUF_BUFG
+    SLICE_X4Y52          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/startDetector/lastState_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y52          FDRE (Prop_fdre_C_Q)         0.128     1.651 f  reactionTimerProcessor/stateTestProcessor/startDetector/lastState_reg/Q
+                         net (fo=6, routed)           0.292     1.944    reactionTimerProcessor/stateTestProcessor/startDetector/lastState
+    SLICE_X4Y46          LUT6 (Prop_lut6_I2_O)        0.099     2.043 r  reactionTimerProcessor/stateTestProcessor/startDetector/activatePulse_i_1/O
+                         net (fo=1, routed)           0.000     2.043    reactionTimerProcessor/stateTestProcessor/startDetector_n_4
+    SLICE_X4Y46          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/activatePulse_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        0.946     2.111    reactionTimerProcessor/stateTestProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X4Y46          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/activatePulse_reg/C
+                         clock pessimism             -0.250     1.860    
+    SLICE_X4Y46          FDRE (Hold_fdre_C_D)         0.092     1.952    reactionTimerProcessor/stateTestProcessor/activatePulse_reg
+  -------------------------------------------------------------------
+                         required time                         -1.952    
+                         arrival time                           2.043    
+  -------------------------------------------------------------------
+                         slack                                  0.090    
+
+Slack (MET) :             0.097ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateTestProcessor/out_result_reg[16]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[16]/D
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.195%)  route 0.228ns (61.805%))
   Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
+  Clock Path Skew:        0.202ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
     Source Clock Delay      (SCD):    1.590ns
     Clock Pessimism Removal (CPR):    0.250ns
 
@@ -976,12 +1027,12 @@ Slack (MET) :             0.099ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y47          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[26]/C
+                         net (fo=1062, routed)        0.670     1.590    reactionTimerProcessor/stateTestProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X5Y49          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/out_result_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y47          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[26]/Q
-                         net (fo=1, routed)           0.220     1.951    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][25]
-    SLICE_X6Y51          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[26]/D
+    SLICE_X5Y49          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/stateTestProcessor/out_result_reg[16]/Q
+                         net (fo=6, routed)           0.228     1.959    reactionTimerProcessor/stateIdleProcessor/out_result_reg[27][16]
+    SLICE_X3Y51          FDRE                                         r  reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[16]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -991,30 +1042,30 @@ Slack (MET) :             0.099ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X6Y51          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[26]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X6Y51          FDRE (Hold_fdre_C_D)         0.063     1.852    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[26]
+                         net (fo=1062, routed)        0.878     2.043    reactionTimerProcessor/stateIdleProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X3Y51          FDRE                                         r  reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[16]/C
+                         clock pessimism             -0.250     1.792    
+    SLICE_X3Y51          FDRE (Hold_fdre_C_D)         0.070     1.862    reactionTimerProcessor/stateIdleProcessor/out_bestTime_reg[16]
   -------------------------------------------------------------------
-                         required time                         -1.852    
-                         arrival time                           1.951    
+                         required time                         -1.862    
+                         arrival time                           1.959    
   -------------------------------------------------------------------
-                         slack                                  0.099    
+                         slack                                  0.097    
 
-Slack (MET) :             0.100ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[24]/C
+Slack (MET) :             0.106ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[22]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[24]/D
+  Destination:            reactionTimerProcessor/out_ssdOutput_reg[22]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.358ns  (logic 0.141ns (39.351%)  route 0.217ns (60.649%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
-    Source Clock Delay      (SCD):    1.590ns
-    Clock Pessimism Removal (CPR):    0.250ns
+  Data Path Delay:        0.240ns  (logic 0.186ns (77.466%)  route 0.054ns (22.534%))
+  Logic Levels:           1  (LUT5=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.031ns
+    Source Clock Delay      (SCD):    1.516ns
+    Clock Pessimism Removal (CPR):    0.501ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1025,12 +1076,14 @@ Slack (MET) :             0.100ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y47          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[24]/C
+                         net (fo=1062, routed)        0.597     1.516    reactionTimerProcessor/stateIdleProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X7Y67          FDRE                                         r  reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[22]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y47          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[24]/Q
-                         net (fo=1, routed)           0.217     1.948    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][23]
-    SLICE_X6Y51          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[24]/D
+    SLICE_X7Y67          FDRE (Prop_fdre_C_Q)         0.141     1.657 r  reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[22]/Q
+                         net (fo=1, routed)           0.054     1.711    reactionTimerProcessor/stateIdleProcessor/bestTimeDigits[22]
+    SLICE_X6Y67          LUT5 (Prop_lut5_I3_O)        0.045     1.756 r  reactionTimerProcessor/stateIdleProcessor/out_ssdOutput[22]_i_1/O
+                         net (fo=1, routed)           0.000     1.756    reactionTimerProcessor/stateIdleProcessor_n_10
+    SLICE_X6Y67          FDRE                                         r  reactionTimerProcessor/out_ssdOutput_reg[22]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1040,30 +1093,132 @@ Slack (MET) :             0.100ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X6Y51          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[24]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X6Y51          FDRE (Hold_fdre_C_D)         0.059     1.848    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[24]
+                         net (fo=1062, routed)        0.866     2.031    reactionTimerProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X6Y67          FDRE                                         r  reactionTimerProcessor/out_ssdOutput_reg[22]/C
+                         clock pessimism             -0.501     1.529    
+    SLICE_X6Y67          FDRE (Hold_fdre_C_D)         0.121     1.650    reactionTimerProcessor/out_ssdOutput_reg[22]
   -------------------------------------------------------------------
-                         required time                         -1.848    
-                         arrival time                           1.948    
+                         required time                         -1.650    
+                         arrival time                           1.756    
   -------------------------------------------------------------------
-                         slack                                  0.100    
+                         slack                                  0.106    
+
+Slack (MET) :             0.106ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[16]/C
+                            (rising edge-triggered cell FDSE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[16]/D
+                            (rising edge-triggered cell FDSE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.240ns  (logic 0.186ns (77.466%)  route 0.054ns (22.534%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.006ns
+    Source Clock Delay      (SCD):    1.490ns
+    Clock Pessimism Removal (CPR):    0.502ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        0.571     1.490    reactionTimerProcessor/stateResultProcessor/testResultSeperator/in_100MHzClock_IBUF_BUFG
+    SLICE_X9Y63          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[16]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y63          FDSE (Prop_fdse_C_Q)         0.141     1.631 r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[16]/Q
+                         net (fo=1, routed)           0.054     1.685    reactionTimerProcessor/stateResultProcessor/idleCounter/Q[12]
+    SLICE_X8Y63          LUT6 (Prop_lut6_I5_O)        0.045     1.730 r  reactionTimerProcessor/stateResultProcessor/idleCounter/out_ssdNumberDisplay[16]_i_1/O
+                         net (fo=1, routed)           0.000     1.730    reactionTimerProcessor/stateResultProcessor/idleCounter_n_13
+    SLICE_X8Y63          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[16]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        0.841     2.006    reactionTimerProcessor/stateResultProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X8Y63          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[16]/C
+                         clock pessimism             -0.502     1.503    
+    SLICE_X8Y63          FDSE (Hold_fdse_C_D)         0.121     1.624    reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[16]
+  -------------------------------------------------------------------
+                         required time                         -1.624    
+                         arrival time                           1.730    
+  -------------------------------------------------------------------
+                         slack                                  0.106    
+
+Slack (MET) :             0.106ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[4]/C
+                            (rising edge-triggered cell FDSE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[4]/D
+                            (rising edge-triggered cell FDSE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.240ns  (logic 0.186ns (77.466%)  route 0.054ns (22.534%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.009ns
+    Source Clock Delay      (SCD):    1.492ns
+    Clock Pessimism Removal (CPR):    0.503ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        0.573     1.492    reactionTimerProcessor/stateResultProcessor/testResultSeperator/in_100MHzClock_IBUF_BUFG
+    SLICE_X9Y61          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y61          FDSE (Prop_fdse_C_Q)         0.141     1.633 r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[4]/Q
+                         net (fo=1, routed)           0.054     1.687    reactionTimerProcessor/stateResultProcessor/idleCounter/Q[3]
+    SLICE_X8Y61          LUT6 (Prop_lut6_I5_O)        0.045     1.732 r  reactionTimerProcessor/stateResultProcessor/idleCounter/out_ssdNumberDisplay[4]_i_1/O
+                         net (fo=1, routed)           0.000     1.732    reactionTimerProcessor/stateResultProcessor/idleCounter_n_22
+    SLICE_X8Y61          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=1062, routed)        0.844     2.009    reactionTimerProcessor/stateResultProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X8Y61          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[4]/C
+                         clock pessimism             -0.503     1.505    
+    SLICE_X8Y61          FDSE (Hold_fdse_C_D)         0.121     1.626    reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[4]
+  -------------------------------------------------------------------
+                         required time                         -1.626    
+                         arrival time                           1.732    
+  -------------------------------------------------------------------
+                         slack                                  0.106    
 
 Slack (MET) :             0.109ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[25]/C
+  Source:                 reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[25]/D
+  Destination:            reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[2]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.360ns  (logic 0.141ns (39.159%)  route 0.219ns (60.841%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
-    Source Clock Delay      (SCD):    1.590ns
-    Clock Pessimism Removal (CPR):    0.250ns
+  Data Path Delay:        0.242ns  (logic 0.186ns (76.827%)  route 0.056ns (23.174%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.007ns
+    Source Clock Delay      (SCD):    1.491ns
+    Clock Pessimism Removal (CPR):    0.502ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1074,12 +1229,14 @@ Slack (MET) :             0.109ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y48          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[25]/C
+                         net (fo=1062, routed)        0.572     1.491    reactionTimerProcessor/stateResultProcessor/testResultSeperator/in_100MHzClock_IBUF_BUFG
+    SLICE_X9Y62          FDRE                                         r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y48          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[25]/Q
-                         net (fo=1, routed)           0.219     1.950    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][24]
-    SLICE_X6Y51          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[25]/D
+    SLICE_X9Y62          FDRE (Prop_fdre_C_Q)         0.141     1.632 r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[2]/Q
+                         net (fo=1, routed)           0.056     1.688    reactionTimerProcessor/stateResultProcessor/clock1Hz/Q[0]
+    SLICE_X8Y62          LUT6 (Prop_lut6_I5_O)        0.045     1.733 r  reactionTimerProcessor/stateResultProcessor/clock1Hz/out_ssdNumberDisplay[2]_i_1/O
+                         net (fo=1, routed)           0.000     1.733    reactionTimerProcessor/stateResultProcessor/clock1Hz_n_8
+    SLICE_X8Y62          FDRE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1089,128 +1246,30 @@ Slack (MET) :             0.109ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X6Y51          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[25]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X6Y51          FDRE (Hold_fdre_C_D)         0.052     1.841    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[25]
+                         net (fo=1062, routed)        0.842     2.007    reactionTimerProcessor/stateResultProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X8Y62          FDRE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[2]/C
+                         clock pessimism             -0.502     1.504    
+    SLICE_X8Y62          FDRE (Hold_fdre_C_D)         0.120     1.624    reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[2]
   -------------------------------------------------------------------
-                         required time                         -1.841    
-                         arrival time                           1.950    
+                         required time                         -1.624    
+                         arrival time                           1.733    
   -------------------------------------------------------------------
                          slack                                  0.109    
 
-Slack (MET) :             0.111ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[21]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[21]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.381ns  (logic 0.141ns (37.026%)  route 0.240ns (62.974%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
-    Source Clock Delay      (SCD):    1.590ns
-    Clock Pessimism Removal (CPR):    0.250ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y48          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[21]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y48          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[21]/Q
-                         net (fo=1, routed)           0.240     1.971    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][20]
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[21]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[21]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X7Y50          FDRE (Hold_fdre_C_D)         0.070     1.859    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[21]
-  -------------------------------------------------------------------
-                         required time                         -1.859    
-                         arrival time                           1.971    
-  -------------------------------------------------------------------
-                         slack                                  0.111    
-
-Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[22]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[22]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.389ns  (logic 0.141ns (36.246%)  route 0.248ns (63.754%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.199ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.040ns
-    Source Clock Delay      (SCD):    1.590ns
-    Clock Pessimism Removal (CPR):    0.250ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y47          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[22]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y47          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[22]/Q
-                         net (fo=1, routed)           0.248     1.979    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][21]
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[22]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[22]/C
-                         clock pessimism             -0.250     1.789    
-    SLICE_X7Y50          FDRE (Hold_fdre_C_D)         0.072     1.861    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[22]
-  -------------------------------------------------------------------
-                         required time                         -1.861    
-                         arrival time                           1.979    
-  -------------------------------------------------------------------
-                         slack                                  0.118    
-
-Slack (MET) :             0.139ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[29]/C
+Slack (MET) :             0.122ns  (arrival time - required time)
+  Source:                 startButtonDebouncer/pipeline_reg[0]/C
                             (rising edge-triggered cell FDSE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[29]/D
+  Destination:            startButtonDebouncer/pipeline_reg[1]/D
                             (rising edge-triggered cell FDSE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.244ns  (logic 0.186ns (76.126%)  route 0.058ns (23.874%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.023ns
-    Source Clock Delay      (SCD):    1.509ns
-    Clock Pessimism Removal (CPR):    0.500ns
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.033ns
+    Source Clock Delay      (SCD):    1.516ns
+    Clock Pessimism Removal (CPR):    0.516ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1221,14 +1280,12 @@ Slack (MET) :             0.139ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.590     1.509    reactionTimerProcessor/stateResultProcessor/testResultSeperator/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y74          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[29]/C
+                         net (fo=1062, routed)        0.597     1.516    startButtonDebouncer/in_100MHzClock_IBUF_BUFG
+    SLICE_X1Y68          FDSE                                         r  startButtonDebouncer/pipeline_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y74          FDSE (Prop_fdse_C_Q)         0.141     1.650 r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[29]/Q
-                         net (fo=1, routed)           0.058     1.709    reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd[29]
-    SLICE_X4Y74          LUT6 (Prop_lut6_I0_O)        0.045     1.754 r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_ssdNumberDisplay[29]_i_1/O
-                         net (fo=1, routed)           0.000     1.754    reactionTimerProcessor/stateResultProcessor/testResultSeperator_n_6
-    SLICE_X4Y74          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[29]/D
+    SLICE_X1Y68          FDSE (Prop_fdse_C_Q)         0.141     1.657 r  startButtonDebouncer/pipeline_reg[0]/Q
+                         net (fo=2, routed)           0.056     1.713    startButtonDebouncer/pipeline[0]
+    SLICE_X1Y68          FDSE                                         r  startButtonDebouncer/pipeline_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1238,77 +1295,26 @@ Slack (MET) :             0.139ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.858     2.023    reactionTimerProcessor/stateResultProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y74          FDSE                                         r  reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[29]/C
-                         clock pessimism             -0.500     1.522    
-    SLICE_X4Y74          FDSE (Hold_fdse_C_D)         0.092     1.614    reactionTimerProcessor/stateResultProcessor/out_ssdNumberDisplay_reg[29]
+                         net (fo=1062, routed)        0.868     2.033    startButtonDebouncer/in_100MHzClock_IBUF_BUFG
+    SLICE_X1Y68          FDSE                                         r  startButtonDebouncer/pipeline_reg[1]/C
+                         clock pessimism             -0.516     1.516    
+    SLICE_X1Y68          FDSE (Hold_fdse_C_D)         0.075     1.591    startButtonDebouncer/pipeline_reg[1]
   -------------------------------------------------------------------
-                         required time                         -1.614    
-                         arrival time                           1.754    
+                         required time                         -1.591    
+                         arrival time                           1.713    
   -------------------------------------------------------------------
-                         slack                                  0.139    
+                         slack                                  0.122    
 
-Slack (MET) :             0.146ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[0]/C
+Slack (MET) :             0.123ns  (arrival time - required time)
+  Source:                 reactionTimerProcessor/stateTestProcessor/out_result_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[2]/D
+  Destination:            reactionTimerProcessor/stateResultProcessor/testResultSeperator/currentNumber_reg[10]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.292ns  (logic 0.189ns (64.673%)  route 0.103ns (35.327%))
+  Data Path Delay:        0.413ns  (logic 0.186ns (44.990%)  route 0.227ns (55.010%))
   Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.996ns
-    Source Clock Delay      (SCD):    1.482ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.563     1.482    reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/in_100MHzClock_IBUF_BUFG
-    SLICE_X11Y73         FDRE                                         r  reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X11Y73         FDRE (Prop_fdre_C_Q)         0.141     1.623 r  reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[0]/Q
-                         net (fo=8, routed)           0.103     1.727    reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator[0]
-    SLICE_X10Y73         LUT3 (Prop_lut3_I1_O)        0.048     1.775 r  reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator[2]_i_1/O
-                         net (fo=1, routed)           0.000     1.775    reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator[2]_i_1_n_0
-    SLICE_X10Y73         FDRE                                         r  reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.831     1.996    reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/in_100MHzClock_IBUF_BUFG
-    SLICE_X10Y73         FDRE                                         r  reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[2]/C
-                         clock pessimism             -0.500     1.495    
-    SLICE_X10Y73         FDRE (Hold_fdre_C_D)         0.133     1.628    reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_reg[2]
-  -------------------------------------------------------------------
-                         required time                         -1.628    
-                         arrival time                           1.775    
-  -------------------------------------------------------------------
-                         slack                                  0.146    
-
-Slack (MET) :             0.151ns  (arrival time - required time)
-  Source:                 reactionTimerProcessor/statePrepareProcessor/out_delay_reg[18]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[18]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.342ns  (logic 0.128ns (37.395%)  route 0.214ns (62.605%))
-  Logic Levels:           0  
   Clock Path Skew:        0.199ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    2.040ns
     Source Clock Delay      (SCD):    1.590ns
@@ -1323,12 +1329,14 @@ Slack (MET) :             0.151ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.670     1.590    reactionTimerProcessor/statePrepareProcessor/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y48          FDRE                                         r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[18]/C
+                         net (fo=1062, routed)        0.670     1.590    reactionTimerProcessor/stateTestProcessor/in_100MHzClock_IBUF_BUFG
+    SLICE_X4Y47          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/out_result_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y48          FDRE (Prop_fdre_C_Q)         0.128     1.718 r  reactionTimerProcessor/statePrepareProcessor/out_delay_reg[18]/Q
-                         net (fo=1, routed)           0.214     1.932    reactionTimerProcessor/stateTestProcessor/signalDelayer/out_delay_reg[29][17]
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[18]/D
+    SLICE_X4Y47          FDRE (Prop_fdre_C_Q)         0.141     1.731 r  reactionTimerProcessor/stateTestProcessor/out_result_reg[10]/Q
+                         net (fo=6, routed)           0.227     1.958    reactionTimerProcessor/stateResultProcessor/testResultSeperator/Q[9]
+    SLICE_X4Y50          LUT3 (Prop_lut3_I2_O)        0.045     2.003 r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/currentNumber[10]_i_1/O
+                         net (fo=1, routed)           0.000     2.003    reactionTimerProcessor/stateResultProcessor/testResultSeperator/currentNumber[10]_i_1_n_0
+    SLICE_X4Y50          FDRE                                         r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/currentNumber_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1338,15 +1346,15 @@ Slack (MET) :             0.151ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=1055, routed)        0.875     2.040    reactionTimerProcessor/stateTestProcessor/signalDelayer/in_100MHzClock_IBUF_BUFG
-    SLICE_X7Y50          FDRE                                         r  reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[18]/C
+                         net (fo=1062, routed)        0.875     2.040    reactionTimerProcessor/stateResultProcessor/testResultSeperator/in_100MHzClock_IBUF_BUFG
+    SLICE_X4Y50          FDRE                                         r  reactionTimerProcessor/stateResultProcessor/testResultSeperator/currentNumber_reg[10]/C
                          clock pessimism             -0.250     1.789    
-    SLICE_X7Y50          FDRE (Hold_fdre_C_D)        -0.008     1.781    reactionTimerProcessor/stateTestProcessor/signalDelayer/limits_reg[18]
+    SLICE_X4Y50          FDRE (Hold_fdre_C_D)         0.091     1.880    reactionTimerProcessor/stateResultProcessor/testResultSeperator/currentNumber_reg[10]
   -------------------------------------------------------------------
-                         required time                         -1.781    
-                         arrival time                           1.932    
+                         required time                         -1.880    
+                         arrival time                           2.003    
   -------------------------------------------------------------------
-                         slack                                  0.151    
+                         slack                                  0.123    
 
 
 
@@ -1361,35 +1369,35 @@ Sources:            { in_100MHzClock }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y8     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_1/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y9     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y7     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2/CLKARDCLK
 Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X0Y8     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_1/CLKBWRCLK
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X0Y9     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X0Y7     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2/CLKBWRCLK
 Min Period        n/a     BUFG/I              n/a            2.155         10.000      7.845      BUFGCTRL_X0Y16  in_100MHzClock_IBUF_BUFG_inst/I
-Min Period        n/a     FDRE/C              n/a            1.000         10.000      9.000      SLICE_X2Y76     clock1kHz/counter_reg[0]/C
-Min Period        n/a     FDRE/C              n/a            1.000         10.000      9.000      SLICE_X2Y78     clock1kHz/counter_reg[10]/C
-Min Period        n/a     FDRE/C              n/a            1.000         10.000      9.000      SLICE_X8Y77     reactionTimerProcessor/stateResultProcessor/testResultSeperator/bcdCache_reg[18]/C
-Min Period        n/a     FDRE/C              n/a            1.000         10.000      9.000      SLICE_X8Y77     reactionTimerProcessor/stateResultProcessor/testResultSeperator/bcdCache_reg[19]/C
-Min Period        n/a     FDRE/C              n/a            1.000         10.000      9.000      SLICE_X6Y74     reactionTimerProcessor/stateResultProcessor/testResultSeperator/bcdCache_reg[1]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X6Y76     reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[22]/C
-Low Pulse Width   Slow    FDSE/C              n/a            0.500         5.000       4.500      SLICE_X7Y76     reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[23]/C
-Low Pulse Width   Slow    FDSE/C              n/a            0.500         5.000       4.500      SLICE_X6Y76     reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[28]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X6Y76     reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[2]/C
-Low Pulse Width   Slow    FDSE/C              n/a            0.500         5.000       4.500      SLICE_X6Y76     reactionTimerProcessor/stateResultProcessor/testResultSeperator/out_bcd_reg[9]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X4Y73     reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[0]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X4Y73     reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[1]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X4Y73     reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[24]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X4Y73     reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[3]/C
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X4Y73     reactionTimerProcessor/stateIdleProcessor/bestTimeDigits_reg[8]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y83     clock1kHz/counter_reg[28]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X7Y42     reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/factor1_reg[0]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X10Y41    reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/factor1_reg[10]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y83     clock1kHz/counter_reg[29]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y83     clock1kHz/counter_reg[30]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y83     clock1kHz/counter_reg[31]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y39    globalTimer/out_time_reg[0]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y41    globalTimer/out_time_reg[10]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y41    globalTimer/out_time_reg[11]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y42    globalTimer/out_time_reg[12]/C
+Min Period        n/a     FDSE/C              n/a            1.000         10.000      9.000      SLICE_X4Y68     clearBestButtonDebouncer/pipeline_reg[0]/C
+Min Period        n/a     FDSE/C              n/a            1.000         10.000      9.000      SLICE_X4Y68     clearBestButtonDebouncer/pipeline_reg[1]/C
+Min Period        n/a     FDSE/C              n/a            1.000         10.000      9.000      SLICE_X4Y68     clearBestButtonDebouncer/pipeline_reg[2]/C
+Min Period        n/a     FDSE/C              n/a            1.000         10.000      9.000      SLICE_X4Y68     clearBestButtonDebouncer/pipeline_reg[3]/C
+Min Period        n/a     FDSE/C              n/a            1.000         10.000      9.000      SLICE_X4Y68     clearBestButtonDebouncer/pipeline_reg[4]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y58     reactionTimerProcessor/stateResultProcessor/state_reg[0]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y58     reactionTimerProcessor/stateResultProcessor/state_reg[1]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X9Y57     reactionTimerProcessor/stateResultProcessor/testResultSeperator/state_reg[0]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y55    reactionTimerProcessor/stateTestProcessor/tickCounterDivider/helper2_reg[28]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y55    reactionTimerProcessor/stateTestProcessor/tickCounterDivider/helper2_reg[30]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X11Y55    reactionTimerProcessor/stateTestProcessor/tickCounterDivider/helper2_reg[31]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X14Y57    reactionTimerProcessor/stateResultProcessor/idleCounter/counter_reg[0]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X14Y57    reactionTimerProcessor/stateResultProcessor/idleCounter/counter_reg[1]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X14Y57    reactionTimerProcessor/stateResultProcessor/idleCounter/counter_reg[2]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X14Y57    reactionTimerProcessor/stateResultProcessor/idleCounter/counter_reg[3]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y65     clock1kHz/counter_reg[10]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y65     clock1kHz/counter_reg[11]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y66     clock1kHz/counter_reg[12]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y66     clock1kHz/counter_reg[13]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y66     clock1kHz/counter_reg[14]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y66     clock1kHz/counter_reg[15]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y65     clock1kHz/counter_reg[8]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X2Y65     clock1kHz/counter_reg[9]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X13Y42    reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/equation_reg[0]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X12Y39    reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/factor1_reg[20]/C
 
 
 

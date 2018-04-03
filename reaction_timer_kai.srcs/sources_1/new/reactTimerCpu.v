@@ -44,6 +44,7 @@ module reactTimerCpu #(
     input wire        in_enable,
     input wire        in_start,
     input wire        in_test,
+    input wire        in_clearBest,
     input wire        in_audioEnable,
     input wire        in_ledEnable,
     output reg [15:0] out_leds = 16'd0,
@@ -88,7 +89,7 @@ module reactTimerCpu #(
     localparam TEST_OUTPUT_AUDIO = 1;
     reg [1:0] testOutput = 2'd0;
     // Idle connections.
-    reg idleAnimeReset = 0;
+    reg idleAnimeReset = 0, idleClearBest = 0;
     wire [27:0] reactionTime;
     wire reactionTimeValid, reactionTimeout;
     wire [27:0] recordTime;
@@ -120,6 +121,7 @@ module reactTimerCpu #(
         .in_reactionTimeout(reactionTimeout),
         .in_reactionTimeValid(reactionTimeValid),
         .in_animeReset(idleAnimeReset),
+        .in_clearBest(idleClearBest),
         .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
@@ -220,6 +222,8 @@ module reactTimerCpu #(
             // Reset the audio output.
             out_audioSd <= 1'b0;
             out_audioPwm <= 1'b0;
+            // Reset the state signals.
+            idleClearBest <= 0;
         end else begin
             if (in_enable) begin
                 // Check the current state.
@@ -235,6 +239,8 @@ module reactTimerCpu #(
                             state <= STATE_PREPARATION;
                             // Update the register for output.
                             testOutput <= {in_audioEnable, ((~in_audioEnable) | in_ledEnable)};
+                            // Disable the idle clear best.
+                            idleClearBest <= 1'b0;
                         end else begin
                             // Ports the result of idle module to the result.
                             // Output the LED signal.
@@ -243,6 +249,8 @@ module reactTimerCpu #(
                             out_ssdOutput <= idleSsdOutput;
                             out_ssdDots <= idleSsdDots;
                         end
+                        // Update the idle clear best signal.
+                        idleClearBest <= in_clearBest;
                         // Clear the animation reset to 0.
                         idleAnimeReset <= 0;
                         // Reset the audio output.

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Tue Apr  3 11:49:54 2018
+| Date             : Tue Apr  3 12:06:22 2018
 | Host             : r103pc04 running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_reactionTimer_power_routed.rpt -pb TOP_reactionTimer_power_summary_routed.pb -rpx TOP_reactionTimer_power_routed.rpx
 | Design           : TOP_reactionTimer
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.144        |
+| Total On-Chip Power (W)  | 0.149        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.047        |
+| Dynamic (W)              | 0.052        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.3         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.005 |        3 |       --- |             --- |
-| Slice Logic    |     0.005 |     2610 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1091 |     63400 |            1.72 |
+| Slice Logic    |     0.006 |     2678 |       --- |             --- |
+|   LUT as Logic |     0.005 |     1149 |     63400 |            1.81 |
 |   CARRY4       |    <0.001 |      139 |     15850 |            0.88 |
-|   Register     |    <0.001 |     1049 |    126800 |            0.83 |
+|   Register     |    <0.001 |     1056 |    126800 |            0.83 |
 |   F7/F8 Muxes  |    <0.001 |        4 |     63400 |           <0.01 |
 |   Others       |     0.000 |       46 |       --- |             --- |
-| Signals        |     0.004 |     2045 |       --- |             --- |
+| Signals        |     0.006 |     2103 |       --- |             --- |
 | Block RAM      |     0.004 |        2 |       135 |            1.48 |
 | DSPs           |     0.002 |        2 |       240 |            0.83 |
-| I/O            |     0.026 |       41 |       210 |           19.52 |
+| I/O            |     0.028 |       42 |       210 |           20.00 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.144 |          |           |                 |
+| Total          |     0.149 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,9 +74,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.036 |       0.020 |      0.015 |
+| Vccint    |       1.000 |     0.039 |       0.023 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
-| Vcco33    |       3.300 |     0.011 |       0.007 |      0.004 |
+| Vcco33    |       3.300 |     0.012 |       0.008 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -143,11 +143,12 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| TOP_reactionTimer                  |     0.047 |
+| TOP_reactionTimer                  |     0.052 |
+|   clearBestButtonDebouncer         |    <0.001 |
 |   clock1kHz                        |    <0.001 |
 |   clockEdge1kHz                    |    <0.001 |
 |   globalTimer                      |    <0.001 |
-|   reactionTimerProcessor           |     0.019 |
+|   reactionTimerProcessor           |     0.022 |
 |     prepareBusyDetector            |    <0.001 |
 |     resultBusyDetector             |    <0.001 |
 |     startButtonEdge                |    <0.001 |
@@ -155,11 +156,11 @@ Table of Contents
 |       idleAnimation                |    <0.001 |
 |         animeClockDetector         |    <0.001 |
 |       ledAnimeClock                |    <0.001 |
-|     statePrepareProcessor          |     0.011 |
-|       gapGeneratorLcg              |     0.002 |
+|     statePrepareProcessor          |     0.013 |
+|       gapGeneratorLcg              |     0.003 |
 |         nextDetector               |    <0.001 |
 |         seedReadyDetector          |    <0.001 |
-|       gapGeneratorMt19937          |     0.007 |
+|       gapGeneratorMt19937          |     0.009 |
 |       prepareAnimation             |    <0.001 |
 |         animeClockDetector         |    <0.001 |
 |         clock1Hz                   |    <0.001 |
@@ -168,10 +169,10 @@ Table of Contents
 |       idleCounter                  |    <0.001 |
 |         signalInDetector           |    <0.001 |
 |       testResultDigitReadyDetector |    <0.001 |
-|       testResultSeperator          |     0.001 |
+|       testResultSeperator          |    <0.001 |
 |         numberValidDetector        |    <0.001 |
 |       testResultValidDetector      |    <0.001 |
-|     stateTestProcessor             |     0.005 |
+|     stateTestProcessor             |     0.006 |
 |       dividedResultValidDetector   |    <0.001 |
 |       signalDelayer                |    <0.001 |
 |         signalInDetector           |    <0.001 |

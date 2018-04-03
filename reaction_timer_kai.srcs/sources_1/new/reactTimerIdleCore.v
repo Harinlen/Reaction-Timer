@@ -37,6 +37,7 @@ module reactTimerIdleCore #(
     input wire         in_reactionTimeout,
     input wire         in_reactionTimeValid,
     input wire         in_animeReset,
+    input wire         in_clearBest,
     input wire         in_clock,
     input wire         in_reset,
     input wire         in_enable,
@@ -52,6 +53,12 @@ module reactTimerIdleCore #(
         // Check reset signal.
         if (~in_reset) begin
             if (in_enable) begin
+                // Check the clear best signal.
+                if (in_clearBest) begin
+                    // Reset the best time and best time digits.
+                    out_bestTime <= 28'd0;
+                    bestTimeDigits <= 32'd0;
+                end
                 // We need to compare the input time as the best time.
                 if (in_reactionTimeValid) begin
                     // Compare the reaction time with best time.
