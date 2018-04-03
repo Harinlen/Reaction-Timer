@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr  3 15:57:08 2018
+| Date         : Tue Apr  3 16:08:03 2018
 | Host         : r103pc04 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
 | Design       : TOP_reactionTimer
@@ -92,7 +92,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   48 |     0 |       210 | 22.86 |
+| Bonded IOB                  |   49 |     0 |       210 | 23.33 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         6 |  0.00 |
@@ -149,16 +149,16 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     | 1090 |        Flop & Latch |
-| LUT6     |  440 |                 LUT |
+| LUT6     |  443 |                 LUT |
 | LUT2     |  389 |                 LUT |
-| LUT5     |  331 |                 LUT |
-| LUT4     |  325 |                 LUT |
-| LUT3     |  271 |                 LUT |
+| LUT5     |  328 |                 LUT |
+| LUT4     |  328 |                 LUT |
+| LUT3     |  268 |                 LUT |
 | CARRY4   |  161 |          CarryLogic |
 | FDSE     |  115 |        Flop & Latch |
 | OBUF     |   40 |                  IO |
 | LUT1     |   34 |                 LUT |
-| IBUF     |    8 |                  IO |
+| IBUF     |    9 |                  IO |
 | MUXF7    |    4 |               MuxFx |
 | RAMB36E1 |    2 |        Block Memory |
 | DSP48E1  |    2 |    Block Arithmetic |

@@ -7,6 +7,7 @@ set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports in_enable]
 set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports in_reset]
 set_property -dict {PACKAGE_PIN M13 IOSTANDARD LVCMOS33} [get_ports in_ledDisable]
 set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports in_audioDisable]
+set_property -dict {PACKAGE_PIN R17 IOSTANDARD LVCMOS33} [get_ports in_triLedDisable]
 
 # Audio output
 set_property -dict { PACKAGE_PIN A11 IOSTANDARD LVCMOS33 } [get_ports out_audioPwm];

@@ -47,6 +47,7 @@ module reactTimerCpu #(
     input wire        in_clearBest,
     input wire        in_audioEnable,
     input wire        in_ledEnable,
+    input wire        in_triColorLedEnable,
     output reg [15:0] out_leds = 16'd0,
     output reg [31:0] out_ssdOutput = 32'd0,
     output reg [7:0]  out_ssdDots = 8'b1111_1111,
@@ -219,6 +220,15 @@ module reactTimerCpu #(
     end
     endtask
     
+    task updateLeftLed;
+    begin
+        // Update the left tri-color LED data.
+        out_triColorLeft <= {bestLevelRPwm & (in_triColorLedEnable), 
+                             bestLevelGPwm & (in_triColorLedEnable), 
+                             bestLevelBPwm & (in_triColorLedEnable)};
+    end
+    endtask
+    
     always @(posedge in_clock) begin
         // Check the reset button.
         if (in_reset) begin
@@ -266,7 +276,7 @@ module reactTimerCpu #(
                             // Update the idle clear best signal.
                             idleClearBest <= in_clearBest;
                             // Update the left tri-color LED.
-                            out_triColorLeft <= {bestLevelRPwm, bestLevelGPwm, bestLevelBPwm};
+                            updateLeftLed();
                             out_triColorRight <= 3'd0;
                         end
                         // Clear the animation reset to 0.
@@ -325,8 +335,10 @@ module reactTimerCpu #(
                             out_triColorRight <= 3'd0;
                         end else begin
                             // Output the current tri-color LED result with the best result.
-                            out_triColorLeft <= {bestLevelRPwm, bestLevelGPwm, bestLevelBPwm};
-                            out_triColorRight <= {resultLevelRPwm, resultLevelGPwm, resultLevelBPwm};
+                            updateLeftLed();
+                            out_triColorRight <= {resultLevelRPwm & (in_triColorLedEnable), 
+                                                  resultLevelGPwm & (in_triColorLedEnable), 
+                                                  resultLevelBPwm & (in_triColorLedEnable)};
                             // Output the result SSD data to ports.
                             out_ssdOutput <= resultNumberOut;
                             out_ssdDots <= resultSsdDots;
