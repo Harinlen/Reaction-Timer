@@ -41,6 +41,8 @@ module TOP_reactionTimer(
     output wire [15:0] out_leds,
     output wire [7:0]  out_ssdDigitOutput,
     output wire [7:0]  out_ssdSelector,
+    output wire [2:0]  out_triColorLedLeft,
+    output wire [2:0]  out_triColorLedRight,
     output wire        out_audioSd,
     output wire        out_audioPwm);
     
@@ -120,6 +122,8 @@ module TOP_reactionTimer(
          .in_audioEnable(~in_audioDisable),
          .in_ledEnable(~in_ledDisable),
          .out_leds(out_leds),
+         .out_triColorLeft(out_triColorLedLeft),
+         .out_triColorRight(out_triColorLedRight),
          .out_ssdOutput(ssdOutput),
          .out_ssdDots(ssdDots),
          .out_audioPwm(out_audioPwm),

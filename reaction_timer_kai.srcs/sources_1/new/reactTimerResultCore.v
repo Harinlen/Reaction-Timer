@@ -24,8 +24,9 @@
 `include "globalConstants.v"
 
 module reactTimerResultCore #(
-    parameter integer BEST_FLASH_THRESHOLD = 12_500_000,
-    parameter [31:0]   WAITING_COUNTS = 10_0000_0000
+    parameter integer   BEST_FLASH_THRESHOLD = 12_500_000,
+    parameter [31:0]    WAITING_COUNTS = 10_0000_0000,
+    parameter integer   RESULT_LEVEL_PWM_DELAY = 0
 )(
     input wire [27:0]   in_testResult,
     input wire [27:0]   in_bestResult,
@@ -37,7 +38,10 @@ module reactTimerResultCore #(
     output wire         out_busy,
     output reg          out_reactionTimeValid = 1'b0,
     output reg [31:0]   out_ssdNumberDisplay = `SSD_DISPLAY_BLANK,
-    output reg [7:0]    out_ssdDots = 8'b1111_1111);
+    output reg [7:0]    out_ssdDots = 8'b1111_1111,
+    output wire         out_resultLevelRPwm, 
+    output wire         out_resultLevelGPwm, 
+    output wire         out_resultLevelBPwm);
     
     /*
      * IDLE: Wait for test result validation.
@@ -55,7 +59,42 @@ module reactTimerResultCore #(
     
     wire [31:0] testResultDigit;
     reg isBestResult = 1'b0, isResultReady = 1'b0;
+    reg pwmModemEnable = 1'b0;
     wire testResultValidRising, flashClock, testResultDigitReady, testResultDigitReadyRising;
+    
+    // RGB output for level.
+    reg [7:0] resultLevelR = 8'd0, resultLevelG = 8'd0, resultLevelB = 8'd0; 
+    wire [7:0] resultLevel;
+    assign resultLevel = in_testResult[27:20];
+    
+    // Result level PWM Modem
+    // Red
+    PwmModem #(
+        .COUNTER_DELAY(RESULT_LEVEL_PWM_DELAY) 
+    ) resultLevelRPwmModem (
+        .in_reset(in_reset),
+        .in_enable(in_enable & pwmModemEnable),
+        .in_clock(in_clock),
+        .in_numberIn(resultLevelR),
+        .out_pwmWave(out_resultLevelRPwm));
+    // Green
+    PwmModem #(
+        .COUNTER_DELAY(RESULT_LEVEL_PWM_DELAY) 
+    ) resultLevelGPwmModem (
+        .in_reset(in_reset),
+        .in_enable(in_enable & pwmModemEnable),
+        .in_clock(in_clock),
+        .in_numberIn(resultLevelG),
+        .out_pwmWave(out_resultLevelGPwm));
+    // Blue
+    PwmModem #(
+        .COUNTER_DELAY(RESULT_LEVEL_PWM_DELAY) 
+    ) resultLevelBPwmModem (
+        .in_reset(in_reset),
+        .in_enable(in_enable & pwmModemEnable),
+        .in_clock(in_clock),
+        .in_numberIn(resultLevelB),
+        .out_pwmWave(out_resultLevelBPwm));
     
     // Seperate the number to the test result.
     decimalToBcd testResultSeperator(
@@ -132,6 +171,12 @@ module reactTimerResultCore #(
             out_reactionTimeValid <= 1'b0;
             // Reset the start waiting pulse.
             startWaitingPulse <= 0;
+            // Reset the result level.
+            resultLevelR <= 8'd0;
+            resultLevelG <= 8'd0;
+            resultLevelB <= 8'd0;
+            // Reset the enable data.
+            pwmModemEnable <= 1'b0;
         end else begin
             if (in_enable) begin
                 // Check the current state.
@@ -156,6 +201,12 @@ module reactTimerResultCore #(
                                 isBestResult <= (in_bestResult == 27'd0) | (in_testResult <= in_bestResult);
                                 // Change state for converting ssd result.
                                 state <= STATE_CONVERT;
+                                // Update the RGB result according to the test result.
+                                resultLevelR <= (resultLevel < 52) ? 255 : ((resultLevel < 102) ? ((102-resultLevel)*5) : ((resultLevel < 204) ? 0 : ((resultLevel-204)*5)));
+                                resultLevelG <= (resultLevel < 51) ? (resultLevel * 5) : ((resultLevel < 153) ? 255 : ((resultLevel < 204) ? ((204-resultLevel)*5) : 0));
+                                resultLevelB <= (resultLevel < 102) ? 0 : ((resultLevel > 153) ? 255 : ((resultLevel - 102) * 5));
+                                // Enable PWM.
+                                pwmModemEnable <= 1'b1;
                                 // Start converting.
                                 isResultReady <= 1'b1;
                             end
@@ -191,6 +242,8 @@ module reactTimerResultCore #(
                             state <= STATE_IDLE;
                             // Reset the ssd outputs.
                             ssdDisplayBlank();
+                            // Reset the PWM enable state.
+                            pwmModemEnable <= 1'b0;
                         end else begin
                             // According to different state.
                             if (in_testTimeout) begin

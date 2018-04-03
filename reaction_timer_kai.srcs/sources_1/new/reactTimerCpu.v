@@ -50,6 +50,8 @@ module reactTimerCpu #(
     output reg [15:0] out_leds = 16'd0,
     output reg [31:0] out_ssdOutput = 32'd0,
     output reg [7:0]  out_ssdDots = 8'b1111_1111,
+    output reg [2:0]  out_triColorLeft = 3'd0,
+    output reg [2:0]  out_triColorRight = 3'd0,
     output reg        out_audioPwm = 1'b0,
     output reg        out_audioSd = 1'b0);
     
@@ -108,7 +110,7 @@ module reactTimerCpu #(
     wire [15:0] testLed;
     wire testAudioPwm, testAudioSd;
     // Result connections.
-    wire resultBusy, resultBusyFalling;
+    wire resultBusy, resultBusyFalling, resultLevelRPwm, resultLevelGPwm, resultLevelBPwm;
     wire [31:0] resultNumberOut;
     wire [7:0] resultSsdDots;
     
@@ -192,7 +194,10 @@ module reactTimerCpu #(
         .out_busy(resultBusy),
         .out_reactionTimeValid(reactionTimeValid),
         .out_ssdNumberDisplay(resultNumberOut),
-        .out_ssdDots(resultSsdDots));
+        .out_ssdDots(resultSsdDots),
+        .out_resultLevelRPwm(resultLevelRPwm), 
+        .out_resultLevelGPwm(resultLevelGPwm), 
+        .out_resultLevelBPwm(resultLevelBPwm));
     
     // Detect the falling edge of the result busy signal.
     edgeDetector resultBusyDetector(
@@ -222,6 +227,8 @@ module reactTimerCpu #(
             // Reset the audio output.
             out_audioSd <= 1'b0;
             out_audioPwm <= 1'b0;
+            // Reset the tri-color led output.
+            out_triColorRight <= 3'd0;
             // Reset the state signals.
             idleClearBest <= 0;
         end else begin
@@ -303,7 +310,11 @@ module reactTimerCpu #(
                             state <= STATE_IDLE;
                             // Set the animation reset to 1.
                             idleAnimeReset <= 1;
+                            // Reset the tri-color led output.
+                            out_triColorRight <= 3'd0;
                         end else begin
+                            // Output the current tri-color LED result.
+                            out_triColorRight <= {resultLevelRPwm, resultLevelGPwm, resultLevelBPwm};
                             // Output the result SSD data to ports.
                             out_ssdOutput <= resultNumberOut;
                             out_ssdDots <= resultSsdDots;
