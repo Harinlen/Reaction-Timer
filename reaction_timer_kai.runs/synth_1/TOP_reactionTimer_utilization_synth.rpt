@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr  3 10:36:21 2018
+| Date         : Tue Apr  3 11:48:24 2018
 | Host         : r103pc04 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
 | Design       : TOP_reactionTimer
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1090 |     0 |     63400 |  1.72 |
-|   LUT as Logic          | 1090 |     0 |     63400 |  1.72 |
+| Slice LUTs*             | 1092 |     0 |     63400 |  1.72 |
+|   LUT as Logic          | 1092 |     0 |     63400 |  1.72 |
 |   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
 | Slice Registers         | 1041 |     0 |    126800 |  0.82 |
 |   Register as Flip Flop | 1041 |     0 |    126800 |  0.82 |
@@ -149,15 +149,15 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  952 |        Flop & Latch |
-| LUT6     |  350 |                 LUT |
-| LUT2     |  343 |                 LUT |
-| LUT3     |  283 |                 LUT |
-| LUT4     |  231 |                 LUT |
-| LUT5     |  161 |                 LUT |
+| LUT6     |  364 |                 LUT |
+| LUT2     |  342 |                 LUT |
+| LUT4     |  248 |                 LUT |
+| LUT3     |  202 |                 LUT |
+| LUT5     |  195 |                 LUT |
 | CARRY4   |  139 |          CarryLogic |
 | FDSE     |   89 |        Flop & Latch |
 | OBUF     |   34 |                  IO |
-| LUT1     |   24 |                 LUT |
+| LUT1     |   21 |                 LUT |
 | IBUF     |    7 |                  IO |
 | MUXF7    |    4 |               MuxFx |
 | RAMB36E1 |    2 |        Block Memory |

@@ -13,6 +13,8 @@
 // Description: Linear Congruential random number generator.
 // By providing the seed it could automatically generate the pseudorandomness 
 // number. A global timer would be introduced as backup seed choice.
+// This modified version will contain four equations to increase the complexity
+// of the final result.
 // 
 // Dependencies: 
 //    - edgeDetector
@@ -36,20 +38,22 @@ module randLcg(
     output reg [31:0] out_data = 32'd0,
     output wire       out_busy);
     
-    localparam STATE_IDLE = 1'b0;
-    localparam STATE_BUSY = 1'b1;
-    reg state = STATE_IDLE;
+    localparam STATE_IDLE = 2'd0;
+    localparam STATE_MULTIPLY = 2'd1;
+    localparam STATE_ADD = 2'd2;
+    reg [1:0] state = STATE_IDLE;
+    
+    // We have four equations to make this result more complex.
+    /*                    Multiplier    Increment
+     * Numerical Recipes: 1664525       1013904223
+     *      Apple Carbon: 16807         0
+     *             C++11: 48271         0 
+     *      Visual C/C++: 214013        2531011
+     */
+    reg [1:0] equation = 2'd0;
     
     reg [31:0] seed = 32'd0;
     wire seedReadyRising, nextRising;
-    
-    task updateSeed;
-    input [31:0] lastSeed;
-    begin
-        // Update the seed.
-        seed <= 32'd214013 * lastSeed;
-    end
-    endtask
         
     // Detect the edge of the seed ready signal.
     edgeDetector seedReadyDetector(
@@ -81,22 +85,41 @@ module randLcg(
                     // Check the rising edge of seed ready.
                     if (seedReadyRising) begin
                         // Initialized the data as updated seed.
-                        updateSeed((in_seed == 32'd0) ? in_globalTime : in_seed);
+                        seed<= ((in_seed == 32'd0) ? in_globalTime : in_seed);
                         // Jump to busy state.
-                        state <= STATE_BUSY;
+                        state <= STATE_MULTIPLY;
                     end else begin
                         // Check the rising edge of next seed.
                         if (nextRising) begin
                             //Update the seed with the last seed.
-                            updateSeed((seed == 32'd0) ? in_globalTime : seed);
+                            seed <= ((seed == 32'd0) ? in_globalTime : seed);
                             // Jump to busy state.
-                            state <= STATE_BUSY;
+                            state <= STATE_MULTIPLY;
                         end
                     end
                 end
-                STATE_BUSY: begin
-                    // Complete the calculation..
-                    seed <= seed + 32'd2531011;
+                STATE_MULTIPLY: begin
+                    // Move to add stage.
+                    // Update the seed.
+                    case (equation)
+                        2'd0: seed <= 32'd1664525 * seed;
+                        2'd1: seed <= 32'd16807 * seed;
+                        2'd2: seed <= 32'd48271 * seed;
+                        2'd3: seed <= 32'd214013 * seed;
+                    endcase
+                    // Jump the state back to add.
+                    state = STATE_ADD;
+                end
+                STATE_ADD: begin
+                    // Complete the calculation.
+                    case (equation)
+                        2'd0: seed <= seed + 32'd2531011; 
+                        2'd1: seed <= seed;
+                        2'd2: seed <= seed;
+                        2'd3: seed <= seed + 32'd1013904223;
+                    endcase
+                    // Switch the equation index.
+                    equation <= {seed[6], seed[9]};
                     // Jump the state back to idle.
                     state = STATE_IDLE;
                 end

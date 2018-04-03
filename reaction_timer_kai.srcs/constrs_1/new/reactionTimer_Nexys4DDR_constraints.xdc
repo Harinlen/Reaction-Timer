@@ -1,6 +1,6 @@
 # 100MHz system clock
 set_property -dict {PACKAGE_PIN E3  IOSTANDARD LVCMOS33} [get_ports in_100MHzClock]
-create_clock -period 10.00 [get_ports in_100MHzClock]
+create_clock -name CLK100MHZ -period 10.00 [get_ports in_100MHzClock]
 
 # Switches
 set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports in_enable]

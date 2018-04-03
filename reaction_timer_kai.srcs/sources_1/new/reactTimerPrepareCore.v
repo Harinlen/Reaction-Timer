@@ -118,43 +118,36 @@ module reactTimerPrepareCore #(
                 // Check the current state.
                 if (state) begin
                     // STATE_GENRAND
-                    // First, it need to pass busy waiting.
-                    if (busyWait > 3'd0) begin
-                        // Count down on busy waiting.
-                        busyWait <= busyWait - 1;
-                    end else begin
-                        // Check the current using random number generator.
-                        case(randSelector)
-                            RAND_LCG: begin
-                                // Check Linear Congruential Generator busy output.
-                                if (~randLcgBusy) begin
-                                    // Set the randomize time to output.
-                                    // Limit the time up to 8.05 seconds.
-                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[28:0]} + {4'd0, randLcgOut[27:0]};
-                                end 
-                            end
-                            RAND_MT: begin
-                                // Check Mt19937 busy output.
-                                if (~randMtBusy) begin
-                                    // Set the randomize time to output.
-                                    out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[28:0]} + {4'd0, randMtOut[27:0]};
-                                end
-                            end
-                        endcase
-                        // Waiting all the mission complete.
-                        if ((~randLcgBusy) & (~randMtBusy) & (~animationBusy)) begin
-                            // Switch random number generator.
-                            case(randSelector)
-                                RAND_LCG: randSelector <= RAND_MT;
-                                RAND_MT: randSelector <= RAND_LCG;
-                            endcase
-                            // Reset the state back to waiting.
-                            state <= STATE_WAITING;
-                            // No more busy.
-                            out_busy <= 0;
+                    // Check the current using random number generator.
+                    case(randSelector)
+                        RAND_LCG: begin
+                            // Check Linear Congruential Generator busy output.
+                            if (~randLcgBusy) begin
+                                // Set the randomize time to output.
+                                // Limit the time up to 8.05 seconds.
+                                out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[28:0]} + {4'd0, randLcgOut[27:0]};
+                            end 
                         end
+                        RAND_MT: begin
+                            // Check Mt19937 busy output.
+                            if (~randMtBusy) begin
+                                // Set the randomize time to output.
+                                out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[28:0]} + {4'd0, randMtOut[27:0]};
+                            end
+                        end
+                    endcase
+                    // Waiting all the mission complete.
+                    if ((~randLcgBusy) & (~randMtBusy) & (~animationBusy)) begin
+                        // Switch random number generator.
+                        case(randSelector)
+                            RAND_LCG: randSelector <= RAND_MT;
+                            RAND_MT: randSelector <= RAND_LCG;
+                        endcase
+                        // Reset the state back to waiting.
+                        state <= STATE_WAITING;
+                        // No more busy.
+                        out_busy <= 0;
                     end
-                    
                 end else begin
                     // STATE_WAITING
                     // Waiting for start button signal.
@@ -172,19 +165,8 @@ module reactTimerPrepareCore #(
                                 next <= 1;
                             end
                         endcase
-                        //// Also enable the seed ready signal.
-                        //next <= 1;
-                        //if (seedSet) begin
-                        //    // Request for next random number.
-                        //    next <= 1;
-                        //end else begin
-                        //    // Set the seed.
-                        //    
-                        //end
                         // This module is about to being busy.
                         out_busy <= 1'b1;
-                        // Enable the busy waiting.
-                        busyWait <= 3'd7;
                     end
                 end
             end
