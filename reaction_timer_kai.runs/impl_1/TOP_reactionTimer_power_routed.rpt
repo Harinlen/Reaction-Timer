@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Tue Apr  3 16:09:33 2018
-| Host             : r103pc04 running 64-bit major release  (build 9200)
+| Date             : Tue Apr  3 23:41:36 2018
+| Host             : DESKTOP-SAKI running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_reactionTimer_power_routed.rpt -pb TOP_reactionTimer_power_summary_routed.pb -rpx TOP_reactionTimer_power_routed.rpx
 | Design           : TOP_reactionTimer
 | Device           : xc7a100tcsg324-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.151        |
+| Total On-Chip Power (W)  | 0.153        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.054        |
+| Dynamic (W)              | 0.056        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.3         |
@@ -52,19 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.006 |        3 |       --- |             --- |
-| Slice Logic    |     0.007 |     3225 |       --- |             --- |
-|   LUT as Logic |     0.006 |     1391 |     63400 |            2.19 |
-|   CARRY4       |    <0.001 |      161 |     15850 |            1.02 |
-|   Register     |    <0.001 |     1213 |    126800 |            0.96 |
-|   F7/F8 Muxes  |    <0.001 |        4 |     63400 |           <0.01 |
-|   Others       |     0.000 |       58 |       --- |             --- |
-| Signals        |     0.007 |     2427 |       --- |             --- |
+| Clocks         |     0.007 |        3 |       --- |             --- |
+| Slice Logic    |     0.007 |     3607 |       --- |             --- |
+|   LUT as Logic |     0.006 |     1530 |     63400 |            2.41 |
+|   CARRY4       |    <0.001 |      169 |     15850 |            1.07 |
+|   Register     |    <0.001 |     1373 |    126800 |            1.08 |
+|   F7/F8 Muxes  |    <0.001 |       13 |     63400 |            0.02 |
+|   Others       |     0.000 |       61 |       --- |             --- |
+| Signals        |     0.007 |     2664 |       --- |             --- |
 | Block RAM      |     0.004 |        2 |       135 |            1.48 |
 | DSPs           |     0.002 |        2 |       240 |            0.83 |
-| I/O            |     0.029 |       49 |       210 |           23.33 |
+| I/O            |     0.029 |       60 |       210 |           28.57 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.151 |          |           |                 |
+| Total          |     0.153 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.040 |       0.025 |      0.015 |
+| Vccint    |       1.000 |     0.042 |       0.027 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.012 |       0.008 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -143,11 +143,13 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| TOP_reactionTimer                  |     0.054 |
+| TOP_reactionTimer                  |     0.056 |
 |   clearBestButtonDebouncer         |    <0.001 |
 |   clock1kHz                        |    <0.001 |
 |   clockEdge1kHz                    |    <0.001 |
 |   globalTimer                      |    <0.001 |
+|   globalVideoRam                   |    <0.001 |
+|     vramAsciiFont                  |    <0.001 |
 |   reactionTimerProcessor           |     0.024 |
 |     prepareBusyDetector            |    <0.001 |
 |     resultBusyDetector             |    <0.001 |
@@ -195,6 +197,9 @@ Table of Contents
 |     enableDetector                 |    <0.001 |
 |   testButtonDebouncer              |    <0.001 |
 |     buttonInDetector               |    <0.001 |
+|   vgaPortDriver                    |    <0.001 |
+|     clock25MHz                     |    <0.001 |
+|     clockEdge25MHz                 |    <0.001 |
 +------------------------------------+-----------+
 
 

@@ -45,7 +45,12 @@ module TOP_reactionTimer(
     output wire [2:0]  out_triColorLedLeft,
     output wire [2:0]  out_triColorLedRight,
     output wire        out_audioSd,
-    output wire        out_audioPwm);
+    output wire        out_audioPwm,
+    output wire [2:0]  out_vgaR,
+    output wire [2:0]  out_vgaG,
+    output wire [2:0]  out_vgaB,
+    output wire        out_vgaHs,
+    output wire        out_vgaVs);
     
     wire [31:0] globalTimerCounter;
     wire debouncedTestButton, debouncedStartButton, debouncedClearBestButton, clock_1kHz;
@@ -149,5 +154,39 @@ module TOP_reactionTimer(
         .out_digitExpression(out_ssdDigitOutput[6:0]),
         .out_digitDot(out_ssdDigitOutput[7]),
         .out_digitSelector(out_ssdSelector));
+
+    // VGA output
+    wire [0:127] vgaCharPixel;
+    wire [7:0] vgaDriverReqPosX, vgaDriverReqPosY;
+    wire vgaDriverOutR, vgaDriverOutG, vgaDriverOutB; 
+    
+    vram globalVideoRam(
+        .in_clock(in_100MHzClock),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+      //.in_updateXPos(),
+      //.in_updateYPos(),
+      //.in_updateCharAscii(),
+      //.in_update(),
+        .in_charXPos(vgaDriverReqPosX),
+        .in_charYPos(vgaDriverReqPosY),
+        .out_charBitmap(vgaCharPixel));
+    
+    vgaDriver vgaPortDriver(
+        .in_clock(in_100MHzClock),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_charPixel(vgaCharPixel),
+        .out_charXPos(vgaDriverReqPosX),
+        .out_charYPos(vgaDriverReqPosY),
+        .out_vgaR(vgaDriverOutR),
+        .out_vgaG(vgaDriverOutG),
+        .out_vgaB(vgaDriverOutB),
+        .out_vgaHs(out_vgaHs),
+        .out_vgaVs(out_vgaVs));
+    
+    assign out_vgaR = {vgaDriverOutR, vgaDriverOutR, vgaDriverOutR, vgaDriverOutR};
+    assign out_vgaG = {vgaDriverOutG, vgaDriverOutG, vgaDriverOutG, vgaDriverOutG};
+    assign out_vgaB = {vgaDriverOutB, vgaDriverOutB, vgaDriverOutB, vgaDriverOutB};
     
 endmodule

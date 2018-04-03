@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc rfile:../../../reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc rfile:../../../reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN E3  IOSTANDARD LVCMOS33} [get_ports in_100MHzClock]
 set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
@@ -97,3 +97,31 @@ set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ
 set_property -dict {PACKAGE_PIN J18 IOSTANDARD LVCMOS33} [get_ports out_ssdSelector[1]]
 set_property src_info {type:XDC file:1 line:68 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN J17 IOSTANDARD LVCMOS33} [get_ports out_ssdSelector[0]]
+set_property src_info {type:XDC file:1 line:71 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN A3  IOSTANDARD LVCMOS33 } [get_ports { out_vgaR[0] }];
+set_property src_info {type:XDC file:1 line:72 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN B4  IOSTANDARD LVCMOS33 } [get_ports { out_vgaR[1] }];
+set_property src_info {type:XDC file:1 line:73 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN C5  IOSTANDARD LVCMOS33 } [get_ports { out_vgaR[2] }];
+set_property src_info {type:XDC file:1 line:74 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN A4  IOSTANDARD LVCMOS33 } [get_ports { out_vgaR[3] }];
+set_property src_info {type:XDC file:1 line:76 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN C6  IOSTANDARD LVCMOS33 } [get_ports { out_vgaG[0] }];
+set_property src_info {type:XDC file:1 line:77 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN A5  IOSTANDARD LVCMOS33 } [get_ports { out_vgaG[1] }];
+set_property src_info {type:XDC file:1 line:78 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN B6  IOSTANDARD LVCMOS33 } [get_ports { out_vgaG[2] }];
+set_property src_info {type:XDC file:1 line:79 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN A6  IOSTANDARD LVCMOS33 } [get_ports { out_vgaG[3] }];
+set_property src_info {type:XDC file:1 line:81 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN B7  IOSTANDARD LVCMOS33 } [get_ports { out_vgaB[0] }];
+set_property src_info {type:XDC file:1 line:82 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN C7  IOSTANDARD LVCMOS33 } [get_ports { out_vgaB[1] }];
+set_property src_info {type:XDC file:1 line:83 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN D7  IOSTANDARD LVCMOS33 } [get_ports { out_vgaB[2] }];
+set_property src_info {type:XDC file:1 line:84 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN D8  IOSTANDARD LVCMOS33 } [get_ports { out_vgaB[3] }];
+set_property src_info {type:XDC file:1 line:86 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33 } [get_ports { out_vgaHs }];
+set_property src_info {type:XDC file:1 line:87 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33 } [get_ports { out_vgaVs }];
