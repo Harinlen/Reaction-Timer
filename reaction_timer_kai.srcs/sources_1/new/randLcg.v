@@ -108,6 +108,6 @@ module randLcg(
         end
     end
     
-    assign out_busy = (state == STATE_IDLE);
+    assign out_busy = (state != STATE_IDLE);
     
 endmodule

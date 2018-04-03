@@ -161,14 +161,25 @@ module reactTimerPrepareCore #(
                     if (in_startRising) begin
                         // Change state to Generating Random number.
                         state <= STATE_GENRAND;
-                        // Also enable the seed ready signal.
-                        next <= 1;
+                        // Check the using selector
+                        case(randSelector)
+                            RAND_LCG: begin
+                                // Set the new seed for each generation.
+                                seedReady <= 1;
+                            end
+                            RAND_MT: begin
+                                // Simply give the next.
+                                next <= 1;
+                            end
+                        endcase
+                        //// Also enable the seed ready signal.
+                        //next <= 1;
                         //if (seedSet) begin
                         //    // Request for next random number.
                         //    next <= 1;
                         //end else begin
                         //    // Set the seed.
-                        //    seedReady <= 1;
+                        //    
                         //end
                         // This module is about to being busy.
                         out_busy <= 1'b1;
