@@ -65,15 +65,16 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.cache/wt [current_project]
-  set_property parent.project_path D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.xpr [current_project]
-  set_property ip_output_repo D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/ass1/reaction_timer_kai.cache/wt [current_project]
+  set_property parent.project_path C:/ass1/reaction_timer_kai.xpr [current_project]
+  set_property ip_output_repo C:/ass1/reaction_timer_kai.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp
-  read_xdc D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc
+  add_files -quiet C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp
+  read_xdc C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc
   link_design -top TOP_reactionTimer -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr  3 23:40:52 2018
-| Host         : DESKTOP-SAKI running 64-bit major release  (build 9200)
+| Date         : Wed Apr  4 16:11:02 2018
+| Host         : r103pc04 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file TOP_reactionTimer_control_sets_placed.rpt
 | Design       : TOP_reactionTimer
 | Device       : xc7a100t
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    66 |
-| Unused register locations in slices containing registers |   171 |
+| Number of unique control sets                            |     5 |
+| Unused register locations in slices containing registers |    17 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,105 +33,36 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              75 |           38 |
+| No           | No                    | No                     |               6 |            2 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             123 |           43 |
-| Yes          | No                    | No                     |              75 |           24 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |            1100 |          326 |
+| Yes          | Yes                   | No                     |              33 |           12 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+---------------------------+--------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------+----------------+
-|        Clock Signal       |                                                 Enable Signal                                                |                                          Set/Reset Signal                                          | Slice Load Count | Bel Load Count |
-+---------------------------+--------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------+----------------+
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/testResultValidDetector/out_audioSd_reg                                               | in_reset_IBUF                                                                                      |                1 |              2 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/out_triColorRight[2]_i_1_n_0                                                          | in_reset_IBUF                                                                                      |                1 |              3 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/E[0]                                                             | in_reset_IBUF                                                                                      |                2 |              3 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/E[0]                        | reactionTimerProcessor/statePrepareProcessor/prepareAnimation/currentFrame[2]_i_1__0_n_0           |                1 |              3 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][2]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][1]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/counter                  | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/counter_reg[4] |                1 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/out_numberDisplay_reg[4][0] | reactionTimerProcessor/statePrepareProcessor/prepareAnimation/animeClockDetector/SS[0]             |                1 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][5]      |                                                                                                    |                1 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][6]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][0]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][7]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][3]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/bcdCache_reg[29][4]      |                                                                                                    |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/E[0]                                                                            | vgaPortDriver/clockEdge25MHz/x_charBasePos_reg[3][0]                                               |                2 |              4 |
-|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/out_charYPos_reg[4][0]                                                          | vgaPortDriver/clockEdge25MHz/out_charYPos_reg[0][0]                                                |                2 |              5 |
-|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clock25MHz/E[0]                                                                                | vgaPortDriver/clockEdge25MHz/SR[0]                                                                 |                2 |              7 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/resultLevelBPwmModem/lastAudioSample[7]_i_1__4_n_0                 | in_reset_IBUF                                                                                      |                3 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/resultLevelGPwmModem/lastAudioSample[7]_i_1__3_n_0                 | in_reset_IBUF                                                                                      |                3 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/resultLevelRPwmModem/lastAudioSample[7]_i_1__2_n_0                 | in_reset_IBUF                                                                                      |                3 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/bestResultLevelR[7]_i_2_n_0                                        | reactionTimerProcessor/stateIdleProcessor/bestResultLevelR[7]_i_1_n_0                              |                2 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/bestResultLevelG[7]_i_2_n_0                                        | reactionTimerProcessor/stateTestProcessor/SS[0]                                                    |                3 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/resultLevelGPwmModem/lastAudioSample[7]_i_1__0_n_0               | in_reset_IBUF                                                                                      |                2 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/bestResultLevelR[7]_i_2_n_0                                        | reactionTimerProcessor/stateIdleProcessor/bestResultLevelB[7]_i_1_n_0                              |                1 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/resultLevelRPwmModem/lastAudioSample[7]_i_1__1_n_0               | in_reset_IBUF                                                                                      |                1 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/resultLevelBPwmModem/lastAudioSample[7]_i_1_n_0                  | in_reset_IBUF                                                                                      |                2 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/accumulator_0                       | reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/slowerCounter[7]_i_1_n_0  |                3 |              8 |
-|  in_100MHzClock_IBUF_BUFG |                                                                                                              | reactionTimerProcessor/stateTestProcessor/testAudioOut/audioHintPwmModem/slowerCounter[7]_i_1_n_0  |                2 |              8 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/ledAnimeClock/E[0]                                                 | reactionTimerProcessor/stateIdleProcessor/idleAnimation/currentFrame[7]_i_1_n_0                    |                2 |              8 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | reactionTimerProcessor/stateIdleProcessor/idleAnimation/animeClockDetector/SR[0]                   |                3 |              9 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mti                                         | in_reset_IBUF                                                                                      |                5 |             10 |
-|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/y_counter_reg[0]                                                                | in_reset_IBUF                                                                                      |                3 |             11 |
-|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clock25MHz/x_counter_reg[0][0]                                                                 | in_reset_IBUF                                                                                      |                6 |             11 |
-|  in_100MHzClock_IBUF_BUFG | clock1kHz/E[0]                                                                                               | in_reset_IBUF                                                                                      |                2 |             12 |
-|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clock25MHz/x_charPixelPos_reg[0][0]                                                            |                                                                                                    |                4 |             15 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/out_leds[15]_i_1__0_n_0                                                               | in_reset_IBUF                                                                                      |                4 |             16 |
-|  in_100MHzClock_IBUF_BUFG | testButtonDebouncer/intervalCounter                                                                          | testButtonDebouncer/buttonInDetector/intervalCounter_reg[0]                                        |                5 |             17 |
-|  in_100MHzClock_IBUF_BUFG |                                                                                                              | reactionTimerProcessor/stateResultProcessor/resultLevelRPwmModem/accumulator_reg[7]_0              |                6 |             24 |
-|  in_100MHzClock_IBUF_BUFG |                                                                                                              | reactionTimerProcessor/stateIdleProcessor/resultLevelRPwmModem/accumulator_reg[7]_0                |                7 |             24 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/idleCounter/E[0]                                                 | in_reset_IBUF                                                                                      |                8 |             25 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/tickCounterDivider/out_result[27]_i_1_n_0                          | in_reset_IBUF                                                                                      |               11 |             28 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/currentNumber            |                                                                                                    |                5 |             28 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/signalDelayer/signalInDetector/E[0]                                | in_reset_IBUF                                                                                      |                6 |             29 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/out_data[28]_i_1_n_0                        | in_reset_IBUF                                                                                      |               14 |             29 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/out_delay_reg[1][0]                             | in_reset_IBUF                                                                                      |                5 |             29 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/startDetector/E[0]                                                 | in_reset_IBUF                                                                                      |                8 |             29 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/tickCounterDivider/helper2[31]_i_1_n_0                             | in_reset_IBUF                                                                                      |               14 |             31 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultSeperator/numberValidDetector/E[0]                     | in_reset_IBUF                                                                                      |                6 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/startDetector/tickCounter_reg[0][0]                                | in_reset_IBUF                                                                                      |                7 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/product                                     | in_reset_IBUF                                                                                      |                7 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/tickCounterDivider/helper1[31]_i_1_n_0                             | in_reset_IBUF                                                                                      |               13 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateTestProcessor/signalDelayer/counter[0]_i_2_n_0                                   | reactionTimerProcessor/stateTestProcessor/signalDelayer/signalInDetector/counter_reg[0]            |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/gapGeneratorLcg/nextDetector/E[0]                               | in_reset_IBUF                                                                                      |               10 |             32 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | clock1kHz/counter[0]_i_1__5_n_0                                                                    |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | reactionTimerProcessor/stateIdleProcessor/ledAnimeClock/counter[0]_i_1_n_0                         |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/idleCounter/counter[0]_i_2__0_n_0                                | reactionTimerProcessor/stateResultProcessor/idleCounter/signalInDetector/counter_reg[0]            |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | reactionTimerProcessor/stateResultProcessor/clock1Hz/counter[0]_i_1__2_n_0                         |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | reactionTimerProcessor/statePrepareProcessor/prepareAnimation/clock1Hz/counter[0]_i_1__0_n_0       |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | vgaPortDriver/clock25MHz/counter[0]_i_1__6_n_0                                                     |                8 |             32 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/testResultValidDetector/E[0]                                     | in_reset_IBUF                                                                                      |                9 |             33 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateResultProcessor/out_ssdDots_reg[7]_0[0]                                          | in_reset_IBUF                                                                                      |               10 |             33 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/stateIdleProcessor/out_bestTime[27]_i_2_n_0                                           | reactionTimerProcessor/stateIdleProcessor/out_bestTime[27]_i_1_n_0                                 |               15 |             60 |
-|  in_100MHzClock_IBUF_BUFG |                                                                                                              | in_reset_IBUF                                                                                      |               28 |             67 |
-|  in_100MHzClock_IBUF_BUFG | reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/factor1                                     | in_reset_IBUF                                                                                      |               17 |             68 |
-|  in_100MHzClock_IBUF_BUFG |                                                                                                              |                                                                                                    |               38 |             75 |
-|  in_100MHzClock_IBUF_BUFG | in_enable_IBUF                                                                                               | in_reset_IBUF                                                                                      |               44 |            113 |
-+---------------------------+--------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------+----------------+
++---------------------------+------------------------------------------------------+------------------------------------+------------------+----------------+
+|        Clock Signal       |                     Enable Signal                    |          Set/Reset Signal          | Slice Load Count | Bel Load Count |
++---------------------------+------------------------------------------------------+------------------------------------+------------------+----------------+
+|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/x_charBasePos_reg[3][0] | vgaPortDriver/clockEdge25MHz/SR[0] |                1 |              4 |
+|  in_100MHzClock_IBUF_BUFG |                                                      |                                    |                2 |              6 |
+|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/x_charPixelPos_reg[0]   | in_reset_IBUF                      |                2 |              7 |
+|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/E[0]                    | in_reset_IBUF                      |                4 |             11 |
+|  in_100MHzClock_IBUF_BUFG | vgaPortDriver/clockEdge25MHz/y_counter_reg[0]        | in_reset_IBUF                      |                5 |             11 |
++---------------------------+------------------------------------------------------+------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 2      |                     1 |
-| 3      |                     3 |
-| 4      |                    11 |
-| 5      |                     1 |
+| 4      |                     1 |
+| 6      |                     1 |
 | 7      |                     1 |
-| 8      |                    12 |
-| 9      |                     1 |
-| 10     |                     1 |
 | 11     |                     2 |
-| 12     |                     1 |
-| 15     |                     1 |
-| 16+    |                    31 |
 +--------+-----------------------+
 
 
