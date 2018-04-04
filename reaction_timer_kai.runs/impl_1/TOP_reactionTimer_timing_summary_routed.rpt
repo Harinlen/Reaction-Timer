@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Wed Apr  4 16:11:36 2018
+| Date         : Wed Apr  4 16:31:47 2018
 | Host         : r103pc04 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file TOP_reactionTimer_timing_summary_routed.rpt -rpx TOP_reactionTimer_timing_summary_routed.rpx -warn_on_violation
 | Design       : TOP_reactionTimer
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      5.098        0.000                      0                   76        0.129        0.000                      0                   76        4.500        0.000                       0                    40  
+      4.984        0.000                      0                  150        0.177        0.000                      0                  150        4.500        0.000                       0                    82  
 
 
 All user specified timing constraints are met.
@@ -149,7 +149,7 @@ CLK100MHZ  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-CLK100MHZ           5.098        0.000                      0                   76        0.129        0.000                      0                   76        4.500        0.000                       0                    40  
+CLK100MHZ           4.984        0.000                      0                  150        0.177        0.000                      0                  150        4.500        0.000                       0                    82  
 
 
 ------------------------------------------------------------------------------------------------
@@ -180,28 +180,28 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  CLK100MHZ
   To Clock:  CLK100MHZ
 
-Setup :            0  Failing Endpoints,  Worst Slack        5.098ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.129ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        4.984ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.177ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             5.098ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             4.984ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[3]/R
+  Destination:            vgaPortDriver/out_charXPos_reg[2]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        4.190ns  (logic 1.228ns (29.306%)  route 2.962ns (70.694%))
-  Logic Levels:           3  (LUT3=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.224ns  (logic 1.086ns (25.712%)  route 3.138ns (74.288%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -217,18 +217,18 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT3 (Prop_lut3_I0_O)        0.150     8.916 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_1/O
-                         net (fo=4, routed)           0.584     9.501    vgaPortDriver/clockEdge25MHz_n_2
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[3]/R
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.648     9.550    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[2]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -238,31 +238,31 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[3]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_R)       -0.631    14.599    vgaPortDriver/x_charBasePos_reg[3]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[2]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y95          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[2]
   -------------------------------------------------------------------
-                         required time                         14.599    
-                         arrival time                          -9.501    
+                         required time                         14.534    
+                         arrival time                          -9.550    
   -------------------------------------------------------------------
-                         slack                                  5.098    
+                         slack                                  4.984    
 
-Slack (MET) :             5.098ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             4.984ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[4]/R
+  Destination:            vgaPortDriver/out_charXPos_reg[3]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        4.190ns  (logic 1.228ns (29.306%)  route 2.962ns (70.694%))
-  Logic Levels:           3  (LUT3=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.224ns  (logic 1.086ns (25.712%)  route 3.138ns (74.288%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -278,18 +278,18 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT3 (Prop_lut3_I0_O)        0.150     8.916 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_1/O
-                         net (fo=4, routed)           0.584     9.501    vgaPortDriver/clockEdge25MHz_n_2
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/R
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.648     9.550    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[3]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -299,31 +299,31 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_R)       -0.631    14.599    vgaPortDriver/x_charBasePos_reg[4]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[3]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y95          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[3]
   -------------------------------------------------------------------
-                         required time                         14.599    
-                         arrival time                          -9.501    
+                         required time                         14.534    
+                         arrival time                          -9.550    
   -------------------------------------------------------------------
-                         slack                                  5.098    
+                         slack                                  4.984    
 
-Slack (MET) :             5.098ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             4.984ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[5]/R
+  Destination:            vgaPortDriver/out_charXPos_reg[4]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        4.190ns  (logic 1.228ns (29.306%)  route 2.962ns (70.694%))
-  Logic Levels:           3  (LUT3=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.224ns  (logic 1.086ns (25.712%)  route 3.138ns (74.288%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -339,18 +339,18 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT3 (Prop_lut3_I0_O)        0.150     8.916 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_1/O
-                         net (fo=4, routed)           0.584     9.501    vgaPortDriver/clockEdge25MHz_n_2
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[5]/R
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.648     9.550    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[4]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -360,31 +360,31 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[5]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_R)       -0.631    14.599    vgaPortDriver/x_charBasePos_reg[5]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[4]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y95          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[4]
   -------------------------------------------------------------------
-                         required time                         14.599    
-                         arrival time                          -9.501    
+                         required time                         14.534    
+                         arrival time                          -9.550    
   -------------------------------------------------------------------
-                         slack                                  5.098    
+                         slack                                  4.984    
 
-Slack (MET) :             5.098ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             4.984ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[6]/R
+  Destination:            vgaPortDriver/out_charXPos_reg[6]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        4.190ns  (logic 1.228ns (29.306%)  route 2.962ns (70.694%))
-  Logic Levels:           3  (LUT3=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.224ns  (logic 1.086ns (25.712%)  route 3.138ns (74.288%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -400,18 +400,18 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT3 (Prop_lut3_I0_O)        0.150     8.916 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_1/O
-                         net (fo=4, routed)           0.584     9.501    vgaPortDriver/clockEdge25MHz_n_2
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[6]/R
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.648     9.550    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[6]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -421,31 +421,31 @@ Slack (MET) :             5.098ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[6]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_R)       -0.631    14.599    vgaPortDriver/x_charBasePos_reg[6]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y95          FDRE                                         r  vgaPortDriver/out_charXPos_reg[6]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y95          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[6]
   -------------------------------------------------------------------
-                         required time                         14.599    
-                         arrival time                          -9.501    
+                         required time                         14.534    
+                         arrival time                          -9.550    
   -------------------------------------------------------------------
-                         slack                                  5.098    
+                         slack                                  4.984    
 
-Slack (MET) :             5.756ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             5.125ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[3]/CE
+  Destination:            vgaPortDriver/out_charXPos_reg[0]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        3.958ns  (logic 1.202ns (30.365%)  route 2.756ns (69.635%))
-  Logic Levels:           3  (LUT2=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.083ns  (logic 1.086ns (26.599%)  route 2.997ns (73.401%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -461,18 +461,18 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT2 (Prop_lut2_I0_O)        0.124     8.890 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_2/O
-                         net (fo=4, routed)           0.378     9.269    vgaPortDriver/clockEdge25MHz_n_4
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[3]/CE
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.507     9.409    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y96          FDRE                                         r  vgaPortDriver/out_charXPos_reg[0]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -482,31 +482,31 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[3]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_CE)      -0.205    15.025    vgaPortDriver/x_charBasePos_reg[3]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y96          FDRE                                         r  vgaPortDriver/out_charXPos_reg[0]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y96          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[0]
   -------------------------------------------------------------------
-                         required time                         15.025    
-                         arrival time                          -9.269    
+                         required time                         14.534    
+                         arrival time                          -9.409    
   -------------------------------------------------------------------
-                         slack                                  5.756    
+                         slack                                  5.125    
 
-Slack (MET) :             5.756ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             5.125ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[4]/CE
+  Destination:            vgaPortDriver/out_charXPos_reg[1]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        3.958ns  (logic 1.202ns (30.365%)  route 2.756ns (69.635%))
-  Logic Levels:           3  (LUT2=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.083ns  (logic 1.086ns (26.599%)  route 2.997ns (73.401%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -522,18 +522,18 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT2 (Prop_lut2_I0_O)        0.124     8.890 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_2/O
-                         net (fo=4, routed)           0.378     9.269    vgaPortDriver/clockEdge25MHz_n_4
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/CE
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.507     9.409    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y96          FDRE                                         r  vgaPortDriver/out_charXPos_reg[1]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -543,31 +543,31 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_CE)      -0.205    15.025    vgaPortDriver/x_charBasePos_reg[4]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y96          FDRE                                         r  vgaPortDriver/out_charXPos_reg[1]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y96          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[1]
   -------------------------------------------------------------------
-                         required time                         15.025    
-                         arrival time                          -9.269    
+                         required time                         14.534    
+                         arrival time                          -9.409    
   -------------------------------------------------------------------
-                         slack                                  5.756    
+                         slack                                  5.125    
 
-Slack (MET) :             5.756ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             5.125ns  (required time - arrival time)
+  Source:                 vgaPortDriver/y_counter_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[5]/CE
+  Destination:            vgaPortDriver/out_charXPos_reg[5]/R
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        3.958ns  (logic 1.202ns (30.365%)  route 2.756ns (69.635%))
-  Logic Levels:           3  (LUT2=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.083ns  (logic 1.086ns (26.599%)  route 2.997ns (73.401%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.026ns = ( 15.026 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.327ns
+    Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -583,18 +583,18 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.724     5.327    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT2 (Prop_lut2_I0_O)        0.124     8.890 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_2/O
-                         net (fo=4, routed)           0.378     9.269    vgaPortDriver/clockEdge25MHz_n_4
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[5]/CE
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.456     5.783 r  vgaPortDriver/y_counter_reg[5]/Q
+                         net (fo=6, routed)           0.841     6.624    vgaPortDriver/y_counter_reg_n_0_[5]
+    SLICE_X5Y98          LUT4 (Prop_lut4_I0_O)        0.154     6.778 r  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14/O
+                         net (fo=2, routed)           0.592     7.370    vgaPortDriver/out_vgaR_OBUF[3]_inst_i_14_n_0
+    SLICE_X4Y97          LUT6 (Prop_lut6_I1_O)        0.327     7.697 f  vgaPortDriver/out_vgaR_OBUF[3]_inst_i_5/O
+                         net (fo=4, routed)           1.057     8.754    vgaPortDriver/clockEdge25MHz/y_counter_reg[9]
+    SLICE_X3Y97          LUT5 (Prop_lut5_I4_O)        0.149     8.903 r  vgaPortDriver/clockEdge25MHz/out_charXPos[6]_i_1/O
+                         net (fo=7, routed)           0.507     9.409    vgaPortDriver/clockEdge25MHz_n_0
+    SLICE_X6Y96          FDRE                                         r  vgaPortDriver/out_charXPos_reg[5]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -604,31 +604,31 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[5]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_CE)      -0.205    15.025    vgaPortDriver/x_charBasePos_reg[5]
+                         net (fo=81, routed)          1.603    15.026    vgaPortDriver/CLK
+    SLICE_X6Y96          FDRE                                         r  vgaPortDriver/out_charXPos_reg[5]/C
+                         clock pessimism              0.276    15.302    
+                         clock uncertainty           -0.035    15.266    
+    SLICE_X6Y96          FDRE (Setup_fdre_C_R)       -0.732    14.534    vgaPortDriver/out_charXPos_reg[5]
   -------------------------------------------------------------------
-                         required time                         15.025    
-                         arrival time                          -9.269    
+                         required time                         14.534    
+                         arrival time                          -9.409    
   -------------------------------------------------------------------
-                         slack                                  5.756    
+                         slack                                  5.125    
 
-Slack (MET) :             5.756ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             5.244ns  (required time - arrival time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charBasePos_reg[6]/CE
+  Destination:            vgaPortDriver/out_charYPos_reg[0]/CE
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        3.958ns  (logic 1.202ns (30.365%)  route 2.756ns (69.635%))
-  Logic Levels:           3  (LUT2=1 LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.045ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.006ns = ( 15.006 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.287ns  (logic 1.324ns (30.882%)  route 2.963ns (69.118%))
+  Logic Levels:           3  (LUT3=1 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.028ns = ( 15.028 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.329ns
+    Clock Pessimism Removal (CPR):    0.275ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -644,18 +644,18 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.726     5.329    vgaPortDriver/CLK
+    SLICE_X1Y98          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 f  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.175     6.904    vgaPortDriver/x_counter[6]
-    SLICE_X1Y109         LUT4 (Prop_lut4_I3_O)        0.327     7.231 f  vgaPortDriver/y_counter[10]_i_4/O
-                         net (fo=1, routed)           0.266     7.496    vgaPortDriver/clockEdge25MHz/x_counter_reg[9]
-    SLICE_X1Y109         LUT6 (Prop_lut6_I2_O)        0.332     7.828 r  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
-                         net (fo=16, routed)          0.938     8.766    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
-    SLICE_X4Y111         LUT2 (Prop_lut2_I0_O)        0.124     8.890 r  vgaPortDriver/clockEdge25MHz/x_charBasePos[6]_i_2/O
-                         net (fo=4, routed)           0.378     9.269    vgaPortDriver/clockEdge25MHz_n_4
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[6]/CE
+    SLICE_X1Y98          FDRE (Prop_fdre_C_Q)         0.456     5.785 r  vgaPortDriver/x_charBasePos_reg[4]/Q
+                         net (fo=6, routed)           0.681     6.466    vgaPortDriver/x_charBasePos_reg_n_0_[4]
+    SLICE_X1Y98          LUT4 (Prop_lut4_I2_O)        0.150     6.616 f  vgaPortDriver/x_charBasePos[10]_i_4/O
+                         net (fo=4, routed)           0.586     7.202    vgaPortDriver/x_charBasePos[10]_i_4_n_0
+    SLICE_X1Y99          LUT5 (Prop_lut5_I4_O)        0.358     7.560 f  vgaPortDriver/out_charXPos[6]_i_4/O
+                         net (fo=2, routed)           1.109     8.668    vgaPortDriver/clockEdge25MHz/x_charBasePos_reg[9]
+    SLICE_X3Y96          LUT3 (Prop_lut3_I2_O)        0.360     9.028 r  vgaPortDriver/clockEdge25MHz/out_charYPos[4]_i_1/O
+                         net (fo=5, routed)           0.588     9.616    vgaPortDriver/clockEdge25MHz_n_3
+    SLICE_X3Y96          FDRE                                         r  vgaPortDriver/out_charYPos_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -665,31 +665,31 @@ Slack (MET) :             5.756ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.584    15.006    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[6]/C
-                         clock pessimism              0.259    15.265    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X4Y111         FDRE (Setup_fdre_C_CE)      -0.205    15.025    vgaPortDriver/x_charBasePos_reg[6]
+                         net (fo=81, routed)          1.605    15.028    vgaPortDriver/CLK
+    SLICE_X3Y96          FDRE                                         r  vgaPortDriver/out_charYPos_reg[0]/C
+                         clock pessimism              0.275    15.303    
+                         clock uncertainty           -0.035    15.267    
+    SLICE_X3Y96          FDRE (Setup_fdre_C_CE)      -0.407    14.860    vgaPortDriver/out_charYPos_reg[0]
   -------------------------------------------------------------------
-                         required time                         15.025    
-                         arrival time                          -9.269    
+                         required time                         14.860    
+                         arrival time                          -9.616    
   -------------------------------------------------------------------
-                         slack                                  5.756    
+                         slack                                  5.244    
 
-Slack (MET) :             6.087ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             5.244ns  (required time - arrival time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_pixelCounter_reg[0]/D
+  Destination:            vgaPortDriver/out_charYPos_reg[1]/CE
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        3.862ns  (logic 0.966ns (25.011%)  route 2.896ns (74.989%))
-  Logic Levels:           3  (LUT4=1 LUT6=2)
-  Clock Path Skew:        -0.044ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.007ns = ( 15.007 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.287ns  (logic 1.324ns (30.882%)  route 2.963ns (69.118%))
+  Logic Levels:           3  (LUT3=1 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.028ns = ( 15.028 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.329ns
+    Clock Pessimism Removal (CPR):    0.275ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -705,18 +705,18 @@ Slack (MET) :             6.087ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.726     5.329    vgaPortDriver/CLK
+    SLICE_X1Y98          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 r  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.351     7.080    vgaPortDriver/x_counter[6]
-    SLICE_X2Y109         LUT6 (Prop_lut6_I3_O)        0.299     7.379 f  vgaPortDriver/x_charPixelPos[6]_i_3/O
-                         net (fo=1, routed)           0.670     8.049    vgaPortDriver/clockEdge25MHz/x_counter_reg[7]
-    SLICE_X2Y109         LUT6 (Prop_lut6_I2_O)        0.124     8.173 r  vgaPortDriver/clockEdge25MHz/x_charPixelPos[6]_i_1/O
-                         net (fo=10, routed)          0.876     9.049    vgaPortDriver/clockEdge25MHz_n_0
-    SLICE_X4Y110         LUT4 (Prop_lut4_I1_O)        0.124     9.173 r  vgaPortDriver/x_pixelCounter[0]_i_1/O
-                         net (fo=1, routed)           0.000     9.173    vgaPortDriver/x_pixelCounter[0]_i_1_n_0
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[0]/D
+    SLICE_X1Y98          FDRE (Prop_fdre_C_Q)         0.456     5.785 r  vgaPortDriver/x_charBasePos_reg[4]/Q
+                         net (fo=6, routed)           0.681     6.466    vgaPortDriver/x_charBasePos_reg_n_0_[4]
+    SLICE_X1Y98          LUT4 (Prop_lut4_I2_O)        0.150     6.616 f  vgaPortDriver/x_charBasePos[10]_i_4/O
+                         net (fo=4, routed)           0.586     7.202    vgaPortDriver/x_charBasePos[10]_i_4_n_0
+    SLICE_X1Y99          LUT5 (Prop_lut5_I4_O)        0.358     7.560 f  vgaPortDriver/out_charXPos[6]_i_4/O
+                         net (fo=2, routed)           1.109     8.668    vgaPortDriver/clockEdge25MHz/x_charBasePos_reg[9]
+    SLICE_X3Y96          LUT3 (Prop_lut3_I2_O)        0.360     9.028 r  vgaPortDriver/clockEdge25MHz/out_charYPos[4]_i_1/O
+                         net (fo=5, routed)           0.588     9.616    vgaPortDriver/clockEdge25MHz_n_3
+    SLICE_X3Y96          FDRE                                         r  vgaPortDriver/out_charYPos_reg[1]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -726,31 +726,31 @@ Slack (MET) :             6.087ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.585    15.007    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[0]/C
-                         clock pessimism              0.259    15.266    
-                         clock uncertainty           -0.035    15.231    
-    SLICE_X4Y110         FDRE (Setup_fdre_C_D)        0.029    15.260    vgaPortDriver/x_pixelCounter_reg[0]
+                         net (fo=81, routed)          1.605    15.028    vgaPortDriver/CLK
+    SLICE_X3Y96          FDRE                                         r  vgaPortDriver/out_charYPos_reg[1]/C
+                         clock pessimism              0.275    15.303    
+                         clock uncertainty           -0.035    15.267    
+    SLICE_X3Y96          FDRE (Setup_fdre_C_CE)      -0.407    14.860    vgaPortDriver/out_charYPos_reg[1]
   -------------------------------------------------------------------
-                         required time                         15.260    
-                         arrival time                          -9.173    
+                         required time                         14.860    
+                         arrival time                          -9.616    
   -------------------------------------------------------------------
-                         slack                                  6.087    
+                         slack                                  5.244    
 
-Slack (MET) :             6.107ns  (required time - arrival time)
-  Source:                 vgaPortDriver/x_counter_reg[6]/C
+Slack (MET) :             5.244ns  (required time - arrival time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_pixelCounter_reg[1]/D
+  Destination:            vgaPortDriver/out_charYPos_reg[2]/CE
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (CLK100MHZ rise@10.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        3.888ns  (logic 0.992ns (25.512%)  route 2.896ns (74.488%))
-  Logic Levels:           3  (LUT5=1 LUT6=2)
-  Clock Path Skew:        -0.044ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.007ns = ( 15.007 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.310ns
-    Clock Pessimism Removal (CPR):    0.259ns
+  Data Path Delay:        4.287ns  (logic 1.324ns (30.882%)  route 2.963ns (69.118%))
+  Logic Levels:           3  (LUT3=1 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.028ns = ( 15.028 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.329ns
+    Clock Pessimism Removal (CPR):    0.275ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -766,18 +766,18 @@ Slack (MET) :             6.107ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.708     5.310    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[6]/C
+                         net (fo=81, routed)          1.726     5.329    vgaPortDriver/CLK
+    SLICE_X1Y98          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.419     5.729 r  vgaPortDriver/x_counter_reg[6]/Q
-                         net (fo=11, routed)          1.351     7.080    vgaPortDriver/x_counter[6]
-    SLICE_X2Y109         LUT6 (Prop_lut6_I3_O)        0.299     7.379 f  vgaPortDriver/x_charPixelPos[6]_i_3/O
-                         net (fo=1, routed)           0.670     8.049    vgaPortDriver/clockEdge25MHz/x_counter_reg[7]
-    SLICE_X2Y109         LUT6 (Prop_lut6_I2_O)        0.124     8.173 r  vgaPortDriver/clockEdge25MHz/x_charPixelPos[6]_i_1/O
-                         net (fo=10, routed)          0.876     9.049    vgaPortDriver/clockEdge25MHz_n_0
-    SLICE_X4Y110         LUT5 (Prop_lut5_I1_O)        0.150     9.199 r  vgaPortDriver/x_pixelCounter[1]_i_1/O
-                         net (fo=1, routed)           0.000     9.199    vgaPortDriver/x_pixelCounter[1]_i_1_n_0
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[1]/D
+    SLICE_X1Y98          FDRE (Prop_fdre_C_Q)         0.456     5.785 r  vgaPortDriver/x_charBasePos_reg[4]/Q
+                         net (fo=6, routed)           0.681     6.466    vgaPortDriver/x_charBasePos_reg_n_0_[4]
+    SLICE_X1Y98          LUT4 (Prop_lut4_I2_O)        0.150     6.616 f  vgaPortDriver/x_charBasePos[10]_i_4/O
+                         net (fo=4, routed)           0.586     7.202    vgaPortDriver/x_charBasePos[10]_i_4_n_0
+    SLICE_X1Y99          LUT5 (Prop_lut5_I4_O)        0.358     7.560 f  vgaPortDriver/out_charXPos[6]_i_4/O
+                         net (fo=2, routed)           1.109     8.668    vgaPortDriver/clockEdge25MHz/x_charBasePos_reg[9]
+    SLICE_X3Y96          LUT3 (Prop_lut3_I2_O)        0.360     9.028 r  vgaPortDriver/clockEdge25MHz/out_charYPos[4]_i_1/O
+                         net (fo=5, routed)           0.588     9.616    vgaPortDriver/clockEdge25MHz_n_3
+    SLICE_X3Y96          FDRE                                         r  vgaPortDriver/out_charYPos_reg[2]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -787,16 +787,16 @@ Slack (MET) :             6.107ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          1.585    15.007    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[1]/C
-                         clock pessimism              0.259    15.266    
-                         clock uncertainty           -0.035    15.231    
-    SLICE_X4Y110         FDRE (Setup_fdre_C_D)        0.075    15.306    vgaPortDriver/x_pixelCounter_reg[1]
+                         net (fo=81, routed)          1.605    15.028    vgaPortDriver/CLK
+    SLICE_X3Y96          FDRE                                         r  vgaPortDriver/out_charYPos_reg[2]/C
+                         clock pessimism              0.275    15.303    
+                         clock uncertainty           -0.035    15.267    
+    SLICE_X3Y96          FDRE (Setup_fdre_C_CE)      -0.407    14.860    vgaPortDriver/out_charYPos_reg[2]
   -------------------------------------------------------------------
-                         required time                         15.306    
-                         arrival time                          -9.199    
+                         required time                         14.860    
+                         arrival time                          -9.616    
   -------------------------------------------------------------------
-                         slack                                  6.107    
+                         slack                                  5.244    
 
 
 
@@ -804,19 +804,19 @@ Slack (MET) :             6.107ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.129ns  (arrival time - required time)
-  Source:                 vgaPortDriver/y_counter_reg[7]/C
+Slack (MET) :             0.177ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[7]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/y_counter_reg[10]/D
+  Destination:            vgaPortDriver/x_charBasePos_reg[9]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.263ns  (logic 0.186ns (70.630%)  route 0.077ns (29.370%))
-  Logic Levels:           1  (LUT6=1)
+  Data Path Delay:        0.297ns  (logic 0.189ns (63.660%)  route 0.108ns (36.340%))
+  Logic Levels:           1  (LUT4=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.034ns
-    Source Clock Delay      (SCD):    1.515ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.524ns
     Clock Pessimism Removal (CPR):    0.505ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -828,65 +828,14 @@ Slack (MET) :             0.129ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.596     1.515    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X3Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[7]/C
+                         net (fo=81, routed)          0.605     1.524    vgaPortDriver/CLK
+    SLICE_X0Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y110         FDRE (Prop_fdre_C_Q)         0.141     1.656 r  vgaPortDriver/y_counter_reg[7]/Q
-                         net (fo=8, routed)           0.077     1.734    vgaPortDriver/y_counter[7]
-    SLICE_X2Y110         LUT6 (Prop_lut6_I3_O)        0.045     1.779 r  vgaPortDriver/y_counter[10]_i_2/O
-                         net (fo=1, routed)           0.000     1.779    vgaPortDriver/y_counter_1[10]
-    SLICE_X2Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[10]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.869     2.034    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X2Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[10]/C
-                         clock pessimism             -0.505     1.528    
-    SLICE_X2Y110         FDRE (Hold_fdre_C_D)         0.121     1.649    vgaPortDriver/y_counter_reg[10]
-  -------------------------------------------------------------------
-                         required time                         -1.649    
-                         arrival time                           1.779    
-  -------------------------------------------------------------------
-                         slack                                  0.129    
-
-Slack (MET) :             0.145ns  (arrival time - required time)
-  Source:                 vgaPortDriver/x_charBasePos_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charPixelPos_reg[5]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.250ns  (logic 0.186ns (74.383%)  route 0.064ns (25.617%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.031ns
-    Source Clock Delay      (SCD):    1.514ns
-    Clock Pessimism Removal (CPR):    0.503ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.595     1.514    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y111         FDRE                                         r  vgaPortDriver/x_charBasePos_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y111         FDRE (Prop_fdre_C_Q)         0.141     1.655 r  vgaPortDriver/x_charBasePos_reg[5]/Q
-                         net (fo=3, routed)           0.064     1.719    vgaPortDriver/x_charBasePos[5]
-    SLICE_X5Y111         LUT6 (Prop_lut6_I0_O)        0.045     1.764 r  vgaPortDriver/x_charPixelPos[5]_i_1/O
-                         net (fo=1, routed)           0.000     1.764    vgaPortDriver/p_0_in[5]
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[5]/D
+    SLICE_X0Y99          FDRE (Prop_fdre_C_Q)         0.141     1.665 r  vgaPortDriver/x_charBasePos_reg[7]/Q
+                         net (fo=5, routed)           0.108     1.773    vgaPortDriver/x_charBasePos_reg_n_0_[7]
+    SLICE_X1Y99          LUT4 (Prop_lut4_I0_O)        0.048     1.821 r  vgaPortDriver/x_charBasePos[9]_i_1/O
+                         net (fo=1, routed)           0.000     1.821    vgaPortDriver/x_charBasePos[9]
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[9]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -896,80 +845,29 @@ Slack (MET) :             0.145ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.866     2.031    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[5]/C
-                         clock pessimism             -0.503     1.527    
-    SLICE_X5Y111         FDRE (Hold_fdre_C_D)         0.092     1.619    vgaPortDriver/x_charPixelPos_reg[5]
+                         net (fo=81, routed)          0.878     2.043    vgaPortDriver/CLK
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[9]/C
+                         clock pessimism             -0.505     1.537    
+    SLICE_X1Y99          FDRE (Hold_fdre_C_D)         0.107     1.644    vgaPortDriver/x_charBasePos_reg[9]
   -------------------------------------------------------------------
-                         required time                         -1.619    
-                         arrival time                           1.764    
+                         required time                         -1.644    
+                         arrival time                           1.821    
   -------------------------------------------------------------------
-                         slack                                  0.145    
+                         slack                                  0.177    
 
-Slack (MET) :             0.178ns  (arrival time - required time)
-  Source:                 vgaPortDriver/x_pixelCounter_reg[0]/C
+Slack (MET) :             0.190ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[7]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charPixelPos_reg[1]/D
+  Destination:            vgaPortDriver/x_charBasePos_reg[10]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.298ns  (logic 0.189ns (63.440%)  route 0.109ns (36.560%))
+  Data Path Delay:        0.294ns  (logic 0.186ns (63.289%)  route 0.108ns (36.711%))
   Logic Levels:           1  (LUT5=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.031ns
-    Source Clock Delay      (SCD):    1.514ns
-    Clock Pessimism Removal (CPR):    0.503ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.595     1.514    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y110         FDRE (Prop_fdre_C_Q)         0.141     1.655 f  vgaPortDriver/x_pixelCounter_reg[0]/Q
-                         net (fo=7, routed)           0.109     1.764    vgaPortDriver/x_pixelCounter_reg_n_0_[0]
-    SLICE_X5Y110         LUT5 (Prop_lut5_I2_O)        0.048     1.812 r  vgaPortDriver/x_charPixelPos[1]_i_1/O
-                         net (fo=1, routed)           0.000     1.812    vgaPortDriver/p_0_in[1]
-    SLICE_X5Y110         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.866     2.031    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y110         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[1]/C
-                         clock pessimism             -0.503     1.527    
-    SLICE_X5Y110         FDRE (Hold_fdre_C_D)         0.107     1.634    vgaPortDriver/x_charPixelPos_reg[1]
-  -------------------------------------------------------------------
-                         required time                         -1.634    
-                         arrival time                           1.812    
-  -------------------------------------------------------------------
-                         slack                                  0.178    
-
-Slack (MET) :             0.187ns  (arrival time - required time)
-  Source:                 vgaPortDriver/y_counter_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/y_counter_reg[6]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.292ns  (logic 0.209ns (71.466%)  route 0.083ns (28.534%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.034ns
-    Source Clock Delay      (SCD):    1.515ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.524ns
     Clock Pessimism Removal (CPR):    0.505ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -981,14 +879,14 @@ Slack (MET) :             0.187ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.596     1.515    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X2Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
+                         net (fo=81, routed)          0.605     1.524    vgaPortDriver/CLK
+    SLICE_X0Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y110         FDRE (Prop_fdre_C_Q)         0.164     1.679 r  vgaPortDriver/y_counter_reg[5]/Q
-                         net (fo=6, routed)           0.083     1.763    vgaPortDriver/y_counter[5]
-    SLICE_X3Y110         LUT6 (Prop_lut6_I4_O)        0.045     1.808 r  vgaPortDriver/y_counter[6]_i_1/O
-                         net (fo=1, routed)           0.000     1.808    vgaPortDriver/y_counter_1[6]
-    SLICE_X3Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[6]/D
+    SLICE_X0Y99          FDRE (Prop_fdre_C_Q)         0.141     1.665 r  vgaPortDriver/x_charBasePos_reg[7]/Q
+                         net (fo=5, routed)           0.108     1.773    vgaPortDriver/x_charBasePos_reg_n_0_[7]
+    SLICE_X1Y99          LUT5 (Prop_lut5_I1_O)        0.045     1.818 r  vgaPortDriver/x_charBasePos[10]_i_3/O
+                         net (fo=1, routed)           0.000     1.818    vgaPortDriver/x_charBasePos[10]
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -998,29 +896,82 @@ Slack (MET) :             0.187ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.869     2.034    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X3Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[6]/C
-                         clock pessimism             -0.505     1.528    
-    SLICE_X3Y110         FDRE (Hold_fdre_C_D)         0.092     1.620    vgaPortDriver/y_counter_reg[6]
+                         net (fo=81, routed)          0.878     2.043    vgaPortDriver/CLK
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[10]/C
+                         clock pessimism             -0.505     1.537    
+    SLICE_X1Y99          FDRE (Hold_fdre_C_D)         0.091     1.628    vgaPortDriver/x_charBasePos_reg[10]
   -------------------------------------------------------------------
-                         required time                         -1.620    
-                         arrival time                           1.808    
+                         required time                         -1.628    
+                         arrival time                           1.818    
   -------------------------------------------------------------------
-                         slack                                  0.187    
+                         slack                                  0.190    
 
-Slack (MET) :             0.191ns  (arrival time - required time)
+Slack (MET) :             0.190ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_counter_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vgaPortDriver/x_pixelCounter_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.559ns  (logic 0.231ns (41.324%)  route 0.328ns (58.676%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        0.277ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.040ns
+    Source Clock Delay      (SCD):    1.517ns
+    Clock Pessimism Removal (CPR):    0.245ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.598     1.517    vgaPortDriver/CLK
+    SLICE_X4Y101         FDRE                                         r  vgaPortDriver/x_counter_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y101         FDRE (Prop_fdre_C_Q)         0.141     1.658 r  vgaPortDriver/x_counter_reg[3]/Q
+                         net (fo=7, routed)           0.174     1.832    vgaPortDriver/clockEdge25MHz/Q[0]
+    SLICE_X4Y101         LUT6 (Prop_lut6_I2_O)        0.045     1.877 f  vgaPortDriver/clockEdge25MHz/y_counter[10]_i_1/O
+                         net (fo=18, routed)          0.154     2.031    vgaPortDriver/clockEdge25MHz/y_counter_reg[0]
+    SLICE_X4Y99          LUT6 (Prop_lut6_I4_O)        0.045     2.076 r  vgaPortDriver/clockEdge25MHz/x_pixelCounter[2]_i_1/O
+                         net (fo=1, routed)           0.000     2.076    vgaPortDriver/clockEdge25MHz_n_8
+    SLICE_X4Y99          FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.875     2.040    vgaPortDriver/CLK
+    SLICE_X4Y99          FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[2]/C
+                         clock pessimism             -0.245     1.794    
+    SLICE_X4Y99          FDRE (Hold_fdre_C_D)         0.092     1.886    vgaPortDriver/x_pixelCounter_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -1.886    
+                         arrival time                           2.076    
+  -------------------------------------------------------------------
+                         slack                                  0.190    
+
+Slack (MET) :             0.192ns  (arrival time - required time)
   Source:                 vgaPortDriver/x_pixelCounter_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charPixelPos_reg[0]/D
+  Destination:            vgaPortDriver/x_charPixelPos_reg[2]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.295ns  (logic 0.186ns (63.068%)  route 0.109ns (36.932%))
-  Logic Levels:           1  (LUT4=1)
+  Data Path Delay:        0.297ns  (logic 0.186ns (62.724%)  route 0.111ns (37.276%))
+  Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.031ns
-    Source Clock Delay      (SCD):    1.514ns
+    Destination Clock Delay (DCD):    2.040ns
+    Source Clock Delay      (SCD):    1.523ns
     Clock Pessimism Removal (CPR):    0.503ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1032,65 +983,14 @@ Slack (MET) :             0.191ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.595     1.514    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[0]/C
+                         net (fo=81, routed)          0.604     1.523    vgaPortDriver/CLK
+    SLICE_X4Y99          FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y110         FDRE (Prop_fdre_C_Q)         0.141     1.655 f  vgaPortDriver/x_pixelCounter_reg[0]/Q
-                         net (fo=7, routed)           0.109     1.764    vgaPortDriver/x_pixelCounter_reg_n_0_[0]
-    SLICE_X5Y110         LUT4 (Prop_lut4_I1_O)        0.045     1.809 r  vgaPortDriver/x_charPixelPos[0]_i_1/O
-                         net (fo=1, routed)           0.000     1.809    vgaPortDriver/p_0_in[0]
-    SLICE_X5Y110         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.866     2.031    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y110         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[0]/C
-                         clock pessimism             -0.503     1.527    
-    SLICE_X5Y110         FDRE (Hold_fdre_C_D)         0.091     1.618    vgaPortDriver/x_charPixelPos_reg[0]
-  -------------------------------------------------------------------
-                         required time                         -1.618    
-                         arrival time                           1.809    
-  -------------------------------------------------------------------
-                         slack                                  0.191    
-
-Slack (MET) :             0.231ns  (arrival time - required time)
-  Source:                 vgaPortDriver/x_charPixelPos_reg[3]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charPixelPos_reg[3]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.322ns  (logic 0.186ns (57.726%)  route 0.136ns (42.274%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.031ns
-    Source Clock Delay      (SCD):    1.514ns
-    Clock Pessimism Removal (CPR):    0.516ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.595     1.514    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[3]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X5Y111         FDRE (Prop_fdre_C_Q)         0.141     1.655 r  vgaPortDriver/x_charPixelPos_reg[3]/Q
-                         net (fo=6, routed)           0.136     1.792    vgaPortDriver/x_charPixelPos_reg_n_0_[3]
-    SLICE_X5Y111         LUT6 (Prop_lut6_I5_O)        0.045     1.837 r  vgaPortDriver/x_charPixelPos[3]_i_1/O
-                         net (fo=1, routed)           0.000     1.837    vgaPortDriver/p_0_in[3]
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[3]/D
+    SLICE_X4Y99          FDRE (Prop_fdre_C_Q)         0.141     1.664 f  vgaPortDriver/x_pixelCounter_reg[0]/Q
+                         net (fo=10, routed)          0.111     1.775    vgaPortDriver/x_pixelCounter_reg_n_0_[0]
+    SLICE_X5Y99          LUT6 (Prop_lut6_I4_O)        0.045     1.820 r  vgaPortDriver/x_charPixelPos[2]_i_1/O
+                         net (fo=1, routed)           0.000     1.820    vgaPortDriver/p_0_in[2]
+    SLICE_X5Y99          FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1100,131 +1000,29 @@ Slack (MET) :             0.231ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.866     2.031    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[3]/C
-                         clock pessimism             -0.516     1.514    
-    SLICE_X5Y111         FDRE (Hold_fdre_C_D)         0.091     1.605    vgaPortDriver/x_charPixelPos_reg[3]
+                         net (fo=81, routed)          0.875     2.040    vgaPortDriver/CLK
+    SLICE_X5Y99          FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[2]/C
+                         clock pessimism             -0.503     1.536    
+    SLICE_X5Y99          FDRE (Hold_fdre_C_D)         0.092     1.628    vgaPortDriver/x_charPixelPos_reg[2]
   -------------------------------------------------------------------
-                         required time                         -1.605    
-                         arrival time                           1.837    
+                         required time                         -1.628    
+                         arrival time                           1.820    
   -------------------------------------------------------------------
-                         slack                                  0.231    
+                         slack                                  0.192    
 
-Slack (MET) :             0.235ns  (arrival time - required time)
-  Source:                 vgaPortDriver/x_counter_reg[0]/C
+Slack (MET) :             0.216ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_counter_reg[3]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.355ns  (logic 0.187ns (52.650%)  route 0.168ns (47.350%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.035ns
-    Source Clock Delay      (SCD):    1.516ns
-    Clock Pessimism Removal (CPR):    0.505ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.597     1.516    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.141     1.657 r  vgaPortDriver/x_counter_reg[0]/Q
-                         net (fo=8, routed)           0.168     1.826    vgaPortDriver/x_counter[0]
-    SLICE_X0Y108         LUT4 (Prop_lut4_I2_O)        0.046     1.872 r  vgaPortDriver/x_counter[3]_i_1/O
-                         net (fo=1, routed)           0.000     1.872    vgaPortDriver/x_counter_0[3]
-    SLICE_X0Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.870     2.035    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X0Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[3]/C
-                         clock pessimism             -0.505     1.529    
-    SLICE_X0Y108         FDRE (Hold_fdre_C_D)         0.107     1.636    vgaPortDriver/x_counter_reg[3]
-  -------------------------------------------------------------------
-                         required time                         -1.636    
-                         arrival time                           1.872    
-  -------------------------------------------------------------------
-                         slack                                  0.235    
-
-Slack (MET) :             0.250ns  (arrival time - required time)
-  Source:                 vgaPortDriver/x_counter_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_counter_reg[1]/D
+  Destination:            vgaPortDriver/x_charBasePos_reg[8]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.354ns  (logic 0.186ns (52.516%)  route 0.168ns (47.484%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.035ns
-    Source Clock Delay      (SCD):    1.516ns
-    Clock Pessimism Removal (CPR):    0.505ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.597     1.516    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X1Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y108         FDRE (Prop_fdre_C_Q)         0.141     1.657 r  vgaPortDriver/x_counter_reg[0]/Q
-                         net (fo=8, routed)           0.168     1.826    vgaPortDriver/x_counter[0]
-    SLICE_X0Y108         LUT2 (Prop_lut2_I0_O)        0.045     1.871 r  vgaPortDriver/x_counter[1]_i_1/O
-                         net (fo=1, routed)           0.000     1.871    vgaPortDriver/x_counter_0[1]
-    SLICE_X0Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock CLK100MHZ rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  in_100MHzClock (IN)
-                         net (fo=0)                   0.000     0.000    in_100MHzClock
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.870     2.035    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X0Y108         FDRE                                         r  vgaPortDriver/x_counter_reg[1]/C
-                         clock pessimism             -0.505     1.529    
-    SLICE_X0Y108         FDRE (Hold_fdre_C_D)         0.091     1.620    vgaPortDriver/x_counter_reg[1]
-  -------------------------------------------------------------------
-                         required time                         -1.620    
-                         arrival time                           1.871    
-  -------------------------------------------------------------------
-                         slack                                  0.250    
-
-Slack (MET) :             0.255ns  (arrival time - required time)
-  Source:                 vgaPortDriver/y_counter_reg[6]/C
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/y_counter_reg[9]/D
-                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             CLK100MHZ
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.391ns  (logic 0.186ns (47.563%)  route 0.205ns (52.437%))
+  Data Path Delay:        0.324ns  (logic 0.186ns (57.362%)  route 0.138ns (42.638%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.034ns
-    Source Clock Delay      (SCD):    1.515ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.524ns
     Clock Pessimism Removal (CPR):    0.502ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1236,14 +1034,14 @@ Slack (MET) :             0.255ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.596     1.515    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X3Y110         FDRE                                         r  vgaPortDriver/y_counter_reg[6]/C
+                         net (fo=81, routed)          0.605     1.524    vgaPortDriver/CLK
+    SLICE_X1Y98          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y110         FDRE (Prop_fdre_C_Q)         0.141     1.656 r  vgaPortDriver/y_counter_reg[6]/Q
-                         net (fo=9, routed)           0.205     1.861    vgaPortDriver/y_counter[6]
-    SLICE_X2Y111         LUT6 (Prop_lut6_I3_O)        0.045     1.906 r  vgaPortDriver/y_counter[9]_i_1/O
-                         net (fo=1, routed)           0.000     1.906    vgaPortDriver/y_counter_1[9]
-    SLICE_X2Y111         FDRE                                         r  vgaPortDriver/y_counter_reg[9]/D
+    SLICE_X1Y98          FDRE (Prop_fdre_C_Q)         0.141     1.665 r  vgaPortDriver/x_charBasePos_reg[4]/Q
+                         net (fo=6, routed)           0.138     1.804    vgaPortDriver/x_charBasePos_reg_n_0_[4]
+    SLICE_X1Y99          LUT6 (Prop_lut6_I2_O)        0.045     1.849 r  vgaPortDriver/x_charBasePos[8]_i_1/O
+                         net (fo=1, routed)           0.000     1.849    vgaPortDriver/x_charBasePos[8]
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[8]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1253,29 +1051,233 @@ Slack (MET) :             0.255ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.869     2.034    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X2Y111         FDRE                                         r  vgaPortDriver/y_counter_reg[9]/C
-                         clock pessimism             -0.502     1.531    
-    SLICE_X2Y111         FDRE (Hold_fdre_C_D)         0.120     1.651    vgaPortDriver/y_counter_reg[9]
+                         net (fo=81, routed)          0.878     2.043    vgaPortDriver/CLK
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[8]/C
+                         clock pessimism             -0.502     1.540    
+    SLICE_X1Y99          FDRE (Hold_fdre_C_D)         0.092     1.632    vgaPortDriver/x_charBasePos_reg[8]
   -------------------------------------------------------------------
-                         required time                         -1.651    
-                         arrival time                           1.906    
+                         required time                         -1.632    
+                         arrival time                           1.849    
   -------------------------------------------------------------------
-                         slack                                  0.255    
+                         slack                                  0.216    
 
-Slack (MET) :             0.256ns  (arrival time - required time)
-  Source:                 vgaPortDriver/x_pixelCounter_reg[1]/C
+Slack (MET) :             0.220ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_charBasePos_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vgaPortDriver/x_charPixelPos_reg[2]/D
+  Destination:            vgaPortDriver/x_charPixelPos_reg[3]/D
                             (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             CLK100MHZ
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
-  Data Path Delay:        0.364ns  (logic 0.227ns (62.419%)  route 0.137ns (37.581%))
+  Data Path Delay:        0.357ns  (logic 0.186ns (52.147%)  route 0.171ns (47.853%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.031ns
-    Source Clock Delay      (SCD):    1.514ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.524ns
+    Clock Pessimism Removal (CPR):    0.502ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.605     1.524    vgaPortDriver/CLK
+    SLICE_X1Y99          FDRE                                         r  vgaPortDriver/x_charBasePos_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y99          FDRE (Prop_fdre_C_Q)         0.141     1.665 r  vgaPortDriver/x_charBasePos_reg[3]/Q
+                         net (fo=7, routed)           0.171     1.836    vgaPortDriver/x_charBasePos_reg_n_0_[3]
+    SLICE_X2Y99          LUT6 (Prop_lut6_I0_O)        0.045     1.881 r  vgaPortDriver/x_charPixelPos[3]_i_1/O
+                         net (fo=1, routed)           0.000     1.881    vgaPortDriver/p_0_in[3]
+    SLICE_X2Y99          FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.878     2.043    vgaPortDriver/CLK
+    SLICE_X2Y99          FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[3]/C
+                         clock pessimism             -0.502     1.540    
+    SLICE_X2Y99          FDRE (Hold_fdre_C_D)         0.121     1.661    vgaPortDriver/x_charPixelPos_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -1.661    
+                         arrival time                           1.881    
+  -------------------------------------------------------------------
+                         slack                                  0.220    
+
+Slack (MET) :             0.222ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_pixelCounter_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vgaPortDriver/x_charPixelPos_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.353ns  (logic 0.186ns (52.686%)  route 0.167ns (47.314%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.040ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.523ns
+    Clock Pessimism Removal (CPR):    0.479ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.604     1.523    vgaPortDriver/CLK
+    SLICE_X4Y99          FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y99          FDRE (Prop_fdre_C_Q)         0.141     1.664 r  vgaPortDriver/x_pixelCounter_reg[2]/Q
+                         net (fo=8, routed)           0.167     1.831    vgaPortDriver/x_pixelCounter_reg_n_0_[2]
+    SLICE_X3Y99          LUT6 (Prop_lut6_I1_O)        0.045     1.876 r  vgaPortDriver/x_charPixelPos[4]_i_1/O
+                         net (fo=1, routed)           0.000     1.876    vgaPortDriver/p_0_in[4]
+    SLICE_X3Y99          FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.878     2.043    vgaPortDriver/CLK
+    SLICE_X3Y99          FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[4]/C
+                         clock pessimism             -0.479     1.563    
+    SLICE_X3Y99          FDRE (Hold_fdre_C_D)         0.091     1.654    vgaPortDriver/x_charPixelPos_reg[4]
+  -------------------------------------------------------------------
+                         required time                         -1.654    
+                         arrival time                           1.876    
+  -------------------------------------------------------------------
+                         slack                                  0.222    
+
+Slack (MET) :             0.233ns  (arrival time - required time)
+  Source:                 vgaPortDriver/y_counter_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vgaPortDriver/y_counter_reg[5]/D
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.325ns  (logic 0.227ns (69.909%)  route 0.098ns (30.091%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.039ns
+    Source Clock Delay      (SCD):    1.522ns
+    Clock Pessimism Removal (CPR):    0.516ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.603     1.522    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y96          FDRE (Prop_fdre_C_Q)         0.128     1.650 r  vgaPortDriver/y_counter_reg[1]/Q
+                         net (fo=9, routed)           0.098     1.748    vgaPortDriver/y_counter_reg_n_0_[1]
+    SLICE_X5Y96          LUT6 (Prop_lut6_I2_O)        0.099     1.847 r  vgaPortDriver/y_counter[5]_i_1/O
+                         net (fo=1, routed)           0.000     1.847    vgaPortDriver/y_counter[5]
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.874     2.039    vgaPortDriver/CLK
+    SLICE_X5Y96          FDRE                                         r  vgaPortDriver/y_counter_reg[5]/C
+                         clock pessimism             -0.516     1.522    
+    SLICE_X5Y96          FDRE (Hold_fdre_C_D)         0.092     1.614    vgaPortDriver/y_counter_reg[5]
+  -------------------------------------------------------------------
+                         required time                         -1.614    
+                         arrival time                           1.847    
+  -------------------------------------------------------------------
+                         slack                                  0.233    
+
+Slack (MET) :             0.233ns  (arrival time - required time)
+  Source:                 vgaPortDriver/x_counter_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vgaPortDriver/x_counter_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.341ns  (logic 0.186ns (54.484%)  route 0.155ns (45.516%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.037ns
+    Source Clock Delay      (SCD):    1.518ns
+    Clock Pessimism Removal (CPR):    0.502ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.599     1.518    vgaPortDriver/CLK
+    SLICE_X3Y101         FDRE                                         r  vgaPortDriver/x_counter_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y101         FDRE (Prop_fdre_C_Q)         0.141     1.659 r  vgaPortDriver/x_counter_reg[5]/Q
+                         net (fo=11, routed)          0.155     1.815    vgaPortDriver/x_counter_reg_n_0_[5]
+    SLICE_X3Y102         LUT6 (Prop_lut6_I1_O)        0.045     1.860 r  vgaPortDriver/x_counter[8]_i_1/O
+                         net (fo=1, routed)           0.000     1.860    vgaPortDriver/x_counter[8]
+    SLICE_X3Y102         FDRE                                         r  vgaPortDriver/x_counter_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK100MHZ rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  in_100MHzClock (IN)
+                         net (fo=0)                   0.000     0.000    in_100MHzClock
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
+                         net (fo=81, routed)          0.872     2.037    vgaPortDriver/CLK
+    SLICE_X3Y102         FDRE                                         r  vgaPortDriver/x_counter_reg[8]/C
+                         clock pessimism             -0.502     1.534    
+    SLICE_X3Y102         FDRE (Hold_fdre_C_D)         0.092     1.626    vgaPortDriver/x_counter_reg[8]
+  -------------------------------------------------------------------
+                         required time                         -1.626    
+                         arrival time                           1.860    
+  -------------------------------------------------------------------
+                         slack                                  0.233    
+
+Slack (MET) :             0.236ns  (arrival time - required time)
+  Source:                 vgaPortDriver/y_counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vgaPortDriver/y_counter_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by CLK100MHZ  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK100MHZ
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK100MHZ rise@0.000ns - CLK100MHZ rise@0.000ns)
+  Data Path Delay:        0.344ns  (logic 0.186ns (54.145%)  route 0.158ns (45.855%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.040ns
+    Source Clock Delay      (SCD):    1.523ns
     Clock Pessimism Removal (CPR):    0.500ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1287,14 +1289,14 @@ Slack (MET) :             0.256ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.595     1.514    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X4Y110         FDRE                                         r  vgaPortDriver/x_pixelCounter_reg[1]/C
+                         net (fo=81, routed)          0.604     1.523    vgaPortDriver/CLK
+    SLICE_X5Y98          FDRE                                         r  vgaPortDriver/y_counter_reg[6]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y110         FDRE (Prop_fdre_C_Q)         0.128     1.642 f  vgaPortDriver/x_pixelCounter_reg[1]/Q
-                         net (fo=6, routed)           0.137     1.779    vgaPortDriver/x_pixelCounter_reg_n_0_[1]
-    SLICE_X5Y111         LUT6 (Prop_lut6_I4_O)        0.099     1.878 r  vgaPortDriver/x_charPixelPos[2]_i_1/O
-                         net (fo=1, routed)           0.000     1.878    vgaPortDriver/p_0_in[2]
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[2]/D
+    SLICE_X5Y98          FDRE (Prop_fdre_C_Q)         0.141     1.664 r  vgaPortDriver/y_counter_reg[6]/Q
+                         net (fo=8, routed)           0.158     1.822    vgaPortDriver/y_counter_reg_n_0_[6]
+    SLICE_X5Y97          LUT6 (Prop_lut6_I2_O)        0.045     1.867 r  vgaPortDriver/y_counter[10]_i_2/O
+                         net (fo=1, routed)           0.000     1.867    vgaPortDriver/y_counter[10]
+    SLICE_X5Y97          FDRE                                         r  vgaPortDriver/y_counter_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock CLK100MHZ rise edge)
@@ -1304,15 +1306,15 @@ Slack (MET) :             0.256ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  in_100MHzClock_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    in_100MHzClock_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  in_100MHzClock_IBUF_BUFG_inst/O
-                         net (fo=39, routed)          0.866     2.031    vgaPortDriver/in_100MHzClock_IBUF_BUFG
-    SLICE_X5Y111         FDRE                                         r  vgaPortDriver/x_charPixelPos_reg[2]/C
-                         clock pessimism             -0.500     1.530    
-    SLICE_X5Y111         FDRE (Hold_fdre_C_D)         0.092     1.622    vgaPortDriver/x_charPixelPos_reg[2]
+                         net (fo=81, routed)          0.875     2.040    vgaPortDriver/CLK
+    SLICE_X5Y97          FDRE                                         r  vgaPortDriver/y_counter_reg[10]/C
+                         clock pessimism             -0.500     1.539    
+    SLICE_X5Y97          FDRE (Hold_fdre_C_D)         0.092     1.631    vgaPortDriver/y_counter_reg[10]
   -------------------------------------------------------------------
-                         required time                         -1.622    
-                         arrival time                           1.878    
+                         required time                         -1.631    
+                         arrival time                           1.867    
   -------------------------------------------------------------------
-                         slack                                  0.256    
+                         slack                                  0.236    
 
 
 
@@ -1327,35 +1329,35 @@ Sources:            { in_100MHzClock }
 
 Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845      BUFGCTRL_X0Y16  in_100MHzClock_IBUF_BUFG_inst/I
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y107    vgaPortDriver/clockEdge25MHz/lastState_reg/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y107    vgaPortDriver/clock_25MHz_reg/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y107    vgaPortDriver/counter_reg/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[3]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[4]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[5]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[6]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X5Y110    vgaPortDriver/x_charPixelPos_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X5Y110    vgaPortDriver/x_charPixelPos_reg[1]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/clockEdge25MHz/lastState_reg/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/clock_25MHz_reg/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/counter_reg/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[3]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[4]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[5]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[6]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y111    vgaPortDriver/x_charPixelPos_reg[2]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y111    vgaPortDriver/x_charPixelPos_reg[3]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y111    vgaPortDriver/x_charPixelPos_reg[4]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/clockEdge25MHz/lastState_reg/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/clockEdge25MHz/lastState_reg/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/clock_25MHz_reg/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/clock_25MHz_reg/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/counter_reg/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y107    vgaPortDriver/counter_reg/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[3]/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[3]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[4]/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y111    vgaPortDriver/x_charBasePos_reg[4]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X2Y97     globalVideoRam/out_bitmap_reg[16]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X2Y97     globalVideoRam/out_bitmap_reg[17]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X3Y97     globalVideoRam/out_bitmap_reg[19]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y98     globalVideoRam/out_bitmap_reg[22]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y98     globalVideoRam/out_bitmap_reg[25]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y98     globalVideoRam/out_bitmap_reg[26]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y98     globalVideoRam/out_bitmap_reg[27]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y98     globalVideoRam/out_bitmap_reg[28]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X3Y97     globalVideoRam/out_bitmap_reg[30]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y95     vgaPortDriver/out_charXPos_reg[2]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y95     vgaPortDriver/out_charXPos_reg[3]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y95     vgaPortDriver/out_charXPos_reg[4]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y96     vgaPortDriver/out_charXPos_reg[5]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y95     vgaPortDriver/out_charXPos_reg[6]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y96     vgaPortDriver/out_charYPos_reg[0]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y96     vgaPortDriver/out_charYPos_reg[1]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y96     vgaPortDriver/out_charYPos_reg[2]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y96     vgaPortDriver/out_charYPos_reg[3]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y96     vgaPortDriver/out_charYPos_reg[4]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y97     globalVideoRam/out_bitmap_reg[16]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y97     globalVideoRam/out_bitmap_reg[17]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y97     globalVideoRam/out_bitmap_reg[19]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y98     globalVideoRam/out_bitmap_reg[22]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y98     globalVideoRam/out_bitmap_reg[25]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y98     globalVideoRam/out_bitmap_reg[26]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y98     globalVideoRam/out_bitmap_reg[27]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y98     globalVideoRam/out_bitmap_reg[28]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y97     globalVideoRam/out_bitmap_reg[30]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y97     globalVideoRam/out_bitmap_reg[32]/C
 
 
 

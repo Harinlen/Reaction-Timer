@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Wed Apr  4 16:11:36 2018
+| Date             : Wed Apr  4 16:31:47 2018
 | Host             : r103pc04 running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_reactionTimer_power_routed.rpt -pb TOP_reactionTimer_power_summary_routed.pb -rpx TOP_reactionTimer_power_routed.rpx
 | Design           : TOP_reactionTimer
@@ -33,11 +33,11 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.099        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.001        |
+| Dynamic (W)              | 0.002        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 84.6         |
-| Junction Temperature (C) | 25.4         |
+| Max Ambient (C)          | 84.5         |
+| Junction Temperature (C) | 25.5         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,12 +52,13 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      119 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       54 |     63400 |            0.09 |
-|   Register     |    <0.001 |       39 |    126800 |            0.03 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      249 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      105 |     63400 |            0.17 |
+|   Register     |    <0.001 |       81 |    126800 |            0.06 |
+|   F7/F8 Muxes  |    <0.001 |       12 |     63400 |            0.02 |
 |   Others       |     0.000 |        6 |       --- |             --- |
-| Signals        |    <0.001 |       81 |       --- |             --- |
+| Signals        |    <0.001 |      147 |       --- |             --- |
 | I/O            |    <0.001 |       57 |       210 |           27.14 |
 | Static Power   |     0.097 |          |           |                 |
 | Total          |     0.099 |          |           |                 |
@@ -139,7 +140,8 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| TOP_reactionTimer  |     0.001 |
+| TOP_reactionTimer  |     0.002 |
+|   globalVideoRam   |    <0.001 |
 |   vgaPortDriver    |    <0.001 |
 |     clockEdge25MHz |    <0.001 |
 +--------------------+-----------+

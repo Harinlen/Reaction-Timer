@@ -157,21 +157,20 @@ module TOP_reactionTimer(
 
     // VGA output
     wire [0:127] vgaCharPixel;
-    assign vgaCharPixel = 128'h000010386CC6C6FEC6C6C6C600000000;
     wire [7:0] vgaDriverReqPosX, vgaDriverReqPosY;
     wire vgaDriverOutR, vgaDriverOutG, vgaDriverOutB; 
     
-    //vram globalVideoRam(
-    //    .in_clock(in_100MHzClock),
-    //    .in_reset(in_reset),
-    //    .in_enable(in_enable),
-    //  //.in_updateXPos(),
-    //  //.in_updateYPos(),
-    //  //.in_updateCharAscii(),
-    //  //.in_update(),
-    //    .in_charXPos(vgaDriverReqPosX),
-    //    .in_charYPos(vgaDriverReqPosY),
-    //    .out_charBitmap(vgaCharPixel));
+    vram globalVideoRam(
+        .in_clock(in_100MHzClock),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+      //.in_updateXPos(),
+      //.in_updateYPos(),
+      //.in_updateCharAscii(),
+      //.in_update(),
+        .in_charXPos(vgaDriverReqPosX),
+        .in_charYPos(vgaDriverReqPosY),
+        .out_bitmap(vgaCharPixel));
     
     vgaDriver vgaPortDriver(
         .in_clock(in_100MHzClock),

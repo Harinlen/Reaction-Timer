@@ -73,7 +73,7 @@ module vgaDriver(
                     // Back to left most.
                     x_counter <= 0;
                     //--------- Text Logic ----------
-                    // A new line to the text, reset the x pixel counter.
+                    //     A new line comes.
                     // Reset the pixel counter to 0.
                     x_pixelCounter <= 3'd0;
                     //--------- Text Logic ----------
@@ -82,6 +82,7 @@ module vgaDriver(
                         // Back to top most.
                         y_counter <= 0;
                         //--------- Text Logic ----------
+                        //     A to the bottom of the display.
                         x_charBasePos <= 0;
                         // Back to the first line.
                         out_charYPos <= 0;
@@ -93,10 +94,12 @@ module vgaDriver(
                         // Increase veritical line.
                         y_counter <= y_counter + 1;
                         //--------- Text Logic ----------
+                        //     To the next vertical line
                         // Check the y counter is in the range.
                         if (y_counter > 34 && y_counter < 514) begin
                             // Check char base pos.
                             if (x_charBasePos == 120) begin
+                                //      Move to next line of character.
                                 // Back to first line.
                                 x_charBasePos <= 0;
                                 out_charXPos <= 0;
@@ -105,7 +108,6 @@ module vgaDriver(
                             end else begin
                                 // Increase a new line.
                                 x_charBasePos <= x_charBasePos + 8;
-                                out_charXPos <= x_charBasePos + 8;
                             end
                         end
                         //--------- Text Logic ----------
@@ -114,10 +116,12 @@ module vgaDriver(
                     // Increase horizontal column.
                     x_counter <= x_counter + 1;
                     //--------- Text Logic ----------
+                    //     A to the next column pixel.
                     // Check the x counter is in the rand.
                     if (x_counter > 143 && x_counter < 783) begin
                         // Increase the pixel counter.
                         if (x_pixelCounter == 3'd7) begin
+                            //      Move to next character.
                             // Reset the pixel counter to 0.
                             x_pixelCounter <= 3'd0;
                             // Reset the char pixel counter.
@@ -125,6 +129,7 @@ module vgaDriver(
                             // Move to the next char.
                             out_charXPos <= out_charXPos + 1;
                         end else begin
+                            //      Move to next pixel.
                             // Simply increase the pixel counter.
                             x_pixelCounter <= x_pixelCounter + 3'd1;
                             // Increase the char pixel pos to update the pixel.

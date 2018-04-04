@@ -32,6 +32,7 @@ read_verilog -library xil_defaultlib {
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalConstants.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v
+  C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v
   C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being

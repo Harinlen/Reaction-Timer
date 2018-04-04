@@ -14,16 +14,21 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7868 
+INFO: Helper process launched with PID 1108 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 347.711 ; gain = 101.566
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 347.387 ; gain = 101.293
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+INFO: [Synth 8-638] synthesizing module 'vram' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:24]
+INFO: [Synth 8-638] synthesizing module 'asc16Font' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:23]
+INFO: [Synth 8-256] done synthesizing module 'asc16Font' (1#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:23]
+INFO: [Synth 8-256] done synthesizing module 'vram' (2#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:24]
+WARNING: [Synth 8-350] instance 'globalVideoRam' of module 'vram' requires 10 connections, but only 6 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
 INFO: [Synth 8-638] synthesizing module 'vgaDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
 INFO: [Synth 8-638] synthesizing module 'edgeDetector' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
-INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (1#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (3#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
 WARNING: [Synth 8-350] instance 'clockEdge25MHz' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:50]
-INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (2#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
+INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (4#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
 WARNING: [Synth 8-3848] Net out_leds in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:42]
 WARNING: [Synth 8-3848] Net out_ssdDigitOutput in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:43]
 WARNING: [Synth 8-3848] Net out_ssdSelector in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:44]
@@ -31,7 +36,11 @@ WARNING: [Synth 8-3848] Net out_triColorLedLeft in module/entity TOP_reactionTim
 WARNING: [Synth 8-3848] Net out_triColorLedRight in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:46]
 WARNING: [Synth 8-3848] Net out_audioSd in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:47]
 WARNING: [Synth 8-3848] Net out_audioPwm in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:48]
-INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (3#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (5#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charXPos[7]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[7]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[6]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[5]
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[15]
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[14]
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[13]
@@ -79,7 +88,7 @@ WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_ledDisa
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_audioDisable
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_triLedDisable
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 399.570 ; gain = 153.426
+Finished RTL Elaboration : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 673.551 ; gain = 427.457
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -88,8 +97,33 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[7] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[6] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[5] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[4] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[3] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[2] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[1] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[0] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[7] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[6] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[5] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[4] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[3] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[2] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[1] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[0] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[7] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[6] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[5] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[4] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[3] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[2] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[1] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[0] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_update to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 399.570 ; gain = 153.426
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 673.551 ; gain = 427.457
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -105,37 +139,64 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 750.434 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 983.598 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 750.434 ; gain = 504.289
+Finished Constraint Validation : Time (s): cpu = 00:01:04 ; elapsed = 00:01:07 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 750.434 ; gain = 504.289
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 750.434 ; gain = 504.289
----------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][29]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "y_counter" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "out_charXPos" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "out_charXPos" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:64]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 750.434 ; gain = 504.289
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:38 ; elapsed = 00:01:55 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |asc16Font     |           1|     32640|
+|2     |vram__GB1     |           1|      5344|
+|3     |vram__GB2     |           1|     35205|
+|4     |vram__GB3     |           1|     30511|
+|5     |vgaDriver     |           1|      1004|
++------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -145,15 +206,16 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit       Adders := 3     
 	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
+	              128 Bit    Registers := 1     
 	               11 Bit    Registers := 4     
-	                8 Bit    Registers := 2     
+	                8 Bit    Registers := 2403  
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input     11 Bit        Muxes := 4     
 	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 2444  
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -161,6 +223,13 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module vram 
+Detailed RTL Component Info : 
++---Registers : 
+	              128 Bit    Registers := 1     
+	                8 Bit    Registers := 2401  
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2430  
 Module edgeDetector 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -196,11 +265,40 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:63]
-WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:64]
-INFO: [Synth 8-5546] ROM "vgaPortDriver/y_counter" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "vgaPortDriver/out_charYPos" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "vgaPortDriver/out_charXPos" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "y_counter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_charXPos" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:64]
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[15]
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[14]
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[13]
@@ -247,49 +345,243 @@ WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_clearBe
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_ledDisable
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_audioDisable
 WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_triLedDisable
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[2]) is unused and will be removed from module TOP_reactionTimer.
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[1]) is unused and will be removed from module TOP_reactionTimer.
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[0]) is unused and will be removed from module TOP_reactionTimer.
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charPixelPos_reg[10]) is unused and will be removed from module TOP_reactionTimer.
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charPixelPos_reg[9]) is unused and will be removed from module TOP_reactionTimer.
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charPixelPos_reg[8]) is unused and will be removed from module TOP_reactionTimer.
-WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charPixelPos_reg[7]) is unused and will be removed from module TOP_reactionTimer.
+WARNING: [Synth 8-3332] Sequential element (x_charBasePos_reg[2]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charBasePos_reg[1]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charBasePos_reg[0]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[10]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[9]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[8]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[7]) is unused and will be removed from module vgaDriver.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[79][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[78][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[77][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[76][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[75][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[74][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[73][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[72][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[71][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[70][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[69][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[68][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[67][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[66][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[65][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[64][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[63][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[62][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[61][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[60][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[59][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[58][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[57][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[56][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[55][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[54][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[53][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[52][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[51][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[50][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[49][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[48][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[47][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[46][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[45][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[44][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[43][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[42][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[41][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[40][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[39][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[38][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[37][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[36][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[35][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[34][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[33][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[32][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[31][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[30][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[29][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[28][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[27][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[26][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[25][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[24][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[23][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[22][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[21][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[20][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[19][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[18][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[17][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[16][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[15][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[14][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[13][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[12][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[11][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[10][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[9][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[8][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[7][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[6][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[5][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[4][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[3][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[2][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[1][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[0][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[79][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[78][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[77][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[76][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[75][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[74][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[73][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[72][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[71][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[70][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[69][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[68][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[67][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[66][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[65][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[64][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[63][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[62][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[61][21][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[60][21][0] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (out_charXPos_reg[7]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (out_charYPos_reg[7]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (out_charYPos_reg[6]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (out_charYPos_reg[5]) is unused and will be removed from module vgaDriver.
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/currentAscii_reg[3]' (FDRE) to 'globalVideoRami_0/currentAscii_reg[7]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/currentAscii_reg[4]' (FDRE) to 'globalVideoRami_0/currentAscii_reg[7]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/currentAscii_reg[5]' (FDRE) to 'globalVideoRami_0/currentAscii_reg[7]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][1][1]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][1][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][1][6]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][6][0]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][6][1]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][6][2]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][6][6]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][3][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][3][2]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][3][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][3][6]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][2][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][2][0]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][2][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][2][1]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][2][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][0][0]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][0][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][0][6]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][4][0]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][4][2]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][5][1]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][5][2]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[127]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[126]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[126]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[125]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[125]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[124]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[124]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[123]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[123]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[122]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[122]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[121]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[121]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[120]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[120]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[119]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[119]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[118]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[118]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[117]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[117]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[116]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[116]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[115]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[115]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[114]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[114]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[113]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[113]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[112]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[112]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[111]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[111]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[110]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[110]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[109]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[109]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[108]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[108]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[107]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[107]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[106]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[106]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[105]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[105]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[104]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[104]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[103]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[103]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[102]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[102]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[101]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[101]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[100]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[100]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[99]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[99]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[98]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[98]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[97]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[97]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[96]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[96]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[95]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[95]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[23]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[87]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[79]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[79]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[47]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[73]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[33]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[63]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[55]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[52]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[51]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[47]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[39]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[39]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[31]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[23]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[15]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[15]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[14]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[14]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[13]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[13]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[12]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[12]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[11]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[11]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[10]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[10]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[9]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[9]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[8]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[8]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[7]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[7]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[6]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[5]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[5]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[4]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[4]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[3]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[3]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[2]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[2]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[1]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_charBitmap_reg[1]' (FDRE) to 'globalVideoRami_0/out_charBitmap_reg[0]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 750.434 ; gain = 504.289
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:39 ; elapsed = 00:03:10 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |asc16Font     |           1|       235|
+|2     |vram__GB1     |           1|       114|
+|3     |vram__GB2     |           1|         8|
+|4     |vram__GB3     |           1|         8|
+|5     |vgaDriver     |           1|       407|
++------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 750.434 ; gain = 504.289
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:49 ; elapsed = 00:03:20 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:49 ; elapsed = 00:03:20 . Memory (MB): peak = 984.125 ; gain = 738.031
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |asc16Font     |           1|       235|
+|2     |vram__GB1     |           1|       114|
+|3     |vram__GB2     |           1|         8|
+|4     |vram__GB3     |           1|         8|
+|5     |vgaDriver     |           1|       372|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[10]) is unused and will be removed from module TOP_reactionTimer.
 WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[9]) is unused and will be removed from module TOP_reactionTimer.
 WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[8]) is unused and will be removed from module TOP_reactionTimer.
 WARNING: [Synth 8-3332] Sequential element (vgaPortDriver/x_charBasePos_reg[7]) is unused and will be removed from module TOP_reactionTimer.
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/displayAsciiMaps_reg[0][2][6]' (FDE) to 'globalVideoRam/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_charBitmap_reg[24]' (FDRE) to 'globalVideoRam/out_charBitmap_reg[31]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_charBitmap_reg[68]' (FDRE) to 'globalVideoRam/out_charBitmap_reg[67]'
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 763.039 ; gain = 516.895
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Technology Mapping : Time (s): cpu = 00:02:50 ; elapsed = 00:03:21 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -313,7 +605,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished IO Insertion : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -326,7 +618,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -338,25 +630,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -373,34 +665,38 @@ Report Cell Usage:
 |      |Cell  |Count |
 +------+------+------+
 |1     |BUFG  |     1|
-|2     |LUT1  |     3|
-|3     |LUT2  |    10|
-|4     |LUT3  |     9|
-|5     |LUT4  |    15|
-|6     |LUT5  |    12|
-|7     |LUT6  |    25|
-|8     |FDRE  |    39|
-|9     |IBUF  |     3|
-|10    |OBUF  |    14|
-|11    |OBUFT |    40|
+|2     |LUT1  |     4|
+|3     |LUT2  |    12|
+|4     |LUT3  |    14|
+|5     |LUT4  |    93|
+|6     |LUT5  |    20|
+|7     |LUT6  |    50|
+|8     |MUXF7 |    10|
+|9     |MUXF8 |     3|
+|10    |FDRE  |   125|
+|11    |IBUF  |     3|
+|12    |OBUF  |    14|
+|13    |OBUFT |    40|
 +------+------+------+
 
 Report Instance Areas: 
 +------+-------------------+-------------+------+
 |      |Instance           |Module       |Cells |
 +------+-------------------+-------------+------+
-|1     |top                |             |   171|
-|2     |  vgaPortDriver    |vgaDriver    |   113|
-|3     |    clockEdge25MHz |edgeDetector |     7|
+|1     |top                |             |   389|
+|2     |  globalVideoRam   |vram         |   178|
+|3     |    vramAsciiFont  |asc16Font    |    55|
+|4     |  vgaPortDriver    |vgaDriver    |   153|
+|5     |    clockEdge25MHz |edgeDetector |    13|
 +------+-------------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:51 ; elapsed = 00:03:22 . Memory (MB): peak = 984.125 ; gain = 738.031
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 60 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 765.918 ; gain = 168.910
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 765.918 ; gain = 519.773
+Synthesis finished with 0 errors, 0 critical warnings and 63 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:54 ; elapsed = 00:03:09 . Memory (MB): peak = 984.125 ; gain = 427.457
+Synthesis Optimization Complete : Time (s): cpu = 00:02:51 ; elapsed = 00:03:23 . Memory (MB): peak = 984.125 ; gain = 738.031
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -408,10 +704,778 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-25 Infos, 114 Warnings, 0 Critical Warnings and 0 Errors encountered.
+270 Infos, 147 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 765.918 ; gain = 532.910
+synth_design: Time (s): cpu = 00:02:53 ; elapsed = 00:03:26 . Memory (MB): peak = 984.125 ; gain = 751.031
 INFO: [Common 17-1381] The checkpoint 'C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 765.918 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Apr  4 16:10:25 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 984.125 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  4 16:18:33 2018...
+
+*** Running vivado
+    with args -log TOP_reactionTimer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_reactionTimer.tcl
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source TOP_reactionTimer.tcl -notrace
+Command: synth_design -top TOP_reactionTimer -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 3784 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 347.457 ; gain = 101.418
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+INFO: [Synth 8-638] synthesizing module 'vram' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:24]
+WARNING: [Synth 8-6014] Unused sequential element currentAscii_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:64]
+INFO: [Synth 8-256] done synthesizing module 'vram' (1#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:24]
+ERROR: [Synth 8-448] named port connection 'out_charBitmap' does not exist for instance 'globalVideoRam' of module 'vram' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:173]
+WARNING: [Synth 8-350] instance 'globalVideoRam' of module 'vram' requires 10 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+INFO: [Synth 8-638] synthesizing module 'vgaDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
+INFO: [Synth 8-638] synthesizing module 'edgeDetector' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+ERROR: [Synth 8-285] failed synthesizing module 'edgeDetector' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+ERROR: [Synth 8-285] failed synthesizing module 'vgaDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
+ERROR: [Synth 8-285] failed synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 673.301 ; gain = 427.262
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+7 Infos, 3 Warnings, 0 Critical Warnings and 5 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  4 16:26:20 2018...
+
+*** Running vivado
+    with args -log TOP_reactionTimer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_reactionTimer.tcl
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source TOP_reactionTimer.tcl -notrace
+Command: synth_design -top TOP_reactionTimer -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 6680 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 347.574 ; gain = 101.188
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+INFO: [Synth 8-638] synthesizing module 'vram' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:24]
+WARNING: [Synth 8-6014] Unused sequential element currentAscii_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:64]
+INFO: [Synth 8-256] done synthesizing module 'vram' (1#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:24]
+WARNING: [Synth 8-350] instance 'globalVideoRam' of module 'vram' requires 10 connections, but only 6 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+INFO: [Synth 8-638] synthesizing module 'vgaDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
+INFO: [Synth 8-638] synthesizing module 'edgeDetector' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (2#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+WARNING: [Synth 8-350] instance 'clockEdge25MHz' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:50]
+INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (3#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:22]
+WARNING: [Synth 8-3848] Net out_leds in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:42]
+WARNING: [Synth 8-3848] Net out_ssdDigitOutput in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:43]
+WARNING: [Synth 8-3848] Net out_ssdSelector in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:44]
+WARNING: [Synth 8-3848] Net out_triColorLedLeft in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:45]
+WARNING: [Synth 8-3848] Net out_triColorLedRight in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:46]
+WARNING: [Synth 8-3848] Net out_audioSd in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:47]
+WARNING: [Synth 8-3848] Net out_audioPwm in module/entity TOP_reactionTimer does not have driver. [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:48]
+INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (4#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:32]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charXPos[7]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[7]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[6]
+WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[15]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[14]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[13]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[12]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[11]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[10]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[9]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[8]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[7]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[6]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[4]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[3]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[7]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[6]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[4]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[3]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[7]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[6]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[4]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[3]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedLeft[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedLeft[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedLeft[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedRight[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedRight[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedRight[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_audioSd
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_audioPwm
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_startButton
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_testButton
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_clearBestButton
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_ledDisable
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_audioDisable
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_triLedDisable
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 672.449 ; gain = 426.063
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[7] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[6] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[5] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[4] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[3] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[2] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[1] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateXPos[0] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[7] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[6] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[5] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[4] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[3] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[2] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[1] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateYPos[0] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[7] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[6] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[5] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[4] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[3] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[2] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[1] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_updateCharAscii[0] to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+WARNING: [Synth 8-3295] tying undriven pin globalVideoRam:in_update to constant 0 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:163]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 672.449 ; gain = 426.063
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
+Finished Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_reactionTimer_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_reactionTimer_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 984.488 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "y_counter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "out_charXPos" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "out_charXPos" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:63]
+WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:64]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:36 ; elapsed = 00:01:53 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |muxpart__2461 |           1|     32640|
+|2     |vram__GB1     |           1|     23600|
+|3     |vram__GB2     |           1|     19008|
+|4     |vram__GB3     |           1|     28445|
+|5     |vgaDriver     |           1|       949|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 1     
+	               11 Bit    Registers := 4     
+	                8 Bit    Registers := 2402  
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 4     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2444  
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module vram 
+Detailed RTL Component Info : 
++---Registers : 
+	              128 Bit    Registers := 1     
+	                8 Bit    Registers := 2400  
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2430  
+Module edgeDetector 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module vgaDriver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 4     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 4     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "y_counter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_charXPos" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:63]
+WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:64]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[15]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[14]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[13]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[12]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[11]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[10]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[9]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[8]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[7]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[6]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[4]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[3]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_leds[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[7]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[6]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[4]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[3]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdDigitOutput[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[7]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[6]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[5]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[4]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[3]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_ssdSelector[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedLeft[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedLeft[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedLeft[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedRight[2]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedRight[1]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_triColorLedRight[0]
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_audioSd
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port out_audioPwm
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_startButton
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_testButton
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_clearBestButton
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_ledDisable
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_audioDisable
+WARNING: [Synth 8-3331] design TOP_reactionTimer has unconnected port in_triLedDisable
+WARNING: [Synth 8-3332] Sequential element (x_charBasePos_reg[2]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charBasePos_reg[1]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charBasePos_reg[0]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[10]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[9]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[8]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (x_charPixelPos_reg[7]) is unused and will be removed from module vgaDriver.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[79][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[78][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[77][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[76][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[75][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[74][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[73][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[72][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[71][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[70][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[69][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[68][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[67][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[66][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[65][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[64][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[63][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[62][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[61][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[60][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[59][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[58][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[57][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[56][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[55][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[54][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[53][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[52][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[51][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[50][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[49][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[48][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[47][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[46][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[45][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[44][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[43][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[42][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[41][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[40][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[39][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[38][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[37][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[36][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[35][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[34][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[33][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[32][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[31][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[30][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[29][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[28][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[27][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[26][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[25][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[24][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[23][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[22][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[21][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[20][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[19][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[18][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[17][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[16][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[15][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[14][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[13][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[12][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[11][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[10][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[9][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[8][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[7][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[6][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[5][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[4][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[3][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[2][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[1][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[0][29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[79][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[78][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[77][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[76][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[75][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[74][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[73][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[72][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[71][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[70][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[69][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[68][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[67][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[66][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[65][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[64][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[63][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[62][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[61][29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_2/\displayAsciiMaps_reg[60][29][1] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (out_charXPos_reg[7]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (out_charYPos_reg[7]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (out_charYPos_reg[6]) is unused and will be removed from module vgaDriver.
+WARNING: [Synth 8-3332] Sequential element (out_charYPos_reg[5]) is unused and will be removed from module vgaDriver.
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][2][0]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][2][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_1/displayAsciiMaps_reg[0][2][1]' (FDE) to 'globalVideoRami_1/displayAsciiMaps_reg[0][2][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][1][1]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][1][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][1][6]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][3][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][3][2]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][3][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][3][6]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][4][0]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][4][2]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][4][6]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][5][1]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_2/displayAsciiMaps_reg[0][5][2]' (FDE) to 'globalVideoRami_2/displayAsciiMaps_reg[0][5][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/displayAsciiMaps_reg[0][6][0]' (FDE) to 'globalVideoRami_0/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/displayAsciiMaps_reg[0][6][1]' (FDE) to 'globalVideoRami_0/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/displayAsciiMaps_reg[0][6][2]' (FDE) to 'globalVideoRami_0/displayAsciiMaps_reg[0][6][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/displayAsciiMaps_reg[0][6][6]' (FDE) to 'globalVideoRami_0/displayAsciiMaps_reg[0][0][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/displayAsciiMaps_reg[0][0][0]' (FDE) to 'globalVideoRami_0/displayAsciiMaps_reg[0][0][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[119]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[103]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:50 ; elapsed = 00:03:20 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |muxpart__2461 |           1|       117|
+|2     |vram__GB1     |           1|       137|
+|3     |vram__GB2     |           1|        31|
+|4     |vram__GB3     |           1|         8|
+|5     |vgaDriver     |           1|       391|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:00 ; elapsed = 00:03:30 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[127]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[126]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[125]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[124]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[123]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[122]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[121]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[120]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[118]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[117]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[116]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[115]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[114]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[113]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[112]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[111]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[110]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[109]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[108]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[107]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[106]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[105]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[104]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[103]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[102]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[101]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[100]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[99]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[98]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[97]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[96]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[95]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[87]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[39]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[85]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[78]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[83]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[43]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[81]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[26]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[79]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[39]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[76]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[75]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[73]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[33]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[68]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[67]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[65]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[49]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[57]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[49]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[52]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[51]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[50]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[42]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[38]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[25]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[31]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[24]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[29]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[25]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[23]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[20]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[18]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[15]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[14]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[13]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[12]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[11]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[10]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[9]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[8]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[7]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[6]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[5]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[4]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[3]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[2]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRami_0/out_bitmap_reg[1]' (FDRE) to 'globalVideoRami_0/out_bitmap_reg[0]'
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:03:02 ; elapsed = 00:03:32 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+----------------------+------------+----------+
+|      |RTL Partition         |Replication |Instances |
++------+----------------------+------------+----------+
+|1     |vgaDriver             |           1|       352|
+|2     |TOP_reactionTimer_GT0 |           1|       228|
++------+----------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/displayAsciiMaps_reg[0][2][6]' (FDE) to 'globalVideoRam/displayAsciiMaps_reg[0][0][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/displayAsciiMaps_reg[0][5][6]' (FDE) to 'globalVideoRam/displayAsciiMaps_reg[0][0][6]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[63]' (FDRE) to 'globalVideoRam/out_bitmap_reg[55]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[47]' (FDRE) to 'globalVideoRam/out_bitmap_reg[39]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[24]' (FDRE) to 'globalVideoRam/out_bitmap_reg[39]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[77]' (FDRE) to 'globalVideoRam/out_bitmap_reg[70]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[72]' (FDRE) to 'globalVideoRam/out_bitmap_reg[64]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[74]' (FDRE) to 'globalVideoRam/out_bitmap_reg[66]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[75]' (FDRE) to 'globalVideoRam/out_bitmap_reg[71]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[69]' (FDRE) to 'globalVideoRam/out_bitmap_reg[70]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[70]' (FDRE) to 'globalVideoRam/out_bitmap_reg[62]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[71]' (FDRE) to 'globalVideoRam/out_bitmap_reg[67]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[64]' (FDRE) to 'globalVideoRam/out_bitmap_reg[56]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[66]' (FDRE) to 'globalVideoRam/out_bitmap_reg[42]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[67]' (FDRE) to 'globalVideoRam/out_bitmap_reg[55]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[89]' (FDRE) to 'globalVideoRam/out_bitmap_reg[58]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[90]' (FDRE) to 'globalVideoRam/out_bitmap_reg[91]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[91]' (FDRE) to 'globalVideoRam/out_bitmap_reg[82]'
+INFO: [Synth 8-3886] merging instance 'globalVideoRam/out_bitmap_reg[80]' (FDRE) to 'globalVideoRam/out_bitmap_reg[36]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (globalVideoRam/out_bitmap_reg[39]) is unused and will be removed from module TOP_reactionTimer.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:02 ; elapsed = 00:03:32 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |BUFG  |     1|
+|2     |LUT1  |     5|
+|3     |LUT2  |    14|
+|4     |LUT3  |    14|
+|5     |LUT4  |    40|
+|6     |LUT5  |    46|
+|7     |LUT6  |    31|
+|8     |MUXF7 |    10|
+|9     |MUXF8 |     2|
+|10    |FDRE  |    82|
+|11    |IBUF  |     3|
+|12    |OBUF  |    14|
+|13    |OBUFT |    40|
++------+------+------+
+
+Report Instance Areas: 
++------+-------------------+-------------+------+
+|      |Instance           |Module       |Cells |
++------+-------------------+-------------+------+
+|1     |top                |             |   302|
+|2     |  globalVideoRam   |vram         |    86|
+|3     |  vgaPortDriver    |vgaDriver    |   158|
+|4     |    clockEdge25MHz |edgeDetector |    13|
++------+-------------------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:03 ; elapsed = 00:03:33 . Memory (MB): peak = 984.488 ; gain = 738.102
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 62 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:07 ; elapsed = 00:03:20 . Memory (MB): peak = 984.488 ; gain = 426.063
+Synthesis Optimization Complete : Time (s): cpu = 00:03:03 ; elapsed = 00:03:34 . Memory (MB): peak = 984.488 ; gain = 738.102
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 15 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+290 Infos, 147 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:05 ; elapsed = 00:03:37 . Memory (MB): peak = 984.488 ; gain = 751.051
+INFO: [Common 17-1381] The checkpoint 'C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.036 . Memory (MB): peak = 984.488 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  4 16:30:35 2018...
