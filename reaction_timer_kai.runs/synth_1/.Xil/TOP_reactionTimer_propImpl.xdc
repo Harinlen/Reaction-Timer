@@ -125,3 +125,9 @@ set_property src_info {type:XDC file:1 line:86 export:INPUT save:INPUT read:READ
 set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports out_vgaHs];
 set_property src_info {type:XDC file:1 line:87 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports out_vgaVs];
+set_property src_info {type:XDC file:1 line:90 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN H5  IOSTANDARD LVCMOS33 } [get_ports in_mcData];
+set_property src_info {type:XDC file:1 line:91 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN J5  IOSTANDARD LVCMOS33 } [get_ports out_mcClock];
+set_property src_info {type:XDC file:1 line:92 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN F5  IOSTANDARD LVCMOS33 } [get_ports out_mcLrsel];

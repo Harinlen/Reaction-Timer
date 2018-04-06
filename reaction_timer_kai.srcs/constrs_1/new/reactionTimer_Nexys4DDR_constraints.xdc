@@ -85,3 +85,8 @@ set_property -dict {PACKAGE_PIN D8  IOSTANDARD LVCMOS33} [get_ports out_vgaB[3]]
 
 set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports out_vgaHs];
 set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports out_vgaVs];
+
+# Microphone
+set_property -dict {PACKAGE_PIN H5  IOSTANDARD LVCMOS33 } [get_ports in_mcData];
+set_property -dict {PACKAGE_PIN J5  IOSTANDARD LVCMOS33 } [get_ports out_mcClock];
+set_property -dict {PACKAGE_PIN F5  IOSTANDARD LVCMOS33 } [get_ports out_mcLrsel];

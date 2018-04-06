@@ -38,6 +38,7 @@ module reactTimerCpu #(
     parameter integer RESULT_BEST_FLASH_THRESHOLD = 12_500_000,
     parameter [31:0]   RESULT_WAITING_COUNTS = 10_0000_0000
 )(
+    input wire [31:0] in_microphoneNoise,
     input wire [31:0] in_globalTime,
     input wire        in_clock,
     input wire        in_reset,
@@ -53,6 +54,10 @@ module reactTimerCpu #(
     output reg [7:0]  out_ssdDots = 8'b1111_1111,
     output reg [2:0]  out_triColorLeft = 3'd0,
     output reg [2:0]  out_triColorRight = 3'd0,
+    output reg [7:0]  out_vramUpdateXPos = 8'd0, 
+    output reg [7:0]  out_vramUpdateYPos = 8'd0, 
+    output reg [7:0]  out_vramUpdateCharAscii = 8'd0,
+    output reg        out_vramUpdate = 1'b0,
     output reg        out_audioPwm = 1'b0,
     output reg        out_audioSd = 1'b0);
     
@@ -142,6 +147,7 @@ module reactTimerCpu #(
         .COUNT_DOWN_CLOCK_THRESHOLD(PREPARE_COUNT_DOWN_THRESHOLD),
         .TEST_DELAY_TIME(PREPARE_TEST_DELAY_TIME)
     ) statePrepareProcessor(
+        .in_microphoneNoise(in_microphoneNoise),
         .in_globalTime(in_globalTime),
         .in_startRising(startButtonRising),
         .in_reset(in_reset),
@@ -229,6 +235,33 @@ module reactTimerCpu #(
     end
     endtask
     
+    // VGA hint update.
+    localparam HINT_UPDATE_LED_ON     = 0;
+    localparam HINT_UPDATE_LED_OFF    = 1;
+    localparam HINT_UPDATE_AUDIO_ON   = 2;
+    localparam HINT_UPDATE_AUDIO_OFF  = 3;
+    localparam HINT_UPDATE_TRILED_ON  = 4;
+    localparam HINT_UPDATE_TRILED_OFF = 5;
+    reg [5:0] hintUpdateFlag = 6'b000000;
+    reg hintUpdating = 1'b0;
+    
+    task updateVramOutput;
+        input [7:0] xPos;
+        input [7:0] yPos;
+        input integer hintFlagOn;
+        input integer hintFlagOff;
+    begin
+       // Update the vram X and Y pos.
+       out_vramUpdateXPos <= xPos;
+       out_vramUpdateYPos <= yPos;
+       out_vramUpdateCharAscii <= hintUpdateFlag[hintFlagOn] ? 8'd251 : 8'd0;
+       out_vramUpdate <= 1'b1;
+       // Reset the flag.
+       hintUpdateFlag[hintFlagOn] <= 1'b0;
+       hintUpdateFlag[hintFlagOff] <= 1'b0; 
+    end
+    endtask
+    
     always @(posedge in_clock) begin
         // Check the reset button.
         if (in_reset) begin
@@ -246,6 +279,14 @@ module reactTimerCpu #(
             out_triColorRight <= 3'd0;
             // Reset the state signals.
             idleClearBest <= 0;
+            // Reset the vram output.
+            out_vramUpdateXPos <= 8'd0; 
+            out_vramUpdateYPos <= 8'd0; 
+            out_vramUpdateCharAscii <= 8'd0;
+            out_vramUpdate <= 1'b0;
+            // Update the hint update flag.
+            hintUpdateFlag <= 6'd0;
+            hintUpdating <= 1'b0;
         end else begin
             if (in_enable) begin
                 // Check the current state.
@@ -255,6 +296,33 @@ module reactTimerCpu #(
                      * Until the user hit the test button, it would always be in this state.
                      */
                     STATE_IDLE: begin
+                        // If just set from reset, update all the thing.
+                        if (hintUpdating) begin
+                            // Update the vram according to the input.
+                            if (hintUpdateFlag[HINT_UPDATE_LED_ON] | hintUpdateFlag[HINT_UPDATE_LED_OFF]) begin
+                                // Ignore the update flag.
+                                updateVramOutput(8'd16, 8'd14, HINT_UPDATE_LED_ON, HINT_UPDATE_LED_OFF);
+                            end else if (hintUpdateFlag[HINT_UPDATE_AUDIO_ON] | hintUpdateFlag[HINT_UPDATE_AUDIO_OFF]) begin
+                                // Update the Audio output.
+                                updateVramOutput(8'd16, 8'd15, HINT_UPDATE_AUDIO_ON, HINT_UPDATE_AUDIO_OFF);
+                            end else if (hintUpdateFlag[HINT_UPDATE_TRILED_ON] | hintUpdateFlag[HINT_UPDATE_TRILED_OFF]) begin
+                                // Update the tri-color LED output.
+                                updateVramOutput(8'd16, 8'd19, HINT_UPDATE_TRILED_ON, HINT_UPDATE_TRILED_OFF);
+                            end else begin
+                                // Clear the vram update.
+                                out_vramUpdate <= 1'b0;
+                                // No more need to update.
+                                hintUpdating <= 1'b0;
+                            end
+                        end else begin
+                            // Update the hint update flag.
+                            // Check the rising and falling edge of the signal.
+                            hintUpdateFlag = {~in_triColorLedEnable, in_triColorLedEnable, 
+                                              ~in_audioEnable, in_audioEnable, 
+                                              ~in_ledEnable, in_ledEnable};
+                            // Start update the hint.
+                            hintUpdating <= 1'b1;
+                        end
                         // Check the rising edge of the start button.
                         if (startButtonRising) begin
                             // Move the state to preparation.
@@ -266,6 +334,8 @@ module reactTimerCpu #(
                             // Clear the left and right tri-color output.
                             out_triColorLeft <= 3'd0;
                             out_triColorRight <= 3'd0;
+                            // No more need to update.
+                            hintUpdating <= 1'b0;
                         end else begin
                             // Ports the result of idle module to the result.
                             // Output the LED signal.
@@ -333,6 +403,8 @@ module reactTimerCpu #(
                             idleAnimeReset <= 1;
                             // Reset the tri-color led output.
                             out_triColorRight <= 3'd0;
+                            // Reset the hint update flag.
+                            hintUpdateFlag <= 7'b1000000;
                         end else begin
                             // Output the current tri-color LED result with the best result.
                             updateLeftLed();

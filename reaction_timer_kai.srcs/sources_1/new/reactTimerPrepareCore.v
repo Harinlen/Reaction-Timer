@@ -39,6 +39,7 @@ module reactTimerPrepareCore #(
     parameter integer COUNT_DOWN_CLOCK_THRESHOLD = 50_000_000,
     parameter integer TEST_DELAY_TIME = 0
 )(
+    input wire [31:0]  in_microphoneNoise,
     input wire [31:0]  in_globalTime,
     input wire         in_startRising,
     input wire         in_reset,
@@ -65,7 +66,7 @@ module reactTimerPrepareCore #(
     // Random number generator.
     // Linear Congruential Generator
     randLcg gapGeneratorLcg(
-        .in_globalTime(in_globalTime),
+        .in_globalTime(in_globalTime ^ in_microphoneNoise),
         .in_seed(seed),
         .in_seedReady(seedReady),
         .in_next(next),
@@ -76,7 +77,7 @@ module reactTimerPrepareCore #(
         .out_busy(randLcgBusy));
     // Mt19937 Generator
     randMt19937 gapGeneratorMt19937(
-        .in_globalTime(in_globalTime),
+        .in_globalTime(in_globalTime ^ in_microphoneNoise),
         .in_seed(seed),
         .in_seedReady(seedReady),
         .in_next(next),

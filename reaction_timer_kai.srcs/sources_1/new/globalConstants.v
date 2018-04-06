@@ -26,7 +26,12 @@
 
 // ASCII Characters.
 `define ASC_CHAR_SPACE      8'd32
+`define ASC_CHAR_DQUOT      8'd34
+`define ASC_CHAR_QUOTE      8'd39
+`define ASC_CHAR_PLUS       8'd43
+`define ASC_CHAR_MINUS      8'd45
 `define ASC_CHAR_DOT        8'd46
+`define ASC_CHAR_SLASH      8'd47
 `define ASC_CHAR_0          8'd48
 `define ASC_CHAR_1          8'd49
 `define ASC_CHAR_2          8'd50
@@ -37,6 +42,7 @@
 `define ASC_CHAR_7          8'd55
 `define ASC_CHAR_8          8'd56
 `define ASC_CHAR_9          8'd57
+`define ASC_CHAR_COLON      8'd58
 `define ASC_CHAR_A          8'd65
 `define ASC_CHAR_B          8'd66
 `define ASC_CHAR_C          8'd67
@@ -63,6 +69,8 @@
 `define ASC_CHAR_X          8'd88
 `define ASC_CHAR_Y          8'd89
 `define ASC_CHAR_Z          8'd90
+`define ASC_CHAR_LMBRA      8'd91
+`define ASC_CHAR_RMBRA      8'd93
 `define ASC_CHAR_a          8'd97
 `define ASC_CHAR_b          8'd98
 `define ASC_CHAR_c          8'd99
@@ -89,6 +97,8 @@
 `define ASC_CHAR_x          8'd120
 `define ASC_CHAR_y          8'd121
 `define ASC_CHAR_z          8'd122
+`define ASC_CHAR_VERBR      8'd124
+`define ASC_CHAR_TICK       8'd251
 
 // Declare display chars.
 `define SSD_CHAR_0          4'd0
