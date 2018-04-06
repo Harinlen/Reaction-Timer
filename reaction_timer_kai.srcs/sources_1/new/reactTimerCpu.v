@@ -45,6 +45,7 @@ module reactTimerCpu #(
     input wire        in_enable,
     input wire        in_start,
     input wire        in_test,
+    input wire        in_skipWait,
     input wire        in_clearBest,
     input wire        in_audioEnable,
     input wire        in_ledEnable,
@@ -395,7 +396,7 @@ module reactTimerCpu #(
                     end
                     STATE_RESULT: begin
                         // When it comes to RESULT state, check the timeout state.
-                        if (resultBusyFalling) begin
+                        if (resultBusyFalling | in_skipWait) begin
                             // When the result module is no more busy, 
                             // switch state back to IDLE.
                             state <= STATE_IDLE;
@@ -404,7 +405,8 @@ module reactTimerCpu #(
                             // Reset the tri-color led output.
                             out_triColorRight <= 3'd0;
                             // Reset the hint update flag.
-                            hintUpdateFlag <= 7'b1000000;
+                            hintUpdateFlag <= 6'b000000;
+                            hintUpdating <= 1'b1;
                         end else begin
                             // Output the current tri-color LED result with the best result.
                             updateLeftLed();

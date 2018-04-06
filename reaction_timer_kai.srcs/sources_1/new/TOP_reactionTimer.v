@@ -36,6 +36,7 @@ module TOP_reactionTimer(
     input wire         in_startButton,
     input wire         in_testButton,
     input wire         in_clearBestButton,
+    input wire         in_skipWaitButton,
     input wire         in_ledDisable,
     input wire         in_audioDisable,
     input wire         in_triLedDisable,
@@ -56,7 +57,8 @@ module TOP_reactionTimer(
     output wire        out_vgaVs);
     
     wire [31:0] globalTimerCounter;
-    wire debouncedTestButton, debouncedStartButton, debouncedClearBestButton, clock_1kHz;
+    wire debouncedTestButton, debouncedStartButton, debouncedClearBestButton, debouncedSkipWaitButton;
+    wire clock_1kHz;
     wire [27:0] displayNumber;
     wire [7:0] digitEnable; 
     wire [7:0] displayDots;
@@ -106,6 +108,17 @@ module TOP_reactionTimer(
         .out_buttonOut(debouncedClearBestButton)
     );
     
+    // The same as skip wait button.
+    debouncer #(
+        .PIPELINE_LEVEL(5)
+    ) skipWaitButtonDebouncer (
+        .in_clock(in_100MHzClock),
+        .in_enable(clock_1kHz),
+        .in_reset(in_reset),
+        .in_buttonIn(in_skipWaitButton),
+        .out_buttonOut(debouncedSkipWaitButton)
+    );
+    
     // The test button signal goes directly into the latch debouncer.
     latchDebouncer #(
         .INTERVAL(100_000)
@@ -141,6 +154,7 @@ module TOP_reactionTimer(
         .in_enable(in_enable),
         .in_start(debouncedStartButton),
         .in_test(debouncedTestButton),
+        .in_skipWait(debouncedSkipWaitButton),
         .in_clearBest(debouncedClearBestButton),
         .in_audioEnable(~in_audioDisable),
         .in_ledEnable(~in_ledDisable),
