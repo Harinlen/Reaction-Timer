@@ -17,6 +17,7 @@ set_property -dict { PACKAGE_PIN D12 IOSTANDARD LVCMOS33 } [get_ports out_audioS
 set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports in_startButton]
 set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports in_testButton]
 set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports in_clearBestButton]
+set_property -dict {PACKAGE_PIN N17 IOSTANDARD LVCMOS33} [get_ports in_skipWaitButton]
 
 # Tri-color LED outputs
 # Left LD17
