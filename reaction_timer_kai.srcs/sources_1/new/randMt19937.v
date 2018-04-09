@@ -10,9 +10,14 @@
 // Project Name: Reaction Timer
 // Target Devices: Nexys4 DDR
 // Tool Versions: Vivado HLx 2017.4
-// Description: 
+// Description: This module is the MT19937 standard Mersenne Twister random number
+// generator. The parameter is chosen the same as the GCC compiler.
+// The entire framework is implemented in a pipelined FSM for reducing the 
+// resource we used. It is now using two BRAM insteads of thousands of look up 
+// tables and flip-flops which allows the entire project to be compiled under an
+// acceptable time usage.
 // 
-// Dependencies: 
+// Dependencies: N/A
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -32,15 +37,10 @@ module randMt19937(
     output reg [31:0] out_data = 32'd0,
     output reg        out_busy = 1'b0);
 
-    // State register
+    // States
     localparam [1:0] STATE_IDLE = 2'd0;
-    localparam [1:0] STATE_CHECKING = 2'd1;
-    localparam [1:0] STATE_SEED = 2'd2;
+    localparam [1:0] STATE_SEED = 2'd1;
     reg [1:0] state = STATE_IDLE, stateNext;
-    // Mission register.
-    localparam FLAG_SEED = 0;
-    localparam FLAG_NEXT = 1;
-    reg [1:0] flags = 2'd0;
     // MT19937 vectors.
     reg [31:0] mtVector [623:0];
     reg [31:0] mtSave = 0, mtSaveNext;
@@ -136,12 +136,13 @@ module randMt19937(
                         // Reset the seed state.
                         toSeedState(in_globalTime, 0, 1);
                     end else begin
+                        // Generate the next number.
                         executeNext(((mti < 623) ? (mti + 1) : 0),
                                     ((mtRoundAPosition < 623) ? (mtRoundAPosition + 1) : 0),
                                     ((mtRoundBPosition < 623) ? (mtRoundBPosition + 1) : 0));
                     end
                 end else begin
-                    // No more mission, back to idle state.
+                    // No more mission, keep the idle state.
                     stateNext = STATE_IDLE;
                 end
             end
@@ -158,9 +159,15 @@ module randMt19937(
                     mulCntNext = mulCnt - 1;
                     factor1Next = factor1 << 1;
                     factor2Next = factor2 >> 1;
-                    if (factor2[0]) productNext = product + factor1;
+                    if (factor2[0]) begin
+                        productNext = product + factor1;
+                    end
                     stateNext = STATE_SEED;
                 end
+            end
+            default: begin
+                // For avoiding the invalid data, always back to IDLE state.
+                stateNext = STATE_IDLE;
             end
         endcase
     end
@@ -182,31 +189,29 @@ module randMt19937(
             out_busy <= 0;
         end else begin
             if (in_enable) begin
-                // Executing the pipeline.
+                // Executing the pipeline for the FSM.
                 state <= stateNext;
-    
+                // Update the busy state.
+                out_busy <= stateNext != STATE_IDLE;
+                // To the next state for all the variables.
                 mtSave = mtSaveNext;
                 mti <= mtiNext;
-    
+                // Update the output data and its validation state.
+                out_data <= outDataNext;
+                outDataValid <= outDataValidNext;
+                // Check the Write Enable state.
+                if (mtWriteEnable) begin
+                    mtVector[mtWritePosition] <= mtWriteData;
+                end
+                // Switch the round.
                 mtRoundAPosition <= mtRoundAPositionNext;
                 mtRoundBPosition <= mtRoundBPositionNext;
-    
+                mtRoundAData <= mtVector[mtRoundAPositionNext];
+                mtRoundBData <= mtVector[mtRoundBPositionNext];
                 product <= productNext;
                 factor1 <= factor1Next;
                 factor2 <= factor2Next;
                 mulCnt <= mulCntNext;
-    
-                out_data <= outDataNext;
-                outDataValid <= outDataValidNext;
-    
-                out_busy <= stateNext != STATE_IDLE;
-    
-                if (mtWriteEnable) begin
-                    mtVector[mtWritePosition] <= mtWriteData;
-                end
-    
-                mtRoundAData <= mtVector[mtRoundAPositionNext];
-                mtRoundBData <= mtVector[mtRoundBPositionNext];
             end
         end
     end

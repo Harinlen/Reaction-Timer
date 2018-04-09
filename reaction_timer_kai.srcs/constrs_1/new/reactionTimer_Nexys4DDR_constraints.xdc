@@ -10,8 +10,8 @@ set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports in_audioDisa
 set_property -dict {PACKAGE_PIN R17 IOSTANDARD LVCMOS33} [get_ports in_triLedDisable]
 
 # Audio output
-set_property -dict { PACKAGE_PIN A11 IOSTANDARD LVCMOS33 } [get_ports out_audioPwm];
-set_property -dict { PACKAGE_PIN D12 IOSTANDARD LVCMOS33 } [get_ports out_audioSd];
+set_property -dict {PACKAGE_PIN A11 IOSTANDARD LVCMOS33} [get_ports out_audioPwm];
+set_property -dict {PACKAGE_PIN D12 IOSTANDARD LVCMOS33} [get_ports out_audioSd];
 
 # Buttons
 set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports in_startButton]
@@ -73,17 +73,14 @@ set_property -dict {PACKAGE_PIN A3  IOSTANDARD LVCMOS33} [get_ports out_vgaR[0]]
 set_property -dict {PACKAGE_PIN B4  IOSTANDARD LVCMOS33} [get_ports out_vgaR[1]];
 set_property -dict {PACKAGE_PIN C5  IOSTANDARD LVCMOS33} [get_ports out_vgaR[2]];
 set_property -dict {PACKAGE_PIN A4  IOSTANDARD LVCMOS33} [get_ports out_vgaR[3]];
-
 set_property -dict {PACKAGE_PIN C6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[0]];
 set_property -dict {PACKAGE_PIN A5  IOSTANDARD LVCMOS33} [get_ports out_vgaG[1]];
 set_property -dict {PACKAGE_PIN B6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[2]];
 set_property -dict {PACKAGE_PIN A6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[3]];
-
 set_property -dict {PACKAGE_PIN B7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[0]];
 set_property -dict {PACKAGE_PIN C7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[1]];
 set_property -dict {PACKAGE_PIN D7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[2]];
 set_property -dict {PACKAGE_PIN D8  IOSTANDARD LVCMOS33} [get_ports out_vgaB[3]];
-
 set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports out_vgaHs];
 set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports out_vgaVs];
 

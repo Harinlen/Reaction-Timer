@@ -1,17 +1,25 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/04/03 22:24:00
-// Design Name: 
+// Design Name: VGA Memory Module
 // Module Name: vram
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
+// Description: This module provides a video buffer for 80x30 text mode output.
+// By providing the character position, it would output the ASC16 data of the 
+// character.
+// This module supports to update one character per 100MHz, which means that for 
+// the entire VRAM display, it needs 2,400 clock cycles to update the entire screen.
+// Under this condition, it allows us to update the entire display at maximum 
+// 41,666 FPS.
 // 
 // Dependencies: 
+//    - asc16Font
 // 
 // Revision:
 // Revision 0.01 - File Created

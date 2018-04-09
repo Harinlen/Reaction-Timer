@@ -1,17 +1,24 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/04/03 22:10:58
-// Design Name: 
+// Design Name: VGA Display Text Mode Driver
 // Module Name: vgaDriver
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
+// Description: This module is designed to drive the VGA output to display the 
+// text mode of DOS at 640x480 resolution.
+// This driver works with the ASC16 standard font output. This module works with
+// the VRAM module that would provide the output data with the VGA character input.
+// This driver contains a double buffer for the character level data, which means
+// that the video signal output won't be teared.
 // 
 // Dependencies: 
+//    - edgeDetector
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -37,6 +44,8 @@ module vgaDriver(
     reg [10:0] x_counter = 11'd0, y_counter = 11'd0;
     reg [0:127] currentCharPixel = 128'd0;
     
+    // This piece of code works exactly as the clock divider,
+    // but I want to save the resource. :)
     reg counter = 1'b0, clock_25MHz = 1'b0;
     always @(posedge in_clock) begin
         if (counter) begin

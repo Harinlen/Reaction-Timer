@@ -1,17 +1,22 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 2018/04/03 21:58:10
-// Design Name: 
+// Design Name: ASC16 Character Bank
 // Module Name: asc16Font
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4
+// Description: This module could provide a 8x16 characters for all the ASCII code
+// with the extended characters support (0-255).
+// For the characters in 0-127, they are treated as printable characters which is 
+// used in MS-DOS. The 128-255 extended characters are using the IBM Character Set
+// standard.
 // 
-// Dependencies: 
+// Dependencies: N/A
 // 
 // Revision:
 // Revision 0.01 - File Created

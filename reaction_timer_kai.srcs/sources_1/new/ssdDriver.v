@@ -5,7 +5,7 @@
 //           Fangxiao Dong
 // 
 // Create Date: 2018/03/18 14:07:57
-// Design Name: 
+// Design Name: Seven-Segments Display Driver
 // Module Name: ssdDriver
 // Project Name: Reaction Timer
 // Target Devices: Nexys4 DDR
