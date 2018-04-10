@@ -41,6 +41,8 @@ module TOP_reactionTimer(
     input wire         in_audioDisable,
     input wire         in_triLedDisable,
     input wire         in_mcData,
+    input wire         in_ps2Clock,
+    input wire         in_ps2Data,
     output wire [15:0] out_leds,
     output wire [7:0]  out_ssdDigitOutput,
     output wire [7:0]  out_ssdSelector,
@@ -84,7 +86,7 @@ module TOP_reactionTimer(
         .in_clock(in_100MHzClock),
         .in_reset(in_reset),
         .in_enable(in_enable),
-        .out_risingEdge(clock_1kHzRising));
+        .out_fallingEdge(clock_1kHzRising));
     
     // The start button use a normal debouncer.
     debouncer #(
@@ -129,6 +131,18 @@ module TOP_reactionTimer(
         .in_buttonIn(in_testButton),
         .out_buttonOut(debouncedTestButton));
         
+    // Add PS/2 reader to process keyboard input signal.
+    wire [7:0] keyboardData;
+    ps2Reader ps2KeyboardReader(
+        .in_clock(in_100MHzClock),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_ps2Clock(in_ps2Clock),
+        .in_ps2Data(in_ps2Data),
+        .out_data(keyboardData));
+        
+    assign out_leds[15:8] = keyboardData;
+        
     // Add microphone input as the impact of the seed.
     wire [31:0] microphoneNoise;
     microphoneNoiseGenerator microphoneNoiseInput (
@@ -144,11 +158,13 @@ module TOP_reactionTimer(
     wire [31:0] ssdOutput;
     wire [7:0] ssdDots;
     wire [7:0] vramUpdateXPos, vramUpdateYPos, vramUpdateCharAscii;
+    wire [3:0] vgaRed, vgaGreen, vgaBlue;
     wire vramUpdate;
      
     reactTimerCpu reactionTimerProcessor(
         .in_microphoneNoise(microphoneNoise),
         .in_globalTime(globalTimerCounter),
+        .in_keyboardData(keyboardData),
         .in_clock(in_100MHzClock),
         .in_reset(in_reset),
         .in_enable(in_enable),
@@ -159,7 +175,7 @@ module TOP_reactionTimer(
         .in_audioEnable(~in_audioDisable),
         .in_ledEnable(~in_ledDisable),
         .in_triColorLedEnable(~in_triLedDisable),
-        .out_leds(out_leds),
+        //.out_leds(out_leds),
         .out_triColorLeft(out_triColorLedLeft),
         .out_triColorRight(out_triColorLedRight),
         .out_ssdOutput(ssdOutput),
@@ -168,6 +184,9 @@ module TOP_reactionTimer(
         .out_vramUpdateYPos(vramUpdateYPos),
         .out_vramUpdateCharAscii(vramUpdateCharAscii),
         .out_vramUpdate(vramUpdate),
+        .out_vgaRed(vgaRed),
+        .out_vgaGreen(vgaGreen),
+        .out_vgaBlue(vgaBlue),
         .out_audioPwm(out_audioPwm),
         .out_audioSd(out_audioSd));
     
@@ -193,7 +212,6 @@ module TOP_reactionTimer(
     // VGA output
     wire [0:127] vgaCharPixel;
     wire [7:0] vgaDriverReqPosX, vgaDriverReqPosY;
-    wire vgaDriverOutR, vgaDriverOutG, vgaDriverOutB;
     
     vram globalVideoRam(
         .in_clock(in_100MHzClock),
@@ -208,20 +226,19 @@ module TOP_reactionTimer(
         .out_bitmap(vgaCharPixel));
     
     vgaDriver vgaPortDriver(
+        .in_red(vgaRed),
+        .in_green(vgaGreen),
+        .in_blue(vgaBlue),
         .in_clock(in_100MHzClock),
         .in_reset(in_reset),
         .in_enable(in_enable),
         .in_charPixel(vgaCharPixel),
         .out_charXPos(vgaDriverReqPosX),
         .out_charYPos(vgaDriverReqPosY),
-        .out_vgaR(vgaDriverOutR),
-        .out_vgaG(vgaDriverOutG),
-        .out_vgaB(vgaDriverOutB),
+        .out_vgaR(out_vgaR),
+        .out_vgaG(out_vgaG),
+        .out_vgaB(out_vgaB),
         .out_vgaHs(out_vgaHs),
         .out_vgaVs(out_vgaVs));
-    
-    assign out_vgaR = {vgaDriverOutR, vgaDriverOutR, vgaDriverOutR, vgaDriverOutR};
-    assign out_vgaG = {vgaDriverOutG, vgaDriverOutG, vgaDriverOutG, vgaDriverOutG};
-    assign out_vgaB = {vgaDriverOutB, vgaDriverOutB, vgaDriverOutB, vgaDriverOutB};
     
 endmodule

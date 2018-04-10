@@ -27,17 +27,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module vgaDriver(
-    input wire         in_clock,
-    input wire         in_reset,
-    input wire         in_enable,
-    input wire [0:127] in_charPixel,
-    output reg [7:0]   out_charXPos = 8'd0,
-    output reg [7:0]   out_charYPos = 8'd0,
-    output wire        out_vgaR,
-    output wire        out_vgaG,
-    output wire        out_vgaB,
-    output wire        out_vgaHs,
-    output wire        out_vgaVs);
+    input wire  [3:0]   in_red,
+    input wire  [3:0]   in_green,
+    input wire  [3:0]   in_blue,
+    input wire          in_clock,
+    input wire          in_reset,
+    input wire          in_enable,
+    input wire  [0:127] in_charPixel,
+    output reg  [7:0]   out_charXPos = 8'd0,
+    output reg  [7:0]   out_charYPos = 8'd0,
+    output wire [3:0]   out_vgaR,
+    output wire [3:0]   out_vgaG,
+    output wire [3:0]   out_vgaB,
+    output wire         out_vgaHs,
+    output wire         out_vgaVs);
     
     reg [10:0] x_charPixelPos = 11'd0, x_charBasePos = 11'd0;
     reg [2:0] x_pixelCounter = 3'd0;
@@ -170,9 +173,9 @@ module vgaDriver(
     wire pixelDisplay;
     assign pixelDisplay = currentCharPixel[x_charPixelPos] && (x_counter > 143 && x_counter < 783) && (y_counter > 34 && y_counter < 514);
     // RGB has the same output, we have only RGB support.
-    assign out_vgaR = pixelDisplay;
-    assign out_vgaG = pixelDisplay;
-    assign out_vgaB = pixelDisplay;
+    assign out_vgaR = {pixelDisplay & in_red[3], pixelDisplay & in_red[2], pixelDisplay & in_red[1], pixelDisplay & in_red[0]};
+    assign out_vgaG = {pixelDisplay & in_green[3], pixelDisplay & in_green[2], pixelDisplay & in_green[1], pixelDisplay & in_green[0]};
+    assign out_vgaB = {pixelDisplay & in_blue[3], pixelDisplay & in_blue[2], pixelDisplay & in_blue[1], pixelDisplay & in_blue[0]};
     // Column sync with row.
     assign out_vgaHs = (x_counter > 95);
     // Row counter sync with the field.

@@ -35,6 +35,7 @@ module reactTimerResultCore #(
     input wire          in_clock,
     input wire          in_reset,
     input wire          in_enable,
+    input wire          in_skipWait,
     output wire         out_busy,
     output reg          out_reactionTimeValid = 1'b0,
     output reg [31:0]   out_ssdNumberDisplay = `SSD_DISPLAY_BLANK,
@@ -131,12 +132,12 @@ module reactTimerResultCore #(
        .out_dividedClock(flashClock));
     
     // Timer for waiting 10s with no action.
-    reg startWaitingPulse = 1'b0;
+    reg startWaitingPulse = 1'b0, resetIdleCounter = 1'b0;
     wire endWaitingPulse;
     actionRetarder idleCounter(
         .in_delayCounts(WAITING_COUNTS),
         .in_clock(in_clock),
-        .in_reset(in_reset),
+        .in_reset(in_reset | resetIdleCounter),
         .in_enable(in_enable),
         .in_pulseIn(startWaitingPulse),
         .out_pulseOut(endWaitingPulse));
@@ -184,6 +185,8 @@ module reactTimerResultCore #(
                     STATE_IDLE: begin
                         // Wait for the test result validation rising.
                         if (testResultValidRising) begin
+                            // Clear the idle counter reset.
+                            resetIdleCounter <= 1'b0;
                             // Check the timeout state.
                             if (in_testTimeout) begin
                                 // For timeout, definitely not best result.
@@ -236,7 +239,7 @@ module reactTimerResultCore #(
                         // Falling the start waiting pulse.
                         startWaitingPulse <= 0;
                         // Check the timeout state.
-                        if (endWaitingPulse) begin
+                        if (endWaitingPulse | in_skipWait) begin
                             // Timeout, no more busy.
                             // Reset the module state.
                             state <= STATE_IDLE;
@@ -248,6 +251,8 @@ module reactTimerResultCore #(
                             resultLevelR <= 8'd0;
                             resultLevelG <= 8'd0;
                             resultLevelB <= 8'd0;
+                            // Reset the waiting counter.
+                            resetIdleCounter <= 1'b1;
                         end else begin
                             // According to different state.
                             if (in_testTimeout) begin

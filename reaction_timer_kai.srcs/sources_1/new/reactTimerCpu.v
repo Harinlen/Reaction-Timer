@@ -40,6 +40,7 @@ module reactTimerCpu #(
 )(
     input wire [31:0] in_microphoneNoise,
     input wire [31:0] in_globalTime,
+    input wire [7:0]  in_keyboardData,
     input wire        in_clock,
     input wire        in_reset,
     input wire        in_enable,
@@ -57,8 +58,11 @@ module reactTimerCpu #(
     output reg [2:0]  out_triColorRight = 3'd0,
     output reg [7:0]  out_vramUpdateXPos = 8'd0, 
     output reg [7:0]  out_vramUpdateYPos = 8'd0, 
-    output reg [7:0]  out_vramUpdateCharAscii = 8'd0,
+    output reg [7:0]  out_vramUpdateCharAscii = 8'd0, 
     output reg        out_vramUpdate = 1'b0,
+    output wire [3:0] out_vgaRed,
+    output wire [3:0] out_vgaGreen,
+    output wire [3:0] out_vgaBlue,
     output reg        out_audioPwm = 1'b0,
     output reg        out_audioSd = 1'b0);
     
@@ -203,6 +207,7 @@ module reactTimerCpu #(
         .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
+        .in_skipWait(in_skipWait),
         .out_busy(resultBusy),
         .out_reactionTimeValid(reactionTimeValid),
         .out_ssdNumberDisplay(resultNumberOut),
@@ -262,6 +267,17 @@ module reactTimerCpu #(
        hintUpdateFlag[hintFlagOff] <= 1'b0; 
     end
     endtask
+    
+    // Keyboard processor.
+    keyboardDecoder vgaColorControl(
+        .in_keycode(in_keyboardData),
+        .in_keycodeValid(1'b1),
+        .in_reset(in_reset),
+        .in_enable(in_enable),
+        .in_clock(in_clock),
+        .out_redColor(out_vgaRed),
+        .out_greenColor(out_vgaGreen),
+        .out_blueColor(out_vgaBlue)); 
     
     always @(posedge in_clock) begin
         // Check the reset button.
@@ -345,7 +361,11 @@ module reactTimerCpu #(
                             out_ssdOutput <= idleSsdOutput;
                             out_ssdDots <= idleSsdDots;
                             // Update the idle clear best signal.
-                            idleClearBest <= in_clearBest;
+                            if (in_clearBest & (~idleClearBest)) begin
+                                idleClearBest <= 1'b1;
+                            end else begin
+                                idleClearBest <= 1'b0;
+                            end
                             // Update the left tri-color LED.
                             updateLeftLed();
                             out_triColorRight <= 3'd0;
@@ -396,7 +416,7 @@ module reactTimerCpu #(
                     end
                     STATE_RESULT: begin
                         // When it comes to RESULT state, check the timeout state.
-                        if (resultBusyFalling | in_skipWait) begin
+                        if (resultBusyFalling) begin
                             // When the result module is no more busy, 
                             // switch state back to IDLE.
                             state <= STATE_IDLE;
