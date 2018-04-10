@@ -58,7 +58,7 @@ module reactTimerPrepareCore #(
     reg randSelector = RAND_LCG;
     
     reg [2:0] busyWait = 3'd0;
-    reg [31:0] seed = 0;
+    reg [31:0] seed = 32'd0, originalDelay = 32'd0;
     reg seedReady = 0, next = 0, state = STATE_WAITING, seedSet = 0;
     wire [31:0] randLcgOut, randMtOut;
     wire randLcgBusy, randMtBusy, animationBusy;
@@ -110,6 +110,7 @@ module reactTimerPrepareCore #(
             state <= STATE_WAITING;
             // Reset the output.
             out_delay <= 32'd0;
+            originalDelay <= 32'd0;
             out_busy <= 1'b0;
         end else begin
             if (in_enable) begin
@@ -124,16 +125,15 @@ module reactTimerPrepareCore #(
                         RAND_LCG: begin
                             // Check Linear Congruential Generator busy output.
                             if (~randLcgBusy) begin
-                                // Set the randomize time to output.
-                                // Limit the time up to 8.05 seconds.
-                                out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[28:0]} + {4'd0, randLcgOut[27:0]};
+                                // Set the randomize time to output.s
+                                originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[31:4]};
                             end 
                         end
                         RAND_MT: begin
                             // Check Mt19937 busy output.
                             if (~randMtBusy) begin
                                 // Set the randomize time to output.
-                                out_delay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[28:0]} + {4'd0, randMtOut[27:0]};
+                                originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[31:4]};
                             end
                         end
                     endcase
@@ -144,6 +144,9 @@ module reactTimerPrepareCore #(
                             RAND_LCG: randSelector <= RAND_MT;
                             RAND_MT: randSelector <= RAND_LCG;
                         endcase
+                        // Check the original delay, limit the data to the area.
+                        out_delay <= (originalDelay > 32'd500_000_000) ? {originalDelay[32:26], 1'b0, originalDelay[24:23], 1'b0, originalDelay[21:0]} : 
+                                     ((originalDelay < 32'd100_000_000) ? {originalDelay[32:27], 2'b11, originalDelay[24:0]} : originalDelay);
                         // Reset the state back to waiting.
                         state <= STATE_WAITING;
                         // No more busy.

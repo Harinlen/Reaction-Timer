@@ -79,13 +79,9 @@ module ps2Reader(
     end
 
     always @(posedge flag) begin
-        if ((~in_reset) & in_enable) begin
-            if (out_data != currentData)begin
-                // Output the data.
-                out_data <= currentData;
-                // Set the data ready flag.
-                dataReady <= 1'b1;
-            end
+        if (out_data != currentData)begin
+            // Output the data.
+            out_data <= currentData;
         end
     end
     
