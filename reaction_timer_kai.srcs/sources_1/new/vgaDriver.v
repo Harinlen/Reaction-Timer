@@ -30,7 +30,7 @@ module vgaDriver(
     input wire  [3:0]   in_red,
     input wire  [3:0]   in_green,
     input wire  [3:0]   in_blue,
-    input wire          in_clock,
+    input wire          in_25MHzClock,
     input wire          in_reset,
     input wire          in_enable,
     input wire  [0:127] in_charPixel,
@@ -46,28 +46,8 @@ module vgaDriver(
     reg [2:0] x_pixelCounter = 3'd0;
     reg [10:0] x_counter = 11'd0, y_counter = 11'd0;
     reg [0:127] currentCharPixel = 128'd0;
-    
-    // This piece of code works exactly as the clock divider,
-    // but I want to save the resource. :)
-    reg counter = 1'b0, clock_25MHz = 1'b0;
-    always @(posedge in_clock) begin
-        if (counter) begin
-            clock_25MHz <= ~clock_25MHz;
-        end
-        counter <= ~counter;
-    end
-    
-    // Create the edge detector.
-    wire clock_25MHzRising;
-    // 25MHz clock edge detector.
-    edgeDetector clockEdge25MHz(
-        .in_signal(clock_25MHz),
-        .in_clock(in_clock),
-        .in_reset(in_reset),
-        .in_enable(in_enable),
-        .out_risingEdge(clock_25MHzRising));
             
-    always @(posedge in_clock) begin
+    always @(posedge in_25MHzClock) begin
         if (in_reset) begin
             // Reset the counter.
             x_counter <= 11'd0;
@@ -82,7 +62,7 @@ module vgaDriver(
             // Reset current pixel.
             currentCharPixel <= 128'd0;
         end else begin
-            if (clock_25MHzRising) begin
+            if (in_enable) begin
                 //Move to next position.
                 if (x_counter == 800) begin
                     // Back to left most.

@@ -126,14 +126,14 @@ module reactTimerPrepareCore #(
                             // Check Linear Congruential Generator busy output.
                             if (~randLcgBusy) begin
                                 // Set the randomize time to output.s
-                                originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[31:4]};
+                                originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[31:3]};
                             end 
                         end
                         RAND_MT: begin
                             // Check Mt19937 busy output.
                             if (~randMtBusy) begin
                                 // Set the randomize time to output.
-                                originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[31:4]};
+                                originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randMtOut[31:3]};
                             end
                         end
                     endcase
@@ -145,8 +145,8 @@ module reactTimerPrepareCore #(
                             RAND_MT: randSelector <= RAND_LCG;
                         endcase
                         // Check the original delay, limit the data to the area.
-                        out_delay <= (originalDelay > 32'd500_000_000) ? {originalDelay[32:26], 1'b0, originalDelay[24:23], 1'b0, originalDelay[21:0]} : 
-                                     ((originalDelay < 32'd100_000_000) ? {originalDelay[32:27], 2'b11, originalDelay[24:0]} : originalDelay);
+                        out_delay <=  (originalDelay > 32'd500_000_000) ? (originalDelay & 32'h1DBF_FFFF) : 
+                                     ((originalDelay < 32'd100_000_000) ? (originalDelay | 32'h0600_0000) : originalDelay);
                         // Reset the state back to waiting.
                         state <= STATE_WAITING;
                         // No more busy.

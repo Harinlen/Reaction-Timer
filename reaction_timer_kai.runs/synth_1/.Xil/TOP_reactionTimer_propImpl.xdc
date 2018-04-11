@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc rfile:../../../reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc rfile:../../../reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN E3  IOSTANDARD LVCMOS33} [get_ports in_100MHzClock]
 set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]

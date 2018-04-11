@@ -62,36 +62,40 @@ module actionRetarder(
             // Check enable state.
             if (in_enable) begin
                 // Check the current state.
-                if (state == STATE_FINISH) begin
-                    // FINISH state.
-                    // Reset the state back to pending.
-                    state <= STATE_PENDING;
-                    // Reset the signal.
-                    out_pulseOut <= 1'b0;
-                end else if (state == STATE_WAITING) begin
-                    // WAITING state.
-                    // Count until to the limits.
-                    if (counter < limits) begin
-                        // Increase the counter.
-                        counter <= counter + 1; 
-                    end else begin
-                        // The counter reach the limits.
-                        state <= STATE_FINISH;
-                        // Rise the output signal.
-                        out_pulseOut <= 1'b1;
+                case (state)
+                    STATE_PENDING: begin
+                        // PENDING state.
+                        // Wait until for the pulse in rising.
+                        if (pulseInRising) begin
+                            // Moving state to waiting.
+                            state <= STATE_WAITING;
+                            // Save the current delay counts as limits.
+                            limits <= in_delayCounts;
+                            // Reset the counter.
+                            counter <= 32'd0;
+                        end
                     end
-                end else begin
-                    // PENDING state.
-                    // Wait until for the pulse in rising.
-                    if (pulseInRising) begin
-                        // Moving state to waiting.
-                        state <= STATE_WAITING;
-                        // Save the current delay counts as limits.
-                        limits <= in_delayCounts;
-                        // Reset the counter.
-                        counter <= 32'd0;
+                    STATE_WAITING: begin
+                        // WAITING state.
+                        // Count until to the limits.
+                        if (counter < limits) begin
+                            // Increase the counter.
+                            counter <= counter + 1; 
+                        end else begin
+                            // The counter reach the limits.
+                            state <= STATE_FINISH;
+                            // Rise the output signal.
+                            out_pulseOut <= 1'b1;
+                        end
                     end
-                end
+                    STATE_FINISH: begin
+                        // FINISH state.
+                        // Reset the state back to pending.
+                        state <= STATE_PENDING;
+                        // Reset the signal.
+                        out_pulseOut <= 1'b0;
+                    end
+                endcase
             end
         end
     end

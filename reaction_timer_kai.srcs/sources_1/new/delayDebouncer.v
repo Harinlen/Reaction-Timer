@@ -1,17 +1,21 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ENGN3213 Assignment 1 Group
+// Engineer: Haolei Ye
+//           Fangxiao Dong
 // 
 // Create Date: 10.04.2018 11:11:17
-// Design Name: 
+// Design Name: PS/2 Delay Debouncer 
 // Module Name: delayDebouncer
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Reaction Timer
+// Target Devices: Nexys4 DDR
+// Tool Versions: Vivado HLx 2017.4 
+// Description: This is the special debouncer for PS/2 clock and data wire. The 
+// working clock of this module should be 50MHz.
+// This debouncer simply detect the past four result. If they are all the same,
+// output the data. 
 // 
-// Dependencies: 
+// Dependencies: N/A
 // 
 // Revision:
 // Revision 0.01 - File Created

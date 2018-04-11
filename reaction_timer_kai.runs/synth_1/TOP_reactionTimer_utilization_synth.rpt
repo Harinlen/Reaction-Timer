@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Apr 10 23:39:32 2018
-| Host         : DESKTOP-SAKI running 64-bit major release  (build 9200)
+| Date         : Wed Apr 11 12:24:56 2018
+| Host         : r103pc04 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
 | Design       : TOP_reactionTimer
 | Device       : 7a100tcsg324-1
@@ -30,14 +30,14 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |    0 |     0 |     63400 |  0.00 |
-|   LUT as Logic          |    0 |     0 |     63400 |  0.00 |
+| Slice LUTs*             | 2683 |     0 |     63400 |  4.23 |
+|   LUT as Logic          | 2683 |     0 |     63400 |  4.23 |
 |   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
-| Slice Registers         |    0 |     0 |    126800 |  0.00 |
-|   Register as Flip Flop |    0 |     0 |    126800 |  0.00 |
+| Slice Registers         | 1757 |     0 |    126800 |  1.39 |
+|   Register as Flip Flop | 1757 |     0 |    126800 |  1.39 |
 |   Register as Latch     |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                |    0 |     0 |     31700 |  0.00 |
-| F8 Muxes                |    0 |     0 |     15850 |  0.00 |
+| F7 Muxes                |  187 |     0 |     31700 |  0.59 |
+| F8 Muxes                |   41 |     0 |     15850 |  0.26 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -56,32 +56,34 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 0     |          Yes |       Reset |            - |
+| 121   |          Yes |         Set |            - |
+| 1636  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
 2. Memory
 ---------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| Block RAM Tile |    0 |     0 |       135 |  0.00 |
-|   RAMB36/FIFO* |    0 |     0 |       135 |  0.00 |
-|   RAMB18       |    0 |     0 |       270 |  0.00 |
-+----------------+------+-------+-----------+-------+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |    2 |     0 |       135 |  1.48 |
+|   RAMB36/FIFO*    |    2 |     0 |       135 |  1.48 |
+|     RAMB36E1 only |    2 |       |           |       |
+|   RAMB18          |    0 |     0 |       270 |  0.00 |
++-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
 
 3. DSP
 ------
 
-+-----------+------+-------+-----------+-------+
-| Site Type | Used | Fixed | Available | Util% |
-+-----------+------+-------+-----------+-------+
-| DSPs      |    0 |     0 |       240 |  0.00 |
-+-----------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| DSPs           |    2 |     0 |       240 |  0.83 |
+|   DSP48E1 only |    2 |       |           |       |
++----------------+------+-------+-----------+-------+
 
 
 4. IO and GT Specific
@@ -90,7 +92,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   56 |     0 |       210 | 26.67 |
+| Bonded IOB                  |   69 |     0 |       210 | 32.86 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         6 |  0.00 |
@@ -146,17 +148,32 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUFT    |   48 |                  IO |
-| OBUF     |    8 |                  IO |
+| FDRE     | 1636 |        Flop & Latch |
+| LUT6     | 1485 |                 LUT |
+| LUT2     |  541 |                 LUT |
+| LUT4     |  461 |                 LUT |
+| LUT5     |  402 |                 LUT |
+| LUT3     |  351 |                 LUT |
+| MUXF7    |  187 |               MuxFx |
+| CARRY4   |  161 |          CarryLogic |
+| FDSE     |  121 |        Flop & Latch |
+| OBUF     |   56 |                  IO |
+| MUXF8    |   41 |               MuxFx |
+| LUT1     |   39 |                 LUT |
+| IBUF     |   13 |                  IO |
+| RAMB36E1 |    2 |        Block Memory |
+| DSP48E1  |    2 |    Block Arithmetic |
 +----------+------+---------------------+
 
 
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
++-----------+------+
+|  Ref Name | Used |
++-----------+------+
+| clk_wiz_0 |    1 |
++-----------+------+
 
 
 9. Instantiated Netlists
