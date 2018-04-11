@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/ass1/reaction_timer_kai.runs/impl_1'
+HD_PWD='C:/testass1/reaction_timer_kai.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log TOP_reactionTimer.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source TOP_reactionTimer.tcl -notrace
 
 
