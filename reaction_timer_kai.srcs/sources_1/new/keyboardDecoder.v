@@ -42,6 +42,31 @@ module keyboardDecoder(
                 if (in_keycodeValid) begin
                     // Check the key input.
                     case (in_keycode)
+                        8'h16: begin // 1
+                            out_redColor   <= 4'b0000;
+                            out_greenColor <= 4'b0000;
+                            out_blueColor  <= 4'b0000;  
+                        end
+                        8'h1E: begin // 2
+                            out_redColor   <= 4'b0011;
+                            out_greenColor <= 4'b0011;
+                            out_blueColor  <= 4'b0011; 
+                        end
+                        8'h26: begin // 3
+                            out_redColor   <= 4'b0111;
+                            out_greenColor <= 4'b0111;
+                            out_blueColor  <= 4'b0111;
+                        end
+                        8'h25: begin // 4
+                            out_redColor   <= 4'b1011;
+                            out_greenColor <= 4'b1011;
+                            out_blueColor  <= 4'b1011;
+                        end
+                        8'h2E: begin // 5
+                            out_redColor   <= 4'b1111;
+                            out_greenColor <= 4'b1111;
+                            out_blueColor  <= 4'b1111;
+                        end
                         8'h15: out_redColor   <= 4'b0000; //  Q
                         8'h1D: out_redColor   <= 4'b0011; //  W
                         8'h24: out_redColor   <= 4'b0111; //  E
