@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Apr 12 11:39:32 2018
-# Process ID: 9128
+# Start of session at: Thu Apr 12 14:42:04 2018
+# Process ID: 8768
 # Current directory: C:/ass1/reaction_timer_kai.runs/synth_1
 # Command line: vivado.exe -log TOP_reactionTimer.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_reactionTimer.tcl
 # Log file: C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4652 
+INFO: Helper process launched with PID 5268 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 360.586 ; gain = 101.254
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 361.109 ; gain = 102.316
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
 INFO: [Synth 8-638] synthesizing module 'resetDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
@@ -36,8 +36,8 @@ INFO: [Synth 8-256] done synthesizing module 'resetDebouncer' (3#1) [C:/ass1/rea
 INFO: [Synth 8-638] synthesizing module 'globalTime' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
 INFO: [Synth 8-256] done synthesizing module 'globalTime' (4#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
 WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:99]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/realtime/clk_wiz_0_stub.v:5]
 WARNING: [Synth 8-350] instance 'clockManager' of module 'clk_wiz_0' requires 5 connections, but only 4 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:108]
 INFO: [Synth 8-638] synthesizing module 'debouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
 	Parameter PIPELINE_LEVEL bound to: 5 - type: integer 
@@ -205,7 +205,7 @@ WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[7]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[6]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[5]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 705.641 ; gain = 446.309
+Finished RTL Elaboration : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 707.398 ; gain = 448.605
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -215,19 +215,19 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 705.641 ; gain = 446.309
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 707.398 ; gain = 448.605
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
-Finished Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
+Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
+Finished Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
 Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
 CRITICAL WARNING: [Constraints 18-1056] Clock 'CLK100MHZ' completely overrides clock 'in_100MHzClock'.
 New: create_clock -period 10.000 -name CLK100MHZ [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc:3]
-Previous: create_clock -period 10.000 [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc:1]
+Previous: create_clock -period 10.000 [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc:1]
 Resolution: Review the constraint files and remove the redundant clock definition(s). If the clock constraints are not saved in a file, you can first save the constraints to an XDC file and reload the design once the constraints have been corrected.
 Finished Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_reactionTimer_propImpl.xdc].
@@ -237,9 +237,9 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1020.332 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1021.012 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1020.543 ; gain = 761.211
+Finished Constraint Validation : Time (s): cpu = 00:01:10 ; elapsed = 00:01:14 . Memory (MB): peak = 1021.223 ; gain = 762.430
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
@@ -247,16 +247,16 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1020.543 ; gain = 761.211
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:10 ; elapsed = 00:01:14 . Memory (MB): peak = 1021.223 ; gain = 762.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 5).
 Applied set_property DONT_TOUCH = true for clockManager. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1020.543 ; gain = 761.211
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:14 . Memory (MB): peak = 1021.223 ; gain = 762.430
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
 WARNING: [Synth 8-6014] Unused sequential element latchedCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:60]
@@ -339,7 +339,7 @@ INFO: [Synth 8-3971] The signal mtVector_reg was recognized as a true dual port 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'divisionByTen'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:48 ; elapsed = 00:02:05 . Memory (MB): peak = 1020.543 ; gain = 761.211
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1021.223 ; gain = 762.430
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1319,7 +1319,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVid
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[67][21][0] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:19 ; elapsed = 00:03:50 . Memory (MB): peak = 1020.543 ; gain = 761.211
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:19 ; elapsed = 00:03:51 . Memory (MB): peak = 1021.223 ; gain = 762.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1368,13 +1368,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clockManager/clk_out1' to
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clockManager/clk_out2' to pin 'clockManager/bbstub_clk_out2/O'
 INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:34 ; elapsed = 00:04:05 . Memory (MB): peak = 1020.543 ; gain = 761.211
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:34 ; elapsed = 00:04:06 . Memory (MB): peak = 1021.223 ; gain = 762.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:38 ; elapsed = 00:04:09 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Timing Optimization : Time (s): cpu = 00:03:38 ; elapsed = 00:04:10 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1402,7 +1402,7 @@ Start Technology Mapping
 INFO: [Synth 8-4480] The timing for the instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:43 ; elapsed = 00:04:14 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Technology Mapping : Time (s): cpu = 00:03:43 ; elapsed = 00:04:15 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1426,7 +1426,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:44 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished IO Insertion : Time (s): cpu = 00:03:44 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1439,7 +1439,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:44 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:44 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1451,25 +1451,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:45 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:45 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1574,11 +1574,11 @@ Report Instance Areas:
 |64    |  vgaPortDriver                    |vgaDriver                       |   816|
 +------+-----------------------------------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 97 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:41 ; elapsed = 00:04:02 . Memory (MB): peak = 1048.492 ; gain = 474.258
-Synthesis Optimization Complete : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:42 ; elapsed = 00:04:03 . Memory (MB): peak = 1051.055 ; gain = 478.438
+Synthesis Optimization Complete : Time (s): cpu = 00:03:45 ; elapsed = 00:04:18 . Memory (MB): peak = 1051.055 ; gain = 792.262
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 417 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1591,8 +1591,8 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 404 Infos, 130 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:48 ; elapsed = 00:04:22 . Memory (MB): peak = 1048.492 ; gain = 800.633
+synth_design: Time (s): cpu = 00:03:48 ; elapsed = 00:04:23 . Memory (MB): peak = 1051.055 ; gain = 803.734
 INFO: [Common 17-1381] The checkpoint 'C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1048.492 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 12 11:44:01 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1051.055 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 12 14:46:34 2018...
