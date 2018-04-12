@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Wed Apr 11 13:28:08 2018
+| Date             : Thu Apr 12 11:46:51 2018
 | Host             : r103pc04 running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_reactionTimer_power_routed.rpt -pb TOP_reactionTimer_power_summary_routed.pb -rpx TOP_reactionTimer_power_routed.rpx
 | Design           : TOP_reactionTimer
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.267        |
+| Total On-Chip Power (W)  | 0.235        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.169        |
+| Dynamic (W)              | 0.137        |
 | Device Static (W)        | 0.098        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 83.8         |
-| Junction Temperature (C) | 26.2         |
+| Max Ambient (C)          | 83.9         |
+| Junction Temperature (C) | 26.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,20 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.011 |        7 |       --- |             --- |
-| Slice Logic    |     0.008 |     5487 |       --- |             --- |
-|   LUT as Logic |     0.007 |     2674 |     63400 |            4.22 |
-|   CARRY4       |    <0.001 |      161 |     15850 |            1.02 |
-|   Register     |    <0.001 |     1753 |    126800 |            1.38 |
-|   F7/F8 Muxes  |    <0.001 |      228 |     63400 |            0.36 |
-|   Others       |     0.000 |       74 |       --- |             --- |
-| Signals        |     0.008 |     3900 |       --- |             --- |
-| Block RAM      |     0.004 |        2 |       135 |            1.48 |
+| Clocks         |     0.012 |        7 |       --- |             --- |
+| Slice Logic    |     0.004 |     5677 |       --- |             --- |
+|   LUT as Logic |     0.004 |     2722 |     63400 |            4.29 |
+|   CARRY4       |    <0.001 |      189 |     15850 |            1.19 |
+|   Register     |    <0.001 |     1860 |    126800 |            1.47 |
+|   F7/F8 Muxes  |    <0.001 |      212 |     63400 |            0.33 |
+|   Others       |     0.000 |       81 |       --- |             --- |
+| Signals        |     0.005 |     4092 |       --- |             --- |
+| Block RAM      |    <0.001 |        2 |       135 |            1.48 |
 | MMCM           |     0.106 |        1 |         6 |           16.67 |
 | DSPs           |     0.002 |        2 |       240 |            0.83 |
-| I/O            |     0.030 |       69 |       210 |           32.86 |
+| I/O            |     0.007 |       69 |       210 |           32.86 |
 | Static Power   |     0.098 |          |           |                 |
-| Total          |     0.267 |          |           |                 |
+| Total          |     0.235 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,16 +75,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.048 |       0.033 |      0.015 |
-| Vccaux    |       1.800 |     0.078 |       0.060 |      0.018 |
-| Vcco33    |       3.300 |     0.013 |       0.009 |      0.004 |
+| Vccint    |       1.000 |     0.040 |       0.025 |      0.015 |
+| Vccaux    |       1.800 |     0.077 |       0.059 |      0.018 |
+| Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -148,20 +148,20 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| TOP_reactionTimer                  |     0.169 |
+| TOP_reactionTimer                  |     0.137 |
 |   clearBestButtonDebouncer         |    <0.001 |
 |   clock1kHz                        |    <0.001 |
 |   clockEdge1kHz                    |    <0.001 |
 |   clockManager                     |     0.107 |
 |     inst                           |     0.107 |
 |   globalTimer                      |    <0.001 |
-|   globalVideoRam                   |     0.004 |
+|   globalVideoRam                   |     0.003 |
 |     vramAsc16                      |     0.001 |
 |   microphoneNoiseInput             |    <0.001 |
 |   ps2KeyboardReader                |    <0.001 |
 |     clkDeb                         |    <0.001 |
 |     dataDeb                        |    <0.001 |
-|   reactionTimerProcessor           |     0.025 |
+|   reactionTimerProcessor           |     0.016 |
 |     prepareBusyDetector            |    <0.001 |
 |     resultBusyDetector             |    <0.001 |
 |     startButtonEdge                |    <0.001 |
@@ -172,15 +172,15 @@ Table of Contents
 |       resultLevelBPwmModem         |    <0.001 |
 |       resultLevelGPwmModem         |    <0.001 |
 |       resultLevelRPwmModem         |    <0.001 |
-|     statePrepareProcessor          |     0.012 |
+|     statePrepareProcessor          |     0.007 |
 |       gapGeneratorLcg              |     0.003 |
 |         nextDetector               |    <0.001 |
 |         seedReadyDetector          |    <0.001 |
-|       gapGeneratorMt19937          |     0.007 |
+|       gapGeneratorMt19937          |     0.003 |
 |       prepareAnimation             |    <0.001 |
 |         animeClockDetector         |    <0.001 |
 |         clock1Hz                   |    <0.001 |
-|     stateResultProcessor           |     0.003 |
+|     stateResultProcessor           |     0.002 |
 |       clock1Hz                     |    <0.001 |
 |       idleCounter                  |    <0.001 |
 |         signalInDetector           |    <0.001 |
@@ -188,10 +188,10 @@ Table of Contents
 |       resultLevelGPwmModem         |    <0.001 |
 |       resultLevelRPwmModem         |    <0.001 |
 |       testResultDigitReadyDetector |    <0.001 |
-|       testResultSeperator          |     0.001 |
+|       testResultSeperator          |    <0.001 |
 |         numberValidDetector        |    <0.001 |
 |       testResultValidDetector      |    <0.001 |
-|     stateTestProcessor             |     0.006 |
+|     stateTestProcessor             |     0.004 |
 |       dividedResultValidDetector   |    <0.001 |
 |       signalDelayer                |    <0.001 |
 |         signalInDetector           |    <0.001 |
@@ -201,9 +201,12 @@ Table of Contents
 |         startPlayingDetector       |    <0.001 |
 |         stopPlayingDetector        |    <0.001 |
 |       testButton                   |    <0.001 |
-|       tickCounterDivider           |     0.005 |
+|       tickCounterDivider           |     0.002 |
 |     testResultValidDetector        |    <0.001 |
 |     vgaColorControl                |    <0.001 |
+|   resetButtonDebouncer             |     0.001 |
+|     clockEnable                    |    <0.001 |
+|     clockEnableDetector            |    <0.001 |
 |   skipWaitButtonDebouncer          |    <0.001 |
 |   ssdDisplayOutput                 |    <0.001 |
 |   startButtonDebouncer             |    <0.001 |

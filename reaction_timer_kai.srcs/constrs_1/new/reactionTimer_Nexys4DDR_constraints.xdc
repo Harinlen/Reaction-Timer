@@ -4,10 +4,9 @@ create_clock -name CLK100MHZ -period 10.00 [get_ports in_100MHzClock]
 
 # Switches
 set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports in_enable]
-set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports in_reset]
-set_property -dict {PACKAGE_PIN M13 IOSTANDARD LVCMOS33} [get_ports in_ledDisable]
-set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports in_audioDisable]
-set_property -dict {PACKAGE_PIN R17 IOSTANDARD LVCMOS33} [get_ports in_triLedDisable]
+set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports in_ledDisable]
+set_property -dict {PACKAGE_PIN M13 IOSTANDARD LVCMOS33} [get_ports in_audioDisable]
+set_property -dict {PACKAGE_PIN R15 IOSTANDARD LVCMOS33} [get_ports in_triLedDisable]
 
 # Audio output
 set_property -dict {PACKAGE_PIN A11 IOSTANDARD LVCMOS33} [get_ports out_audioPwm];
@@ -18,6 +17,8 @@ set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports in_startButt
 set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports in_testButton]
 set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports in_clearBestButton]
 set_property -dict {PACKAGE_PIN N17 IOSTANDARD LVCMOS33} [get_ports in_skipWaitButton]
+
+set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports in_reset]
 
 # Tri-color LED outputs
 # Left LD17
@@ -69,26 +70,26 @@ set_property -dict {PACKAGE_PIN J18 IOSTANDARD LVCMOS33} [get_ports out_ssdSelec
 set_property -dict {PACKAGE_PIN J17 IOSTANDARD LVCMOS33} [get_ports out_ssdSelector[0]]
 
 # VGA Output
-set_property -dict {PACKAGE_PIN A3  IOSTANDARD LVCMOS33} [get_ports out_vgaR[0]];
-set_property -dict {PACKAGE_PIN B4  IOSTANDARD LVCMOS33} [get_ports out_vgaR[1]];
-set_property -dict {PACKAGE_PIN C5  IOSTANDARD LVCMOS33} [get_ports out_vgaR[2]];
-set_property -dict {PACKAGE_PIN A4  IOSTANDARD LVCMOS33} [get_ports out_vgaR[3]];
-set_property -dict {PACKAGE_PIN C6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[0]];
-set_property -dict {PACKAGE_PIN A5  IOSTANDARD LVCMOS33} [get_ports out_vgaG[1]];
-set_property -dict {PACKAGE_PIN B6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[2]];
-set_property -dict {PACKAGE_PIN A6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[3]];
-set_property -dict {PACKAGE_PIN B7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[0]];
-set_property -dict {PACKAGE_PIN C7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[1]];
-set_property -dict {PACKAGE_PIN D7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[2]];
-set_property -dict {PACKAGE_PIN D8  IOSTANDARD LVCMOS33} [get_ports out_vgaB[3]];
-set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports out_vgaHs];
-set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports out_vgaVs];
+set_property -dict {PACKAGE_PIN A3  IOSTANDARD LVCMOS33} [get_ports out_vgaR[0]]
+set_property -dict {PACKAGE_PIN B4  IOSTANDARD LVCMOS33} [get_ports out_vgaR[1]]
+set_property -dict {PACKAGE_PIN C5  IOSTANDARD LVCMOS33} [get_ports out_vgaR[2]]
+set_property -dict {PACKAGE_PIN A4  IOSTANDARD LVCMOS33} [get_ports out_vgaR[3]]
+set_property -dict {PACKAGE_PIN C6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[0]]
+set_property -dict {PACKAGE_PIN A5  IOSTANDARD LVCMOS33} [get_ports out_vgaG[1]]
+set_property -dict {PACKAGE_PIN B6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[2]]
+set_property -dict {PACKAGE_PIN A6  IOSTANDARD LVCMOS33} [get_ports out_vgaG[3]]
+set_property -dict {PACKAGE_PIN B7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[0]]
+set_property -dict {PACKAGE_PIN C7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[1]]
+set_property -dict {PACKAGE_PIN D7  IOSTANDARD LVCMOS33} [get_ports out_vgaB[2]]
+set_property -dict {PACKAGE_PIN D8  IOSTANDARD LVCMOS33} [get_ports out_vgaB[3]]
+set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports out_vgaHs]
+set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports out_vgaVs]
 
 # Microphone
-set_property -dict {PACKAGE_PIN H5  IOSTANDARD LVCMOS33} [get_ports in_mcData];
-set_property -dict {PACKAGE_PIN J5  IOSTANDARD LVCMOS33} [get_ports out_mcClock];
-set_property -dict {PACKAGE_PIN F5  IOSTANDARD LVCMOS33} [get_ports out_mcLrsel];
+set_property -dict {PACKAGE_PIN H5  IOSTANDARD LVCMOS33} [get_ports in_mcData]
+set_property -dict {PACKAGE_PIN J5  IOSTANDARD LVCMOS33} [get_ports out_mcClock]
+set_property -dict {PACKAGE_PIN F5  IOSTANDARD LVCMOS33} [get_ports out_mcLrsel]
 
 # PS/2 Port (USB HID)
-set_property -dict {PACKAGE_PIN F4  IOSTANDARD LVCMOS33} [get_ports in_ps2Clock]; 
-set_property -dict {PACKAGE_PIN B2  IOSTANDARD LVCMOS33} [get_ports in_ps2Data];
+set_property -dict {PACKAGE_PIN F4  IOSTANDARD LVCMOS33} [get_ports in_ps2Clock] 
+set_property -dict {PACKAGE_PIN B2  IOSTANDARD LVCMOS33} [get_ports in_ps2Data]

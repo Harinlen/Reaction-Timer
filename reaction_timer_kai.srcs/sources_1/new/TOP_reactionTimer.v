@@ -71,6 +71,16 @@ module TOP_reactionTimer(
     wire [7:0] displayDots;
     wire clock_1kHzRising;
     
+    wire reset;
+    resetDebouncer #(
+        .LATCHED_COUNT(4),
+        .DEBOUNCED_CLOCK(50_000),
+        .FALLING_COUNT(1_000)
+    ) resetButtonDebouncer (
+        .in_resetButton(~in_reset),
+        .in_clock(in_100MHzClock),
+        .out_reset(reset));
+    
     // Global timer.
     globalTime globalTimer(
         .in_clock(in_100MHzClock),
@@ -81,7 +91,7 @@ module TOP_reactionTimer(
         .THRESHOLD(50_000)
     ) clock1kHz (
         .in_clock(in_100MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .out_dividedClock(clock_1kHz));
       
@@ -89,14 +99,14 @@ module TOP_reactionTimer(
     edgeDetector clockEdge1kHz(
         .in_signal(clock_1kHz),
         .in_clock(in_100MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .out_fallingEdge(clock_1kHzRising));
     
     // 50MHz clock generated from 100MHz by IP Cores
     wire in_50MHzClock, in_25MHzClock;
     clk_wiz_0 clockManager (
-        .reset(in_reset),
+        .reset(reset),
         .clk_in1(in_100MHzClock),
         .clk_out1(in_50MHzClock),
         .clk_out2(in_25MHzClock));
@@ -107,7 +117,7 @@ module TOP_reactionTimer(
     ) startButtonDebouncer (
         .in_clock(in_100MHzClock),
         .in_enable(clock_1kHz),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_buttonIn(in_startButton),
         .out_buttonOut(debouncedStartButton)
     );
@@ -118,7 +128,7 @@ module TOP_reactionTimer(
     ) clearBestButtonDebouncer (
         .in_clock(in_100MHzClock),
         .in_enable(clock_1kHz),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_buttonIn(in_clearBestButton),
         .out_buttonOut(debouncedClearBestButton)
     );
@@ -129,7 +139,7 @@ module TOP_reactionTimer(
     ) skipWaitButtonDebouncer (
         .in_clock(in_100MHzClock),
         .in_enable(clock_1kHz),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_buttonIn(in_skipWaitButton),
         .out_buttonOut(debouncedSkipWaitButton)
     );
@@ -140,7 +150,7 @@ module TOP_reactionTimer(
     ) testButtonDebouncer (
         .in_clock(in_100MHzClock),
         .in_enable(in_enable),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_buttonIn(in_testButton),
         .out_buttonOut(debouncedTestButton));
         
@@ -148,7 +158,7 @@ module TOP_reactionTimer(
     wire [7:0] keyboardData;
     ps2Reader ps2KeyboardReader(
         .in_clock(in_50MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .in_ps2Clock(in_ps2Clock),
         .in_ps2Data(in_ps2Data),
@@ -158,7 +168,7 @@ module TOP_reactionTimer(
     wire [31:0] microphoneNoise;
     microphoneNoiseGenerator microphoneNoiseInput (
         .in_clock(in_100MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .in_rawData(in_mcData),
         .out_mcData(microphoneNoise),
@@ -177,7 +187,7 @@ module TOP_reactionTimer(
         .in_globalTime(globalTimerCounter),
         .in_keyboardData(keyboardData),
         .in_clock(in_100MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .in_start(debouncedStartButton),
         .in_test(debouncedTestButton),
@@ -214,7 +224,7 @@ module TOP_reactionTimer(
         .in_dots(ssdDots),
         .in_clock_1kHz_rising(clock_1kHzRising),
         .in_clock(in_100MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .out_digitExpression(out_ssdDigitOutput[6:0]),
         .out_digitDot(out_ssdDigitOutput[7]),
@@ -226,7 +236,7 @@ module TOP_reactionTimer(
     
     vram globalVideoRam(
         .in_clock(in_100MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .in_updateXPos(vramUpdateXPos),
         .in_updateYPos(vramUpdateYPos),
@@ -241,7 +251,7 @@ module TOP_reactionTimer(
         .in_green(vgaGreen),
         .in_blue(vgaBlue),
         .in_25MHzClock(in_25MHzClock),
-        .in_reset(in_reset),
+        .in_reset(reset),
         .in_enable(in_enable),
         .in_charPixel(vgaCharPixel),
         .out_charXPos(vgaDriverReqPosX),

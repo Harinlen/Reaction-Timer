@@ -98,19 +98,20 @@ module reactTimerIdleCore #(
                     bestResultLevelR <= 8'd0;
                     bestResultLevelG <= 8'd0;
                     bestResultLevelB <= 8'd0;
-                end
-                // We need to compare the input time as the best time.
-                if (in_reactionTimeValid) begin
-                    // Compare the reaction time with best time.
-                    if (out_bestTime == 28'd0 || (~in_reactionTimeout & (in_reactionTime < out_bestTime))) begin
-                        // New records saved.
-                        out_bestTime <= in_reactionTime;
-                        bestTimeDigits <= in_reactionSsd;
-                        // Update the best time RGB.
-                        if (~in_reactionTimeout) begin
-                            bestResultLevelR <= (resultLevel < 52) ? 255 : ((resultLevel < 102) ? ((102-resultLevel)*5) : ((resultLevel < 204) ? 0 : ((resultLevel-204)*5)));
-                            bestResultLevelG <= (resultLevel < 51) ? (resultLevel * 5) : ((resultLevel < 153) ? 255 : ((resultLevel < 204) ? ((204-resultLevel)*5) : 0));
-                            bestResultLevelB <= (resultLevel < 102) ? 0 : ((resultLevel > 153) ? 255 : ((resultLevel - 102) * 5));
+                end else begin
+                    // We need to compare the input time as the best time.
+                    if (in_reactionTimeValid) begin
+                        // Compare the reaction time with best time.
+                        if (out_bestTime == 28'd0 || (~in_reactionTimeout & (in_reactionTime < out_bestTime))) begin
+                            // New records saved.
+                            out_bestTime <= in_reactionTime;
+                            bestTimeDigits <= in_reactionSsd;
+                            // Update the best time RGB.
+                            if (~in_reactionTimeout) begin
+                                bestResultLevelR <= (resultLevel < 52) ? 255 : ((resultLevel < 102) ? ((102-resultLevel)*5) : ((resultLevel < 204) ? 0 : ((resultLevel-204)*5)));
+                                bestResultLevelG <= (resultLevel < 51) ? (resultLevel * 5) : ((resultLevel < 153) ? 255 : ((resultLevel < 204) ? ((204-resultLevel)*5) : 0));
+                                bestResultLevelB <= (resultLevel < 102) ? 0 : ((resultLevel > 153) ? 255 : ((resultLevel - 102) * 5));
+                            end
                         end
                     end
                 end

@@ -53,7 +53,7 @@ module ssdAnimation #(
        .THRESHOLD(ANIME_CLOCK_THRESHOLD)
     ) clock1Hz (
        .in_clock(in_clock),
-       .in_reset(in_reset | ~state),
+       .in_reset(in_reset | (~state)),
        .in_enable(in_enable),
        .out_dividedClock(animeClock));
     
@@ -95,6 +95,8 @@ module ssdAnimation #(
                             state <= STATE_IDLE;
                             // Reset the number display.
                             out_numberDisplay <= `SSD_DISPLAY_BLANK;
+                            // Reset the animation parameters.
+                            currentFrame <= 8'd0;
                         end
                     end
                 end else begin

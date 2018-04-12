@@ -91,7 +91,7 @@ module reactTimerPrepareCore #(
     ssdAnimation #(
         .ANIME_CLOCK_THRESHOLD(COUNT_DOWN_CLOCK_THRESHOLD)
     ) prepareAnimation (
-        .in_startRising(in_startRising & (~out_busy)),
+        .in_startRising(in_startRising),
         .in_clock(in_clock),
         .in_reset(in_reset),
         .in_enable(in_enable),
@@ -125,7 +125,7 @@ module reactTimerPrepareCore #(
                         RAND_LCG: begin
                             // Check Linear Congruential Generator busy output.
                             if (~randLcgBusy) begin
-                                // Set the randomize time to output.s
+                                // Set the randomize time to output.
                                 originalDelay <= (TEST_DELAY_TIME > 0) ? TEST_DELAY_TIME : {3'd0, randLcgOut[31:3]};
                             end 
                         end

@@ -29,7 +29,7 @@ module clockDivider #(
     input wire in_clock,
     input wire in_reset,
     input wire in_enable,
-    output reg out_dividedClock = 1'b0);
+    output reg out_dividedClock = 1'b1);
     
     reg [31:0] counter = 32'd0;
     
@@ -39,7 +39,7 @@ module clockDivider #(
             // Reset the counter.
             counter <= 32'd0;
             // Reset the clock.
-            out_dividedClock <= 1'b0;
+            out_dividedClock <= 1'b1;
         end else begin
             // Check the enable state.
             if (in_enable) begin

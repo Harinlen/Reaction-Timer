@@ -2,12 +2,12 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Wed Apr 11 13:20:52 2018
-# Process ID: 4208
-# Current directory: C:/testass1/reaction_timer_kai.runs/synth_1
+# Start of session at: Thu Apr 12 11:39:32 2018
+# Process ID: 9128
+# Current directory: C:/ass1/reaction_timer_kai.runs/synth_1
 # Command line: vivado.exe -log TOP_reactionTimer.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_reactionTimer.tcl
-# Log file: C:/testass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.vds
-# Journal file: C:/testass1/reaction_timer_kai.runs/synth_1\vivado.jou
+# Log file: C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.vds
+# Journal file: C:/ass1/reaction_timer_kai.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source TOP_reactionTimer.tcl -notrace
 Command: synth_design -top TOP_reactionTimer -part xc7a100tcsg324-1
@@ -15,40 +15,48 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9396 
+INFO: Helper process launched with PID 4652 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 360.395 ; gain = 101.672
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 360.586 ; gain = 101.254
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
-INFO: [Synth 8-638] synthesizing module 'globalTime' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
-INFO: [Synth 8-256] done synthesizing module 'globalTime' (1#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
-INFO: [Synth 8-638] synthesizing module 'clockDivider' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
+INFO: [Synth 8-638] synthesizing module 'resetDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
+	Parameter LATCHED_COUNT bound to: 4 - type: integer 
+	Parameter DEBOUNCED_CLOCK bound to: 50000 - type: integer 
+	Parameter FALLING_COUNT bound to: 1000 - type: integer 
+	Parameter STATE_BUTTON_OFF bound to: 0 - type: integer 
+	Parameter STATE_BUTTON_ON bound to: 1 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clockDivider' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
 	Parameter THRESHOLD bound to: 50000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clockDivider' (2#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
-INFO: [Synth 8-638] synthesizing module 'edgeDetector' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
-INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (3#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
-WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:89]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (4#1) [C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/realtime/clk_wiz_0_stub.v:5]
-WARNING: [Synth 8-350] instance 'clockManager' of module 'clk_wiz_0' requires 5 connections, but only 4 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:98]
-INFO: [Synth 8-638] synthesizing module 'debouncer' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
+INFO: [Synth 8-256] done synthesizing module 'clockDivider' (1#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'edgeDetector' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (2#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+WARNING: [Synth 8-350] instance 'clockEnableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:50]
+INFO: [Synth 8-256] done synthesizing module 'resetDebouncer' (3#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
+INFO: [Synth 8-638] synthesizing module 'globalTime' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
+INFO: [Synth 8-256] done synthesizing module 'globalTime' (4#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
+WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:99]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/realtime/clk_wiz_0_stub.v:5]
+WARNING: [Synth 8-350] instance 'clockManager' of module 'clk_wiz_0' requires 5 connections, but only 4 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:108]
+INFO: [Synth 8-638] synthesizing module 'debouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
 	Parameter PIPELINE_LEVEL bound to: 5 - type: integer 
-WARNING: [Synth 8-350] instance 'enableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:40]
-INFO: [Synth 8-256] done synthesizing module 'debouncer' (5#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
-INFO: [Synth 8-638] synthesizing module 'latchDebouncer' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
+WARNING: [Synth 8-350] instance 'enableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:40]
+INFO: [Synth 8-256] done synthesizing module 'debouncer' (6#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
+INFO: [Synth 8-638] synthesizing module 'latchDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
 	Parameter INTERVAL bound to: 100000 - type: integer 
 	Parameter STATE_WAITING bound to: 1'b0 
 	Parameter STATE_LATCHED bound to: 1'b1 
-WARNING: [Synth 8-350] instance 'buttonInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:47]
-INFO: [Synth 8-256] done synthesizing module 'latchDebouncer' (6#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
-INFO: [Synth 8-638] synthesizing module 'ps2Reader' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:26]
-INFO: [Synth 8-638] synthesizing module 'delayDebouncer' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
-INFO: [Synth 8-256] done synthesizing module 'delayDebouncer' (7#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:58]
-INFO: [Synth 8-256] done synthesizing module 'ps2Reader' (8#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:26]
-INFO: [Synth 8-638] synthesizing module 'microphoneNoiseGenerator' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
-INFO: [Synth 8-256] done synthesizing module 'microphoneNoiseGenerator' (9#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
-INFO: [Synth 8-638] synthesizing module 'reactTimerCpu' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
+WARNING: [Synth 8-350] instance 'buttonInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:47]
+INFO: [Synth 8-256] done synthesizing module 'latchDebouncer' (7#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
+INFO: [Synth 8-638] synthesizing module 'ps2Reader' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:30]
+INFO: [Synth 8-638] synthesizing module 'delayDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
+INFO: [Synth 8-256] done synthesizing module 'delayDebouncer' (8#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:69]
+INFO: [Synth 8-256] done synthesizing module 'ps2Reader' (9#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:30]
+INFO: [Synth 8-638] synthesizing module 'microphoneNoiseGenerator' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
+INFO: [Synth 8-256] done synthesizing module 'microphoneNoiseGenerator' (10#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
+INFO: [Synth 8-638] synthesizing module 'reactTimerCpu' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
 	Parameter IDLE_ANIMATION_THRESHOLD bound to: 12500000 - type: integer 
 	Parameter PREPARE_COUNT_DOWN_THRESHOLD bound to: 50000000 - type: integer 
 	Parameter PREPARE_TEST_DELAY_TIME bound to: 0 - type: integer 
@@ -67,72 +75,72 @@ INFO: [Synth 8-638] synthesizing module 'reactTimerCpu' [C:/testass1/reaction_ti
 	Parameter HINT_UPDATE_AUDIO_OFF bound to: 3 - type: integer 
 	Parameter HINT_UPDATE_TRILED_ON bound to: 4 - type: integer 
 	Parameter HINT_UPDATE_TRILED_OFF bound to: 5 - type: integer 
-WARNING: [Synth 8-350] instance 'startButtonEdge' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:93]
-INFO: [Synth 8-638] synthesizing module 'reactTimerIdleCore' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
+WARNING: [Synth 8-350] instance 'startButtonEdge' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:93]
+INFO: [Synth 8-638] synthesizing module 'reactTimerIdleCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
 	Parameter ANIMATION_THRESHOLD bound to: 12500000 - type: integer 
 	Parameter BEST_RESULT_PWM_DELAY bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'PwmModem' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+INFO: [Synth 8-638] synthesizing module 'PwmModem' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
 	Parameter COUNTER_DELAY bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'PwmModem' (10#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
-WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:62]
-WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:71]
-WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:80]
-INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized0' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-256] done synthesizing module 'PwmModem' (11#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:62]
+WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:71]
+WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:80]
+INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized0' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
 	Parameter THRESHOLD bound to: 12500000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized0' (10#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
-INFO: [Synth 8-638] synthesizing module 'ledAnimation' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
+INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized0' (11#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'ledAnimation' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
 	Parameter FRAME_COUNTS bound to: 8'b00010001 
-WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:63]
-INFO: [Synth 8-256] done synthesizing module 'ledAnimation' (11#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerIdleCore' (12#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
-INFO: [Synth 8-638] synthesizing module 'reactTimerPrepareCore' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
+WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:63]
+INFO: [Synth 8-256] done synthesizing module 'ledAnimation' (12#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerIdleCore' (13#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
+INFO: [Synth 8-638] synthesizing module 'reactTimerPrepareCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
 	Parameter COUNT_DOWN_CLOCK_THRESHOLD bound to: 50000000 - type: integer 
 	Parameter TEST_DELAY_TIME bound to: 0 - type: integer 
 	Parameter STATE_WAITING bound to: 1'b0 
 	Parameter STATE_GENRAND bound to: 1'b1 
 	Parameter RAND_LCG bound to: 1'b0 
 	Parameter RAND_MT bound to: 1'b1 
-INFO: [Synth 8-638] synthesizing module 'randLcg' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
+INFO: [Synth 8-638] synthesizing module 'randLcg' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_MULTIPLY bound to: 2'b01 
 	Parameter STATE_ADD bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'seedReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:59]
-WARNING: [Synth 8-350] instance 'nextDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:67]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:83]
-INFO: [Synth 8-256] done synthesizing module 'randLcg' (13#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
-INFO: [Synth 8-638] synthesizing module 'randMt19937' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
+WARNING: [Synth 8-350] instance 'seedReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:59]
+WARNING: [Synth 8-350] instance 'nextDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:67]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:83]
+INFO: [Synth 8-256] done synthesizing module 'randLcg' (14#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
+INFO: [Synth 8-638] synthesizing module 'randMt19937' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_SEED bound to: 2'b01 
-WARNING: [Synth 8-6014] Unused sequential element outDataValid_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:188]
-INFO: [Synth 8-256] done synthesizing module 'randMt19937' (14#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
-INFO: [Synth 8-638] synthesizing module 'ssdAnimation' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
+WARNING: [Synth 8-6014] Unused sequential element outDataValid_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:188]
+INFO: [Synth 8-256] done synthesizing module 'randMt19937' (15#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
+INFO: [Synth 8-638] synthesizing module 'ssdAnimation' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
 	Parameter ANIME_CLOCK_THRESHOLD bound to: 50000000 - type: integer 
 	Parameter FRAME_COUNTS bound to: 4 - type: integer 
 	Parameter STATE_IDLE bound to: 1'b0 
 	Parameter STATE_PLAYING bound to: 1'b1 
-INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized1' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized1' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
 	Parameter THRESHOLD bound to: 50000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized1' (14#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
-WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:61]
-INFO: [Synth 8-256] done synthesizing module 'ssdAnimation' (15#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerPrepareCore' (16#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
-WARNING: [Synth 8-350] instance 'prepareBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:165]
-INFO: [Synth 8-638] synthesizing module 'reactTimerTestCore' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
+INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized1' (15#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:61]
+INFO: [Synth 8-256] done synthesizing module 'ssdAnimation' (16#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerPrepareCore' (17#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
+WARNING: [Synth 8-350] instance 'prepareBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:165]
+INFO: [Synth 8-638] synthesizing module 'reactTimerTestCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
 	Parameter COUNTER_LIMITATION bound to: 999999999 - type: integer 
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_WAIT bound to: 2'b01 
 	Parameter STATE_TEST bound to: 2'b10 
 	Parameter STATE_FINISH bound to: 2'b11 
-INFO: [Synth 8-638] synthesizing module 'actionRetarder' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
+INFO: [Synth 8-638] synthesizing module 'actionRetarder' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
 	Parameter STATE_PENDING bound to: 2'b00 
 	Parameter STATE_WAITING bound to: 2'b01 
 	Parameter STATE_FINISH bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'signalInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:45]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/testass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:65]
-INFO: [Synth 8-256] done synthesizing module 'actionRetarder' (17#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
-WARNING: [Synth 8-350] instance 'startDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:66]
-WARNING: [Synth 8-350] instance 'testButton' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:73]
-INFO: [Synth 8-638] synthesizing module 'divisionByTen' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
+WARNING: [Synth 8-350] instance 'signalInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:45]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:65]
+INFO: [Synth 8-256] done synthesizing module 'actionRetarder' (18#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
+WARNING: [Synth 8-350] instance 'startDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:66]
+WARNING: [Synth 8-350] instance 'testButton' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:73]
+INFO: [Synth 8-638] synthesizing module 'divisionByTen' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
 	Parameter STATE_IDLE bound to: 3'b000 
 	Parameter STATE_INIT bound to: 3'b001 
 	Parameter STATE_SR_4 bound to: 3'b010 
@@ -141,63 +149,63 @@ INFO: [Synth 8-638] synthesizing module 'divisionByTen' [C:/testass1/reaction_ti
 	Parameter STATE_SR_3 bound to: 3'b101 
 	Parameter STATE_GET_R bound to: 3'b110 
 	Parameter STATE_FINISH bound to: 3'b111 
-INFO: [Synth 8-226] default block is never used [C:/testass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:65]
-INFO: [Synth 8-256] done synthesizing module 'divisionByTen' (18#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
-WARNING: [Synth 8-350] instance 'dividedResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:94]
-INFO: [Synth 8-638] synthesizing module 'audioHintOutput' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
+INFO: [Synth 8-226] default block is never used [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:65]
+INFO: [Synth 8-256] done synthesizing module 'divisionByTen' (19#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
+WARNING: [Synth 8-350] instance 'dividedResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:94]
+INFO: [Synth 8-638] synthesizing module 'audioHintOutput' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
 	Parameter PLAYING_CLOCK_THRESHOLD bound to: 1000 - type: integer 
 	Parameter STATE_IDLE bound to: 1'b0 
 	Parameter STATE_PLAYING bound to: 1'b1 
 	Parameter SINE_WAVE_SAMPLE bound to: 8'b10000000 
-WARNING: [Synth 8-350] instance 'startPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:59]
-WARNING: [Synth 8-350] instance 'stopPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:67]
-INFO: [Synth 8-638] synthesizing module 'PwmModem__parameterized0' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+WARNING: [Synth 8-350] instance 'startPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:59]
+WARNING: [Synth 8-350] instance 'stopPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:67]
+INFO: [Synth 8-638] synthesizing module 'PwmModem__parameterized0' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
 	Parameter COUNTER_DELAY bound to: 232 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'PwmModem__parameterized0' (18#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
-INFO: [Synth 8-256] done synthesizing module 'audioHintOutput' (19#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerTestCore' (20#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
-WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:191]
-INFO: [Synth 8-638] synthesizing module 'reactTimerResultCore' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
+INFO: [Synth 8-256] done synthesizing module 'PwmModem__parameterized0' (19#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+INFO: [Synth 8-256] done synthesizing module 'audioHintOutput' (20#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerTestCore' (21#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
+WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:191]
+INFO: [Synth 8-638] synthesizing module 'reactTimerResultCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
 	Parameter BEST_FLASH_THRESHOLD bound to: 12500000 - type: integer 
 	Parameter WAITING_COUNTS bound to: 32'b00111011100110101100101000000000 
 	Parameter RESULT_LEVEL_PWM_DELAY bound to: 0 - type: integer 
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_CONVERT bound to: 2'b01 
 	Parameter STATE_WAIT bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:75]
-WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:84]
-WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:93]
-INFO: [Synth 8-638] synthesizing module 'decimalToBcd' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
+WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:75]
+WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:84]
+WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:93]
+INFO: [Synth 8-638] synthesizing module 'decimalToBcd' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_SHIFT bound to: 2'b01 
 	Parameter STATE_ADD bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'numberValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:49]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/testass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:64]
-INFO: [Synth 8-256] done synthesizing module 'decimalToBcd' (21#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
-WARNING: [Synth 8-350] instance 'testResultDigitReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:110]
-WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:118]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:184]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerResultCore' (22#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
-WARNING: [Synth 8-350] instance 'resultBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:220]
-INFO: [Synth 8-638] synthesizing module 'keyboardDecoder' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
-INFO: [Synth 8-256] done synthesizing module 'keyboardDecoder' (23#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerCpu' (24#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
-INFO: [Synth 8-638] synthesizing module 'ssdDriver' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
-INFO: [Synth 8-226] default block is never used [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:85]
-INFO: [Synth 8-256] done synthesizing module 'ssdDriver' (25#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
-INFO: [Synth 8-638] synthesizing module 'vram' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
-INFO: [Synth 8-638] synthesizing module 'asc16Font' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
-INFO: [Synth 8-256] done synthesizing module 'asc16Font' (26#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
-INFO: [Synth 8-256] done synthesizing module 'vram' (27#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
-INFO: [Synth 8-638] synthesizing module 'vgaDriver' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
-INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (28#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
-INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (29#1) [C:/testass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
+WARNING: [Synth 8-350] instance 'numberValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:49]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:64]
+INFO: [Synth 8-256] done synthesizing module 'decimalToBcd' (22#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
+WARNING: [Synth 8-350] instance 'testResultDigitReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:110]
+WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:118]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:184]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerResultCore' (23#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
+WARNING: [Synth 8-350] instance 'resultBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:220]
+INFO: [Synth 8-638] synthesizing module 'keyboardDecoder' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
+INFO: [Synth 8-256] done synthesizing module 'keyboardDecoder' (24#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerCpu' (25#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
+INFO: [Synth 8-638] synthesizing module 'ssdDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
+INFO: [Synth 8-226] default block is never used [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:85]
+INFO: [Synth 8-256] done synthesizing module 'ssdDriver' (26#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
+INFO: [Synth 8-638] synthesizing module 'vram' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
+INFO: [Synth 8-638] synthesizing module 'asc16Font' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
+INFO: [Synth 8-256] done synthesizing module 'asc16Font' (27#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
+INFO: [Synth 8-256] done synthesizing module 'vram' (28#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
+INFO: [Synth 8-638] synthesizing module 'vgaDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
+INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (29#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
+INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (30#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charXPos[7]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[7]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[6]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[5]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 706.277 ; gain = 447.555
+Finished RTL Elaboration : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 705.641 ; gain = 446.309
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -207,31 +215,31 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:01 ; elapsed = 00:01:03 . Memory (MB): peak = 706.277 ; gain = 447.555
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 705.641 ; gain = 446.309
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
-Finished Parsing XDC File [C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
-Parsing XDC File [C:/testass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
+Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
+Finished Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
+Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
 CRITICAL WARNING: [Constraints 18-1056] Clock 'CLK100MHZ' completely overrides clock 'in_100MHzClock'.
-New: create_clock -period 10.000 -name CLK100MHZ [get_ports in_100MHzClock], [C:/testass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc:3]
-Previous: create_clock -period 10.000 [get_ports in_100MHzClock], [C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/dcp1/clk_wiz_0_in_context.xdc:1]
+New: create_clock -period 10.000 -name CLK100MHZ [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc:3]
+Previous: create_clock -period 10.000 [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc:1]
 Resolution: Review the constraint files and remove the redundant clock definition(s). If the clock constraints are not saved in a file, you can first save the constraints to an XDC file and reload the design once the constraints have been corrected.
-Finished Parsing XDC File [C:/testass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/testass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_reactionTimer_propImpl.xdc].
+Finished Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_reactionTimer_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_reactionTimer_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1018.680 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1020.332 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 1018.680 ; gain = 759.957
+Finished Constraint Validation : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1020.543 ; gain = 761.211
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
@@ -239,40 +247,40 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 1018.680 ; gain = 759.957
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1020.543 ; gain = 761.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/testass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-4208-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for in_100MHzClock. (constraint file  C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-9128-r103pc04/dcp1/clk_wiz_0_in_context.xdc, line 5).
 Applied set_property DONT_TOUCH = true for clockManager. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 1018.680 ; gain = 759.957
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1020.543 ; gain = 761.211
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element out_time_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:32]
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element intervalCounter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:60]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element latchedCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:60]
+WARNING: [Synth 8-6014] Unused sequential element fallingCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:68]
+WARNING: [Synth 8-6014] Unused sequential element out_time_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:32]
+WARNING: [Synth 8-6014] Unused sequential element intervalCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:60]
 INFO: [Synth 8-5546] ROM "out_debouncedSignal" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:58]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:62]
 INFO: [Synth 8-5546] ROM "out_mcData" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element mcClock_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:40]
+WARNING: [Synth 8-6014] Unused sequential element mcClock_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:40]
 INFO: [Synth 8-5546] ROM "accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element currentFrame_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:76]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:111]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/testass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:112]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:115]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:104]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element currentFrame_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:76]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:115]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:104]
 INFO: [Synth 8-5545] ROM "seed0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "mtWriteEnable" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "stateNext" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "outDataNext" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element currentFrame_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:79]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/testass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:65]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element currentFrame_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:79]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:65]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'divisionByTen'
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "accumulator" won't be mapped to RAM because it is too sparse
@@ -314,8 +322,8 @@ INFO: [Synth 8-5546] ROM "y_counter" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5544] ROM "out_charXPos" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element out_charXPos_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
-WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
+WARNING: [Synth 8-6014] Unused sequential element out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
+WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
 INFO: [Synth 8-3971] The signal mtVector_reg was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -331,7 +339,7 @@ INFO: [Synth 8-3971] The signal mtVector_reg was recognized as a true dual port 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'divisionByTen'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:03 ; elapsed = 00:02:22 . Memory (MB): peak = 1018.680 ; gain = 759.957
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:48 ; elapsed = 00:02:05 . Memory (MB): peak = 1020.543 ; gain = 761.211
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -342,7 +350,7 @@ Report RTL Partitions:
 |2     |vram__GB1              |           1|      5344|
 |3     |vram__GB2              |           1|     35205|
 |4     |vram__GB3              |           1|     30511|
-|5     |TOP_reactionTimer__GC0 |           1|     13869|
+|5     |TOP_reactionTimer__GC0 |           1|     14126|
 +------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -374,25 +382,27 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 6     
 	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 9     
-	                1 Bit    Registers := 80    
+	                1 Bit    Registers := 83    
 +---Multipliers : 
 	                21x32  Multipliers := 1     
 +---RAMs : 
 	              19K Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 36    
+	   2 Input     32 Bit        Muxes := 34    
 	   4 Input     32 Bit        Muxes := 10    
 	   8 Input     32 Bit        Muxes := 5     
 	   4 Input     30 Bit        Muxes := 1     
 	   2 Input     29 Bit        Muxes := 1     
-	   2 Input     28 Bit        Muxes := 3     
 	   4 Input     28 Bit        Muxes := 2     
+	   2 Input     28 Bit        Muxes := 1     
 	   4 Input     21 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 2     
 	   2 Input     16 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 5     
 	   2 Input     10 Bit        Muxes := 33    
-	   2 Input      8 Bit        Muxes := 41    
+	  14 Input      8 Bit        Muxes := 1     
+	  13 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 36    
 	   7 Input      8 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 4     
 	   6 Input      8 Bit        Muxes := 1     
@@ -435,6 +445,22 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 2401  
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 2430  
+Module clockDivider__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module edgeDetector__20 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module resetDebouncer 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
 Module clockDivider 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -445,7 +471,7 @@ Module edgeDetector
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 1     
-Module edgeDetector__21 
+Module edgeDetector__22 
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 1     
@@ -453,7 +479,7 @@ Module debouncer__1
 Detailed RTL Component Info : 
 +---Registers : 
 	                6 Bit    Registers := 1     
-Module edgeDetector__22 
+Module edgeDetector__23 
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 1     
@@ -507,6 +533,8 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 +---Muxes : 
+	  14 Input      8 Bit        Muxes := 1     
+	  13 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
 	  12 Input      1 Bit        Muxes := 2     
@@ -581,10 +609,9 @@ Detailed RTL Component Info :
 	               28 Bit    Registers := 1     
 	                8 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 3     
-	   2 Input     28 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 12    
-	   2 Input      1 Bit        Muxes := 5     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 1     
 Module edgeDetector__11 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -656,7 +683,7 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 4     
 Module reactTimerPrepareCore 
 Detailed RTL Component Info : 
 +---XORs : 
@@ -826,7 +853,7 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
-Module edgeDetector__20 
+Module edgeDetector__21 
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 1     
@@ -972,26 +999,26 @@ INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][5]" won't be mapped to RAM bec
 INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][29]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][4]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][3]" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element ledAnimeClock/counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element idleAnimation/currentFrame_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:76]
+WARNING: [Synth 8-6014] Unused sequential element ledAnimeClock/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element idleAnimation/currentFrame_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:76]
 INFO: [Synth 8-5546] ROM "stateNext" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "outDataNext" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "prepareAnimation/" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "gapGeneratorLcg/seed0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/clock1Hz/counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/currentFrame_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:79]
+WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/clock1Hz/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/currentFrame_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:79]
 DSP Report: Generating DSP gapGeneratorLcg/, operation Mode is: A*B2.
 DSP Report: register B is absorbed into DSP gapGeneratorLcg/.
 DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
@@ -1000,33 +1027,36 @@ DSP Report: Generating DSP gapGeneratorLcg/, operation Mode is: (PCIN>>17)+A*B2.
 DSP Report: register B is absorbed into DSP gapGeneratorLcg/.
 DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
 DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
-WARNING: [Synth 8-6014] Unused sequential element testAudioOut/audioHintPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element testAudioOut/audioHintPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
 INFO: [Synth 8-5546] ROM "testAudioOut/audioHintPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "testAudioOut/audioHintPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element clock1Hz/counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-INFO: [Synth 8-4471] merging register 'clearBestButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
-INFO: [Synth 8-4471] merging register 'skipWaitButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [C:/testass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
-WARNING: [Synth 8-6014] Unused sequential element clearBestButtonDebouncer/enableDetector/lastState_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
-WARNING: [Synth 8-6014] Unused sequential element skipWaitButtonDebouncer/enableDetector/lastState_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+WARNING: [Synth 8-6014] Unused sequential element clock1Hz/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+INFO: [Synth 8-4471] merging register 'clearBestButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+INFO: [Synth 8-4471] merging register 'skipWaitButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+WARNING: [Synth 8-6014] Unused sequential element clearBestButtonDebouncer/enableDetector/lastState_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+WARNING: [Synth 8-6014] Unused sequential element skipWaitButtonDebouncer/enableDetector/lastState_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
 INFO: [Synth 8-5546] ROM "vgaPortDriver/y_counter" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "vgaPortDriver/out_charYPos" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "vgaPortDriver/out_charYPos" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element ps2KeyboardReader/counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:58]
-WARNING: [Synth 8-6014] Unused sequential element globalTimer/out_time_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:32]
-WARNING: [Synth 8-6014] Unused sequential element clock1kHz/counter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element testButtonDebouncer/intervalCounter_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:60]
-WARNING: [Synth 8-6014] Unused sequential element microphoneNoiseInput/mcClock_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:40]
-WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charXPos_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
-WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charYPos_reg was removed.  [C:/testass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
+WARNING: [Synth 8-6014] Unused sequential element ps2KeyboardReader/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:62]
+WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/clockEnable/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/latchedCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:60]
+WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/fallingCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:68]
+WARNING: [Synth 8-6014] Unused sequential element globalTimer/out_time_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:32]
+WARNING: [Synth 8-6014] Unused sequential element clock1kHz/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element testButtonDebouncer/intervalCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:60]
+WARNING: [Synth 8-6014] Unused sequential element microphoneNoiseInput/mcClock_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:40]
+WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
+WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
 INFO: [Synth 8-3971] The signal gapGeneratorMt19937/mtVector_reg was recognized as a true dual port RAM template.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/reactionTimerProcessor/statePrepareProcessor/\gapGeneratorMt19937/factor2_reg[31] )
 INFO: [Synth 8-3886] merging instance 'i_3/reactionTimerProcessor/statePrepareProcessor/seed_reg[0]' (FDRE) to 'i_3/reactionTimerProcessor/statePrepareProcessor/seed_reg[1]'
@@ -1289,7 +1319,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVid
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[67][21][0] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:41 ; elapsed = 00:04:13 . Memory (MB): peak = 1018.680 ; gain = 759.957
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:19 ; elapsed = 00:03:50 . Memory (MB): peak = 1020.543 ; gain = 761.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1327,9 +1357,9 @@ Report RTL Partitions:
 +------+-----------------------+------------+----------+
 |1     |asc16Font              |           1|      3352|
 |2     |vram__GB1              |           1|       475|
-|3     |vram__GB2              |           1|       561|
-|4     |vram__GB3              |           1|       616|
-|5     |TOP_reactionTimer__GC0 |           1|      7191|
+|3     |vram__GB2              |           1|       566|
+|4     |vram__GB3              |           1|       617|
+|5     |TOP_reactionTimer__GC0 |           1|      7410|
 +------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
@@ -1338,13 +1368,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clockManager/clk_out1' to
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clockManager/clk_out2' to pin 'clockManager/bbstub_clk_out2/O'
 INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:57 ; elapsed = 00:04:29 . Memory (MB): peak = 1018.680 ; gain = 759.957
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:34 ; elapsed = 00:04:05 . Memory (MB): peak = 1020.543 ; gain = 761.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:04:01 ; elapsed = 00:04:34 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Timing Optimization : Time (s): cpu = 00:03:38 ; elapsed = 00:04:09 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1362,18 +1392,17 @@ Report RTL Partitions:
 +------+-----------------------+------------+----------+
 |1     |asc16Font              |           1|      3352|
 |2     |vram__GB1              |           1|       474|
-|3     |vram__GB2              |           1|       561|
-|4     |vram__GB3              |           1|       616|
-|5     |TOP_reactionTimer__GC0 |           1|      7191|
+|3     |vram__GB2              |           1|       566|
+|4     |vram__GB3              |           1|       617|
+|5     |TOP_reactionTimer__GC0 |           1|      7374|
 +------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (reactionTimerProcessor/statePrepareProcessor/prepareAnimation/currentFrame_reg[3]) is unused and will be removed from module TOP_reactionTimer.
 INFO: [Synth 8-4480] The timing for the instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:07 ; elapsed = 00:04:40 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Technology Mapping : Time (s): cpu = 00:03:43 ; elapsed = 00:04:14 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1397,7 +1426,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:08 ; elapsed = 00:04:41 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished IO Insertion : Time (s): cpu = 00:03:44 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1410,7 +1439,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:08 ; elapsed = 00:04:41 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:44 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1422,25 +1451,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:09 ; elapsed = 00:04:42 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:45 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:09 ; elapsed = 00:04:42 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:45 ; elapsed = 00:04:16 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:09 ; elapsed = 00:04:42 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:09 ; elapsed = 00:04:42 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1458,19 +1487,19 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |   161|
+|2     |CARRY4    |   189|
 |3     |DSP48E1   |     2|
-|4     |LUT1      |    39|
-|5     |LUT2      |   541|
-|6     |LUT3      |   344|
-|7     |LUT4      |   463|
-|8     |LUT5      |   397|
-|9     |LUT6      |  1490|
-|10    |MUXF7     |   187|
-|11    |MUXF8     |    41|
+|4     |LUT1      |    41|
+|5     |LUT2      |   586|
+|6     |LUT3      |   362|
+|7     |LUT4      |   468|
+|8     |LUT5      |   381|
+|9     |LUT6      |  1500|
+|10    |MUXF7     |   174|
+|11    |MUXF8     |    38|
 |12    |RAMB36E1  |     2|
-|13    |FDRE      |  1636|
-|14    |FDSE      |   121|
+|13    |FDRE      |  1757|
+|14    |FDSE      |   107|
 |15    |IBUF      |    12|
 |16    |OBUF      |    56|
 +------+----------+------+
@@ -1479,76 +1508,79 @@ Report Instance Areas:
 +------+-----------------------------------+--------------------------------+------+
 |      |Instance                           |Module                          |Cells |
 +------+-----------------------------------+--------------------------------+------+
-|1     |top                                |                                |  5495|
+|1     |top                                |                                |  5678|
 |2     |  clearBestButtonDebouncer         |debouncer                       |     8|
-|3     |  clock1kHz                        |clockDivider                    |    53|
+|3     |  clock1kHz                        |clockDivider                    |    52|
 |4     |  clockEdge1kHz                    |edgeDetector                    |     1|
-|5     |  globalTimer                      |globalTime                      |    41|
+|5     |  globalTimer                      |globalTime                      |    67|
 |6     |  globalVideoRam                   |vram                            |   984|
 |7     |    vramAsc16                      |asc16Font                       |   703|
-|8     |  microphoneNoiseInput             |microphoneNoiseGenerator        |    59|
-|9     |  ps2KeyboardReader                |ps2Reader                       |   110|
-|10    |    clkDeb                         |delayDebouncer                  |    18|
-|11    |    dataDeb                        |delayDebouncer_29               |    27|
-|12    |  reactionTimerProcessor           |reactTimerCpu                   |  3254|
-|13    |    prepareBusyDetector            |edgeDetector_4                  |     1|
-|14    |    resultBusyDetector             |edgeDetector_5                  |     1|
-|15    |    startButtonEdge                |edgeDetector_6                  |     1|
-|16    |    stateIdleProcessor             |reactTimerIdleCore              |   474|
-|17    |      idleAnimation                |ledAnimation                    |    36|
-|18    |        animeClockDetector         |edgeDetector_28                 |     2|
-|19    |      ledAnimeClock                |clockDivider__parameterized0_24 |    55|
-|20    |      resultLevelBPwmModem         |PwmModem_25                     |    70|
-|21    |      resultLevelGPwmModem         |PwmModem_26                     |    69|
-|22    |      resultLevelRPwmModem         |PwmModem_27                     |    69|
-|23    |    statePrepareProcessor          |reactTimerPrepareCore           |   914|
+|8     |  microphoneNoiseInput             |microphoneNoiseGenerator        |    44|
+|9     |  ps2KeyboardReader                |ps2Reader                       |   132|
+|10    |    clkDeb                         |delayDebouncer                  |    17|
+|11    |    dataDeb                        |delayDebouncer_31               |    26|
+|12    |  reactionTimerProcessor           |reactTimerCpu                   |  3238|
+|13    |    prepareBusyDetector            |edgeDetector_6                  |     1|
+|14    |    resultBusyDetector             |edgeDetector_7                  |     1|
+|15    |    startButtonEdge                |edgeDetector_8                  |     1|
+|16    |    stateIdleProcessor             |reactTimerIdleCore              |   469|
+|17    |      idleAnimation                |ledAnimation                    |    35|
+|18    |        animeClockDetector         |edgeDetector_30                 |     1|
+|19    |      ledAnimeClock                |clockDivider__parameterized0_26 |    54|
+|20    |      resultLevelBPwmModem         |PwmModem_27                     |    69|
+|21    |      resultLevelGPwmModem         |PwmModem_28                     |    69|
+|22    |      resultLevelRPwmModem         |PwmModem_29                     |    69|
+|23    |    statePrepareProcessor          |reactTimerPrepareCore           |   896|
 |24    |      gapGeneratorLcg              |randLcg                         |   170|
-|25    |        nextDetector               |edgeDetector_22                 |     4|
-|26    |        seedReadyDetector          |edgeDetector_23                 |     2|
-|27    |      gapGeneratorMt19937          |randMt19937                     |   579|
-|28    |      prepareAnimation             |ssdAnimation                    |    80|
-|29    |        animeClockDetector         |edgeDetector_21                 |     7|
-|30    |        clock1Hz                   |clockDivider__parameterized1    |    52|
-|31    |    stateResultProcessor           |reactTimerResultCore            |   731|
+|25    |        nextDetector               |edgeDetector_24                 |     2|
+|26    |        seedReadyDetector          |edgeDetector_25                 |     4|
+|27    |      gapGeneratorMt19937          |randMt19937                     |   559|
+|28    |      prepareAnimation             |ssdAnimation                    |    82|
+|29    |        animeClockDetector         |edgeDetector_23                 |     4|
+|30    |        clock1Hz                   |clockDivider__parameterized1    |    56|
+|31    |    stateResultProcessor           |reactTimerResultCore            |   728|
 |32    |      clock1Hz                     |clockDivider__parameterized0    |    84|
-|33    |      idleCounter                  |actionRetarder_14               |   109|
-|34    |        signalInDetector           |edgeDetector_20                 |     4|
-|35    |      resultLevelBPwmModem         |PwmModem                        |    70|
-|36    |      resultLevelGPwmModem         |PwmModem_15                     |    69|
-|37    |      resultLevelRPwmModem         |PwmModem_16                     |    69|
-|38    |      testResultDigitReadyDetector |edgeDetector_17                 |     1|
-|39    |      testResultSeperator          |decimalToBcd                    |   232|
-|40    |        numberValidDetector        |edgeDetector_19                 |    13|
-|41    |      testResultValidDetector      |edgeDetector_18                 |    11|
-|42    |    stateTestProcessor             |reactTimerTestCore              |   982|
-|43    |      dividedResultValidDetector   |edgeDetector_8                  |     1|
+|33    |      idleCounter                  |actionRetarder_16               |   108|
+|34    |        signalInDetector           |edgeDetector_22                 |     3|
+|35    |      resultLevelBPwmModem         |PwmModem                        |    69|
+|36    |      resultLevelGPwmModem         |PwmModem_17                     |    69|
+|37    |      resultLevelRPwmModem         |PwmModem_18                     |    69|
+|38    |      testResultDigitReadyDetector |edgeDetector_19                 |     1|
+|39    |      testResultSeperator          |decimalToBcd                    |   231|
+|40    |        numberValidDetector        |edgeDetector_21                 |    13|
+|41    |      testResultValidDetector      |edgeDetector_20                 |    11|
+|42    |    stateTestProcessor             |reactTimerTestCore              |   992|
+|43    |      dividedResultValidDetector   |edgeDetector_10                 |     1|
 |44    |      signalDelayer                |actionRetarder                  |   151|
-|45    |        signalInDetector           |edgeDetector_13                 |     3|
-|46    |      startDetector                |edgeDetector_9                  |     4|
+|45    |        signalInDetector           |edgeDetector_15                 |     3|
+|46    |      startDetector                |edgeDetector_11                 |     4|
 |47    |      testAudioOut                 |audioHintOutput                 |    55|
 |48    |        audioHintPwmModem          |PwmModem__parameterized0        |    48|
-|49    |        startPlayingDetector       |edgeDetector_11                 |     2|
-|50    |        stopPlayingDetector        |edgeDetector_12                 |     3|
-|51    |      testButton                   |edgeDetector_10                 |    12|
+|49    |        startPlayingDetector       |edgeDetector_13                 |     2|
+|50    |        stopPlayingDetector        |edgeDetector_14                 |     3|
+|51    |      testButton                   |edgeDetector_12                 |    12|
 |52    |      tickCounterDivider           |divisionByTen                   |   416|
-|53    |    testResultValidDetector        |edgeDetector_7                  |     1|
+|53    |    testResultValidDetector        |edgeDetector_9                  |     1|
 |54    |    vgaColorControl                |keyboardDecoder                 |     9|
-|55    |  skipWaitButtonDebouncer          |debouncer_0                     |     9|
-|56    |  ssdDisplayOutput                 |ssdDriver                       |    35|
-|57    |  startButtonDebouncer             |debouncer_1                     |    10|
-|58    |    enableDetector                 |edgeDetector_3                  |     1|
-|59    |  testButtonDebouncer              |latchDebouncer                  |    36|
-|60    |    buttonInDetector               |edgeDetector_2                  |     5|
-|61    |  vgaPortDriver                    |vgaDriver                       |   824|
+|55    |  resetButtonDebouncer             |resetDebouncer                  |   167|
+|56    |    clockEnable                    |clockDivider_4                  |    53|
+|57    |    clockEnableDetector            |edgeDetector_5                  |     2|
+|58    |  skipWaitButtonDebouncer          |debouncer_0                     |     9|
+|59    |  ssdDisplayOutput                 |ssdDriver                       |    35|
+|60    |  startButtonDebouncer             |debouncer_1                     |    10|
+|61    |    enableDetector                 |edgeDetector_3                  |     1|
+|62    |  testButtonDebouncer              |latchDebouncer                  |    36|
+|63    |    buttonInDetector               |edgeDetector_2                  |     5|
+|64    |  vgaPortDriver                    |vgaDriver                       |   816|
 +------+-----------------------------------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:09 ; elapsed = 00:04:42 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 93 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:54 ; elapsed = 00:04:27 . Memory (MB): peak = 1042.223 ; gain = 471.098
-Synthesis Optimization Complete : Time (s): cpu = 00:04:09 ; elapsed = 00:04:43 . Memory (MB): peak = 1042.223 ; gain = 783.500
+Synthesis finished with 0 errors, 0 critical warnings and 97 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:41 ; elapsed = 00:04:02 . Memory (MB): peak = 1048.492 ; gain = 474.258
+Synthesis Optimization Complete : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1048.492 ; gain = 789.160
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 405 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 417 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
@@ -1557,10 +1589,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-404 Infos, 125 Warnings, 1 Critical Warnings and 0 Errors encountered.
+404 Infos, 130 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:12 ; elapsed = 00:04:47 . Memory (MB): peak = 1042.223 ; gain = 794.969
-INFO: [Common 17-1381] The checkpoint 'C:/testass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
+synth_design: Time (s): cpu = 00:03:48 ; elapsed = 00:04:22 . Memory (MB): peak = 1048.492 ; gain = 800.633
+INFO: [Common 17-1381] The checkpoint 'C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1042.223 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 11 13:25:47 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1048.492 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 12 11:44:01 2018...
