@@ -1,8 +1,0 @@
-0.6
-2017.4
-Dec 15 2017
-21:07:18
-C:/ass1/reaction_timer_kai.sim/sim_1/behav/xsim/glbl.v,1522800507,verilog,,,,glbl,,,,,,,,
-C:/ass1/reaction_timer_kai.srcs/sim_1/new/TB_asc16Font.v,1522805847,verilog,,,,TB_asc16Font,,,../../../../reaction_timer_kai.srcs/sources_1/new,,,,,
-C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v,1522800507,verilog,,C:/ass1/reaction_timer_kai.srcs/sim_1/new/TB_asc16Font.v,,asc16Font,,,../../../../reaction_timer_kai.srcs/sources_1/new,,,,,
-C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalConstants.v,1522800507,verilog,,C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v,,,,,../../../../reaction_timer_kai.srcs/sources_1/new,,,,,

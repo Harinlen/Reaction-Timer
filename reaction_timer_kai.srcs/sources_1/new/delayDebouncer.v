@@ -29,15 +29,15 @@ module delayDebouncer(
     input wire in_enable,
     input wire in_clock,
 	input wire in_signal,
-	output reg out_debouncedSignal);
+	output reg out_debouncedSignal = 1'd0);
 	
-	reg [4:0] counter = 5'd0;
+	reg [4:0] counter = 5'd16;
 	reg lastSignal = 1'b0;
 	
 	always @(posedge in_clock) begin
 	   if (in_reset) begin
 	       // Reset the data.
-	       counter <= 5'd0;
+	       counter <= 5'd16;
 	       lastSignal = 1'b0;
 	   end else begin
 	       if (in_enable) begin

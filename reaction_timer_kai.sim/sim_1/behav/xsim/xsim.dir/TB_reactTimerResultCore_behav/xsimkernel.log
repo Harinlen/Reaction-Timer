@@ -1,7 +1,0 @@
-Running: xsim.dir/TB_reactTimerResultCore_behav/xsimk.exe -simmode gui -wdb TB_reactTimerResultCore_behav.wdb -simrunnum 0 -socket 53602
-Design successfully loaded
-Design Loading Memory Usage: 6488 KB (Peak: 6488 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 15200 KB (Peak: 15200 KB)
-Simulation CPU Usage: 202 ms

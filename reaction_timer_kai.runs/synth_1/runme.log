@@ -14,48 +14,48 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5268 
+INFO: Helper process launched with PID 17212 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 361.109 ; gain = 102.316
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 357.727 ; gain = 100.719
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
-INFO: [Synth 8-638] synthesizing module 'resetDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
+INFO: [Synth 8-638] synthesizing module 'TOP_reactionTimer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
+INFO: [Synth 8-638] synthesizing module 'resetDebouncer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
 	Parameter LATCHED_COUNT bound to: 4 - type: integer 
 	Parameter DEBOUNCED_CLOCK bound to: 50000 - type: integer 
 	Parameter FALLING_COUNT bound to: 1000 - type: integer 
 	Parameter STATE_BUTTON_OFF bound to: 0 - type: integer 
 	Parameter STATE_BUTTON_ON bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'clockDivider' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'clockDivider' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
 	Parameter THRESHOLD bound to: 50000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clockDivider' (1#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
-INFO: [Synth 8-638] synthesizing module 'edgeDetector' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
-INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (2#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
-WARNING: [Synth 8-350] instance 'clockEnableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:50]
-INFO: [Synth 8-256] done synthesizing module 'resetDebouncer' (3#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
-INFO: [Synth 8-638] synthesizing module 'globalTime' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
-INFO: [Synth 8-256] done synthesizing module 'globalTime' (4#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
-WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:99]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/realtime/clk_wiz_0_stub.v:5]
-WARNING: [Synth 8-350] instance 'clockManager' of module 'clk_wiz_0' requires 5 connections, but only 4 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:108]
-INFO: [Synth 8-638] synthesizing module 'debouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
+INFO: [Synth 8-256] done synthesizing module 'clockDivider' (1#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'edgeDetector' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+INFO: [Synth 8-256] done synthesizing module 'edgeDetector' (2#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:27]
+WARNING: [Synth 8-350] instance 'clockEnableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:50]
+INFO: [Synth 8-256] done synthesizing module 'resetDebouncer' (3#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:23]
+INFO: [Synth 8-638] synthesizing module 'globalTime' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
+INFO: [Synth 8-256] done synthesizing module 'globalTime' (4#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:26]
+WARNING: [Synth 8-350] instance 'clockEdge1kHz' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:99]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/.Xil/Vivado-13940-DESKTOP-SAKI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/.Xil/Vivado-13940-DESKTOP-SAKI/realtime/clk_wiz_0_stub.v:5]
+WARNING: [Synth 8-350] instance 'clockManager' of module 'clk_wiz_0' requires 5 connections, but only 4 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:108]
+INFO: [Synth 8-638] synthesizing module 'debouncer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
 	Parameter PIPELINE_LEVEL bound to: 5 - type: integer 
-WARNING: [Synth 8-350] instance 'enableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:40]
-INFO: [Synth 8-256] done synthesizing module 'debouncer' (6#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
-INFO: [Synth 8-638] synthesizing module 'latchDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
+WARNING: [Synth 8-350] instance 'enableDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/debouncer.v:40]
+INFO: [Synth 8-256] done synthesizing module 'debouncer' (6#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/debouncer.v:28]
+INFO: [Synth 8-638] synthesizing module 'latchDebouncer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
 	Parameter INTERVAL bound to: 100000 - type: integer 
 	Parameter STATE_WAITING bound to: 1'b0 
 	Parameter STATE_LATCHED bound to: 1'b1 
-WARNING: [Synth 8-350] instance 'buttonInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:47]
-INFO: [Synth 8-256] done synthesizing module 'latchDebouncer' (7#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
-INFO: [Synth 8-638] synthesizing module 'ps2Reader' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:30]
-INFO: [Synth 8-638] synthesizing module 'delayDebouncer' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
-INFO: [Synth 8-256] done synthesizing module 'delayDebouncer' (8#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:69]
-INFO: [Synth 8-256] done synthesizing module 'ps2Reader' (9#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:30]
-INFO: [Synth 8-638] synthesizing module 'microphoneNoiseGenerator' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
-INFO: [Synth 8-256] done synthesizing module 'microphoneNoiseGenerator' (10#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
-INFO: [Synth 8-638] synthesizing module 'reactTimerCpu' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
+WARNING: [Synth 8-350] instance 'buttonInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:47]
+INFO: [Synth 8-256] done synthesizing module 'latchDebouncer' (7#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:29]
+INFO: [Synth 8-638] synthesizing module 'ps2Reader' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:30]
+INFO: [Synth 8-638] synthesizing module 'delayDebouncer' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
+INFO: [Synth 8-256] done synthesizing module 'delayDebouncer' (8#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/delayDebouncer.v:27]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:69]
+INFO: [Synth 8-256] done synthesizing module 'ps2Reader' (9#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:30]
+INFO: [Synth 8-638] synthesizing module 'microphoneNoiseGenerator' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
+INFO: [Synth 8-256] done synthesizing module 'microphoneNoiseGenerator' (10#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:24]
+INFO: [Synth 8-638] synthesizing module 'reactTimerCpu' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
 	Parameter IDLE_ANIMATION_THRESHOLD bound to: 12500000 - type: integer 
 	Parameter PREPARE_COUNT_DOWN_THRESHOLD bound to: 50000000 - type: integer 
 	Parameter PREPARE_TEST_DELAY_TIME bound to: 0 - type: integer 
@@ -74,72 +74,72 @@ INFO: [Synth 8-638] synthesizing module 'reactTimerCpu' [C:/ass1/reaction_timer_
 	Parameter HINT_UPDATE_AUDIO_OFF bound to: 3 - type: integer 
 	Parameter HINT_UPDATE_TRILED_ON bound to: 4 - type: integer 
 	Parameter HINT_UPDATE_TRILED_OFF bound to: 5 - type: integer 
-WARNING: [Synth 8-350] instance 'startButtonEdge' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:93]
-INFO: [Synth 8-638] synthesizing module 'reactTimerIdleCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
+WARNING: [Synth 8-350] instance 'startButtonEdge' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:93]
+INFO: [Synth 8-638] synthesizing module 'reactTimerIdleCore' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
 	Parameter ANIMATION_THRESHOLD bound to: 12500000 - type: integer 
 	Parameter BEST_RESULT_PWM_DELAY bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'PwmModem' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+INFO: [Synth 8-638] synthesizing module 'PwmModem' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
 	Parameter COUNTER_DELAY bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'PwmModem' (11#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
-WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:62]
-WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:71]
-WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:80]
-INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized0' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-256] done synthesizing module 'PwmModem' (11#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:62]
+WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:71]
+WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:80]
+INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized0' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
 	Parameter THRESHOLD bound to: 12500000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized0' (11#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
-INFO: [Synth 8-638] synthesizing module 'ledAnimation' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
+INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized0' (11#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'ledAnimation' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
 	Parameter FRAME_COUNTS bound to: 8'b00010001 
-WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:63]
-INFO: [Synth 8-256] done synthesizing module 'ledAnimation' (12#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerIdleCore' (13#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
-INFO: [Synth 8-638] synthesizing module 'reactTimerPrepareCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
+WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:63]
+INFO: [Synth 8-256] done synthesizing module 'ledAnimation' (12#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:26]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerIdleCore' (13#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerIdleCore.v:32]
+INFO: [Synth 8-638] synthesizing module 'reactTimerPrepareCore' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
 	Parameter COUNT_DOWN_CLOCK_THRESHOLD bound to: 50000000 - type: integer 
 	Parameter TEST_DELAY_TIME bound to: 0 - type: integer 
 	Parameter STATE_WAITING bound to: 1'b0 
 	Parameter STATE_GENRAND bound to: 1'b1 
 	Parameter RAND_LCG bound to: 1'b0 
 	Parameter RAND_MT bound to: 1'b1 
-INFO: [Synth 8-638] synthesizing module 'randLcg' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
+INFO: [Synth 8-638] synthesizing module 'randLcg' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_MULTIPLY bound to: 2'b01 
 	Parameter STATE_ADD bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'seedReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:59]
-WARNING: [Synth 8-350] instance 'nextDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:67]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:83]
-INFO: [Synth 8-256] done synthesizing module 'randLcg' (14#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
-INFO: [Synth 8-638] synthesizing module 'randMt19937' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
+WARNING: [Synth 8-350] instance 'seedReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:59]
+WARNING: [Synth 8-350] instance 'nextDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:67]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:83]
+INFO: [Synth 8-256] done synthesizing module 'randLcg' (14#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:30]
+INFO: [Synth 8-638] synthesizing module 'randMt19937' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_SEED bound to: 2'b01 
-WARNING: [Synth 8-6014] Unused sequential element outDataValid_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:188]
-INFO: [Synth 8-256] done synthesizing module 'randMt19937' (15#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
-INFO: [Synth 8-638] synthesizing module 'ssdAnimation' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
+WARNING: [Synth 8-6014] Unused sequential element outDataValid_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:188]
+INFO: [Synth 8-256] done synthesizing module 'randMt19937' (15#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randMt19937.v:29]
+INFO: [Synth 8-638] synthesizing module 'ssdAnimation' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
 	Parameter ANIME_CLOCK_THRESHOLD bound to: 50000000 - type: integer 
 	Parameter FRAME_COUNTS bound to: 4 - type: integer 
 	Parameter STATE_IDLE bound to: 1'b0 
 	Parameter STATE_PLAYING bound to: 1'b1 
-INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized1' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+INFO: [Synth 8-638] synthesizing module 'clockDivider__parameterized1' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
 	Parameter THRESHOLD bound to: 50000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized1' (15#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
-WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:61]
-INFO: [Synth 8-256] done synthesizing module 'ssdAnimation' (16#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerPrepareCore' (17#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
-WARNING: [Synth 8-350] instance 'prepareBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:165]
-INFO: [Synth 8-638] synthesizing module 'reactTimerTestCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
+INFO: [Synth 8-256] done synthesizing module 'clockDivider__parameterized1' (15#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:26]
+WARNING: [Synth 8-350] instance 'animeClockDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:61]
+INFO: [Synth 8-256] done synthesizing module 'ssdAnimation' (16#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:28]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerPrepareCore' (17#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerPrepareCore.v:38]
+WARNING: [Synth 8-350] instance 'prepareBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:165]
+INFO: [Synth 8-638] synthesizing module 'reactTimerTestCore' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
 	Parameter COUNTER_LIMITATION bound to: 999999999 - type: integer 
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_WAIT bound to: 2'b01 
 	Parameter STATE_TEST bound to: 2'b10 
 	Parameter STATE_FINISH bound to: 2'b11 
-INFO: [Synth 8-638] synthesizing module 'actionRetarder' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
+INFO: [Synth 8-638] synthesizing module 'actionRetarder' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
 	Parameter STATE_PENDING bound to: 2'b00 
 	Parameter STATE_WAITING bound to: 2'b01 
 	Parameter STATE_FINISH bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'signalInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:45]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:65]
-INFO: [Synth 8-256] done synthesizing module 'actionRetarder' (18#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
-WARNING: [Synth 8-350] instance 'startDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:66]
-WARNING: [Synth 8-350] instance 'testButton' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:73]
-INFO: [Synth 8-638] synthesizing module 'divisionByTen' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
+WARNING: [Synth 8-350] instance 'signalInDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:45]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:65]
+INFO: [Synth 8-256] done synthesizing module 'actionRetarder' (18#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/actionRetarder.v:28]
+WARNING: [Synth 8-350] instance 'startDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:66]
+WARNING: [Synth 8-350] instance 'testButton' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:73]
+INFO: [Synth 8-638] synthesizing module 'divisionByTen' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
 	Parameter STATE_IDLE bound to: 3'b000 
 	Parameter STATE_INIT bound to: 3'b001 
 	Parameter STATE_SR_4 bound to: 3'b010 
@@ -148,63 +148,63 @@ INFO: [Synth 8-638] synthesizing module 'divisionByTen' [C:/ass1/reaction_timer_
 	Parameter STATE_SR_3 bound to: 3'b101 
 	Parameter STATE_GET_R bound to: 3'b110 
 	Parameter STATE_FINISH bound to: 3'b111 
-INFO: [Synth 8-226] default block is never used [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:65]
-INFO: [Synth 8-256] done synthesizing module 'divisionByTen' (19#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
-WARNING: [Synth 8-350] instance 'dividedResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:94]
-INFO: [Synth 8-638] synthesizing module 'audioHintOutput' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
+INFO: [Synth 8-226] default block is never used [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:65]
+INFO: [Synth 8-256] done synthesizing module 'divisionByTen' (19#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/divisionByTen.v:30]
+WARNING: [Synth 8-350] instance 'dividedResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:94]
+INFO: [Synth 8-638] synthesizing module 'audioHintOutput' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
 	Parameter PLAYING_CLOCK_THRESHOLD bound to: 1000 - type: integer 
 	Parameter STATE_IDLE bound to: 1'b0 
 	Parameter STATE_PLAYING bound to: 1'b1 
 	Parameter SINE_WAVE_SAMPLE bound to: 8'b10000000 
-WARNING: [Synth 8-350] instance 'startPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:59]
-WARNING: [Synth 8-350] instance 'stopPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:67]
-INFO: [Synth 8-638] synthesizing module 'PwmModem__parameterized0' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+WARNING: [Synth 8-350] instance 'startPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:59]
+WARNING: [Synth 8-350] instance 'stopPlayingDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:67]
+INFO: [Synth 8-638] synthesizing module 'PwmModem__parameterized0' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
 	Parameter COUNTER_DELAY bound to: 232 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'PwmModem__parameterized0' (19#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
-INFO: [Synth 8-256] done synthesizing module 'audioHintOutput' (20#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerTestCore' (21#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
-WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:191]
-INFO: [Synth 8-638] synthesizing module 'reactTimerResultCore' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
+INFO: [Synth 8-256] done synthesizing module 'PwmModem__parameterized0' (19#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:26]
+INFO: [Synth 8-256] done synthesizing module 'audioHintOutput' (20#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/audioHintOutput.v:28]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerTestCore' (21#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerTestCore.v:28]
+WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:191]
+INFO: [Synth 8-638] synthesizing module 'reactTimerResultCore' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
 	Parameter BEST_FLASH_THRESHOLD bound to: 12500000 - type: integer 
 	Parameter WAITING_COUNTS bound to: 32'b00111011100110101100101000000000 
 	Parameter RESULT_LEVEL_PWM_DELAY bound to: 0 - type: integer 
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_CONVERT bound to: 2'b01 
 	Parameter STATE_WAIT bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:75]
-WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:84]
-WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:93]
-INFO: [Synth 8-638] synthesizing module 'decimalToBcd' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
+WARNING: [Synth 8-350] instance 'resultLevelRPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:75]
+WARNING: [Synth 8-350] instance 'resultLevelGPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:84]
+WARNING: [Synth 8-350] instance 'resultLevelBPwmModem' of module 'PwmModem' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:93]
+INFO: [Synth 8-638] synthesizing module 'decimalToBcd' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
 	Parameter STATE_IDLE bound to: 2'b00 
 	Parameter STATE_SHIFT bound to: 2'b01 
 	Parameter STATE_ADD bound to: 2'b10 
-WARNING: [Synth 8-350] instance 'numberValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:49]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:64]
-INFO: [Synth 8-256] done synthesizing module 'decimalToBcd' (22#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
-WARNING: [Synth 8-350] instance 'testResultDigitReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:110]
-WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:118]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:184]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerResultCore' (23#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
-WARNING: [Synth 8-350] instance 'resultBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:220]
-INFO: [Synth 8-638] synthesizing module 'keyboardDecoder' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
-INFO: [Synth 8-256] done synthesizing module 'keyboardDecoder' (24#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
-INFO: [Synth 8-256] done synthesizing module 'reactTimerCpu' (25#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
-INFO: [Synth 8-638] synthesizing module 'ssdDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
-INFO: [Synth 8-226] default block is never used [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:85]
-INFO: [Synth 8-256] done synthesizing module 'ssdDriver' (26#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
-INFO: [Synth 8-638] synthesizing module 'vram' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
-INFO: [Synth 8-638] synthesizing module 'asc16Font' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
-INFO: [Synth 8-256] done synthesizing module 'asc16Font' (27#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
-INFO: [Synth 8-256] done synthesizing module 'vram' (28#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
-INFO: [Synth 8-638] synthesizing module 'vgaDriver' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
-INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (29#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
-INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (30#1) [C:/ass1/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
+WARNING: [Synth 8-350] instance 'numberValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:49]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:64]
+INFO: [Synth 8-256] done synthesizing module 'decimalToBcd' (22#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/decimalToBcd.v:28]
+WARNING: [Synth 8-350] instance 'testResultDigitReadyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:110]
+WARNING: [Synth 8-350] instance 'testResultValidDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:118]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:184]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerResultCore' (23#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerResultCore.v:26]
+WARNING: [Synth 8-350] instance 'resultBusyDetector' of module 'edgeDetector' requires 6 connections, but only 5 given [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:220]
+INFO: [Synth 8-638] synthesizing module 'keyboardDecoder' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
+INFO: [Synth 8-256] done synthesizing module 'keyboardDecoder' (24#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/keyboardDecoder.v:23]
+INFO: [Synth 8-256] done synthesizing module 'reactTimerCpu' (25#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/reactTimerCpu.v:33]
+INFO: [Synth 8-638] synthesizing module 'ssdDriver' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
+INFO: [Synth 8-226] default block is never used [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:85]
+INFO: [Synth 8-256] done synthesizing module 'ssdDriver' (26#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdDriver.v:27]
+INFO: [Synth 8-638] synthesizing module 'vram' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
+INFO: [Synth 8-638] synthesizing module 'asc16Font' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
+INFO: [Synth 8-256] done synthesizing module 'asc16Font' (27#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/asc16Font.v:28]
+INFO: [Synth 8-256] done synthesizing module 'vram' (28#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vram.v:32]
+INFO: [Synth 8-638] synthesizing module 'vgaDriver' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
+INFO: [Synth 8-256] done synthesizing module 'vgaDriver' (29#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:29]
+INFO: [Synth 8-256] done synthesizing module 'TOP_reactionTimer' (30#1) [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/TOP_reactionTimer.v:37]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charXPos[7]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[7]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[6]
 WARNING: [Synth 8-3331] design vram has unconnected port in_charYPos[5]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 707.398 ; gain = 448.605
+Finished RTL Elaboration : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 704.363 ; gain = 447.355
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -214,31 +214,31 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 707.398 ; gain = 448.605
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 704.363 ; gain = 447.355
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
-Finished Parsing XDC File [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
-Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
+Parsing XDC File [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/.Xil/Vivado-13940-DESKTOP-SAKI/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
+Finished Parsing XDC File [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/.Xil/Vivado-13940-DESKTOP-SAKI/dcp1/clk_wiz_0_in_context.xdc] for cell 'clockManager'
+Parsing XDC File [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
 CRITICAL WARNING: [Constraints 18-1056] Clock 'CLK100MHZ' completely overrides clock 'in_100MHzClock'.
-New: create_clock -period 10.000 -name CLK100MHZ [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc:3]
-Previous: create_clock -period 10.000 [get_ports in_100MHzClock], [C:/ass1/reaction_timer_kai.runs/synth_1/.Xil/Vivado-8768-r103pc04/dcp1/clk_wiz_0_in_context.xdc:1]
+New: create_clock -period 10.000 -name CLK100MHZ [get_ports in_100MHzClock], [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc:3]
+Previous: create_clock -period 10.000 [get_ports in_100MHzClock], [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/.Xil/Vivado-13940-DESKTOP-SAKI/dcp1/clk_wiz_0_in_context.xdc:1]
 Resolution: Review the constraint files and remove the redundant clock definition(s). If the clock constraints are not saved in a file, you can first save the constraints to an XDC file and reload the design once the constraints have been corrected.
-Finished Parsing XDC File [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/ass1/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_reactionTimer_propImpl.xdc].
+Finished Parsing XDC File [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/constrs_1/new/reactionTimer_Nexys4DDR_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_reactionTimer_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_reactionTimer_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1021.012 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1015.992 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:10 ; elapsed = 00:01:14 . Memory (MB): peak = 1021.223 ; gain = 762.430
+Finished Constraint Validation : Time (s): cpu = 00:01:08 ; elapsed = 00:01:09 . Memory (MB): peak = 1016.203 ; gain = 759.195
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
@@ -279,8 +279,8 @@ INFO: [Synth 8-5546] ROM "y_counter" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5544] ROM "out_charXPos" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "out_charYPos" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
-WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
+WARNING: [Synth 8-6014] Unused sequential element out_charXPos_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
+WARNING: [Synth 8-6014] Unused sequential element out_charYPos_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
 INFO: [Synth 8-3971] The signal mtVector_reg was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -296,7 +296,7 @@ INFO: [Synth 8-3971] The signal mtVector_reg was recognized as a true dual port 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'divisionByTen'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1021.223 ; gain = 762.430
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:42 ; elapsed = 00:01:51 . Memory (MB): peak = 1016.203 ; gain = 759.195
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -956,26 +956,26 @@ INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][5]" won't be mapped to RAM bec
 INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][29]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][4]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "displayAsciiMaps_reg[0][3]" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element ledAnimeClock/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element idleAnimation/currentFrame_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:76]
+WARNING: [Synth 8-6014] Unused sequential element ledAnimeClock/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element idleAnimation/currentFrame_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ledAnimation.v:76]
 INFO: [Synth 8-5546] ROM "stateNext" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "outDataNext" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "prepareAnimation/" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "gapGeneratorLcg/seed0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/randLcg.v:105]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/clock1Hz/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/currentFrame_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:79]
+WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/clock1Hz/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element prepareAnimation/currentFrame_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ssdAnimation.v:79]
 DSP Report: Generating DSP gapGeneratorLcg/, operation Mode is: A*B2.
 DSP Report: register B is absorbed into DSP gapGeneratorLcg/.
 DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
@@ -984,36 +984,36 @@ DSP Report: Generating DSP gapGeneratorLcg/, operation Mode is: (PCIN>>17)+A*B2.
 DSP Report: register B is absorbed into DSP gapGeneratorLcg/.
 DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
 DSP Report: operator gapGeneratorLcg/ is absorbed into DSP gapGeneratorLcg/.
-WARNING: [Synth 8-6014] Unused sequential element testAudioOut/audioHintPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element testAudioOut/audioHintPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
 INFO: [Synth 8-5546] ROM "testAudioOut/audioHintPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "testAudioOut/audioHintPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
-WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelRPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelGPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
+WARNING: [Synth 8-6014] Unused sequential element resultLevelBPwmModem/out_switchSample_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/PwmModem.v:50]
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelRPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelGPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/accumulator" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resultLevelBPwmModem/lastAudioSample" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element clock1Hz/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-INFO: [Synth 8-4471] merging register 'clearBestButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
-INFO: [Synth 8-4471] merging register 'skipWaitButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
-WARNING: [Synth 8-6014] Unused sequential element clearBestButtonDebouncer/enableDetector/lastState_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
-WARNING: [Synth 8-6014] Unused sequential element skipWaitButtonDebouncer/enableDetector/lastState_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+WARNING: [Synth 8-6014] Unused sequential element clock1Hz/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+INFO: [Synth 8-4471] merging register 'clearBestButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+INFO: [Synth 8-4471] merging register 'skipWaitButtonDebouncer/enableDetector/lastState_reg' into 'startButtonDebouncer/enableDetector/lastState_reg' [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+WARNING: [Synth 8-6014] Unused sequential element clearBestButtonDebouncer/enableDetector/lastState_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
+WARNING: [Synth 8-6014] Unused sequential element skipWaitButtonDebouncer/enableDetector/lastState_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/edgeDetector.v:41]
 INFO: [Synth 8-5546] ROM "vgaPortDriver/y_counter" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "vgaPortDriver/out_charYPos" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "vgaPortDriver/out_charYPos" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element ps2KeyboardReader/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:62]
-WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/clockEnable/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/latchedCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:60]
-WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/fallingCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:68]
-WARNING: [Synth 8-6014] Unused sequential element globalTimer/out_time_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/globalTime.v:32]
-WARNING: [Synth 8-6014] Unused sequential element clock1kHz/counter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
-WARNING: [Synth 8-6014] Unused sequential element testButtonDebouncer/intervalCounter_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:60]
-WARNING: [Synth 8-6014] Unused sequential element microphoneNoiseInput/mcClock_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:40]
-WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charXPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
-WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charYPos_reg was removed.  [C:/ass1/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
+WARNING: [Synth 8-6014] Unused sequential element ps2KeyboardReader/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/ps2Reader.v:62]
+WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/clockEnable/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/latchedCounter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:60]
+WARNING: [Synth 8-6014] Unused sequential element resetButtonDebouncer/fallingCounter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/resetDebouncer.v:68]
+WARNING: [Synth 8-6014] Unused sequential element globalTimer/out_time_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/globalTime.v:32]
+WARNING: [Synth 8-6014] Unused sequential element clock1kHz/counter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/clockDivider.v:40]
+WARNING: [Synth 8-6014] Unused sequential element testButtonDebouncer/intervalCounter_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/latchDebouncer.v:60]
+WARNING: [Synth 8-6014] Unused sequential element microphoneNoiseInput/mcClock_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/microphoneNoiseGenerator.v:40]
+WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charXPos_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:56]
+WARNING: [Synth 8-6014] Unused sequential element vgaPortDriver/out_charYPos_reg was removed.  [D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.srcs/sources_1/new/vgaDriver.v:57]
 INFO: [Synth 8-3971] The signal gapGeneratorMt19937/mtVector_reg was recognized as a true dual port RAM template.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/reactionTimerProcessor/statePrepareProcessor/\gapGeneratorMt19937/factor2_reg[31] )
 INFO: [Synth 8-3886] merging instance 'i_3/reactionTimerProcessor/statePrepareProcessor/seed_reg[0]' (FDRE) to 'i_3/reactionTimerProcessor/statePrepareProcessor/seed_reg[1]'
@@ -1276,7 +1276,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVid
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (globalVideoRami_0/\displayAsciiMaps_reg[67][21][0] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:19 ; elapsed = 00:03:51 . Memory (MB): peak = 1021.223 ; gain = 762.430
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:12 ; elapsed = 00:03:28 . Memory (MB): peak = 1016.203 ; gain = 759.195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1325,13 +1325,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clockManager/clk_out1' to
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clockManager/clk_out2' to pin 'clockManager/bbstub_clk_out2/O'
 INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:34 ; elapsed = 00:04:06 . Memory (MB): peak = 1021.223 ; gain = 762.430
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:28 ; elapsed = 00:03:44 . Memory (MB): peak = 1016.203 ; gain = 759.195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:38 ; elapsed = 00:04:10 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Timing Optimization : Time (s): cpu = 00:03:32 ; elapsed = 00:03:48 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1359,7 +1359,7 @@ Start Technology Mapping
 INFO: [Synth 8-4480] The timing for the instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance reactionTimerProcessor/statePrepareProcessor/gapGeneratorMt19937/mtVector_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:43 ; elapsed = 00:04:15 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Technology Mapping : Time (s): cpu = 00:03:37 ; elapsed = 00:03:54 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1383,7 +1383,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:44 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished IO Insertion : Time (s): cpu = 00:03:39 ; elapsed = 00:03:55 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1396,7 +1396,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:44 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:39 ; elapsed = 00:03:55 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1408,25 +1408,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:39 ; elapsed = 00:03:56 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:39 ; elapsed = 00:03:56 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:40 ; elapsed = 00:03:56 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:40 ; elapsed = 00:03:56 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1455,8 +1455,8 @@ Report Cell Usage:
 |10    |MUXF7     |   174|
 |11    |MUXF8     |    38|
 |12    |RAMB36E1  |     2|
-|13    |FDRE      |  1757|
-|14    |FDSE      |   107|
+|13    |FDRE      |  1755|
+|14    |FDSE      |   109|
 |15    |IBUF      |    12|
 |16    |OBUF      |    56|
 +------+----------+------+
@@ -1531,14 +1531,14 @@ Report Instance Areas:
 |64    |  vgaPortDriver                    |vgaDriver                       |   816|
 +------+-----------------------------------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:45 ; elapsed = 00:04:17 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:40 ; elapsed = 00:03:56 . Memory (MB): peak = 1041.219 ; gain = 784.211
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 97 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:42 ; elapsed = 00:04:03 . Memory (MB): peak = 1051.055 ; gain = 478.438
-Synthesis Optimization Complete : Time (s): cpu = 00:03:45 ; elapsed = 00:04:18 . Memory (MB): peak = 1051.055 ; gain = 792.262
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:40 ; elapsed = 00:03:45 . Memory (MB): peak = 1041.219 ; gain = 472.371
+Synthesis Optimization Complete : Time (s): cpu = 00:03:40 ; elapsed = 00:04:00 . Memory (MB): peak = 1041.219 ; gain = 784.211
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 417 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1548,8 +1548,8 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 404 Infos, 130 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:48 ; elapsed = 00:04:23 . Memory (MB): peak = 1051.055 ; gain = 803.734
-INFO: [Common 17-1381] The checkpoint 'C:/ass1/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
+synth_design: Time (s): cpu = 00:03:43 ; elapsed = 00:04:05 . Memory (MB): peak = 1041.219 ; gain = 795.680
+INFO: [Common 17-1381] The checkpoint 'D:/Documents/ANU/ENGN3213/Assignment/reaction_timer_kai/reaction_timer_kai.runs/synth_1/TOP_reactionTimer.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_reactionTimer_utilization_synth.rpt -pb TOP_reactionTimer_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1051.055 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 12 14:46:34 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.127 . Memory (MB): peak = 1041.219 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 14 22:39:37 2018...
